@@ -1,4 +1,5 @@
 <?php
-return[
-    'GET/spotify-teste/public/' => "controllerMain::handle",
+
+return [
+    'GET/spotify-teste/public' => 'App\\Controller\\ControllerMain::handle',
 ];

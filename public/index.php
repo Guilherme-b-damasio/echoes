@@ -1,34 +1,30 @@
 <?php
+use App\Controller\ControllerMain;
 
 session_start();
-
-use Src\controller\controllerMain;
-
-require_once "../src/controller/controllerMain.php";
-
+require("../vendor/autoload.php");
 include("../src/view/header.php");
 
 $routes = include "../config/routes.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-if (isset($routes["$requestMethod$requestUri"])) {
-    $controller = explode('::', $routes["$requestMethod$requestUri"]);
-        $controllerClass = $controller[0];
+$requestUri = rtrim($requestUri, '/');
+$routeKey = "$requestMethod$requestUri";
 
-        // Inclui o arquivo do controlador, se necessário
-        if (file_exists("../src/controller/{$controllerClass}.php")) {
-            require_once "../src/controller/{$controllerClass}.php"; 
-        } else {
-            http_response_code(404);
-            echo "404 Not Found: Controlador não encontrado";
-            exit();
-        }
+if (isset($routes[$routeKey])) {
+    $controllerInfo = explode('::', $routes[$routeKey]);
+    $controllerClass = $controllerInfo[0];
+    $controllerMethod = $controllerInfo[1] ?? 'handle';
+    $controller = new $controllerClass();
 
-        // Instancia o controlador e chama o método correspondente
-        $controller = new controllerMain();
-        $controller->handle();
-   
+    if (method_exists($controller, $controllerMethod)) {
+        $controller->$controllerMethod();
+    } else {
+        http_response_code(500);
+        echo "500 Internal Server Error: Método '{$controllerMethod}' não encontrado na classe '{$controllerClass}'";
+    }
 } else {
+    http_response_code(404);
     include "../src/view/404.php";
 }

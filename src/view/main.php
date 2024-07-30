@@ -134,6 +134,8 @@
 
             <hr>
         </div>
+
+        <?php include('../src/view/includes/player.php') ?>
     </div>
 
     <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>

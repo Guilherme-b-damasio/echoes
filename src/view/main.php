@@ -85,7 +85,7 @@
                         <a href="#">Sign Up</a>
                     </li>
                 </ul>
-                <button type="button">Log In</button>
+                <button onclick="login();" type="button">Log In</button>
             </div>
         </div>
 
@@ -137,7 +137,8 @@
     </div>
     <?php include('../src/view/includes/player.php') ?>
 
+    <script src="jquery-3.7.1.min.js"></script>
     <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
-
-  
+    <script src="js/main.js"></script>
+    
 </body>

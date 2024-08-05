@@ -1,0 +1,11 @@
+# PHPUnit
+/phpunit.xml
+
+# IDE
+.idea/*
+
+# Vendor
+vendor/
+
+# Composer
+composer.lock

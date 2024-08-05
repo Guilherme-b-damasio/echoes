@@ -3,7 +3,8 @@
     "description": "Um projeto PHP básico com autoloading configurado.",
     "type": "project",
     "require": {
-        "php": "^7.4 || ^8.0"
+        "php": "^7.4 || ^8.0",
+        "giorgiolucca/vagalume-sdk": "^1.1"
     },
     "autoload": {
         "psr-4": {

@@ -3,7 +3,7 @@
     <div class="sidebar">
         <div class="logo">
             <a href="#">
-                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" alt="Logo" />
+                <img src="assets/images/logo.png" alt="Logo" />
             </a>
         </div>
 
@@ -138,6 +138,7 @@
     <?php include('../src/view/includes/player.php') ?>
 
     <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/23cecef777.js" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     

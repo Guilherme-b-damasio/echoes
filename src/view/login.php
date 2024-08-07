@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="login.css">
     <link rel = "icon" href ="icon.png" type = "image/x-icon">
     <script src="https://kit.fontawesome.com/92aa46a256.js" crossorigin="anonymous"></script>
-    <script defer src="public/main.js"></script>
-
+    
     <title>Upstring - SignUp and Login</title>
 </head>
 <body>

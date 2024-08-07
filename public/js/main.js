@@ -1,8 +1,8 @@
 function login(){
     console.log("aqui")
     $.ajax({
-        url: 'spotify-teste/public/login',
-        type: 'POST',
+        url: '?login',
+        type: 'GET',
         data: {
             entrou: false
         },

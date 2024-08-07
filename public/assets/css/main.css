@@ -4,12 +4,11 @@
   }
 
   :root {
-    --blue: #269fc7;
+    --blue: #ff0284;
   }
   
   body {
-    background-color: #121212;
-    font-family: 'Montserrat', sans-serif;
+    background-image: linear-gradient(to right, #ff0284, #ff0090, #ff009d, #ff00aa, #fc00b8, #f900c2, #f600cc, #f105d6, #ec09df, #e710e8, #e018f1, #d820fb);
   }
   
   .sidebar {
@@ -22,7 +21,7 @@
     padding: 24px;
   }
   .sidebar .logo img {
-    width: 130px;
+    width: 160px;
   }
   .sidebar .navigation ul {
     list-style: none;
@@ -245,3 +244,5 @@
     border-radius: 40px;
     cursor: pointer;
   }
+
+  

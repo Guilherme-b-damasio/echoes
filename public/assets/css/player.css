@@ -95,7 +95,7 @@
 }
 
 .progress {
-    height: 5px;
+    height: 100%;
     background-color: var(--blue);
     border-radius: 5px;
 }

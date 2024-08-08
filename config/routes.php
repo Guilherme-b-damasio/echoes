@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'GET/spotify-teste/public' => 'App\\Controller\\ControllerMain::handle',
-    'POST/spotify-teste/public/?login' => 'App\\Controller\\ControlleLogin::handle',
+    'GET/echoes/public' => 'App\\Controller\\ControllerMain::handle',
+    'POST/echoes/public/?login' => 'App\\Controller\\ControlleLogin::handle',
 ];

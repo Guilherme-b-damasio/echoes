@@ -9,7 +9,8 @@
   }
   
   body {
-    background-image: linear-gradient(to right, #ff0284, #ff0090, #ff009d, #ff00aa, #fc00b8, #f900c2, #f600cc, #f105d6, #ec09df, #e710e8, #e018f1, #d820fb);
+    background-image: url("../../assets/images/Fundo Echoes.png");
+    /*background-image: linear-gradient(to right, #ff0284, #ff0090, #ff009d, #ff00aa, #fc00b8, #f900c2, #f600cc, #f105d6, #ec09df, #e710e8, #e018f1, #d820fb);*/
   }
   
   .sidebar {

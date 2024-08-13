@@ -7,9 +7,9 @@ include("../src/view/header.php");
 
 $routes = include "../config/routes.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
-$requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$requestUri = $_SERVER['REQUEST_URI'];
 
-$requestUri = rtrim($requestUri, '/');
+$requestUri =$requestUri;
 $routeKey = "$requestMethod$requestUri";
 
 if (isset($routes[$routeKey])) {

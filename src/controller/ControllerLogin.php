@@ -6,6 +6,10 @@ require '../vendor/autoload.php';
 class ControllerLogin {
 
     public function handle(){
-        include '../src/view/login.php';
+        if($_GET['login']){
+            
+        }else{
+            include '../src/view/login.php';
+        }
     }
 }

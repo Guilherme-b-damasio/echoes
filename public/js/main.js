@@ -1,14 +1,16 @@
 function login(){
     console.log("aqui")
-    $.ajax({
-        url: '?login',
-        type: 'GET',
-        data: {
-            entrou: false
-        },
-    })
-    .done(function(data) {
-    })
-    .fail(function(err) {
-    });
+    window.location.href ="index.php?login" 
 }
+
+const container = document.querySelector('.container');
+const LoginLink = document.querySelector('.SignInLink');
+const RegisterLink = document.querySelector('.SignUpLink');
+
+RegisterLink.addEventListener('click', () =>{
+    container.classList.add('active');
+})
+
+LoginLink.addEventListener('click', () => {
+    container.classList.remove('active');
+})

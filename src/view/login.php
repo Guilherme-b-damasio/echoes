@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,15 +12,15 @@
         <div class="curved-shape2"></div>
         <div class="form-box Login">
             <h2 class="animation" style="--D:0; --S:21">Login</h2>
-            <form action="POST" method="login">
+            <form action="" method="post">
                 <div class="input-box animation" style="--D:1; --S:22">
-                    <input type="text" required>
+                    <input type="text" name='user' id='user' required>
                     <label for="">Usuário</label>
                     <box-icon type='solid' name='user'></box-icon>
                 </div>
 
                 <div class="input-box animation" style="--D:2; --S:23">
-                    <input type="password" required>
+                    <input type="password" name='pass' id='pass' required>
                     <label for="">Senha</label>
                     <box-icon name='lock-alt' type='solid'></box-icon>
                 </div>

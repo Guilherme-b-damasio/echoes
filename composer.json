@@ -4,17 +4,21 @@
     "type": "project",
     "require": {
         "php": "^7.4 || ^8.0",
-        "giorgiolucca/vagalume-sdk": "^1.1"
+        "giorgiolucca/vagalume-sdk": "^1.1",
+        "vlucas/phpdotenv": "^5.6"
     },
     "autoload": {
         "psr-4": {
+            "App\\": "src/",
             "App\\Controller\\": "src/controller/",
-            "App\\Model\\Entity\\": "src/models/entity/",
-            "App\\Model\\Repository\\": "src/models/repository/",
+            "App\\entity\\": "src/models/entity/",
+            "App\\repository\\": "src/models/repository/",
             "App\\Player\\": "src/player/",
             "App\\Songs\\": "src/songs/",
             "App\\Temp\\": "src/temp/",
-            "App\\View\\Includes\\": "src/view/includes/"
+            "App\\View\\Includes\\": "src/view/includes/",            
+            "App\\config\\": "config/",           
+            "App\\service\\": "src/models/service/"            
         }
     },
     "autoload-dev": {

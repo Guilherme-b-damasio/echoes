@@ -53,6 +53,7 @@ class ComposerStaticInit124f4f189e7acf4a00fe1b7f70a5f389
         ),
         'A' => 
         array (
+            'App\\trait\\' => 10,
             'App\\service\\' => 12,
             'App\\repository\\' => 15,
             'App\\entity\\' => 11,
@@ -136,6 +137,10 @@ class ComposerStaticInit124f4f189e7acf4a00fe1b7f70a5f389
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'App\\trait\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/traits',
+        ),
         'App\\service\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/models/service',
@@ -190,6 +195,7 @@ class ComposerStaticInit124f4f189e7acf4a00fe1b7f70a5f389
         'App\\config\\db' => __DIR__ . '/../..' . '/config/db.php',
         'App\\entity\\user' => __DIR__ . '/../..' . '/src/models/entity/user.php',
         'App\\repository\\repository' => __DIR__ . '/../..' . '/src/models/repository/repository.php',
+        'App\\trait\\renderTemplate' => __DIR__ . '/../..' . '/src/traits/renderTemplate.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

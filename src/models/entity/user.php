@@ -2,9 +2,8 @@
 
 namespace App\entity;
 
-
-class user{
-
+class user
+{
     public $id;
     public $login;
     public $name;
@@ -13,14 +12,21 @@ class user{
 
     function __construct($user)
     {
-        $this->id = $user->ID;
-        $this->login = $user->login;
-        $this->name = $user->name;
-        $this->email = $user->email;
-        $this->phone = $user->phone;
+        if (is_object($user)) {
+            $this->id = $user->ID ?? null;
+            $this->login = $user->login ?? null;
+            $this->name = $user->name ?? null;
+            $this->email = $user->email ?? null;
+            $this->phone = $user->phone ?? null;
+        } else {
+            // Log ou lidar com o erro: $user não é um objeto
+            error_log('Expected an object but received: ' . print_r($user, true));
+            throw new \InvalidArgumentException('Expected an object with properties ID, login, name, email, and phone.');
+        }
     }
 
-    public function getLogin(){
+    public function getLogin()
+    {
         return $this->login;
     }
 }

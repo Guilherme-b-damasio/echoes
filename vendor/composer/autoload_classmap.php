@@ -13,6 +13,7 @@ return array(
     'App\\config\\db' => $baseDir . '/config/db.php',
     'App\\entity\\user' => $baseDir . '/src/models/entity/user.php',
     'App\\repository\\repository' => $baseDir . '/src/models/repository/repository.php',
+    'App\\trait\\renderTemplate' => $baseDir . '/src/traits/renderTemplate.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'DeepCopy\\DeepCopy' => $vendorDir . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',

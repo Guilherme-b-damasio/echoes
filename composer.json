@@ -18,7 +18,8 @@
             "App\\Temp\\": "src/temp/",
             "App\\View\\Includes\\": "src/view/includes/",            
             "App\\config\\": "config/",           
-            "App\\service\\": "src/models/service/"            
+            "App\\service\\": "src/models/service/",            
+            "App\\trait\\": "src/traits/"            
         }
     },
     "autoload-dev": {

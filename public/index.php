@@ -9,17 +9,14 @@ $routes = include "../config/routes.php";
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $requestUri = $_SERVER['REQUEST_URI'];
 
-$requestUri =$requestUri;
-$routeKey = "$requestMethod$requestUri";
-
-if (isset($routes[$routeKey])) {
-    $controllerInfo = explode('::', $routes[$routeKey]);
-    $controllerClass = $controllerInfo[0];
+if (isset($requestMethod)) {
     $controllerMethod = $controllerInfo[1] ?? 'handle';
-    $controller = new $controllerClass();
+    $controller = new ControllerMain();
 
     if (method_exists($controller, $controllerMethod)) {
-        $controller->$controllerMethod();
+        $parsedUrl = parse_url($requestUri);
+        $queryString = isset($parsedUrl['query']) ? $parsedUrl['query'] : '';
+        $controller->$controllerMethod($queryString);
     } else {
         http_response_code(500);
         echo "500 Internal Server Error: Método '{$controllerMethod}' não encontrado na classe '{$controllerClass}'";

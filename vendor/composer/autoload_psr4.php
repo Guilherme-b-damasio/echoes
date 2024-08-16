@@ -23,6 +23,7 @@ return array(
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
+    'App\\trait\\' => array($baseDir . '/src/traits'),
     'App\\service\\' => array($baseDir . '/src/models/service'),
     'App\\repository\\' => array($baseDir . '/src/models/repository'),
     'App\\entity\\' => array($baseDir . '/src/models/entity'),

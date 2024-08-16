@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Controller;
 
@@ -6,7 +6,8 @@ use App\Service\service;
 
 require '../vendor/autoload.php';
 
-class ControllerLogin {
+class ControllerLogin
+{
 
     protected $service;
 
@@ -15,13 +16,8 @@ class ControllerLogin {
         $this->service = new service();
     }
 
-    public function handle(){
-            include '../src/view/login.php';
-
-            if(!empty($_POST['user']) && !empty($_POST['pass'])){
-                $this->service->searchUser($_POST['user'], $_POST['pass']);
-                
-            }
-            header("Location: index.php");
+    public function handle($user, $pass)
+    {
+       return $this->service->searchUser($user, $pass);
     }
 }

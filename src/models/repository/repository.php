@@ -1,10 +1,13 @@
 <?php
 
 namespace App\repository;
+
 use App\config\db;
 use PDO;
+use PDOException;
 
-class repository{
+class repository
+{
     public $conn;
     function __construct()
     {
@@ -12,12 +15,28 @@ class repository{
         $this->conn = $db->conn();
     }
 
-    public function searchUser(String $user, String $pass){
-        $sql = "SELECT users.ID, users.login, users.password FROM users WHERE users.login=:user AND users.password=:pass";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':user', $user);
-        $stmt->bindParam(':pass', $pass);
-        
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    public function searchUser(String $user, String $pass)
+    {
+        $sql = "SELECT * FROM users WHERE users.login = :user";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':user', $user);
+
+            // Executa a consulta
+            $stmt->execute();
+
+            // Obtém o usuário encontrado
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+            if ($result && password_verify($pass, $result->password)) {
+                return $result;
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            error_log("Error in searchUser: " . $e->getMessage());
+            return null;
+        }
     }
 }

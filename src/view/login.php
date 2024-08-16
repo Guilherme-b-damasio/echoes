@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Signup Form</title>
     <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 </head>
 
@@ -12,7 +13,7 @@
         <div class="curved-shape2"></div>
         <div class="form-box Login">
             <h2 class="animation" style="--D:0; --S:21">Login</h2>
-            <form action="" method="post">
+            <form id="form-login" method="post">
                 <div class="input-box animation" style="--D:1; --S:22">
                     <input type="text" name='user' id='user' required>
                     <label for="">Usuário</label>
@@ -26,7 +27,7 @@
                 </div>
 
                 <div class="input-box animation" style="--D:3; --S:24">
-                    <button class="btn" type="submit">Login</button>
+                    <button class="btn" onclick="login()">Login</button>
                 </div>
 
                 <div class="regi-link animation" style="--D:4; --S:25">
@@ -62,7 +63,7 @@
                 </div>
 
                 <div class="input-box animation" style="--li:20; --S:4">
-                    <button class="btn" type="submit">Registre</button>
+                    <button class="btn" onclick="login()">Registre</button>
                 </div>
 
                 <div class="regi-link animation" style="--li:21; --S:5">
@@ -94,6 +95,9 @@
             container.classList.remove('active');
         })
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/login.js"></script>
 
 </body>
 

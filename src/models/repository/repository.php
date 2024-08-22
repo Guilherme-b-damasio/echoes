@@ -23,10 +23,7 @@ class repository
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':user', $user);
 
-            // Executa a consulta
             $stmt->execute();
-
-            // Obtém o usuário encontrado
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
             if ($result && password_verify($pass, $result->password)) {

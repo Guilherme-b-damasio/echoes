@@ -20,11 +20,8 @@ class service
     public function searchUser(String $user, String $pass)
     {
         $userData = $this->repo->searchUser($user, $pass);
-
-        var_dump($userData);
-        if($userData){
+        if(!empty($userData)){
             $user = new user($userData);
-
             $_SESSION['dataUser'] = serialize($user);
             return true;
         }

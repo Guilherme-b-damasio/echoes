@@ -8,6 +8,10 @@
     color: #fff;
 }
 
+:root {
+    --S: 0.7s;
+  }
+
 body{
     display: flex;
     justify-content: center;
@@ -254,8 +258,8 @@ body{
     /*transform: rotate(10deg) skewY(40deg);*/
     transform: rotate(10deg) skewY(40deg);
     transform-origin: bottom right;
-    transition: 1.5s ease;
-    transition-delay: 1.6s;
+    transition: 0.9s ease;
+    transition-delay: 0.8s;
 }
 
 .container.active .curved-shape{
@@ -273,11 +277,11 @@ body{
     border-top: 3px solid #ff2770;
     transform: rotate(0deg) skewY(0deg);
     transform-origin: bottom left;
-    transition: 1.5s ease;
+    transition: 0.9s ease;
     transition-delay: .5s;
 }
 
 .container.active .curved-shape2{
     transform: rotate(-11deg) skewY(-41deg);
-    transition-delay: 1.2s;
+    transition-delay: 0.8s;
 }

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../vendor/autoload.php';
 
 use App\Controller\ControllerLogin;
@@ -17,7 +17,7 @@ function login()
     if (!empty($user) && !empty($pass)) {
         $controller = new ControllerLogin();
         $login = $controller->handle($user, $pass);
-        
+        $_SESSION['logado'] = true;
         if($login){
            $reponse = true;
         }else{

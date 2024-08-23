@@ -12,31 +12,35 @@ function login() {
 
         let url = "../src/manager.php?login";
 
-        $.ajax({
-            url: url,
+        fetch(url, {
             method: 'POST',
-            data: formObject,
-            success: function (response) {
-                if (response) {
-                    window.location.href = "../public/index.php";
-                } else {
-                    Swal.fire({
-                        title: 'Erro!',
-                        text: response.message || 'Credenciais inválidas.',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
-                }
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
-            error: function (jqXHR, textStatus, errorThrown) {
-                console.error('There was a problem with the AJAX request:', textStatus, errorThrown);
+            body: new URLSearchParams(formObject)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                window.location.href = "../public/index.php";
+            } else {
                 Swal.fire({
                     title: 'Erro!',
-                    text: 'Ocorreu um erro ao processar a solicitação.',
+                    text: data.message || 'Credenciais inválidas.',
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
             }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Ocorreu um erro ao processar a solicitação.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         });
+        
     });
 }

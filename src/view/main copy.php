@@ -1,5 +1,3 @@
-<?php $dataUser = unserialize($_SESSION['dataUser']); ?>
-
 <body>
     <div class="body-principal">
 
@@ -78,10 +76,10 @@
                     </li>
                     <li class="divider">|</li>
                     <li>
-                        <a href="?profile"><?php echo $dataUser->getLogin(); ?></a>
+                        <a href="#">Sign Up</a>
                     </li>
                 </ul>
-                <button onclick="login();" type="button">Sair</button>
+                <button onclick="login();" type="button">Log In</button>
             </div>
         </div>
         <div class="main-container">

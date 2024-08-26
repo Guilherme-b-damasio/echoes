@@ -46,27 +46,27 @@ $_SESSION['logado'] = false;
 
         <div class="form-box Register">
             <h2 class="animation" style="--li:14; --S:0">Registrar</h2>
-            <form action="#">
+            <form id="form-register" action="#">
                 <div class="input-box animation" style="--li:14; --S:1">
-                    <input type="text" required>
+                    <input name='user' type="text" required>
                     <label for="">Usuario</label>
                     <box-icon type='solid' name='user'></box-icon>
                 </div>
 
                 <div class="input-box animation" style="--li:14; --S:2">
-                    <input type="email" required>
+                    <input name='email' type="email" required>
                     <label for="">Email</label>
                     <box-icon name='envelope' type='solid'></box-icon>
                 </div>
 
                 <div class="input-box animation" style="--li:14; --S:3">
-                    <input type="password" required>
+                    <input name='pass' type="password" required>
                     <label for="">Senha</label>
                     <box-icon name='lock-alt' type='solid'></box-icon>
                 </div>
 
                 <div class="input-box animation" style="--li:14; --S:4">
-                    <button class="btn" onclick="login()">Registre</button>
+                    <button class="btn" onclick="register()">Registre</button>
                 </div>
 
                 <div class="regi-link animation" style="--li:14; --S:5">

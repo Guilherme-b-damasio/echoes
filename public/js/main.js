@@ -13,3 +13,7 @@ RegisterLink.addEventListener('click', () =>{
 LoginLink.addEventListener('click', () => {
     container.classList.remove('active');
 })
+
+window.onload = function(){
+    loadSongs();
+}

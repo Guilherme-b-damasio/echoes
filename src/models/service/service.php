@@ -26,7 +26,18 @@ class service
             return true;
         }
 
-        return false;
+        return false;   
+    }
+
+    public function registerUser(String $user, String $pass, String $email)
+    {
+        $response = $this->repo->registerUser($user, $pass, $email);
+        return $response;
         
+    }
+    public function consultMusic()
+    {
+        $response = $this->repo->consultMusic();
+        return $response;
     }
 }

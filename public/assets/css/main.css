@@ -21,10 +21,15 @@
     width: 12vw;
     background-color: #000000;
     padding: 24px;
+    min-width: 90px;
   }
   .sidebar .logo img {
-    width: 160px;
+    height: auto;
+    width: 13vw;
+    max-width: 140px;
+    min-width: 100px;
   }
+  
   .sidebar .navigation ul {
     list-style: none;
     margin-top: 20px;

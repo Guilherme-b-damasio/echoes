@@ -22,7 +22,7 @@ function login() {
         .then(response => response.json())
         .then(data => {
             if (data) {
-                window.location.href = "../public/index.php";
+                window.location.href = "../public/";
             } else {
                 Swal.fire({
                     title: 'Erro!',

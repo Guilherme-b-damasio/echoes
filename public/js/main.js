@@ -1,6 +1,5 @@
 function login(){
-    console.log("aqui")
-    window.location.href ="index.php?login" 
+    window.location.href ="?login" 
 }
 
 const container = document.querySelector('.container');

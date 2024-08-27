@@ -17,3 +17,18 @@ LoginLink.addEventListener('click', () => {
 window.onload = function(){
     loadSongs();
 }
+
+function playerMusic($music){
+    songs = 
+    prevNextMusic("init");
+}
+
+const loadSongs = () => {
+    fetch('../src/list_songs.php')
+        .then(response => response.json())
+        .then(data => {
+            songs = data;
+            prevNextMusic("init");
+        })
+        .catch(error => console.error('Erro ao carregar músicas:', error));
+};

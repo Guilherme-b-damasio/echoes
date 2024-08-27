@@ -1,4 +1,7 @@
-<?php $dataUser = unserialize($_SESSION['dataUser']); ?>
+<?php
+$dataUser = unserialize($_SESSION['dataUser']);
+$musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']) : [];
+?>
 
 <body>
     <div class="body-principal">
@@ -90,47 +93,19 @@
                 <h2>Spotify Playlists</h2>
 
                 <div class="list">
-                    <div class="item">
-                        <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-                        <div class="play">
-                            <span class="fa fa-play"></span>
+                    <?php foreach ($musicArray as $music): ?>
+                        <div class="item">
+                            <!-- Exemplo de imagem estática. Idealmente, a URL da imagem viria do objeto da música -->
+                            <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" alt="Album Art" />
+                            <div class="play">
+                                <span class="fa fa-play" onclick='playerMusic(<?php echo json_encode($music); ?>)'></span>
+                            </div>
+                            <h4><?php echo $music->getName(); ?></h4>
                         </div>
-                        <h4>Mega Hit Mix</h4>
-                        <p>A mega mix of 75 favorites from the last...</p>
-                    </div>
-
+                    <?php endforeach; ?>
                 </div>
             </div>
 
-            <div class="spotify-playlists">
-                <h2>Focus</h2>
-                <div class="list">
-                    <div class="item">
-                        <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-                        <div class="play">
-                            <span class="fa fa-play"></span>
-                        </div>
-                        <h4>Beats to think to</h4>
-                        <p>Focus with deep techno and tech house.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="spotify-playlists">
-                <h2>Mood</h2>
-                <div class="list">
-                    <div class="item">
-                        <img src="https://i.scdn.co/image/ab67616d0000b2733b5e11ca1b063583df9492db" />
-                        <div class="play">
-                            <span class="fa fa-play"></span>
-                        </div>
-                        <h4>Feel-Good Indie Rock</h4>
-                        <p>The best indie rock vibes - classic and...</p>
-                    </div>
-                </div>
-
-                <hr>
-            </div>
         </div>
         <?php include('../src/view/includes/player.php') ?>
     </div>

@@ -5,6 +5,7 @@ namespace App\Service;
 use App\Controller\ControllerMain;
 use App\repository\repository;
 use App\entity\user;
+use App\entity\music;
 
 class service
 {
@@ -38,6 +39,19 @@ class service
     public function consultMusic()
     {
         $response = $this->repo->consultMusic();
+    
+        if (!empty($response)) {
+            $musicArray = [];
+    
+            foreach ($response as $musicData) {
+                $music = new Music($musicData);
+                $musicArray[] = $music;
+            }
+    
+            $_SESSION['dataMusic'] = serialize($musicArray);
+        }
+    
         return $response;
     }
+    
 }

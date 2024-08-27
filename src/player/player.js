@@ -15,87 +15,84 @@ document.addEventListener('DOMContentLoaded', () => {
   const textButtonPlay = "<i class='bx bx-caret-right'></i>";
   const textButtonPause = "<i class='bx bx-pause'></i>";
 
-  const loadSongs = () => {
-      fetch('../src/list_songs.php')
-          .then(response => response.json())
-          .then(data => {
-              songs = data;
-              prevNextMusic("init");
-          })
-          .catch(error => console.error('Erro ao carregar músicas:', error));
-  };
-
   prevButton.onclick = () => prevNextMusic("prev");
   nextButton.onclick = () => prevNextMusic();
   playPauseButton.onclick = () => playPause();
 
   const playPause = () => {
-      if (player.paused) {
-          player.play();
-          playPauseButton.innerHTML = textButtonPause;
-      } else {
-          player.pause();
-          playPauseButton.innerHTML = textButtonPlay;
-      }
+    if (player.paused) {
+      player.play();
+      playPauseButton.innerHTML = textButtonPause;
+    } else {
+      player.pause();
+      playPauseButton.innerHTML = textButtonPlay;
+    }
   };
 
   player.ontimeupdate = () => updateTime();
 
   const updateTime = () => {
-      const currentMinutes = Math.floor(player.currentTime / 60);
-      const currentSeconds = Math.floor(player.currentTime % 60);
-      currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
+    const currentMinutes = Math.floor(player.currentTime / 60);
+    const currentSeconds = Math.floor(player.currentTime % 60);
+    currentTime.textContent = currentMinutes + ":" + formatZero(currentSeconds);
 
-      const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
-      const durationMinutes = Math.floor(durationFormatted / 60);
-      const durationSeconds = Math.floor(durationFormatted % 60);
-      duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
+    const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
+    const durationMinutes = Math.floor(durationFormatted / 60);
+    const durationSeconds = Math.floor(durationFormatted % 60);
+    duration.textContent = durationMinutes + ":" + formatZero(durationSeconds);
 
-      const progressWidth = durationFormatted
-          ? (player.currentTime / durationFormatted) * 100
-          : 0;
+    const progressWidth = durationFormatted
+      ? (player.currentTime / durationFormatted) * 100
+      : 0;
 
-      progress.style.width = progressWidth + "%";
+    progress.style.width = progressWidth + "%";
   };
 
   const formatZero = (n) => (n < 10 ? "0" + n : n);
 
   progressBar.onclick = (e) => {
-      if (player.duration && player.duration > 0) {
-          const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
-          if (isFinite(newTime) && newTime >= 0 && newTime <= player.duration) {
-              player.currentTime = newTime;
-          } else {
-              console.error('Valor de novo tempo inválido:', newTime);
-          }
+    if (player.duration && player.duration > 0) {
+      const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
+      if (isFinite(newTime) && newTime >= 0 && newTime <= player.duration) {
+        player.currentTime = newTime;
       } else {
-          console.error('Duração do player inválida ou não definida');
+        console.error('Valor de novo tempo inválido:', newTime);
       }
+    } else {
+      console.error('Duração do player inválida ou não definida');
+    }
   };
 
   const prevNextMusic = (type = "next") => {
     if (songs.length === 0) return;
 
     if ((type === "next" && index + 1 === songs.length) || type === "init") {
-        index = 0;
+      index = 0;
     } else if (type === "prev" && index === 0) {
-        index = songs.length - 1;
+      index = songs.length - 1;
     } else {
-        index = type === "prev" ? index - 1 : index + 1;
+      index = type === "prev" ? index - 1 : index + 1;
     }
 
     const song = songs[index];
     
     if (song && song.src && song.name) {
-        player.src = song.src;
-        musicName.innerHTML = song.name;
-        player.load(); // Força o carregamento da nova fonte
-        if (type !== "init") playPause();
-        updateTime();
+      player.src = song.src;
+      musicName.innerHTML = song.name;
+      player.load(); // Força o carregamento da nova fonte
+      if (type !== "init") playPause();
+      updateTime();
     } else {
-        console.error('Fonte da música ou nome inválido:', song);
+      console.error('Fonte da música ou nome inválido:', song);
     }
-};
+  };
 
-  loadSongs(); // Load songs when the page loads
+  // Função para atualizar a lista de músicas e iniciar a reprodução
+  window.playerMusic = (music) => {
+    // Atualiza o array de músicas
+    songs = [music]; // Aqui você pode adicionar lógica para adicionar múltiplas músicas
+    index = 0; // Começa com a primeira música
+    prevNextMusic("init");
+  };
+
 });

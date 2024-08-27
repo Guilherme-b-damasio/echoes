@@ -77,11 +77,11 @@ class repository
 
     public function consultMusic(){
         try {
-            $sql = "SELECT src, name from music";
+            $sql = "SELECT * from music";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
         
-            $musics = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $musics = $stmt->fetchAll(PDO::FETCH_OBJ);
             // Envia os resultados como JSON
             return $musics;
             

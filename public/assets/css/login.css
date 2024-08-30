@@ -23,8 +23,6 @@ body{
     position: relative;
     width: 750px;
     height: 450px;
-    border: 2px solid #ff2770;
-    box-shadow: 0 0 25px #ff2770;
     overflow: hidden;
 }
 

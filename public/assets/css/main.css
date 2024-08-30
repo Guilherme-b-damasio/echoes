@@ -28,8 +28,8 @@ body {
   width: 12vw;
   background-color: #000000;
   padding: 24px;
-  min-width: 90px;
   overflow: hidden;
+  min-width: 200px;
 }
 .sidebar .logo img {
   height: auto;

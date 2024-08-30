@@ -77,11 +77,22 @@ class repository
     public function consultMusic()
     {
         try {
-            $sql = "SELECT music.ID, music.name AS name, src, autor, image, music.created_at AS created_at, music.updated_at AS updated_at,
-                    playlist.id AS playlist_id, playlist.name AS playlist_name, playlist.created_at AS playlist_created_at, playlist.updated_at AS playlist_updated_at
-                    FROM music
-                    INNER JOIN playlist ON music.playlist_id = playlist.id;
-                ";
+            $sql = "SELECT 
+            music.ID AS music_id, 
+            music.name AS music_name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID;";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
 

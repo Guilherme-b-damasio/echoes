@@ -35,7 +35,7 @@ function loadSongs() {
                         <div class="play">
                             <span class="fa fa-play" onclick='playerMusic('${music}')'></span>
                         </div>
-                        <h4>${music.name}</h4>
+                        <h4>${music.music_name}</h4>
                       </div>`
                 });
 

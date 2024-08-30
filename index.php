@@ -36,3 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </body>
 </html>
+
+<h2>Spotify Playlists</h2>
+
+    <div class="list">
+        
+    </div>*/

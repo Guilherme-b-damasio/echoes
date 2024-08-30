@@ -12,7 +12,7 @@ class ControllerMain
 
     public function handle($template)
     {
-        if ($_SESSION['logado'] == 1) {
+        if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
             if (!empty($template)) {
                 $this->render($template);
             } else {

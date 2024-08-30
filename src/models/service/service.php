@@ -6,6 +6,7 @@ use App\Controller\ControllerMain;
 use App\repository\repository;
 use App\entity\user;
 use App\entity\music;
+use App\entity\playlist;
 
 class service
 {
@@ -49,6 +50,24 @@ class service
             }
     
             $_SESSION['dataMusic'] = serialize($musicArray);
+        }
+    
+        return $response;
+    }
+
+    public function consultPlaylist()
+    {
+        $response = $this->repo->consultPlaylist();
+    
+        if (!empty($response)) {
+            $playlistArray = [];
+    
+            foreach ($response as $list) {
+                $playlist = new playlist($list);
+                $playlistArray[] = $playlist;
+            }
+    
+            $_SESSION['dataPlaylist'] = serialize($playlistArray);
         }
     
         return $response;

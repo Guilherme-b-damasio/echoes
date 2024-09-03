@@ -8,12 +8,18 @@
     justify-content: space-around;
     flex-direction: column;
     /* max-width: 400px; */
-    /* width: 100%; */
+    width: 90%;
     /* height: 500px; */
     /*margin: 6px 10px;
     /* box-shadow: 0 1px 10px gray; */
     /* padding: 10px; */
     border-radius: 5px;
+    border-radius: 10px;
+    background: rgba(41, 33, 208, 0.4); /* Cor de fundo com transparÃªncia */
+    backdrop-filter: blur(10px); /* Aplica desfoque ao fundo do elemento */
+    -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para efeito de profundidade */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda leve para simular o efeito de vidro */
 }
 
 /*
@@ -35,16 +41,18 @@
 .player-container {
     position: fixed;
     top: 90%;
+    padding: -16px;
     left: 0;
-    width: 96%;
-    margin: 10px 10px 10px 20px;
-    border-radius: 10px;
-    background: rgba(41, 33, 208, 0.4); /* Cor de fundo com transparência */
-    backdrop-filter: blur(10px); /* Aplica desfoque ao fundo do elemento */
-    -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para efeito de profundidade */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda leve para simular o efeito de vidro */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites arredondados */
+    width: 100%;
+    /* margin: 0px 21px 0px 68px; */
+    overflow: hidden; /* Garante que o conteÃºdo nÃ£o ultrapasse os limites arredondados */
+    display: flex;
+    ma: 0%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: space-around;
 }
 
 #musicName {

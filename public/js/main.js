@@ -1,76 +1,87 @@
 function login() {
-    window.location.href = "?login"
+    window.location.href = "?login";
 }
 
 const container = document.querySelector('.container');
 const LoginLink = document.querySelector('.SignInLink');
 const RegisterLink = document.querySelector('.SignUpLink');
 
+function loadSongsForPlaylist(playlistId) {
+    fetch(`../src/list_songs.php?playlist=${playlistId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                setMusicList(data);
+            }
+        })
+        .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
+}
+
+
+async function loadSongs(data) {
+    for (const playlist of data) {
+        const response = await fetch('../src/list_songs.php?playlist=' + playlist.id);
+        const data = await response.json();
+        if (data && data.length > 0) {
+
+            let html = '';
+            const list = document.getElementById('list-' + playlist.id);
+
+            data.forEach(music => {
+                html +=
+                    `<div class="item">
+                                <img src="${music.image}" alt="Album Art" />
+                                <div class="play">
+                                    <span class="fa fa-play" onclick='playerMusic(${JSON.stringify(data)}, ${music.ID})'></span>
+                                </div>
+                                <h4>${music.name}</h4>
+                                </div>`;
+            });
+            list.innerHTML = html;
+        }
+    }
+}
+
+
+
+async function loadPlaylist() {
+    try {
+        const response = await fetch('../src/list_playlist.php');
+        const data = await response.json();
+
+        if (data && data.length > 0) {
+            let html = '';
+            const list = document.getElementById('main-container');
+
+            data.forEach(playlist => {
+                html += `<div class="playlists">
+                            <h2>${playlist.name}</h2>
+                            <div class="list" id="list-${playlist.id}"></div>
+                         </div>`;
+            });
+
+            list.innerHTML = html;
+
+            if (data.length > 0) {
+                loadSongsForPlaylist(data[0].id);
+            }
+
+            loadSongs(data);
+        }
+    } catch (error) {
+        console.error('Erro ao carregar playlists:', error);
+    }
+}
+
+function playerMusic(music, ID) {
+    setMusicList([music], ID);
+    console.log("Playing:", music);
+}
+
+function playerNextMusic(music){
+    setMusicList(JSON.stringify(music));
+}
+
 window.onload = function () {
-    //loadSongs();
     loadPlaylist();
 }
-
-function playerMusic(music) {
-    songs = music;
-    prevNextMusic("init");
-    console.log("")
-}
-
-function loadSongs() {
-    fetch('../src/list_songs.php')
-        .then(response => response.json())
-        .then(data => {
-            if (data != '') {
-                let musics = '';
-                let html = '';
-
-                musics = data;
-                list = document.getElementById('list');
-
-                musics.forEach(music => {
-                    html += 
-                    `<div class="item">
-                        <img src="${music.image}" alt="Album Art" />
-                        <div class="play">
-                            <span class="fa fa-play" onclick='playerMusic('${music}')'></span>
-                        </div>
-                        <h4>${music.music_name}</h4>
-                      </div>`
-                });
-
-                list.innerHTML = html;
-                songs = data;
-            }
-            playerMusic(data);
-        })
-        .catch(error => console.error('Erro ao carregar músicas:', error));
-};
-
-function loadPlaylist() {
-
-    fetch('../src/list_playlist.php')
-        .then(response => response.json())
-        .then(data => {
-            playlists = data;
-
-            if (playlists != '') {
-                let html = '';
-                let list = '';
-
-                list = document.getElementById('main-container');
-
-                playlists.forEach(playlist => {
-                    html += `<div class="playlists" id="playlists">
-                                <h2>${playlist.name}</h2>
-                                <div class="list" id="list"></div>
-                             </div>`
-                });
-
-                list.innerHTML = html;
-
-                loadSongs();
-            }
-        })
-        .catch(error => console.error('Erro ao carregar playlists:', error));
-};

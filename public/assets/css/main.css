@@ -16,8 +16,7 @@ html,body{
   overflow-x: hidden;
 }
 body {
-  background: rgb(2,0,36);
-  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,85,121,1) 50%, rgba(0,212,255,1) 100%);
+  background: radial-gradient(93% 100% at 0% 0%,rgba(121,255,206,.3) 0%,rgba(121,255,206,0) 100%),#00032d;
 }
 
 .sidebar {
@@ -94,10 +93,11 @@ body {
 }
 
 .main-container {
-  display: flex;
-  width: 100%;
-  overflow: scroll;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden; /* Bloqueia o scroll horizontal */
+    overflow-y: auto;   /* Permite o scroll vertical */
 }
 
 .topbar {

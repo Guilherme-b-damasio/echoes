@@ -10,7 +10,7 @@
     /* max-width: 400px; */
     /* width: 100%; */
     /* height: 500px; */
-    margin: 6px 10px;
+    /*margin: 6px 10px;
     /* box-shadow: 0 1px 10px gray; */
     /* padding: 10px; */
     border-radius: 5px;
@@ -37,12 +37,14 @@
     top: 90%;
     left: 0;
     width: 96%;
-    /* height: 100%; */
     margin: 10px 10px 10px 20px;
-    background-color: #234ad1; /* Pode ser qualquer cor */
-    opacity: 0.5; /* Ajuste a opacidade conforme necessário (0.0 a 1.0) */
-    pointer-events: none; /* Opcional: impede a interação com o elemento */
-    border-radius: 59px;
+    border-radius: 10px;
+    background: rgba(41, 33, 208, 0.4); /* Cor de fundo com transparência */
+    backdrop-filter: blur(10px); /* Aplica desfoque ao fundo do elemento */
+    -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para efeito de profundidade */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda leve para simular o efeito de vidro */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites arredondados */
 }
 
 #musicName {

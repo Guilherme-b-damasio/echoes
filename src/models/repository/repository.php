@@ -79,7 +79,7 @@ class repository
         try {
             $sql = "SELECT 
             music.ID AS music_id, 
-            music.name AS music_name, 
+            music.name, 
             music.src, 
             music.image,
             music.autor, 
@@ -114,6 +114,38 @@ class repository
             $playlist = $stmt->fetchAll(PDO::FETCH_OBJ);
             // Envia os resultados como JSON
             return $playlist;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function getMusicPlaylist($playlistID){
+        try {
+            $sql = "SELECT 
+            music.ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            playlist.ID = $playlistID;
+        ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+
+            $musics = $stmt->fetchAll(PDO::FETCH_OBJ);
+            // Envia os resultados como JSON
+            return $musics;
         } catch (PDOException $e) {
             return $e->getMessage();
         }

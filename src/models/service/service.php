@@ -22,55 +22,64 @@ class service
     public function searchUser(String $user, String $pass)
     {
         $userData = $this->repo->searchUser($user, $pass);
-        if(!empty($userData)){
+        if (!empty($userData)) {
             $user = new user($userData);
             $_SESSION['dataUser'] = serialize($user);
             return true;
         }
 
-        return false;   
+        return false;
     }
 
     public function registerUser(String $user, String $pass, String $email)
     {
         $response = $this->repo->registerUser($user, $pass, $email);
         return $response;
-        
+    }
+
+    public function consultMusicPlaylist($playlistID)
+    {
+        $response = $this->repo->getMusicPlaylist($playlistID);
+
+        if (!empty($response)) {
+            $_SESSION['dataMusic'] = serialize($response);
+        }
+
+        return $response;
     }
     public function consultMusic()
     {
         $response = $this->repo->consultMusic();
-    
+
         if (!empty($response)) {
             $musicArray = [];
-    
+
             foreach ($response as $musicData) {
                 $music = new Music($musicData);
                 $musicArray[] = $music;
             }
-    
+
             $_SESSION['dataMusic'] = serialize($musicArray);
         }
-    
+
         return $response;
     }
 
     public function consultPlaylist()
     {
         $response = $this->repo->consultPlaylist();
-    
+
         if (!empty($response)) {
             $playlistArray = [];
-    
+
             foreach ($response as $list) {
                 $playlist = new playlist($list);
                 $playlistArray[] = $playlist;
             }
-    
+
             $_SESSION['dataPlaylist'] = serialize($playlistArray);
         }
-    
+
         return $response;
     }
-    
 }

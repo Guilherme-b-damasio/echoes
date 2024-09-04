@@ -19,6 +19,26 @@ body {
   background: radial-gradient(93% 100% at 0% 0%,rgba(121,255,206,.3) 0%,rgba(121,255,206,0) 100%),#00032d;
 }
 
+.main-container::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.main-container::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.main-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: var(--details);
+}
+
 .sidebar {
   /* position: fixed; */
   /* left: 0; */

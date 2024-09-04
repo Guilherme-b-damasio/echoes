@@ -1,12 +1,22 @@
 <div class="player-container">
-    <div class="player">
+<div class="background-blur" id="background-blur"></div>
+    <div class="player" id="container-player">
+        <div class="musicDetails">
+            <img id="img-music" src="" alt="">
+            <div class="musicInfos">
         <div id="musicName"></div>
+                <div id="artist"></div>
+            </div>
+        </div>
+        <div class="container-2">
         <audio id="player" src=""></audio>
+
         <div class="controls">
             <button id="prevButton"><i class='bx bx-skip-previous'></i></button>
             <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
             <button id="nextButton"><i class='bx bx-skip-next'></i></button>
         </div>
+
         <div class="footer">
             <div class="progress-bar">
                 <div class="progress"></div>

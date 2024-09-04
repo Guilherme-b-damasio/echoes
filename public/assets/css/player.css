@@ -1,58 +1,79 @@
 :root {
     --blue: #ff0284;
+    --details: rgba(0,212,255,1);
+}
+
+.player-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0; /* Remover padding */
+    margin-bottom: 2%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    z-index: 1;
 }
 
 .player {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    /* max-width: 400px; */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    flex-direction: row; /* Alinha os itens horizontalmente */
     width: 90%;
-    /* height: 500px; */
-    /*margin: 6px 10px;
-    /* box-shadow: 0 1px 10px gray; */
-    /* padding: 10px; */
-    border-radius: 5px;
     border-radius: 10px;
-    background: rgba(41, 33, 208, 0.4); /* Cor de fundo com transparÃªncia */
-    backdrop-filter: blur(10px); /* Aplica desfoque ao fundo do elemento */
-    -webkit-backdrop-filter: blur(10px); /* Suporte para Safari */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para efeito de profundidade */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda leve para simular o efeito de vidro */
+    background: rgb(0 0 0 / 22%);
+    backdrop-filter: blur(21px);
+    -webkit-backdrop-filter: blur(10px);
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    /* border: 1px solid rgb(0 0 0 / 0%); */
+    padding: 8px; /* Reduzir padding */
+    box-sizing: border-box; /* Inclui o padding e a borda na largura total */
+    z-index: 1;
+    height: 6vw;
 }
 
-/*
-.logo {
-    background-color: #f7f7f7;
-    width: 100%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-}*/
-
-.logo i {
-    font-size: 200px;
-
-}
-
-.player-container {
+.background-blur {
     position: fixed;
-    top: 90%;
-    padding: -16px;
-    left: 0;
-    width: 100%;
-    /* margin: 0px 21px 0px 68px; */
-    overflow: hidden; /* Garante que o conteÃºdo nÃ£o ultrapasse os limites arredondados */
     display: flex;
-    ma: 0%;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    justify-content: center;
+    background-image: url('https://i.sstatic.net/CjzQS.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    z-index: -1;
+    width: 90%;
+    border-radius: 10px;
+    /* background: rgba(41, 33, 208, 0.4); */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px;
+    box-sizing: border-box;
+    height: 6vw;
+}
+
+.musicDetails{
+    /* margin-right: 15px; */
+    display: flex;
     align-items: center;
-    align-content: space-around;
+    gap: 10px;
+    width: 2%;
+}
+
+.musicDetails img {
+    width: 80px; /* Reduzir largura da imagem */
+}
+
+.container-2 {
+    display: flex;
+    flex-direction: column; /* Organiza os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    flex-grow: 1; /* Faz com que o container-2 ocupe o espaço disponível */
+    gap: 8px; /* Reduzir espaçamento entre os itens */
 }
 
 #musicName {
@@ -60,29 +81,52 @@
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 20px;
-    justify-content: center;
-    display: flex;
+    font-size: 16px; /* Reduzir tamanho da fonte */
     color: white;
+    text-align: center; /* Centraliza o texto dentro do container-2 */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Reduzir espaçamento entre os botões de controle */
+    border-radius: 10px;
 }
 
 .controls button {
     border: none;
-    background-color: black;
     cursor: pointer;
-    margin-bottom: 2px;
+    border-radius: 50%;
+    background-color: transparent;
 }
 
 .controls i {
-    font-size: 22px;
-    /* padding: 5px; */
+    font-size: 18px; /* Reduzir tamanho dos ícones */
     border-radius: 50%;
-    background-color: #f7f7f7;
+    background-color: var(--details);
     transition: all .2s;
 }
 
 .controls i:hover {
     background-color: lightgray;
+}
+
+.footer {
+    width: 50%; /* Ajusta para a largura total disponível */
+}
+
+.progress-bar {
+    height: 3px; /* Reduzir altura da barra de progresso */
+    background-color: #ddd;
+    cursor: pointer;
+    margin-bottom: 4px; /* Reduzir margem inferior */
+    border-radius: 3px; /* Ajustar borda arredondada */
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--blue); /* Usando a variável --blue */
+    border-radius: 3px; /* Ajustar borda arredondada */
 }
 
 .time {
@@ -92,24 +136,46 @@
 }
 
 .time span {
-    font-size: 22px;
-    color: #333;
+    font-size: 18px; /* Reduzir tamanho da fonte */
+    color: #ffffff;
 }
 
-.footer {
-    width: 50%;
+.musicInfos{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
-.progress-bar {
-    height: 5px;
-    background-color: #ddd;
+.musicInfos #artist{
+    color: gray;
+
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os elementos do controle de volume */
+}
+
+.volume-control button {
+    border: none;
+    background-color: #f7f7f7;
     cursor: pointer;
-    margin-bottom: 5px;
-    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
 }
 
-.progress {
-    height: 100%;
-    background-color: var(--details);
-    border-radius: 5px;
+.volume-control button:hover {
+    background-color: lightgray;
+}
+
+.volume-control #volumeSlider {
+    width: 100px; /* Ajuste a largura do controle deslizante conforme necessário */
+}
+
+#volumeIcon {
+    font-size: 24px; /* Ajuste o tamanho do ícone conforme necessário */
+    color: white;
 }

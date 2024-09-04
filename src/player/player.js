@@ -80,7 +80,7 @@ function changeMusic(type = "next", ID = 0) {
     if (index <= music.length) {
       index = (index + 1);
     }
-    
+
   } else if (type === "prev") {
     if (index != 0) {
       index = (index - 1);
@@ -147,6 +147,64 @@ function setMusicList(musicList, ID) {
 }
 
 initializePlayer();
+
+document.addEventListener('DOMContentLoaded', function () {
+  const audioPlayer = document.getElementById('player');
+  const volumeSlider = document.getElementById('volumeSlider');
+  const volumeUpButton = document.getElementById('volumeUp');
+  const volumeDownButton = document.getElementById('volumeDown');
+  const volumeIcon = document.getElementById('volumeIcon');
+
+  // Atualiza o controle deslizante e o ícone para refletir o volume atual
+  function updateVolume() {
+    volumeSlider.value = audioPlayer.volume;
+    updateVolumeIcon();
+  }
+
+
+  function updateVolumeIcon() {
+    const volume = audioPlayer.volume;
+    if (volume === 0) {
+      volumeIcon.className = 'bx bx-volume-mute';
+    } else if (volume <= 0.3) {
+      volumeIcon.className = 'bx bx-volume';
+    } else if (volume <= 0.7) {
+      volumeIcon.className = 'bx bx-volume-low';
+    } else {
+      volumeIcon.className = 'bx bx-volume-full';
+    }
+  }
+
+  volumeIcon.addEventListener('click', function () {
+    if (audioPlayer.volume === 0) {
+      audioPlayer.volume = volumeSlider.value; // Restaura o volume anterior
+    } else {
+      volumeSlider.value = audioPlayer.volume; // Armazena o volume atual
+      audioPlayer.volume = 0; // Muda para mudo
+    }
+    updateVolumeIcon();
+  });
+
+  volumeSlider.addEventListener('input', function () {
+    audioPlayer.volume = volumeSlider.value;
+    updateVolumeIcon();
+  });
+
+  // Aumenta o volume
+  volumeUpButton.addEventListener('click', function () {
+    audioPlayer.volume = Math.min(1, audioPlayer.volume + 0.1);
+    updateVolumeIcon();
+  });
+
+  // Diminui o volume
+  volumeDownButton.addEventListener('click', function () {
+    audioPlayer.volume = Math.max(0, audioPlayer.volume - 0.1);
+    updateVolumeIcon();
+  });
+
+
+  updateVolume();
+});
 
 
 window.setMusicList = setMusicList;

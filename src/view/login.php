@@ -38,11 +38,11 @@
 
             <div id="signup-form" class="activate">
                 <h2>Cadastre-se no Echoes</h2>
-                <form id="form-register" action="#">
+                <form id="form-register" action="#" method="post">
                     <input type="text" placeholder="Usuário" class="input-field" name="user" required>
                     <input type="email" placeholder="Email" class="input-field" name="email" required>
                     <input type="password" placeholder="Senha" class="input-field" name="pass" required>
-                    <button type="button" class="sign-in-btn" class="btn"onclick="register()">Cadastrar</button>
+                    <button class="sign-in-btn" class="btn"onclick="register()">Cadastrar</button>
                 </form>
                 <p class="terms">
                     Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.

@@ -108,6 +108,12 @@ body {
     margin-bottom: 20px;
 }
 
+#show-login {
+    color: #17c3b2;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .terms, .sign-up {
     font-size: 0.8rem;
     color: #8e8e8e;
@@ -117,6 +123,10 @@ body {
     color: #17c3b2;
     text-decoration: none;
     cursor: pointer;
+}
+
+.activate {
+    display: none;
 }
 
 

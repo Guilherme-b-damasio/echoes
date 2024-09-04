@@ -17,34 +17,67 @@
             <img src="music-icon.png" alt="Music Icon" class="music-icon">
         </div>
         <div class="right-section">
-            <h2>Login to Echoes</h2>
-            <p>Embrace your inner fan, subscribe to your favorite creators to get Winamp-exclusive content.</p>
-            <div class="social-login">
+            <div id="login-form" >
+                <h2>Login to Echoes</h2>
+                <p>Embrace your inner fan, subscribe to your favorite creators to get Winamp-exclusive content.</p>
 
+                <div class="social-login">
+
+                </div>
+                <form id="form-login" method="post">
+                    <input type="text" placeholder="Usuário" class="input-field" name='user' id='user' required>
+                    <input type="password" placeholder="Senha" class="input-field" name='pass' id='pass' required>
+                    <div class="forgot-password">Forgot your password?</div>
+                    <button class="sign-in-btn" class="btn" onclick="login()">Login</button>
+                </form>
+                <p class="terms">
+                    By continuing, I certify that I have reached the age of majority in my country of residence and I agree to the <a href="#">General Terms of Use</a> and the <a href="#">Privacy Policy</a>.
+                </p>
+                <p class="sign-up">Don't have an account? <a href="#">Sign up now</a></p>
             </div>
-            <form id="form-login" method="post">
-                <input type="text" placeholder="Usuário" class="input-field" name='user' id='user' required>
-                <input type="password" placeholder="Senha" class="input-field" name='pass' id='pass' required>
-                <div class="forgot-password">Forgot your password?</div>
-                <button class="sign-in-btn" class="btn" onclick="login()">Login</button>
-            </form>
-            <p class="terms">
-                By continuing, I certify that I have reached the age of majority in my country of residence and I agree to the <a href="#">General Terms of Use</a> and the <a href="#">Privacy Policy</a>.
-            </p>
-            <p class="sign-up">Don't have an account? <a href="#">Sign up now</a></p>
+
+            <div id="signup-form" class="activate">
+                <h2>Cadastre-se no Echoes</h2>
+                <form id="form-register" action="#">
+                    <input type="text" placeholder="Usuário" class="input-field" name="user" required>
+                    <input type="email" placeholder="Email" class="input-field" name="email" required>
+                    <input type="password" placeholder="Senha" class="input-field" name="pass" required>
+                    <button type="button" class="sign-in-btn" class="btn"onclick="register()">Cadastrar</button>
+                </form>
+                <p class="terms">
+                    Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
+                </p>
+                <p class="sign-in">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
+            </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script script src="js/login.js"></script>
+    <script>
+        const loginForm = document.querySelector('#login-form');
+        const signupForm = document.querySelector('#signup-form');
+        const signUpLink = document.querySelector('.sign-up');
+        const signInLink = document.querySelector('.sign-in');
+
+        signUpLink.addEventListener('click', () => {
+            signupForm.classList.remove('activate');
+            loginForm.classList.add('activate');
+        })
+
+        signInLink.addEventListener('click', () => {
+            signupForm.classList.add('activate');
+            loginForm.classList.remove('activate');
+        })
+    </script>
 </body>
 
 </html>
 
 
 
- <div class="container">
+<!-- <div class="container">
     <div class="curved-shape"></div>
     <div class="curved-shape2"></div>
     <div class="form-box Login">
@@ -133,4 +166,4 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="js/login.js"></script> -->   
+<script src="js/login.js"></script> -->

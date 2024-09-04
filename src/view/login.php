@@ -24,7 +24,7 @@
                 <div class="social-login">
 
                 </div>
-                <form id="form-login" method="post">
+                <form id="form-login">
                     <input type="text" placeholder="Usuário" class="input-field" name='user' id='user' required>
                     <input type="password" placeholder="Senha" class="input-field" name='pass' id='pass' required>
                     <div class="forgot-password">Forgot your password?</div>
@@ -38,7 +38,7 @@
 
             <div id="signup-form" class="activate">
                 <h2>Cadastre-se no Echoes</h2>
-                <form id="form-register" action="#" method="post">
+                <form id="form-register" >
                     <input type="text" placeholder="Usuário" class="input-field" name="user" required>
                     <input type="email" placeholder="Email" class="input-field" name="email" required>
                     <input type="password" placeholder="Senha" class="input-field" name="pass" required>

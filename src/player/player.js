@@ -23,6 +23,7 @@ function initializePlayer() {
   progressBar.addEventListener('click', updatePlaybackPosition);
   player.addEventListener('timeupdate', updateTime);
   player.addEventListener('ended', () => changeMusic("next"));
+  playerManager();
 }
 
 function togglePlayPause() {
@@ -146,9 +147,9 @@ function setMusicList(musicList, ID) {
   changeMusic("init", ID);
 }
 
-initializePlayer();
 
-document.addEventListener('DOMContentLoaded', function () {
+
+function playerManager () {
   const audioPlayer = document.getElementById('player');
   const volumeSlider = document.getElementById('volumeSlider');
   const volumeUpButton = document.getElementById('volumeUp');
@@ -204,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   updateVolume();
-});
+}
 
 
-window.setMusicList = setMusicList;
+

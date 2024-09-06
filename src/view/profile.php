@@ -15,10 +15,7 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
 
 
 </head>
-
-<body>
   <div class="container" x-data="{ rightSide: false, leftSide: false }">
-    <?php include('../src/view/includes/sidebar.php') ?>
     <div class="main">
 
       <div class="search-bar">
@@ -33,7 +30,7 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
         <div class="profile">
           <div class="profile-avatar">
             <img src="https://images.genius.com/2326b69829d58232a2521f09333da1b3.1000x1000x1.jpg" alt="" class="profile-img">
-            <div class="profile-name">Quan Ha</div>
+            <div class="profile-name" id=""><?= $dataUser->getLogin()?></div>
           </div>
           <img src="https://images.unsplash.com/photo-1508247967583-7d982ea01526?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" alt="" class="profile-cover">
           <div class="profile-menu">

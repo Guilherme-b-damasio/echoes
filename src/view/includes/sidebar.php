@@ -12,7 +12,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="?">
                     <span class="fa fa-home"></span>
                     <span>Home</span>
                 </a>

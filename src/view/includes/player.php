@@ -37,3 +37,4 @@
 </div>
 
 <script src="../src/player/player.js"></script>
+<script>initializePlayer();</script>

@@ -22,7 +22,7 @@
             <div class="right-section">
             <div id="login-form" >
                 <h2>Faça seu login no Echoes</h2>
-                <p>Embrace your inner fan, subscribe to your favorite creators to get Winamp-exclusive content.</p>
+                <p>Abraçe seu fã interior, escute suas músicas favoritas no Echoes.</p>
 
                 <div class="social-login">
 
@@ -43,7 +43,7 @@
 
             <div id="signup-form" class="activate">
                 <h2>Cadastre-se no Echoes</h2>
-                <p>Embrace your inner fan, subscribe to your favorite creators to get Winamp-exclusive content.</p>
+                <p>Abraçe seu fã interior, escute suas músicas favoritas no Echoes.</p>
 
                 <form id="form-register" >
                     <p class="text">Usuário</p>
@@ -53,7 +53,7 @@
                     <p class="text">Senha</p>
                     <input type="password" placeholder="Senha" class="input-field" name="pass" required>
                     <p class="text">Confirme sua senha</p>
-                    <input type="password" placeholder="Confirme sua senha" class="input-field" name="-confirmPass" required>
+                    <input type="password" placeholder="Confirme sua senha" class="input-field" name="confirm-pass" required>
                     <button class="sign-in-btn" class="btn"onclick="register()">Cadastrar</button>
                 </form>
                 <p class="terms">

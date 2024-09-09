@@ -8,27 +8,37 @@ body {
   padding: 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  flex-direction: column;
+  height: -webkit-fill-available;
+  justify-content: center; 
+}
 
 .container-logo {
   display: flex;
-  height: 100%; }
+  width: 100%; 
+}
 
 .container-logo .logo {
-  width: 170px; }
+  width: 170px; 
+}
 
 .mid-container {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  height: 100%; 
+}
 
 .mid-container .left-section {
   max-width: 400px;
+  height: 100%;
+  padding-right: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   color: white;
   flex: 1; }
+
 
 .mid-container .left-section h1 {
   font-size: 2.5rem;
@@ -36,10 +46,11 @@ body {
 
 .mid-container .music-icon {
   width: 100px;
-  margin-top: 30px; }
+  margin-top: 30px; 
+}
 
 .mid-container .right-section {
-  background-color: #232044;
+  background-color: #1E1B4B;
   max-width: 400px;
   padding: 40px;
   flex: 1;
@@ -47,26 +58,34 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center; 
+}
 
 .mid-container .right-section h2 {
-  margin-bottom: 10px; }
+  margin-bottom: 10px; 
+}
 
 .mid-container .right-section p {
   color: #8e8e8e;
   font-size: 0.9rem;
-  margin-bottom: 5px; }
+  margin-bottom: 5px; 
+}
 
 .mid-container .right-section .text{
     color:white;
     font-weight: bold;
 }  
 
+.mid-container .right-section .sign-in, .sign-up{
+  padding-top: 8px;
+}
+
 .social-login {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 20px; }
+  margin-bottom: 20px; 
+}
 
 .social-btn {
   flex: 1;
@@ -75,10 +94,11 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: white; }
+  color: white; 
+}
 
 .input-field {
-  width: 100%;
+  width: 400px;
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -106,9 +126,9 @@ body {
   margin-bottom: 20px; }
 
 #show-login, #show-register {
-    padding: 5px;
-    border-radius: 10px;
-  background-color: #8e8e8e;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #2E3853;
   color: white;
   text-decoration: none;
   cursor: pointer; }
@@ -116,9 +136,9 @@ body {
 .terms, .sign-in, .sign-up {
   font-size: 0.8rem;
   color: #8e8e8e; }
-
+  
 .terms a, .sign-up a {
-  color: #17c3b2;
+  color: white;
   text-decoration: none;
   cursor: pointer; }
 

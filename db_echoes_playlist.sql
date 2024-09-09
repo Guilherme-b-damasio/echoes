@@ -16,31 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `playlist`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `playlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `playlist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `login` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `idx_name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `playlist`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin','$2y$10$6ynbhJ6lrMjzWbkzomhwSOLeTwr2HYikFmRZEfMWH4fdDk9q38rEy','a@a.com','4799173334'),(2,'','teste','123','guilherme_b_damasio@estudante.sesissenai.org.br',''),(3,'','Gui','$2y$10$ZS0o/ruLIe6MRsagvflQp.t9zbl/0tAnh71DOxJgrtkAeefsViHLW','guilherme_b_damasio@estudante.sesissenai.org.br',''),(4,'','Renê','$2y$10$1ngAYULi77AGEk2lXElpdup8vi69ewaIrMyobr.vk/zWNSVQavbae','guilherme_b_damasio@estudante.sesissenai.org.br',''),(5,'','gabriel','$2y$10$eFv9bGtTlSCL5qal/gawfuImDkyEiTMT85DGui3kyLVZQG4VuIbz2','macify@mailinator.com','');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `playlist` WRITE;
+/*!40000 ALTER TABLE `playlist` DISABLE KEYS */;
+INSERT INTO `playlist` VALUES (1,'Melhores Clássicos','2024-08-29 23:40:40','2024-08-29 23:40:40'),(2,'Melhores do Rock','2024-08-29 23:40:40','2024-08-29 23:40:40'),(3,'SummerEletroHits','2024-08-29 23:40:40','2024-08-29 23:40:40');
+/*!40000 ALTER TABLE `playlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

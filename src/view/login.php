@@ -76,8 +76,8 @@
     <script>
         const loginForm = document.querySelector('#login-form');
         const signupForm = document.querySelector('#signup-form');
-        const signUpLink = document.querySelector('.sign-up');
-        const signInLink = document.querySelector('.sign-in');
+        const signUpLink = document.querySelector('#show-register');
+        const signInLink = document.querySelector('#show-login');
 
         signUpLink.addEventListener('click', () => {
             signupForm.classList.remove('activate');

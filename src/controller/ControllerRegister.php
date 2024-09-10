@@ -16,8 +16,8 @@ class ControllerRegister
         $this->service = new service();
     }
 
-    public function handle($user, $pass, $email)
+    public function handle($name, $user, $email, $phone, $pass)
     {
-       return $this->service->registerUser($user, $pass, $email);
+       return $this->service->registerUser($name, $user, $email, $phone, $pass);
     }
 }

@@ -23,14 +23,14 @@
             <li>
                 <a href="?search" data-page="search">
                     <span class="fa fa-search"></span>
-                    <span>Search</span>
+                    <span>Pesquisar</span>
                 </a>
             </li>
 
             <li>
                 <a href="#">
                     <span class="fa fas fa-book"></span>
-                    <span>Your Library</span>
+                    <span>Sua Biblioteca</span>
                 </a>
             </li>
         </ul>
@@ -41,14 +41,14 @@
             <li>
                 <a href="#">
                     <span class="fa fas fa-plus-square"></span>
-                    <span>Create Playlist</span>
+                    <span>Criar Playlist</span>
                 </a>
             </li>
 
             <li>
                 <a href="#">
                     <span class="fa fas fa-heart"></span>
-                    <span>Liked Songs</span>
+                    <span>Músicas Curtidas</span>
                 </a>
             </li>
 

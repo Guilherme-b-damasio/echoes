@@ -68,7 +68,7 @@ function register(){
                 Swal.fire({
                     title: "Sucesso",
                     icon: 'sucess',
-                    text: "Login Efetuado Com sucesso!!",
+                    text: "Cadastro Efetuado com Sucesso!",
                     confirmButtonText: "Logar",
                   }).then((result) => {
                     if (result.isConfirmed) {

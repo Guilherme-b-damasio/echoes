@@ -31,9 +31,9 @@ class service
         return false;
     }
 
-    public function registerUser(String $user, String $pass, String $email)
+    public function registerUser(String $name, String $user, String $email, String $phone, String $pass)
     {
-        $response = $this->repo->registerUser($user, $pass, $email);
+        $response = $this->repo->registerUser($name, $user, $email, $phone, $pass);
         return $response;
     }
 

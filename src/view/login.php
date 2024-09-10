@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="left-section">
-            <img src="logo.png" alt="Winamp Logo" class="logo">
+            <img src="logo.png" alt="Winamp Logo" class="logoIcone">
             <h1>Yesterday's legend, tomorrow's revolution</h1>
             <img src="music-icon.png" alt="Music Icon" class="music-icon">
         </div>

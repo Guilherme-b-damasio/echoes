@@ -1,0 +1,62 @@
+.fade-out {
+    opacity: 0;
+    transition: opacity 4s;
+  }
+  
+  /* Classe para o efeito de desvanecimento ao carregar */
+  .fade-in {
+    opacity: 1;
+    transition: opacity 4s;
+  }
+  
+  /* Classe inicial */
+  #main-container {
+    opacity: 1;
+  }
+  
+  /* Estilo para o overlay de carregamento */
+  #loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo preto semitransparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Garante que o overlay fique acima do conteúdo */
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s; /* Transição suave ao mostrar o overlay */
+  }
+  
+  /* Spinner de carregamento */
+  .spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1); /* Fundo do spinner */
+    border-left: 8px solid #fff; /* Cor do spinner */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; /* Animação de rotação */
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Transições para fade-in e fade-out do main-container */
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  
+  .fade-in {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+  
+  /* Estado inicial do contêiner */
+  #main-container {
+    opacity: 1;
+  }

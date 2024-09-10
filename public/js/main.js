@@ -63,7 +63,7 @@ async function loadPlaylist() {
             list.innerHTML = html;
 
             if (data.length > 0) {
-                loadSongsForPlaylist(data[0].id);
+                //loadSongsForPlaylist(data[0].id);
             }
 
             loadSongs(data);

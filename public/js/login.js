@@ -18,7 +18,7 @@ function login() {
         .then(response => response.json())
         .then(data => {
             if (data) {
-                window.location.href = "../public/";
+                window.location.href = "../public/?home";
             } else {
                 Swal.fire({
                     title: 'Erro!',

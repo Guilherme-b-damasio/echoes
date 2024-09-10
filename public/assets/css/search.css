@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, #3494E6, #EC6EAD);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+i {
+    font-size: 24px;
+    color: #333;
+}
+input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    border: 2px solid #e5e90c;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#searchBtn {
+    background: #2ecc71;
+    color: #fff;
+}
+#searchBtn:hover {
+    background: #27ae60;
+}
+#clearBtn {
+    background: #e74c3c;
+    color: #fff;
+}
+#clearBtn:hover {
+    background: #c0392b;
+}
+.result-container {
+    margin-top: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+.result-card {
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+}
+.result-card:hover {
+    transform: scale(1.03);
+}
+.result-card h3 {
+    margin-bottom: 5px;
+}
+.lyrics-container {
+    white-space: pre-wrap;
+    font-size: 16px;
+    color: #333;
+}
+.loading-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    display: none;
+}
+.loading-spinner {
+    border: 5px solid #3498db;
+    border-radius: 50%;
+    border-top: 5px solid #e74c3c;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+#backBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+}
+#backBtn:hover {
+    background: #2980b9;
+}

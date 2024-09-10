@@ -38,7 +38,7 @@ class repository
         }
     }
 
-    public function registerUser(String $user, String $pass, String $email)
+    public function registerUser(String $name, String $user, String $email, String $phone, String $pass)
     {
         $sql = "SELECT * FROM users WHERE users.login = :user";
         $response = [];
@@ -51,11 +51,13 @@ class repository
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
             if (!$result) {
-                $sql = $this->conn->prepare("INSERT INTO users(users.login, users.email, users.password) values (?,?,?)");
+                $sql = $this->conn->prepare("INSERT INTO users(users.name, users.login, users.email, users.phone, users.password) values (?,?,?,?,?)");
                 $pass = password_hash($pass, PASSWORD_DEFAULT);
-                $sql->bindParam(1, $user);
-                $sql->bindParam(2, $email);
-                $sql->bindParam(3, $pass);
+                $sql->bindParam(1, $name);
+                $sql->bindParam(2, $user);
+                $sql->bindParam(3, $email);
+                $sql->bindParam(4, $phone);
+                $sql->bindParam(5, $pass);
                 $sql->execute();
 
                 if ($sql) {

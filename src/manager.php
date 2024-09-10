@@ -36,14 +36,17 @@ function login()
 
 function registerUser()
 {
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
     $user = isset($_POST['user']) ? $_POST['user'] : '';
-    $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
+    $pass = isset($_POST['pass']) ? $_POST['pass'] : '';
+    
 
     // Verifica se os campos obrigatórios estão preenchidos
     if (!empty($user) && !empty($pass)) {
         $controller = new ControllerRegister();
-        $response = $controller->handle($user, $pass, $email);
+        $response = $controller->handle($name, $user, $email, $phone, $pass);
     }
 
     echo json_encode($response);

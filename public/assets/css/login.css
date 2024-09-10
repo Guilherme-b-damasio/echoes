@@ -50,7 +50,7 @@ body {
 }
 
 .mid-container .right-section {
-  background-color: #1E1B4B;
+  background-color: #131a31;;
   max-width: 400px;
   padding: 40px;
   flex: 1;
@@ -103,7 +103,7 @@ body {
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
-  background-color: #1e1a3b;
+  background-color:#2b2c41;
   color: white; }
 
 .forgot-password {
@@ -118,20 +118,31 @@ body {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #17c3b2;
+  background-color: #1d2d59;
   color: white;
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 20px; }
+  margin-bottom: 20px; 
+  transition: background 0.2s, border-color 0.2s; 
+}
+
+.sign-in-btn:hover{
+  background-color: #24376b;
+}
 
 #show-login, #show-register {
   padding: 5px;
   border-radius: 5px;
-  background-color: #2E3853;
   color: white;
-  text-decoration: none;
-  cursor: pointer; }
+  text-decoration: underline;
+  /* text-decoration: none; */
+  cursor: pointer; 
+}
+
+#show-login:hover, #show-register:hover {
+  color: #314a8f;
+}
 
 .terms, .sign-in, .sign-up {
   font-size: 0.8rem;
@@ -144,5 +155,9 @@ body {
 
 .activate {
   display: none; }
+
+#signup-form h2{
+  padding-bottom: 20px;
+}
 
 /*# sourceMappingURL=login.css.map */ 

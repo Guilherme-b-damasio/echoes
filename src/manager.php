@@ -13,6 +13,8 @@ if (isset($_GET['register'])) {
     registerUser();
 }
 
+
+
 function login()
 {
     $user = isset($_POST['user']) ? $_POST['user'] : '';

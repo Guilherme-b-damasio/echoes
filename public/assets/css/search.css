@@ -1,20 +1,12 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(to right, #3494E6, #EC6EAD);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.container {
-    background: rgba(255, 255, 255, 0.8);
+
+.container-search {
+    /* background: rgba(255, 255, 255, 0.8); */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 100%;
+    /* max-width: 600px; */
+    height: 100%;
+    /* width: 100%; */
     overflow: hidden;
 }
 .header {
@@ -30,31 +22,25 @@ i {
     font-size: 24px;
     color: #333;
 }
-input {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    border: 2px solid #e5e90c;
-}
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
 #searchBtn {
-    background: #2ecc71;
+    background: var(--details);
     color: #fff;
+    border-radius: 20px;
+    width: 56px;
+    height: 29px;
+    border: none;
 }
 #searchBtn:hover {
-    background: #27ae60;
+    background: var(--black);
 }
 #clearBtn {
     background: #e74c3c;
     color: #fff;
+    border-radius: 20px;
+    width: 56px;
+    height: 29px;
+    border: none;
 }
 #clearBtn:hover {
     background: #c0392b;
@@ -66,15 +52,22 @@ button {
 }
 .result-card {
     margin-bottom: 20px;
-    background: #fff;
+    background: var(--black);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     position: relative;
 }
-.result-card:hover {
-    transform: scale(1.03);
+.result-card img{
+    width: 100px;
+}
+
+.infoSong{
+    display: flex;
+    /* padding: 20px; */
+    gap: 20px;
+    align-items: center;
 }
 .result-card h3 {
     margin-bottom: 5px;
@@ -123,4 +116,13 @@ button {
 }
 #backBtn:hover {
     background: #2980b9;
+}
+
+#searchInput{
+    background: white;
+    color: #333;
+    width: 15vw;
+    height: 30px;
+    border-radius: 16px;
+    border: none;
 }

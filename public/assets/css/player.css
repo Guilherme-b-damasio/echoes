@@ -1,7 +1,4 @@
-:root {
-    --blue: #ff0284;
-    --details: rgba(0,212,255,1);
-}
+
 
 .player-container {
     position: fixed;

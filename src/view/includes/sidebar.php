@@ -57,7 +57,6 @@
                     <span class="fa fas fa-heart"></span>
                     <span>Sair</span>
                 </a>
-                <button onclick="login();" type="button">Sair</button>
             </li>
         </ul>
     </div>

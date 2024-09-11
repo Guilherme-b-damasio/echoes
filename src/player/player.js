@@ -78,13 +78,17 @@ function changeMusic(type = "next", ID = 0) {
   if (music.length === 0) return;
 
   if (type === "next") {
-    if (index <= music.length) {
-      index = (index + 1);
+    if (index === music[0].length) {
+      index = 0;
+    }else{
+      index++;
     }
 
   } else if (type === "prev") {
     if (index != 0) {
       index = (index - 1);
+    }else{
+      index = music[0].length;
     }
   } else if (type === "init") {
     index = 0;

@@ -64,6 +64,11 @@ class service
 
         return $response;
     }
+    public function searchMusic($name)
+    {
+        $response = $this->repo->searchMusic($name);
+        return $response;
+    }
 
     public function consultPlaylist()
     {

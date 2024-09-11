@@ -10,27 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="assets/css/search.css">
-    <script defer src="js/app.js"></script>
-    <script defer src="js/search.js"></script>
-    <title>GeeksforGeeks Lyrics Searcher</title>
-</head>
+    <title></title>
 
 <body>
-    <div class="container">
+    <div class="container-search">
         <div class="header">
             <h1 class="animate__animated animate__fadeInDown" style="color: green;">
-                GeeksforGeeks Lyrics Searcher
+                Procure por musicas
             </h1>
         </div>
         <div class="search-container">
-            <i class="fas fa-music" style="color: #e74c3c;">
+            <i class="fas fa-music" style="color: white;">
             </i>
-            <input type="text" id="searchInput" placeholder="Search for lyrics"
-                style="background: #ecf0f1; color: #333;">
-            <button id="searchBtn" style="background: #2ecc71; color: #fff;">
+            <input type="text" id="searchInput" placeholder=" Pesquise por musicas"
+                style="background: white; color: #333;">
+            <button id="searchBtn" onclick="search()">
                 earch
             </button>
-            <button id="clearBtn" style="background: #e74c3c; color: #fff;">
+            <button id="clearBtn" onclick="clearBtn()">
                 Clear
             </button>
         </div>
@@ -40,7 +37,7 @@
         <div class="loading-spinner" style="border-color: #3498db; 
                     border-top-color: #e74c3c;"></div>
     </div>
-    <script src="app.js"></script>
+   
 </body>
 
 </html>

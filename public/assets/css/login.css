@@ -18,9 +18,8 @@ body {
   width: 100%; 
 }
 
-.logoIcone {
-    width: 100px;
-    margin-bottom: 30px;
+.container-logo .logo {
+  width: 170px; 
 }
 
 .mid-container {
@@ -159,6 +158,10 @@ body {
 
 #signup-form h2{
   padding-bottom: 20px;
+}
+
+.left-section{
+  width: 100%;
 }
 
 /*# sourceMappingURL=login.css.map */ 

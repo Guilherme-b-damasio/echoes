@@ -12,9 +12,9 @@
 <body>
     <div class="container">
         <div class="left-section">
-            <img src="logo.png" alt="Winamp Logo" class="logoIcone">
-            <h1>Yesterday's legend, tomorrow's revolution</h1>
-            <img src="music-icon.png" alt="Music Icon" class="music-icon">
+            <div class="container-logo">
+                <img src="assets/images/logo.png" alt="Logo" class="logo">
+            </div>
         </div>
         <div class="mid-container">
             <div class="left-section">
@@ -22,52 +22,52 @@
                 <img src="assets/images/logo2.png" alt="Logo" class="logo">
             </div>
             <div class="right-section">
-            <div id="login-form" >
-                <h2>Faça seu login no Echoes</h2>
-                <!-- <p>A música que você ama, ecoando em cada momento.</p> -->
+                <div id="login-form">
+                    <h2>Faça seu login no Echoes</h2>
+                    <!-- <p>A música que você ama, ecoando em cada momento.</p> -->
 
-                <div class="social-login">
+                    <div class="social-login">
 
+                    </div>
+                    <form id="form-login">
+                        <p class="text">E-mail ou nome de usuário</p>
+                        <input type="text" placeholder="Email ou nome de usuário" class="input-field" name='user' id='user' required>
+                        <p class="text">Senha</p>
+                        <input type="password" placeholder="Senha" class="input-field" name='pass' id='pass' required>
+                        <div class="forgot-password">Esqueceu sua senha?</div>
+                        <button class="sign-in-btn" class="btn" onclick="login()">Login</button>
+                    </form>
+                    <p class="terms">
+                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
+                    </p>
+                    <p class="sign-up">Não tem uma conta? <a href="#" id="show-register">Cadastre-se agora</a></p>
                 </div>
-                <form id="form-login">
-                    <p class="text">E-mail ou nome de usuário</p>
-                    <input type="text" placeholder="Email ou nome de usuário" class="input-field" name='user' id='user' required>
-                    <p class="text">Senha</p>
-                    <input type="password" placeholder="Senha" class="input-field" name='pass' id='pass' required>
-                    <div class="forgot-password">Esqueceu sua senha?</div>
-                    <button class="sign-in-btn" class="btn" onclick="login()">Login</button>
-                </form>
-                <p class="terms">
-                    Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
-                </p>
-                <p class="sign-up">Não tem uma conta? <a href="#" id="show-register">Cadastre-se agora</a></p>
-            </div>
 
-            <div id="signup-form" class="activate">
-                <h2>Cadastre-se no Echoes</h2>
-                <!-- <p>A música que você ama, ecoando em cada momento.</p> -->
+                <div id="signup-form" class="activate">
+                    <h2>Cadastre-se no Echoes</h2>
+                    <!-- <p>A música que você ama, ecoando em cada momento.</p> -->
 
-                <form id="form-register" >
-                    <p class="text">Nome</p>
-                    <input type="text" placeholder="Nome" class="input-field" name="name" required>
-                    <p class="text">Usuário</p>
-                    <input type="text" placeholder="Usuário" class="input-field" name="user" required>
-                    <p class="text">E-mail</p>
-                    <input type="email" placeholder="Email" class="input-field" name="email" required>
-                    <p class="text">Telefone</p>
-                    <input type="number" placeholder="Telefone" class="input-field" name="phone" required>
-                    <p class="text">Senha</p>
-                    <input type="password" placeholder="Senha" class="input-field" name="pass" required>
-                    <p class="text">Confirme sua senha</p>
-                    <input type="password" placeholder="Confirme sua senha" class="input-field" name="confirm-pass" required>
-                    <button class="sign-in-btn" class="btn"onclick="register()">Cadastrar-se</button>
-                </form>
-                <p class="terms">
-                    Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
-                </p>
-                <p class="sign-in">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
+                    <form id="form-register">
+                        <p class="text">Nome</p>
+                        <input type="text" placeholder="Nome" class="input-field" name="name" required>
+                        <p class="text">Usuário</p>
+                        <input type="text" placeholder="Usuário" class="input-field" name="user" required>
+                        <p class="text">E-mail</p>
+                        <input type="email" placeholder="Email" class="input-field" name="email" required>
+                        <p class="text">Telefone</p>
+                        <input type="number" placeholder="Telefone" class="input-field" name="phone" required>
+                        <p class="text">Senha</p>
+                        <input type="password" placeholder="Senha" class="input-field" name="pass" required>
+                        <p class="text">Confirme sua senha</p>
+                        <input type="password" placeholder="Confirme sua senha" class="input-field" name="confirm-pass" required>
+                        <button class="sign-in-btn" class="btn" onclick="register()">Cadastrar-se</button>
+                    </form>
+                    <p class="terms">
+                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
+                    </p>
+                    <p class="sign-in">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
+                </div>
             </div>
-        </div>
 
         </div>
     </div>

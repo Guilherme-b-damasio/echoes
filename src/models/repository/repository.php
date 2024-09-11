@@ -105,6 +105,67 @@ class repository
             return $e->getMessage();
         }
     }
+    public function searchMusic($name)
+{
+    try {
+        $name = "%$name%";
+        
+        $sql = "
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.name LIKE :name
+            UNION
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.playlist_id IN (
+                    SELECT playlist_id
+                    FROM music
+                    WHERE name LIKE :name
+                )
+        ";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+        return !empty($result) ? $result : null;
+    } catch (PDOException $e) {
+        error_log("Error in searchMusic: " . $e->getMessage());
+        return null;
+    }
+}
+
 
     public function consultPlaylist()
     {
@@ -121,7 +182,8 @@ class repository
         }
     }
 
-    public function getMusicPlaylist($playlistID){
+    public function getMusicPlaylist($playlistID)
+    {
         try {
             $sql = "SELECT 
             music.ID, 

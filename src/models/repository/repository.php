@@ -105,68 +105,57 @@ class repository
             return $e->getMessage();
         }
     }
-    public function searchMusic($name)
-{
-    try {
-        $name = "%$name%";
-        
-        $sql = "
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.name LIKE :name
-            UNION
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id IN (
-                    SELECT playlist_id
-                    FROM music
-                    WHERE name LIKE :name
-                )
-        ";
+    public function searchMusic($name, $id)
+    {
+        try {
 
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':name', $name);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $sql = "
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE 1=1";
 
-        return !empty($result) ? $result : null;
-    } catch (PDOException $e) {
-        error_log("Error in searchMusic: " . $e->getMessage());
-        return null;
+            $params = [];
+
+            if (!empty($name)) {
+                $sql .= " AND music.name LIKE :name";
+                $params[':name'] = "%$name%";
+            }
+            if (!empty($id)) {
+                $sql .= " AND music.ID = :id";
+                $params[':id'] = $id;
+            }
+
+            $stmt = $this->conn->prepare($sql);
+
+            foreach ($params as $param => $value) {
+                $stmt->bindValue($param, $value);
+            }
+
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            return !empty($result) ? $result : null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql);
+            error_log("Error in searchMusic: " . $e->getMessage());
+            return null;
+        }
     }
-}
-
-
+    
     public function consultPlaylist()
     {
         try {
@@ -175,10 +164,97 @@ class repository
             $stmt->execute();
 
             $playlist = $stmt->fetchAll(PDO::FETCH_OBJ);
-            // Envia os resultados como JSON
             return $playlist;
         } catch (PDOException $e) {
             return $e->getMessage();
+        }
+    }
+
+    public function searchNextMusic($name, $id)
+    {
+        try {
+            $sql = "
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            ";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+            error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log('musics', 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+            return $result ? $result : null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql);
+            error_log("Error in searchNextMusic: " . $e->getMessage());
+            return null;
+        }
+    }
+    public function searchPrevMusic($name, $id)
+    {
+        try {
+            $sql = "
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        ";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ); // Usar fetch se você espera apenas um resultado
+
+            // Log de depuração
+            error_log("SQL: " . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Result: " . print_r($result, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+            return $result ? $result : null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Error in searchPrevMusic: " . $e->getMessage(), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            return null;
         }
     }
 

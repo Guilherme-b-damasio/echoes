@@ -32,7 +32,7 @@ async function loadSongs(data) {
                     `<div class="item">
                                 <img src="${music.image}" alt="Album Art" />
                                 <div class="play">
-                                    <span class="fa fa-play" onclick='playerMusic(${JSON.stringify(data)}, ${music.ID})'></span>
+                                    <span class="fa fa-play" onclick='playerMusic(${music.ID})'></span>
                                 </div>
                                 <h4>${music.name}</h4>
                                 </div>`;
@@ -73,13 +73,17 @@ async function loadPlaylist() {
     }
 }
 
-function playerMusic(music, ID) {
-    setMusicList([music], ID);
-    console.log("Playing:", music);
-}
+function playerMusic(ID) {
 
-function playerNextMusic(music){
-    setMusicList(JSON.stringify(music));
+    fetch(`../src/search_songs.php?music=${ID}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                setMusicList(data, ID);
+                document.getElementById('nextButton').setAttribute('data-music', ID);
+            }
+        })
+        .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
 
 window.onload = function () {

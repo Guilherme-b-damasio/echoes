@@ -64,7 +64,7 @@ function showFn(data, query) {
                         </div>   
                 </div>
                 <button class="lyrics-btn" data-artist="${song.autor}" onclick="results()" data-title="${song.name}">Letra</button>
-                <a class="fa fa-play" onclick='playerMusic(${JSON.stringify(data)}, ${song.ID})'></a>
+                <a class="fa fa-play" onclick='playerMusic(${song.ID})'></a>
                 <button class="back-btn" style="display: none;">Back</button>
             `;
             resultsContainer.appendChild(card);

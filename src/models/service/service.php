@@ -64,10 +64,24 @@ class service
 
         return $response;
     }
-    public function searchMusic($name)
+    public function searchMusic($name, $id, $time)
     {
-        $response = $this->repo->searchMusic($name);
-        return $response;
+
+        header('Content-Type: application/json');
+        if ($time == 'next') {
+            $response = $this->repo->searchNextMusic($name, $id);
+            return $response;
+        }
+
+        if ($time == 'prev') {
+            $response = $this->repo->searchPrevMusic($name, $id);
+            return $response;
+        }
+
+        if (empty($time)) {
+            $response = $this->repo->searchMusic($name, $id);
+            return $response;
+        }
     }
 
     public function consultPlaylist()

@@ -23,6 +23,7 @@
     width: 100%;
     overflow-x: hidden; /* Bloqueia o scroll horizontal */
     overflow-y: auto;   /* Permite o scroll vertical */
+    padding-bottom: 170px;
 }
 
 .topbar {

@@ -3,7 +3,7 @@
         'name' => 'seu-usuario/seu-projeto',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '657479d7d18ffc84589b939d2e4b04419ca49905',
+        'reference' => 'a3614eb071c283a710b1ae8b988e3b4477771275',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -99,6 +99,15 @@
             'install_path' => __DIR__ . '/../phar-io/version',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.9.1',
+            'version' => '6.9.1.0',
+            'reference' => '039de174cd9c17a8389754d3b877a2ed22743e18',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'phpoption/phpoption' => array(
             'pretty_version' => '1.9.3',
@@ -334,7 +343,7 @@
         'seu-usuario/seu-projeto' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '657479d7d18ffc84589b939d2e4b04419ca49905',
+            'reference' => 'a3614eb071c283a710b1ae8b988e3b4477771275',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

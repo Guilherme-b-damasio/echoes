@@ -36,6 +36,7 @@ class ComposerStaticInit124f4f189e7acf4a00fe1b7f70a5f389
             'Psr\\Http\\Message\\' => 17,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'G' => 
         array (
@@ -104,6 +105,10 @@ class ComposerStaticInit124f4f189e7acf4a00fe1b7f70a5f389
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -189,10 +194,15 @@ class ComposerStaticInit124f4f189e7acf4a00fe1b7f70a5f389
 
     public static $classMap = array (
         'App\\Controller\\ControllerLogin' => __DIR__ . '/../..' . '/src/controller/ControllerLogin.php',
-        'App\\Controller\\ControllerMain' => __DIR__ . '/../..' . '/src/controller/ControllerMain.php',
+        'App\\Controller\\ControllerMusic' => __DIR__ . '/../..' . '/src/controller/ControllerMusic.php',
+        'App\\Controller\\ControllerMusicPlaylist' => __DIR__ . '/../..' . '/src/controller/ControllerMusicPlaylist.php',
         'App\\Controller\\ControllerPlayerMusic' => __DIR__ . '/../..' . '/src/controller/ControllerPlayerMusic.php',
+        'App\\Controller\\ControllerPlaylist' => __DIR__ . '/../..' . '/src/controller/ControllerPlaylist.php',
+        'App\\Controller\\ControllerRegister' => __DIR__ . '/../..' . '/src/controller/ControllerRegister.php',
         'App\\Service\\service' => __DIR__ . '/../..' . '/src/models/service/service.php',
         'App\\config\\db' => __DIR__ . '/../..' . '/config/db.php',
+        'App\\entity\\music' => __DIR__ . '/../..' . '/src/models/entity/music.php',
+        'App\\entity\\playlist' => __DIR__ . '/../..' . '/src/models/entity/playlist.php',
         'App\\entity\\user' => __DIR__ . '/../..' . '/src/models/entity/user.php',
         'App\\repository\\repository' => __DIR__ . '/../..' . '/src/models/repository/repository.php',
         'App\\trait\\renderTemplate' => __DIR__ . '/../..' . '/src/traits/renderTemplate.php',
@@ -364,6 +374,13 @@ class ComposerStaticInit124f4f189e7acf4a00fe1b7f70a5f389
         'GuzzleHttp\\UriTemplate' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/UriTemplate.php',
         'GuzzleHttp\\Utils' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Utils.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
+        'PHPMailer\\PHPMailer\\DSNConfigurator' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/DSNConfigurator.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\ActualValueIsNotAnObjectException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Exception/ActualValueIsNotAnObjectException.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',

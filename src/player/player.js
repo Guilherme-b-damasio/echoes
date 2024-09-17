@@ -134,7 +134,7 @@ function changeMusic(musics = null) {
   if (music.length === 0) return;
 
   if (music.length >= 1) {
-    currentSong = music;
+    currentSong = music[0];
   } else {
     currentSong = music;
   }

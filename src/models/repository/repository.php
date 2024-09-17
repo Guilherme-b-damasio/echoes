@@ -98,7 +98,7 @@ class repository
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
 
-            $musics = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $musics = $stmt->fetch(PDO::FETCH_OBJ);
             // Envia os resultados como JSON
             return $musics;
         } catch (PDOException $e) {

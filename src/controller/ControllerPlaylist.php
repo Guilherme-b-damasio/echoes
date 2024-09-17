@@ -14,7 +14,7 @@ class ControllerPlaylist {
         $this->service = new service();
     }
 
-    public function handle($param)
+    public function handle()
     {
        return $this->service->consultPlaylist();
     }

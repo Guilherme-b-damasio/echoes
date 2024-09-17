@@ -106,11 +106,11 @@ class repository
         }
     }
     public function searchMusic($name)
-{
-    try {
-        $name = "%$name%";
-        
-        $sql = "
+    {
+        try {
+            $name = "%$name%";
+
+            $sql = "
             SELECT 
                 music.ID AS ID, 
                 music.name, 
@@ -154,17 +154,17 @@ class repository
                 )
         ";
 
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':name', $name);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':name', $name);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-        return !empty($result) ? $result : null;
-    } catch (PDOException $e) {
-        error_log("Error in searchMusic: " . $e->getMessage());
-        return null;
+            return !empty($result) ? $result : null;
+        } catch (PDOException $e) {
+            error_log("Error in searchMusic: " . $e->getMessage());
+            return null;
+        }
     }
-}
 
 
     public function consultPlaylist()
@@ -213,5 +213,53 @@ class repository
         } catch (PDOException $e) {
             return $e->getMessage();
         }
+    }
+
+    public function insertToken(int $user, String $token, int $expire)
+    {
+        // Salva o token e a validade no banco de dados
+        $stmt = $this->conn->prepare("INSERT INTO password_resets (user_id, token, expire_at) VALUES (:user_id, :token, :expire_at)");
+        $stmt->bindParam(":user_id", $user);
+        $stmt->bindParam(":token", $token);
+        $stmt->bindParam(":expire_at", $expire);
+        $stmt->execute();
+
+        return;
+    }
+
+    public function resetPassword(String $email)
+    {
+        // Verifica se o e-mail existe no banco de dados
+        $sql="SELECT ID FROM users WHERE email = :email";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":email", $email);
+        $stmt->execute();
+        $user = $stmt->fetch();
+
+        return $user;
+    }
+
+    public function resetPass($token){
+        // Verifica o token e se ele ainda é válido
+        $stmt = $this->conn->prepare("SELECT user_id FROM password_resets WHERE token = :token AND expire_at >= :expire_at");
+        $current_time = date("U");
+        $stmt->bindParam(":token", $token);
+        $stmt->bindParam(":expire_at", $current_time);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        return $result;
+    }
+
+    public function confirmResetPass($new_password, $user_id){
+
+        // Atualiza a senha do usuário
+        $stmt = $this->conn->prepare("UPDATE users SET password = v WHERE id = :id");
+        $stmt->bindParam(":password", $new_password);
+        $stmt->bindParam(":id", $user_id);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        return $result;
     }
 }

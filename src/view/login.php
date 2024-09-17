@@ -72,9 +72,9 @@
                 <!-- Formulário de Redefinição de Senha (inicialmente oculto) -->
                 <div id="forgot-password-form" class="hidden">
                     <h2>Redefinir Senha</h2>
-                    <form id="form-forgot-password">
+                    <form id="form-reset">
                         <p class="text">E-mail</p>
-                        <input type="email" placeholder="E-mail" class="input-field" name="forgot-email" required>
+                        <input type="email" placeholder="E-mail" class="input-field" name="email" required>
                         <button class="sign-in-btn" class="btn" onclick="resetPassword()">Redefinir Senha</button>
                     </form>
                     <p class="back-to-login"><a href="#" id="show-login-from-forgot">Voltar para o login</a></p>

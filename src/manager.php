@@ -4,6 +4,8 @@ session_start();
 require '../vendor/autoload.php';
 
 use App\Controller\ControllerLogin;
+use App\Controller\ControllerReset;
+use App\Controller\ControllerResetPassword;
 
 if (isset($_GET['login'])) {
     login();
@@ -13,7 +15,13 @@ if (isset($_GET['register'])) {
     registerUser();
 }
 
+if (isset($_GET['reset'])) {
+    sendToken();
+}
 
+if (isset($_GET['resetpass'])) {
+    resetPassword();
+}
 
 function login()
 {
@@ -52,5 +60,34 @@ function registerUser()
     }
 
     echo json_encode($response);
+    return;
+}
+
+function sendToken()
+{
+
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+
+
+    // Verifica se os campos obrigatórios estão preenchidos
+    if (!empty($email)) {
+        $controller = new ControllerReset();
+        $response = $controller->handle($email);
+    }
+
+    echo json_encode($response);
+    return;
+}
+
+function resetPassword()
+{
+    $response=[];
+    $token = $_POST['token'];
+    $new_password = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+    
+    $controller= new ControllerResetPassword;
+    $response=$controller->handle($new_password, $token);
+    echo json_encode($response);
+
     return;
 }

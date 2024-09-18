@@ -99,6 +99,7 @@ body {
 
 .mid-container .right-section .text{
     color:white;
+    font-size: 0.9rem;
     font-weight: bold;
 }  
 
@@ -124,7 +125,7 @@ body {
 }
 
 .input-field, #new_password {
-  width: 400px;
+  width: 420px;
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;

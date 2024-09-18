@@ -22,13 +22,13 @@ $token = ($_GET['token']);
     <div class="container">
         <div class="left-section">
             <div class="container-logo">
-                <img src="assets/images/logo.png" alt="Logo" class="logo">
+                <img src="../../public/assets/images/logo.png" alt="Logo" class="logo">
             </div>
         </div>
         <div class="mid-container">
             <div class="left-section">
                 <h1>Ecoe suas canções favoritas, em qualquer lugar.</h1>
-                <img src="assets/images/logo2.png" alt="Logo" class="logo">
+                <img src="../../public/assets/images/logo2.png" alt="Logo" class="logo">
             </div>
             <div class="right-section">
 
@@ -37,11 +37,11 @@ $token = ($_GET['token']);
                     <h2>Redefinir Senha</h2>
                     <form id="form-reset">
                         <input type="hidden" name="token" id="token" value="<?php echo $token; ?>">
-                        <label for="new_password" class="text">Nova senha</label>
+                        <p for="new_password" class="text">Nova senha</p>
                         <input type="password" placeholder="Nova senha" name="new_password" id="new_password" required>
                     </form>
                     <button type="button" class="sign-in-btn" onclick="reset()">Redefinir Senha</button>
-                    <p class="back-to-login"><a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
+                    <p class="back-to-login"><a href="http://127.0.0.1/echoes/public/index.php" id="show-login-from-forgot">Voltar para o login</a></p>
                 </div>
 
             </div>

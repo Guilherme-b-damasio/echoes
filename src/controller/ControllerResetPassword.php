@@ -16,8 +16,8 @@ class ControllerResetPassword
         $this->service = new service();
     }
 
-    public function handle($email)
+    public function handle($new_password, $token)
     {
-       return $this->service->resetPass($email);
+       return $this->service->resetPass($new_password, $token);
     }
 }

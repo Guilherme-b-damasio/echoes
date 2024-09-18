@@ -100,12 +100,11 @@ function register(){
 }
 
 function reset() {
-    let form = document.getElementById("form-reset2");
+    let form = document.getElementById("form-reset");
     
         event.preventDefault();
 
-        let formData = new FormData(form);
-        let params = new URLSearchParams(formData).toString();
+        const formData = new URLSearchParams(new FormData(form));    
 
         let url = "../manager.php?resetpass";
 
@@ -114,22 +113,21 @@ function reset() {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: params
+            body: formData
         })
         .then(response => response.json())
         .then(data => {
-            if (data) {
+            if (data && data.type == "success") {
                 Swal.fire({
                     title: 'Sucesso!',
-                    text: data.message || 'Senha Alterada com Sucesso.',
+                    text: data.msg || 'Senha Alterada com Sucesso.',
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
-                window.location.href = "../public/?login";
             } else {
                 Swal.fire({
                     title: 'Erro!',
-                    text: data.message || 'Senha não Alterada',
+                    text: data.msg || 'Senha não Alterada',
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });

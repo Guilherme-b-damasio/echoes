@@ -125,7 +125,7 @@ class service
                 // Conteúdo do e-mail
                 $mail->isHTML(true);
                 $mail->Subject = 'Redefinição de Senha';
-                $mail->Body    = 'Clique no link para redefinir sua senha...'.$reset_link;
+                $mail->Body    = 'Clique no link para redefinir sua senha...' . $reset_link;
 
                 // Enviar o e-mail
                 $mail->send();
@@ -139,16 +139,22 @@ class service
         return $result;
     }
 
-    public function resetPass($token)
+    public function resetPass($new_password, $token)
     {
 
         $result = $this->repo->resetPass($token);
         $response = [];
 
         if ($result) {
+
+            $this->repo->confirmResetPass($new_password, $result['user_id']);
+
+            $this->repo->deleteToken($token);
             $response['msg'] = "Senha redefinida com sucesso!";
+            $response['type'] = "success";
         } else {
             $response['msg'] = "Token inválido ou expirado.";
+            $response['type'] = "erro";
         }
         return $response;
     }

@@ -254,9 +254,20 @@ class repository
     public function confirmResetPass($new_password, $user_id){
 
         // Atualiza a senha do usuário
-        $stmt = $this->conn->prepare("UPDATE users SET password = v WHERE id = :id");
+        $stmt = $this->conn->prepare("UPDATE users SET password = :password WHERE id = :id");
         $stmt->bindParam(":password", $new_password);
         $stmt->bindParam(":id", $user_id);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        return $result;
+    }
+
+    public function deleteToken($token){
+
+        // Atualiza a senha do usuário
+        $stmt = $this->conn->prepare("DELETE FROM  password_resets WHERE token = :token");
+        $stmt->bindParam(":token", $token);
         $stmt->execute();
         $result = $stmt->fetch();
 

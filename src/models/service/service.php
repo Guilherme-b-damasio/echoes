@@ -25,6 +25,8 @@ class service
         if (!empty($userData)) {
             $user = new user($userData);
             $_SESSION['dataUser'] = serialize($user);
+
+
             return true;
         }
 
@@ -34,6 +36,9 @@ class service
     public function registerUser(String $name, String $user, String $email, String $phone, String $pass)
     {
         $response = $this->repo->registerUser($name, $user, $email, $phone, $pass);
+        if (!empty($response['user_id'])) {
+            $this->repo->createLikedPlaylist($response['user_id']);
+        }
         return $response;
     }
 
@@ -100,5 +105,27 @@ class service
         }
 
         return $response;
+    }
+
+    public function updateLikedPlaylist($user_id, $id_music)
+    {
+        $return = [];
+        $response = $this->repo->updateLikedPlaylist($user_id, $id_music);
+        if ($response) {
+            $return['type'] = 'success';
+        } else {
+            $return['type'] = 'error';
+        }
+        return $return;
+    }
+    public function selectLikedPlaylist($user_id)
+    {
+        $id_music = $this->repo->selectLikedPlaylist($user_id);
+        if(!empty($id_music)) {
+            $result = $this->repo->selectLikedPlaylistMusic($id_music);
+            $_SESSION['dataLikedSongs'] = serialize($result);
+            return $result;
+        }
+       
     }
 }

@@ -1275,3 +1275,100 @@ SQL:
     [playlist_created_at] => 2024-08-29 20:40:40
     [playlist_updated_at] => 2024-08-29 20:40:40
 )
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 2
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/coldplay.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-17 21:18:04
+    [music_updated_at] => 2024-09-17 21:18:04
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 1
+    [name] => A Real Hero
+    [src] => ../src/songs/College & Electric Youth - A Real Hero (Drive Original Movie Soundtrack).mp3
+    [image] => ../src/images/coldplay.jpg
+    [autor] => College & Electric Youth
+    [music_created_at] => 2024-09-17 21:18:02
+    [music_updated_at] => 2024-09-17 21:18:02
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)

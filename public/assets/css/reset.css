@@ -167,7 +167,7 @@ body {
   cursor: pointer; 
 }
 
-#show-login:hover, #show-register:hover {
+#show-login:hover, #show-register:hover, #show-login-from-forgot:hover {
   color: #314a8f;
 }
 

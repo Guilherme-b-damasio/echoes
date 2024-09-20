@@ -141,7 +141,7 @@ body {
   cursor: pointer; 
 }
 
-#show-login:hover, #show-register:hover {
+#show-login:hover, #show-register:hover, #show-forgot-password:hover, #show-login-from-forgot:hover{
   color: #314a8f;
 }
 
@@ -167,6 +167,20 @@ body {
 
 .hidden {
   display: none;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px; /* Ajuste o tamanho conforme necessário */
+  color: #999;
 }
 
 /*# sourceMappingURL=login.css.map */ 

@@ -59,8 +59,8 @@
                         <input type="number" placeholder="Telefone" class="input-field" name="phone" required>
                         <p class="text">Senha</p>
                         <input type="password" placeholder="Senha" class="input-field" name="pass" required>
-                        <p class="text">Confirme sua senha</p>
-                        <input type="password" placeholder="Confirme sua senha" class="input-field" name="confirm-pass" required>
+                        <!-- <p class="text">Confirme sua senha</p>
+                        <input type="password" placeholder="Confirme sua senha" class="input-field" name="confirm-pass" required> -->
                         <button class="sign-in-btn" class="btn" onclick="register()">Cadastrar-se</button>
                     </form>
                     <p class="terms">

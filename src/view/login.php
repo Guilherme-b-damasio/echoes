@@ -6,6 +6,7 @@
     <title>Echoes</title>
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
 
 <body>
@@ -32,7 +33,10 @@
                         <p class="text">E-mail ou nome de usuário</p>
                         <input type="text" placeholder="E-mail ou nome de usuário" class="input-field" name='user' id='user' required>
                         <p class="text">Senha</p>
-                        <input type="password" placeholder="Senha" class="input-field" name='pass' id='pass' required>
+                        <div class="password-container">
+                            <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-login" required>
+                            <i id="togglePasswordLogin" class="fa-solid fa-eye eye-icon"></i> <!-- Ícone de olho -->
+                        </div>
                         <div class="forgot-password">
                             <a href="#" id="show-forgot-password">Esqueceu sua senha?</a>
                         </div>
@@ -58,7 +62,10 @@
                         <p class="text">Telefone</p>
                         <input type="number" placeholder="Telefone" class="input-field" name="phone" required>
                         <p class="text">Senha</p>
-                        <input type="password" placeholder="Senha" class="input-field" name="pass" required>
+                        <div class="password-container">
+                            <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-register" required>
+                            <i id="togglePasswordRegister" class="fa-solid fa-eye eye-icon"></i> <!-- Ícone de olho -->
+                        </div>
                         <!-- <p class="text">Confirme sua senha</p>
                         <input type="password" placeholder="Confirme sua senha" class="input-field" name="confirm-pass" required> -->
                         <button class="sign-in-btn" class="btn" onclick="register()">Cadastrar-se</button>
@@ -124,6 +131,32 @@
             loginForm.classList.remove('hidden');
         });
     </script>
+
+    <script>
+        // Para o login
+        const togglePasswordLogin = document.querySelector('#togglePasswordLogin');
+        const passwordFieldLogin = document.querySelector('#pass-login');
+
+        togglePasswordLogin.addEventListener('click', function() {
+            const type = passwordFieldLogin.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordFieldLogin.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Para o cadastro
+        const togglePasswordRegister = document.querySelector('#togglePasswordRegister');
+        const passwordFieldRegister = document.querySelector('#pass-register');
+
+        togglePasswordRegister.addEventListener('click', function() {
+            const type = passwordFieldRegister.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordFieldRegister.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+
+
 </body>
 
 </html>

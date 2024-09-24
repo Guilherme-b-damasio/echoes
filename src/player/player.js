@@ -13,17 +13,69 @@ let songs = []; // Lista de músicas
 let currentSong = []; // Lista de músicas
 let index = 0;
 
-const textButtonPlay = "<i class='bx bx-caret-right'></i>";
-const textButtonPause = "<i class='bx bx-pause'></i>";
+const textButtonPlay = "<i class='fa-solid fa-circle-play'></i>";
+const textButtonPause = "<i class='fa-solid fa-circle-pause'></i>";
 
 function initializePlayer() {
-  prevButton.addEventListener('click', () => changeMusic("prev"));
-  nextButton.addEventListener('click', () => changeMusic("next"));
+  prevButton.addEventListener('click', () => prevMusic());
+  nextButton.addEventListener('click', () => nextMusic());
   playPauseButton.addEventListener('click', togglePlayPause);
   progressBar.addEventListener('click', updatePlaybackPosition);
   player.addEventListener('timeupdate', updateTime);
   player.addEventListener('ended', () => changeMusic("next"));
   playerManager();
+}
+
+function nextMusic() {
+
+  let element = document.getElementById('nextButton');
+  let id = element.getAttribute('data-music');
+  let name = document.getElementById('musicName').textContent;
+
+  let formData = new FormData();
+
+  formData.append('music', id);
+  formData.append('next', '1');
+  formData.append('name', name);
+
+  fetch(`../src/search_songs.php`, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data) {
+        document.getElementById('nextButton').setAttribute('data-music', data.ID);
+        changeMusic(data);
+      }
+    })
+    .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
+}
+
+function prevMusic() {
+
+  let element = document.getElementById('nextButton');
+  let id = element.getAttribute('data-music');
+  let name = document.getElementById('musicName').textContent;
+
+  let formData = new FormData();
+
+  formData.append('music', id);
+  formData.append('prev', '1');
+  formData.append('name', name);
+
+  fetch(`../src/search_songs.php`, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data) {
+        document.getElementById('nextButton').setAttribute('data-music', data.ID);
+        changeMusic(data);
+      }
+    })
+    .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
 
 function togglePlayPause() {
@@ -46,9 +98,7 @@ function updateTime() {
   const durationSeconds = Math.floor(durationFormatted % 60);
   duration.textContent = formatTime(durationMinutes, durationSeconds);
 
-  const progressWidth = durationFormatted
-    ? (player.currentTime / durationFormatted) * 100
-    : 0;
+  const progressWidth = durationFormatted ? (player.currentTime / durationFormatted) * 100 : 0;
   progress.style.width = progressWidth + "%";
 }
 
@@ -73,59 +123,31 @@ function updatePlaybackPosition(e) {
   }
 }
 
-function changeMusic(type = "next", ID = 0) {
-  const music = JSON.parse(songs);
-  if (music.length === 0) return;
-
-  if (type === "next") {
-    if (index === music[0].length) {
-      index = 0;
-    }else{
-      index++;
-    }
-
-  } else if (type === "prev") {
-    if (index != 0) {
-      index = (index - 1);
-    }else{
-      index = music[0].length;
-    }
-  } else if (type === "init") {
-    index = 0;
+function changeMusic(musics = null) {
+  let music;
+  if (musics !== null) {
+    music = musics;
+  } else {
+    music = JSON.parse(songs);
   }
 
+  if (music.length === 0) return;
 
-  if (music[0].length >= 1) {
+  if (music.length >= 1) {
     currentSong = music[0];
   } else {
     currentSong = music;
   }
 
+  if (currentSong.src && currentSong.name) {
+    player.src = currentSong.src;
+    musicName.innerHTML = currentSong.name;
+    player.load();
+    player.play();
+    playPauseButton.innerHTML = textButtonPause;
+    updateTime();
 
-  if (currentSong[index].src && currentSong[index].name) {
-
-    if (ID) {
-      for (let count = 0; count < currentSong.length; index++) {
-        if (currentSong[index].ID == ID) {
-          player.src = currentSong[index].src;
-          musicName.innerHTML = currentSong[index].name;
-          player.load();
-          player.play();
-          playPauseButton.innerHTML = textButtonPause;
-          updateTime();
-          setDetailsMusic(currentSong[index].image, currentSong[index].autor);
-          return;
-        }
-      }
-    } else {
-      player.src = currentSong[index].src;
-      musicName.innerHTML = currentSong[index].name;
-      player.load();
-      player.play();
-      playPauseButton.innerHTML = textButtonPause;
-      updateTime();
-    }
-    setDetailsMusic(currentSong[index].image, currentSong[index].autor);
+    setDetailsMusic(currentSong.image, currentSong.autor);
   } else {
     console.error('Fonte da música ou nome inválido:', currentSong);
   }
@@ -137,7 +159,7 @@ function setDetailsMusic(imgSrc, artist) {
   bckImg = document.getElementById('background-blur');
   eArtist = document.getElementById('artist');
   img.src = imgSrc;
-  bckImg.background = imgSrc; 
+  bckImg.background = imgSrc;
   bckImg.backgroundColor = "#f3f3f3";
   bckImg.style.backgroundImage = `url('${imgSrc}')`;
   eArtist.innerHTML = artist;
@@ -147,13 +169,12 @@ function setDetailsMusic(imgSrc, artist) {
 
 function setMusicList(musicList, ID) {
   songs = JSON.stringify(musicList);
-  ID = ID != null ? ID : 0;
-  changeMusic("init", ID);
+  changeMusic();
 }
 
 
 
-function playerManager () {
+function playerManager() {
   const audioPlayer = document.getElementById('player');
   const volumeSlider = document.getElementById('volumeSlider');
   const volumeUpButton = document.getElementById('volumeUp');

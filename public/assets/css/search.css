@@ -125,4 +125,6 @@ i {
     height: 30px;
     border-radius: 16px;
     border: none;
+    padding-left: 15px;
+    padding-right: 15px;
 }

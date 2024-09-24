@@ -14,8 +14,8 @@ class ControllerMusic {
         $this->service = new service();
     }
 
-    public function handle($name)
+    public function handle($name = null, $id = null, $time)
     {
-       return $this->service->searchMusic($name);
+        return $this->service->searchMusic($name, $id, $time);
     }
 }

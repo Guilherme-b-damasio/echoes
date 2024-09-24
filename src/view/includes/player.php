@@ -13,9 +13,9 @@
             <audio id="player" src=""></audio>
 
             <div class="controls">
-                <button id="prevButton"><i class='bx bx-skip-previous'></i></button>
-                <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
-                <button id="nextButton"><i class='bx bx-skip-next'></i></button>
+                <button id="prevButton"><i class='fa-solid fa-backward-step'></i></button>
+                <button id="playPauseButton"><i class='fa-solid fa-circle-play'></i></button>
+                <button id="nextButton"><i class='fa-solid fa-forward-step'></i></button>
             </div>
 
             <div class="footer">

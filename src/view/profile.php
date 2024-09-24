@@ -16,7 +16,7 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHR59P3pBQCippxMawDmw2ZEpnn8MBOhQJ7A&s" alt="" />
           <div class="file btn btn-lg btn-primary">
             Change Photo
-            <input type="file" name="file" />
+            <input type="file" name="file"/>
           </div>
         </div>
       </div>

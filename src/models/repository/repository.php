@@ -105,11 +105,74 @@ class repository
             return $e->getMessage();
         }
     }
-    public function searchMusic($name)
+    public function searchMusic($name, $id)
     {
         try {
-            $name = "%$name%";
 
+            $sql = "
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE 1=1";
+
+            $params = [];
+
+            if (!empty($name)) {
+                $sql .= " AND music.name LIKE :name";
+                $params[':name'] = "%$name%";
+            }
+            if (!empty($id)) {
+                $sql .= " AND music.ID = :id";
+                $params[':id'] = $id;
+            }
+
+            $stmt = $this->conn->prepare($sql);
+
+            foreach ($params as $param => $value) {
+                $stmt->bindValue($param, $value);
+            }
+
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            return !empty($result) ? $result : null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql);
+            error_log("Error in searchMusic: " . $e->getMessage());
+            return null;
+        }
+    }
+    
+    public function consultPlaylist()
+    {
+        try {
+            $sql = "SELECT * FROM playlist";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+
+            $playlist = $stmt->fetchAll(PDO::FETCH_OBJ);
+            return $playlist;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function searchNextMusic($name, $id)
+    {
+        try {
             $sql = "
             SELECT 
                 music.ID AS ID, 
@@ -128,57 +191,70 @@ class repository
             INNER JOIN 
                 playlist ON music.playlist_id = playlist.ID
             WHERE
-                music.name LIKE :name
-            UNION
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id IN (
-                    SELECT playlist_id
+                music.ID = (
+                    SELECT MIN(ID)
                     FROM music
-                    WHERE name LIKE :name
-                )
-        ";
+                    WHERE ID > :id
+                );
+            ";
 
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
 
-            return !empty($result) ? $result : null;
+            error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log('musics', 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+            return $result ? $result : null;
         } catch (PDOException $e) {
-            error_log("Error in searchMusic: " . $e->getMessage());
+            error_log("SQL: " . $sql);
+            error_log("Error in searchNextMusic: " . $e->getMessage());
             return null;
         }
     }
-
-
-    public function consultPlaylist()
+    public function searchPrevMusic($name, $id)
     {
         try {
-            $sql = "SELECT * FROM playlist";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
+            $sql = "
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        ";
 
-            $playlist = $stmt->fetchAll(PDO::FETCH_OBJ);
-            // Envia os resultados como JSON
-            return $playlist;
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ); // Usar fetch se você espera apenas um resultado
+
+            // Log de depuração
+            error_log("SQL: " . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Result: " . print_r($result, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+            return $result ? $result : null;
         } catch (PDOException $e) {
-            return $e->getMessage();
+            error_log("SQL: " . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Error in searchPrevMusic: " . $e->getMessage(), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            return null;
         }
     }
 
@@ -213,64 +289,5 @@ class repository
         } catch (PDOException $e) {
             return $e->getMessage();
         }
-    }
-
-    public function insertToken(int $user, String $token, int $expire)
-    {
-        // Salva o token e a validade no banco de dados
-        $stmt = $this->conn->prepare("INSERT INTO password_resets (user_id, token, expire_at) VALUES (:user_id, :token, :expire_at)");
-        $stmt->bindParam(":user_id", $user);
-        $stmt->bindParam(":token", $token);
-        $stmt->bindParam(":expire_at", $expire);
-        $stmt->execute();
-
-        return;
-    }
-
-    public function resetPassword(String $email)
-    {
-        // Verifica se o e-mail existe no banco de dados
-        $sql="SELECT ID FROM users WHERE email = :email";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(":email", $email);
-        $stmt->execute();
-        $user = $stmt->fetch();
-
-        return $user;
-    }
-
-    public function resetPass($token){
-        // Verifica o token e se ele ainda é válido
-        $stmt = $this->conn->prepare("SELECT user_id FROM password_resets WHERE token = :token AND expire_at >= :expire_at");
-        $current_time = date("U");
-        $stmt->bindParam(":token", $token);
-        $stmt->bindParam(":expire_at", $current_time);
-        $stmt->execute();
-        $result = $stmt->fetch();
-
-        return $result;
-    }
-
-    public function confirmResetPass($new_password, $user_id){
-
-        // Atualiza a senha do usuário
-        $stmt = $this->conn->prepare("UPDATE users SET password = :password WHERE id = :id");
-        $stmt->bindParam(":password", $new_password);
-        $stmt->bindParam(":id", $user_id);
-        $stmt->execute();
-        $result = $stmt->fetch();
-
-        return $result;
-    }
-
-    public function deleteToken($token){
-
-        // Atualiza a senha do usuário
-        $stmt = $this->conn->prepare("DELETE FROM  password_resets WHERE token = :token");
-        $stmt->bindParam(":token", $token);
-        $stmt->execute();
-        $result = $stmt->fetch();
-
-        return $result;
     }
 }

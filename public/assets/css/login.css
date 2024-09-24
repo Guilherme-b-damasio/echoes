@@ -100,12 +100,13 @@ body {
 
 .input-field {
   width: 400px;
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 15px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   background-color:#2b2c41;
-  color: white; }
+  color: white;
+  font-size: 13px }
 
 .forgot-password {
   color: white;
@@ -116,9 +117,9 @@ body {
 
 .sign-in-btn {
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #1d2d59;
   color: white;
   cursor: pointer;
@@ -128,7 +129,36 @@ body {
   transition: background 0.2s, border-color 0.2s; 
 }
 
-.sign-in-btn:hover{
+.sign-up-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1d2d59;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px; 
+  transition: background 0.2s, border-color 0.2s; 
+}
+
+.send-token-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1d2d59;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 20px; 
+  transition: background 0.2s, border-color 0.2s; 
+}
+
+.sign-in-btn:hover, .sign-up-btn:hover, .send-token-btn:hover{
   background-color: #24376b;
 }
 
@@ -145,9 +175,8 @@ body {
   color: #314a8f;
 }
 
-.terms, .sign-in, .sign-up {
-  font-size: 0.8rem;
-  color: #8e8e8e; }
+.terms {
+  text-align: justify; }
   
 .terms a, .sign-up a {
   color: white;

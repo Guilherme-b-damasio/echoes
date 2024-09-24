@@ -96,6 +96,99 @@ function register(){
         });
         
     });
+
+}
+
+function reset() {
+    let form = document.getElementById("form-reset");
+    
+        event.preventDefault();
+
+        const formData = new URLSearchParams(new FormData(form));    
+
+        let url = "../manager.php?resetpass";
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.type == "success") {
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: data.msg || 'Senha Alterada com Sucesso.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: data.msg || 'Senha não Alterada',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Ocorreu um erro ao processar a solicitação.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        });
+        
+}
+
+function resetPassword() {
+        let form = document.getElementById("form-reset");
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+        let formData = new FormData(form);
+        let params = new URLSearchParams(formData).toString();
+        
+        let url = "../src/manager.php?reset";
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: params
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: data.message || 'E-mail Enviado com Sucesso.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: data.message || 'Não foi Possiível enviar o E-mail',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Ocorreu um erro ao processar a solicitação.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        });
+    });
 }
 
 // RegisterLink.addEventListener('click', () =>{

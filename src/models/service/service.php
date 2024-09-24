@@ -7,6 +7,8 @@ use App\repository\repository;
 use App\entity\user;
 use App\entity\music;
 use App\entity\playlist;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class service
 {
@@ -99,6 +101,75 @@ class service
             $_SESSION['dataPlaylist'] = serialize($playlistArray);
         }
 
+        return $response;
+    }
+
+    public function resetPassword(String $email)
+    {
+        $response = $this->repo->resetPassword($email);
+
+        if ($response) {
+
+            $mail = new PHPMailer(true);
+
+            try {
+                // Configurações do servidor
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'gabriel_a_bruno@estudante.sesisenai.org.br';  // Seu endereço de e-mail
+                $mail->Password = 'Gab@199800';  // Sua senha ou App Password do Gmail
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = 587;
+
+                // Configurações do e-mail
+                $mail->setFrom('gabriel_a_bruno@estudante.sesisenai.org.br', 'Echoes');
+                $mail->addAddress($email);
+
+                // Usuário encontrado, gerar o token
+                $token = bin2hex(random_bytes(50));  // Gera um token seguro
+                $expire = date("U") + 3600;  // Token válido por 1 hora
+                $result = [];
+
+                $this->repo->insertToken($response['ID'], $token, $expire);
+
+                // Cria o link de redefinição de senha
+                $reset_link = "http://127.0.0.1/echoes/src/view/reset_password.php?token=" . $token;
+
+                // Conteúdo do e-mail
+                $mail->isHTML(true);
+                $mail->Subject = 'Redefinição de Senha';
+                $mail->Body    = 'Clique no link para redefinir sua senha...' . $reset_link;
+
+                // Enviar o e-mail
+                $mail->send();
+                $result['msg'] = "E-mail de recuperação enviado!";
+            } catch (Exception $e) {
+                $result['msg'] = "Erro ao enviar o e-mail.";
+            }
+        } else {
+            $result['msg'] = "E-mail não encontrado.";
+        }
+        return $result;
+    }
+
+    public function resetPass($new_password, $token)
+    {
+
+        $result = $this->repo->resetPass($token);
+        $response = [];
+
+        if ($result) {
+
+            $this->repo->confirmResetPass($new_password, $result['user_id']);
+
+            $this->repo->deleteToken($token);
+            $response['msg'] = "Senha redefinida com sucesso!";
+            $response['type'] = "success";
+        } else {
+            $response['msg'] = "Token inválido ou expirado.";
+            $response['type'] = "erro";
+        }
         return $response;
     }
 }

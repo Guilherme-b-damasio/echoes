@@ -13,8 +13,8 @@ let songs = []; // Lista de músicas
 let currentSong = []; // Lista de músicas
 let index = 0;
 
-const textButtonPlay = "<i class='bx bx-caret-right'></i>";
-const textButtonPause = "<i class='bx bx-pause'></i>";
+const textButtonPlay = "<i class='fa-solid fa-circle-play'></i>";
+const textButtonPause = "<i class='fa-solid fa-circle-pause'></i>";
 
 function initializePlayer() {
   prevButton.addEventListener('click', () => prevMusic());
@@ -134,7 +134,7 @@ function changeMusic(musics = null) {
   if (music.length === 0) return;
 
   if (music.length >= 1) {
-    currentSong = music;
+    currentSong = music[0];
   } else {
     currentSong = music;
   }

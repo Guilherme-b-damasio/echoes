@@ -100,12 +100,24 @@
 .controls i {
     font-size: 18px; /* Reduzir tamanho dos ícones */
     border-radius: 50%;
-    background-color: var(--details);
+    /* background-color: var(--details); */
     transition: all .2s;
+    color: #B3B3B3;
 }
 
+.controls .fa-circle-play{
+    font-size: 35px;
+}
+
+
+.controls .fa-circle-pause{
+    font-size: 35px;
+    color: white;
+} 
+
 .controls i:hover {
-    background-color: lightgray;
+    /* background-color: lightgray; */
+    color: #ffffff;
 }
 
 .footer {

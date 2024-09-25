@@ -33,7 +33,13 @@ if ($requestMethod == 'GET') {
         // Inclua o layout completo para requisições normais
         include('../src/view/header.php');
         if ($queryString == 'login' || !isset($_SESSION['logado']) || !$_SESSION['logado']) {
-            include '../src/view/login.php';
+            if($queryString != 'terms' && $queryString != 'polices'){
+                include '../src/view/login.php';
+            }
+            else{
+                include "../src/view/$queryString.php";
+            }
+            
         } else {
             echo '<div class="body-principal">';
             include('../src/view/includes/sidebar.php');

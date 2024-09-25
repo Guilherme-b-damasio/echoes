@@ -43,7 +43,7 @@
                         <button class="sign-in-btn" class="btn" onclick="login()">Login</button>
                     </form>
                     <p class="terms">
-                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
+                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
                     </p>
                     <p class="sign-up">Não tem uma conta? <a href="#" id="show-register">Cadastre-se agora</a></p>
                 </div>
@@ -69,7 +69,7 @@
                         <button class="sign-up-btn" class="btn" onclick="register()">Cadastrar-se</button>
                     </form>
                     <p class="terms">
-                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
+                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
                     </p>
                     <p class="sign-in">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
                 </div>
@@ -77,12 +77,13 @@
                 <!-- Formulário de Redefinição de Senha-->
                 <div id="forgot-password-form" class="hidden">
                     <h2>Redefinir Senha</h2>
+                    
                     <form id="form-reset">
                         <p class="text">E-mail</p>
                         <input type="email" placeholder="E-mail" class="input-field" name="email" required>
                         <button class="send-token-btn" class="btn" onclick="resetPassword()">Enviar Token</button>
                     </form>
-                    <p class="back-to-login"><a href="#" id="show-login-from-forgot"><i class="fa-solid fa-arrow-left"></i> Voltar para o login</a></p>
+                    <p class="back-to-login"><a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
                 </div>
 
             </div>

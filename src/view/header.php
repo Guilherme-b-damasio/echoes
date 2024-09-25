@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/player.css">
     <link rel="stylesheet" href="assets/css/loading.css">
-    <script defer src="js/search.js"></script>
+    <script defer src="js/search.js"></script> 
+    <script defer src="js/liked.js"></script>
 
     <!-- <link rel="icon" href="icon.png" type="image/x-icon"> -->
     <script src="https://kit.fontawesome.com/92aa46a256.js" crossorigin="anonymous"></script>

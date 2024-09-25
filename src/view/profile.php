@@ -9,7 +9,6 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
 
 
 
-
 <div class="profile-container">
   <div class="col-md-4">
     <div class="card profile-card-2">
@@ -18,10 +17,29 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
       </div>
       <div class="card-body pt-5">
         <img src="https://www.rbsdirect.com.br/filestore/9/6/6/3/4/9/4_964fd9a444fb672/4943669_63bca88572cb332.jpg?format=webp&h=392&w=392" alt="profile-image" class="profile" />
-        <h5 class="card-title">Jair Messias Bolsonaro</h5>
+        <h5 class="card-title"><?php echo $dataUser->getLogin() ?></h5>
         <p class="card-text">Melhor Presidente do Mundo</p>
-        </div>
       </div>
     </div>
   </div>
+  <div class="profile-body">
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <p class="text-profile">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+  </div>
+</div>
 </div>

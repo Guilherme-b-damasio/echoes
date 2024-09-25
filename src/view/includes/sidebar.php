@@ -46,7 +46,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="?likeds" data-page="likeds">
                     <span class="fa fas fa-heart"></span>
                     <span>Músicas Curtidas</span>
                 </a>

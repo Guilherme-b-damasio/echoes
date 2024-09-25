@@ -6,7 +6,7 @@
     </div>
 
     <div class="navigation">
-        <ul>
+        <ul class="ul-sidebar">
             <li>
                 <a href="?profile" data-page="profile"><?php echo $dataUser->getLogin(); ?></a>
             </li>

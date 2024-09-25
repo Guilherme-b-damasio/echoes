@@ -38,6 +38,7 @@
     background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important;
     padding: 24px;
     overflow: hidden;
+
   }
   .sidebar .logoIcone img {
     height: auto;
@@ -49,7 +50,14 @@
   .sidebar .navigation ul {
     list-style: none;
     margin-top: 20px;
+    margin-left: 0px;
+    padding-left:0px;
   }
+
+  .sidebar .navigation .ul-sidebar{
+    margin-left: 0 !important;
+  }
+
   .sidebar .navigation ul li {
     padding: 10px 0px;
   }
@@ -82,8 +90,11 @@
     position: absolute;
     bottom: 100px;
   }
+
+
   .sidebar .policies ul {
     list-style: none;
+    margin-left: 0px !important;
   }
   .sidebar .policies ul li {
     padding-bottom: 5px;

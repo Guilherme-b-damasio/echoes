@@ -16,7 +16,7 @@ class ControllerMain
             if (!empty($template)) {
                 $this->render($template);
             } else {
-                include '../src/view/main.php';
+                include '../src/view/home.php';
             }
         } else {
             include '../src/view/login.php';

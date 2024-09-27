@@ -302,7 +302,7 @@ class repository
 
     public function updateLikedPlaylist($user_id, $id_music)
     {
-        $sql = $this->conn->prepare("INSERT INTO likedPlaylist(id_music) values (:id_music) WHERE user_id = :user_id");
+        $sql = $this->conn->prepare("INSERT INTO likedPlaylist(id_music, user_id) values (:id_music, :user_id)");
         $sql->bindParam(":id_music", $id_music);
         $sql->bindParam(":user_id", $user_id);
         return $sql->execute();
@@ -311,15 +311,15 @@ class repository
     public function selectLikedPlaylist($user_id)
 {
     try {
-        $sql = "SELECT id_music FROM likedPlaylist WHERE user_id = :user_id LIMIT 1";
+        $sql = "SELECT ID FROM likedPlaylist WHERE user_id = :user_id LIMIT 1";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
         $stmt->execute();
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result !== false && isset($result['id_music'])) {
-            return $result['id_music'];
+        if ($result !== false && isset($result['ID'])) {
+            return $result['ID'];
         } else {
             return 'teste'; 
         }
@@ -330,7 +330,7 @@ class repository
     }
 }
 
-public function selectLikedPlaylistMusic($likedId)
+public function selectLikedPlaylistMusic($user_id)
 {
     try {
         $sql = "SELECT music.ID, music.name, music.src, music.image, music.autor, 
@@ -338,20 +338,20 @@ public function selectLikedPlaylistMusic($likedId)
                         music.updated_at AS music_updated_at
                 FROM music
                 INNER JOIN likedPlaylist ON music.ID = likedPlaylist.id_music
-                WHERE likedPlaylist.ID = :likedId";
+                WHERE likedPlaylist.user_id = :user_id";
 
         $stmt = $this->conn->prepare($sql);
 
-        $stmt->bindParam(':likedId', $likedId, PDO::PARAM_INT);
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
 
         $musics = $stmt->fetchAll(PDO::FETCH_OBJ);
-
         return $musics;
 
+        
     } catch (PDOException $e) {
         error_log('Database query failed: ' . $e->getMessage());
-        return false;
+        return $e->getMessage();
     }
 }
 }

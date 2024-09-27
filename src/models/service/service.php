@@ -120,12 +120,12 @@ class service
     }
     public function selectLikedPlaylist($user_id)
     {
-        $id_music = $this->repo->selectLikedPlaylist($user_id);
-        if(!empty($id_music)) {
-            $result = $this->repo->selectLikedPlaylistMusic($id_music);
-            $_SESSION['dataLikedSongs'] = serialize($result);
-            return $result;
-        }
-       
+        $response = [];
+        $consult = [];
+
+        $consult = $this->repo->selectLikedPlaylistMusic($user_id);
+        $_SESSION['dataLikedSongs'] = serialize($consult);
+
+        return $consult;
     }
 }

@@ -29,4 +29,8 @@ class user
     {
         return $this->login;
     }
+    public function getId()
+    {
+        return $this->id;
+    }
 }

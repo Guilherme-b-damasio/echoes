@@ -1,6 +1,6 @@
 async function loadLikedSongs() {
 
-    const response = await fetch('../src/list_liked.php');
+    const response = await fetch('../src/list_liked.php?option=select');
     const data = await response.json();
     if (data && data.length > 0) {
         let html = '';

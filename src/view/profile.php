@@ -11,11 +11,11 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
 
 <div class="profile-container">
   <div class="card profile-card-2">
-    <div class="card-img-block">
-      <img class="img-fluid" src="https://images.unsplash.com/photo-1422393462206-207b0fbd8d6b?dpr=1&auto=format&crop=entropy&fit=crop&w=1500&h=1000&q=80" alt="Card image">
+    <div id="card-img-block" class="card-img-block">
+      
     </div>
     <div class="card-body pt-5">
-      <img src="../src/uploads/<?php echo $dataUser->getId();?>/profile.png" alt="profile-image" class="profile">
+      <img src="../src/uploads/<?php echo $dataUser->getId();?>/profile.png" alt="profile-image" id="profile" class="profile">
       <div id="profile-hover" class="profile-hover"><i class="fa-solid fa-pen-to-square"></i>
         <p class="text-photo">Alterar foto</p>
       </div>

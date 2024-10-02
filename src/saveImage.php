@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Verificar se o arquivo foi enviado corretamente
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
         if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile)) {
-            $response = ['message' => 'Image uploaded successfully!'];
+            $response = ['message' => 'Image uploaded successfully!', 'imagePath' => $uploadFile];
         } else {
             $response = ['message' => 'Failed to upload image.'];
         }

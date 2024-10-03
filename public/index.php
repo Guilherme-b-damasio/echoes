@@ -47,3 +47,12 @@ if ($requestMethod == 'GET') {
     http_response_code(405);
     echo "Método não permitido";
 }
+
+?>
+
+<script>
+
+    window.onload = function(){ 
+        localStorage.setItem('player', '');
+    }
+</script>

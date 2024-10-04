@@ -20,16 +20,11 @@
             </h1>
         </div>
         <div class="search-container">
-            <i class="fas fa-music" style="color: white;">
-            </i>
-            <input type="text" id="searchInput" placeholder=" Pesquise por músicas"
-                style="background: white; color: #333;">
-            <button id="searchBtn" onclick="search()">
-                Pesquisar
-            </button>
-            <button id="clearBtn" onclick="clearBtn()">
-                Limpar
-            </button>
+            <div id="search">
+                <i id="searchBtn" class="fa-solid fa-magnifying-glass" onclick="search()"></i>  
+                <input type="text" id="searchInput" placeholder=" Pesquise por músicas">
+                <i class="fa-solid fa-xmark" onclick="clearBtn()"></i>
+            </div>
         </div>
         <div class="result-container" id="results"></div>
     </div>
@@ -37,7 +32,7 @@
         <div class="loading-spinner" style="border-color: #3498db; 
                     border-top-color: #e74c3c;"></div>
     </div>
-   
+
 </body>
 
 </html>

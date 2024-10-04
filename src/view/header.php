@@ -11,6 +11,7 @@
     <script defer src="js/search.js"></script> 
     <script defer src="js/liked.js"></script>
     <script defer src="js/profile.js"></script>
+    
 
     <!-- <link rel="icon" href="icon.png" type="image/x-icon"> -->
     <script src="https://kit.fontawesome.com/92aa46a256.js" crossorigin="anonymous"></script>

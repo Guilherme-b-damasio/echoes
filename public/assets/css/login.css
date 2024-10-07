@@ -21,6 +21,7 @@ body {
 
 .container-logo .logo {
   width: 170px; 
+  position: absolute;
 }
 
 .mid-container {
@@ -63,7 +64,7 @@ body {
 }
 
 .mid-container .right-section h2 {
-  margin-bottom: 10px; 
+  margin-bottom: 25px;
 }
 
 .mid-container .right-section p {
@@ -79,6 +80,10 @@ body {
 
 .mid-container .right-section .sign-in, .sign-up{
   padding-top: 20px;
+}
+
+.mid-container .right-section .forgot-password-form h2 {
+  margin-bottom: 25px; 
 }
 
 .social-login {
@@ -154,6 +159,7 @@ body {
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
+  margin-top: 10px; 
   margin-bottom: 20px; 
   transition: background 0.2s, border-color 0.2s; 
 }
@@ -166,12 +172,11 @@ body {
   padding: 5px;
   border-radius: 5px;
   color: white;
-  text-decoration: underline;
-  /* text-decoration: none; */
   cursor: pointer; 
+  text-decoration: none;
 }
 
-#show-login:hover, #show-register:hover, #show-forgot-password:hover, #show-login-from-forgot:hover{
+#show-login:hover, #show-register:hover, #show-forgot-password:hover, #show-login-from-forgot:hover, .forgot-password:hover{
   color: #314a8f;
 }
 
@@ -207,10 +212,10 @@ body {
 .eye-icon {
   padding-bottom: 10px;
   position: absolute;
-  right: 10px;/* Ajuste a posição do ícone */
+  right: 14px;/* Ajuste a posiÃ§Ã£o do Ã­cone */
   cursor: pointer;
-  font-size: 18px;/* Ajuste o tamanho do ícone */
-  color: white;/* Cor do ícone */
+  font-size: 14px;/* Ajuste o tamanho do Ã­cone */
+  color: white;/* Cor do Ã­cone */
 }
 
 /*# sourceMappingURL=login.css.map */ 

@@ -83,7 +83,7 @@
                         <input type="email" placeholder="E-mail" class="input-field" name="email" required>
                         <button class="send-token-btn" class="btn" onclick="resetPassword()">Enviar Token</button>
                     </form>
-                    <p class="back-to-login"><a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
+                    <p class="back-to-login"> Lembrou a senha? <a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
                 </div>
 
             </div>

@@ -1,9 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --black: #000000;
+  --details: rgba(0, 212, 255, 1);
+  --blue: rgba(0, 212, 255, 1);
+}
+
+html,
+body {
+  height: 100% !important;
+  width: 100% !important;
+  zoom: 1 !important;
+  overflow-x: hidden !important;
+
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: white !important;
+  text-align: left !important;
+}
+
 body {
   margin: 0;
   /* font-family: Arial, sans-serif; */
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   background: radial-gradient(93% 100% at 0% 0%, rgba(121, 255, 206, 0.3) 0%, rgba(121, 255, 206, 0) 100%), #00032d;
-  color: white; }
+  color: white;
+}
 
 .container {
   padding: 40px;
@@ -11,22 +38,22 @@ body {
   align-items: center;
   flex-direction: column;
   height: -webkit-fill-available;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .container-logo {
   display: flex;
-  width: 100%; 
+  width: 100%;
 }
 
 .container-logo .logo {
-  width: 170px; 
+  width: 170px;
 }
 
 .mid-container {
   display: flex;
   align-items: center;
-  height: 100%; 
+  height: 100%;
 }
 
 .mid-container .left-section {
@@ -38,20 +65,23 @@ body {
   align-items: center;
   justify-content: space-around;
   color: white;
-  flex: 1; }
+  flex: 1;
+}
 
 
 .mid-container .left-section h1 {
   font-size: 2.5rem;
-  line-height: 1.2; }
+  line-height: 1.2;
+}
 
 .mid-container .music-icon {
   width: 100px;
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 
 .mid-container .right-section {
-  background-color: #131a31;;
+  background-color: #131a31;
+  ;
   max-width: 400px;
   padding: 30px 40px 30px 40px;
   flex: 1;
@@ -59,25 +89,27 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .mid-container .right-section h2 {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .mid-container .right-section p {
   color: #8e8e8e;
   font-size: 0.9rem;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
 }
 
-.mid-container .right-section .text{
-    color:white;
-    font-weight: bold;
-}  
+.mid-container .right-section .text {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
 
-.mid-container .right-section .sign-in, .sign-up{
+.mid-container .right-section .sign-in,
+.sign-up {
   padding-top: 20px;
 }
 
@@ -85,7 +117,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .social-btn {
@@ -95,24 +127,27 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: white; 
+  color: white;
 }
 
-.input-field {
-  width: 400px;
+.input-field,
+#new_password {
+  width: 420px;
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
   border: none;
-  background-color:#2b2c41;
-  color: white; }
+  background-color: #2b2c41;
+  color: white;
+}
 
 .forgot-password {
   color: white;
   font-size: 0.8rem;
   text-decoration: underline;
   margin-bottom: 20px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .sign-in-btn {
   width: 100%;
@@ -124,44 +159,55 @@ body {
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
-  margin-bottom: 20px; 
-  transition: background 0.2s, border-color 0.2s; 
+  margin-bottom: 20px;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.sign-in-btn:hover{
+.sign-in-btn:hover {
   background-color: #24376b;
 }
 
-#show-login, #show-register, #show-forgot-password, #show-login-from-forgot{
+#show-login,
+#show-register,
+#show-forgot-password,
+#show-login-from-forgot {
   padding: 5px;
   border-radius: 5px;
   color: white;
   text-decoration: underline;
   /* text-decoration: none; */
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-#show-login:hover, #show-register:hover, #show-forgot-password:hover, #show-login-from-forgot:hover{
+#show-login:hover,
+#show-register:hover,
+#show-login-from-forgot:hover {
   color: #314a8f;
 }
 
-.terms, .sign-in, .sign-up {
+.terms,
+.sign-in,
+.sign-up {
   font-size: 0.8rem;
-  color: #8e8e8e; }
-  
-.terms a, .sign-up a {
+  color: #8e8e8e;
+}
+
+.terms a,
+.sign-up a {
   color: white;
   text-decoration: none;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .activate {
-  display: none; }
+  display: none;
+}
 
-#signup-form h2{
+#signup-form h2 {
   padding-bottom: 20px;
 }
 
-.left-section{
+.left-section {
   width: 100%;
 }
 
@@ -184,4 +230,4 @@ body {
   color: white;/* Cor do ícone */
 }
 
-/*# sourceMappingURL=login.css.map */ 
+/*# sourceMappingURL=login.css.map */

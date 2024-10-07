@@ -13,8 +13,8 @@ let songs = []; // Lista de músicas
 let currentSong = []; // Lista de músicas
 let index = 0;
 
-const textButtonPlay = "<i class='bx bx-caret-right'></i>";
-const textButtonPause = "<i class='bx bx-pause'></i>";
+const textButtonPlay = "<i class='fa-solid fa-circle-play'></i>";
+const textButtonPause = "<i class='fa-solid fa-circle-pause'></i>";
 
 function initializePlayer() {
   prevButton.addEventListener('click', () => prevMusic());
@@ -88,9 +88,23 @@ function togglePlayPause() {
   }
 }
 
+function getLocalStorageTime(){
+  let playerLocalStorage = localStorage.getItem('player');
+
+  for (const [key, value] of Object.entries(playerLocalStorage)) {
+     currentMinutes = key == 'currentMinutes' ? value : '';
+     currentSeconds = key == 'currentSeconds' ? value : '';
+  }
+  
+}
+
 function updateTime() {
-  const currentMinutes = Math.floor(player.currentTime / 60);
-  const currentSeconds = Math.floor(player.currentTime % 60);
+  if(currentMinutes && currentSeconds){
+    getLocalStorage();
+  }
+ 
+  var currentMinutes = Math.floor(player.currentTime / 60);
+  var currentSeconds = Math.floor(player.currentTime % 60);
   currentTime.textContent = formatTime(currentMinutes, currentSeconds);
 
   const durationFormatted = isNaN(player.duration) ? 0 : player.duration;

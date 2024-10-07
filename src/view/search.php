@@ -19,25 +19,13 @@
                 Procure por musicas
             </h1>
         </div>
-        <div class="search-container">
-            <i class="fas fa-music" style="color: white;">
-            </i>
-            <input type="text" id="searchInput" placeholder=" Pesquise por músicas"
-                style="background: white; color: #333;">
-            <button id="searchBtn" onclick="search()">
-                Pesquisar
-            </button>
-            <button id="clearBtn" onclick="clearBtn()">
-                Limpar
-            </button>
-        </div>
         <div class="result-container" id="results"></div>
     </div>
     <div class="loading-container" id="loadingContainer">
         <div class="loading-spinner" style="border-color: #3498db; 
                     border-top-color: #e74c3c;"></div>
     </div>
-   
+
 </body>
 
 </html>

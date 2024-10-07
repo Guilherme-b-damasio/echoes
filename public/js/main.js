@@ -36,7 +36,8 @@ async function loadSongs(data) {
                                     <span class="fa fa-play" onclick='playerMusic(${music.ID})'></span>
                                     
                                 </div>
-                                <h4>${music.name}</h4>
+                                <h4 class="song-title">${music.name}</h4>
+                                <h4 class="autor-name">${music.autor}</h4>
                                 </div>`;
             });
             list.innerHTML = html;

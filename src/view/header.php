@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="assets/css/loading.css">
     <script defer src="js/search.js"></script> 
     <script defer src="js/liked.js"></script>
+    <script defer src="js/profile.js"></script>
+    
 
     <!-- <link rel="icon" href="icon.png" type="image/x-icon"> -->
     <script src="https://kit.fontawesome.com/92aa46a256.js" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/images/echoes-icon-14.ico">
 
     <title>Echoes</title>

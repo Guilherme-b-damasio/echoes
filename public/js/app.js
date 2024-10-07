@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if(page === 'search'){
-            loadLikedSongs();
+            search();
         }
 
         window.history.pushState({}, '', '?' + page);

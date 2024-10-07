@@ -1,7 +1,6 @@
 const apiURL = 'https://api.lyrics.ovh';
 
 function search() {
-    console.log('dadsadasdadasada');
     const searchInput = document.getElementById('searchInput').value;
     if (searchInput !== '') {
         showLoading();

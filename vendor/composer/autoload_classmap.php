@@ -6,12 +6,15 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controller\\ControllerLikedPlaylist' => $baseDir . '/src/controller/ControllerLikedPlaylist.php',
     'App\\Controller\\ControllerLogin' => $baseDir . '/src/controller/ControllerLogin.php',
     'App\\Controller\\ControllerMusic' => $baseDir . '/src/controller/ControllerMusic.php',
     'App\\Controller\\ControllerMusicPlaylist' => $baseDir . '/src/controller/ControllerMusicPlaylist.php',
     'App\\Controller\\ControllerPlayerMusic' => $baseDir . '/src/controller/ControllerPlayerMusic.php',
     'App\\Controller\\ControllerPlaylist' => $baseDir . '/src/controller/ControllerPlaylist.php',
     'App\\Controller\\ControllerRegister' => $baseDir . '/src/controller/ControllerRegister.php',
+    'App\\Controller\\ControllerReset' => $baseDir . '/src/controller/ControllerReset.php',
+    'App\\Controller\\ControllerResetPassword' => $baseDir . '/src/controller/ControllerResetPassword.php',
     'App\\Service\\service' => $baseDir . '/src/models/service/service.php',
     'App\\config\\db' => $baseDir . '/config/db.php',
     'App\\entity\\music' => $baseDir . '/src/models/entity/music.php',

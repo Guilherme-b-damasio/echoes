@@ -120,14 +120,14 @@ function reset() {
             if (data && data.type == "success") {
                 Swal.fire({
                     title: 'Sucesso!',
-                    text: data.msg || 'Senha Alterada com Sucesso.',
+                    text: data.msg,
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
             } else {
                 Swal.fire({
                     title: 'Erro!',
-                    text: data.msg || 'Senha não Alterada',
+                    text: data.msg,
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });

@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         loadPlaylist();
                     }
 
+                    if (page === 'search') {
+                        search();
+                    }
+
                     // Atualiza a URL no navegador sem recarregar a página
                     window.history.pushState({}, '', '?' + page);
 

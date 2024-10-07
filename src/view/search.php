@@ -19,13 +19,6 @@
                 Procure por musicas
             </h1>
         </div>
-        <div class="search-container">
-            <div id="search">
-                <i id="searchBtn" class="fa-solid fa-magnifying-glass" onclick="search()"></i>  
-                <input type="text" id="searchInput" placeholder=" Pesquise por músicas">
-                <i class="fa-solid fa-xmark" onclick="clearBtn()"></i>
-            </div>
-        </div>
         <div class="result-container" id="results"></div>
     </div>
     <div class="loading-container" id="loadingContainer">

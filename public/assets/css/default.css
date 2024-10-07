@@ -148,6 +148,10 @@ body {
   padding: 0px 0px 0px 4px;
 }
 
+.sidebar-page li{
+  color: aliceblue;
+}
+
 .sidebar-page li a{
   color: aquamarine;
 }

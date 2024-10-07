@@ -13,7 +13,7 @@
             <li>
                 <div class="search-container">
                     <div id="search">
-                        <i id="searchBtn" class="fa-solid fa-magnifying-glass" onclick="search()"></i>
+                        <a id="searchBtn" class="fa-solid fa-magnifying-glass" href="?search" data-page="search" ></a>
                         <input type="text" id="searchInput" placeholder="Pesquisar...">
                         <i class="fa-solid fa-xmark" id="clearBtn" style="display: none;" onclick="clearSearch()"></i>
                     </div>

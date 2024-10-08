@@ -30,6 +30,7 @@ async function loadSongs(data) {
             data.forEach(music => {
                 html +=
                     `<div class="item">
+                    <span class="fa fa-heart" onclick='saveMusic(${music.ID})'></span>
                                 <img src="${music.image}" alt="Album Art" />
                                 <div class="play">
                                     <span class="fa fa-play" onclick='playerMusic(${music.ID})'></span>
@@ -75,7 +76,6 @@ async function loadPlaylist() {
 }
 
 function playerMusic(ID) {
-
     fetch(`../src/search_songs.php?music=${ID}`)
         .then(response => response.json())
         .then(data => {
@@ -86,6 +86,19 @@ function playerMusic(ID) {
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
+
+
+function saveMusic(ID){
+    fetch(`../src/setLiked.php?music=${ID}&option=update`)
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                console.log('save')
+            }
+        })
+        .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
+}
+
 
 window.onload = function () {
     loadPlaylist();

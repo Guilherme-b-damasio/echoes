@@ -88,9 +88,23 @@ function togglePlayPause() {
   }
 }
 
+function getLocalStorageTime(){
+  let playerLocalStorage = localStorage.getItem('player');
+
+  for (const [key, value] of Object.entries(playerLocalStorage)) {
+     currentMinutes = key == 'currentMinutes' ? value : '';
+     currentSeconds = key == 'currentSeconds' ? value : '';
+  }
+  
+}
+
 function updateTime() {
-  const currentMinutes = Math.floor(player.currentTime / 60);
-  const currentSeconds = Math.floor(player.currentTime % 60);
+  if(currentMinutes && currentSeconds){
+    getLocalStorage();
+  }
+ 
+  var currentMinutes = Math.floor(player.currentTime / 60);
+  var currentSeconds = Math.floor(player.currentTime % 60);
   currentTime.textContent = formatTime(currentMinutes, currentSeconds);
 
   const durationFormatted = isNaN(player.duration) ? 0 : player.duration;

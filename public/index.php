@@ -28,16 +28,11 @@ if ($requestMethod === 'GET') {
     } else {
         include('../src/view/header.php');
         if ($queryString == 'login' || !isset($_SESSION['logado']) || !$_SESSION['logado']) {
-            if($queryString != 'terms' && $queryString != 'polices'){
+            if ($queryString != 'terms' && $queryString != 'polices') {
                 include '../src/view/login.php';
-            }
-            else{
+            } else {
                 include "../src/view/$queryString.php";
             }
-
-        if ($queryString === 'login' || !isset($_SESSION['logado']) || !$_SESSION['logado']) {
-            include '../src/view/login.php';
-
         } else {
             echo '<div class="body-principal">';
             include('../src/view/includes/sidebar.php');
@@ -54,7 +49,6 @@ if ($requestMethod === 'GET') {
 ?>
 
 <script>
-
     window.onload = function(){ 
         localStorage.setItem('player', '');
     }

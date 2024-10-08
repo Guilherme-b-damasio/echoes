@@ -1,4 +1,106 @@
 * {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  :root {
+    --black: #000000;
+    --details: rgba(0,212,255,1);
+    --blue: rgba(0,212,255,1);
+  }
+
+  
+  html,body{
+    height: 100% !important; 
+    width: 100% !important;
+    zoom: 1 !important;
+    overflow-x: hidden !important;
+
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: white !important;
+    text-align: left !important;
+  }
+  body {
+    background: radial-gradient(93% 100% at 0% 0%,rgba(121,255,206,.3) 0%,rgba(121,255,206,0) 100%),#00032d !important;
+  }
+
+
+  .sidebar {
+    /* position: fixed; */
+    /* left: 0; */
+    /* top: 0; */
+    /* bottom: 0; */
+    width: 200px !important;
+    /* background-color: #000000; */
+    background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important;
+    padding: 24px;
+    overflow: hidden;
+  }
+  .sidebar .logoIcone img {
+    height: auto;
+    width: 13vw;
+    max-width: 140px;
+    min-width: 100px;
+  }
+  
+  .sidebar .navigation ul {
+    list-style: none;
+    margin-top: 20px;
+  }
+  .sidebar .navigation ul li {
+    padding: 10px 0px;
+  }
+  .sidebar .navigation ul li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .sidebar .navigation ul li a:hover,
+  .sidebar .navigation ul li a:active,
+  .sidebar .navigation ul li a:focus {
+    color: var(--details);
+  }
+  .sidebar .navigation ul li a:hover .fa,
+  .sidebar .navigation ul li a:active .fa,
+  .sidebar .navigation ul li a:focus .fa {
+    color: #b3b3b3;
+  }
+  .sidebar .navigation ul li .fa {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .sidebar .navigation ul li a:hover .fa:hover,
+  .sidebar .navigation ul li a:hover .fa:active,
+  .sidebar .navigation ul li a:hover .fa:focus {
+    color: var(--details);
+  }
+  .sidebar .policies {
+    position: absolute;
+    bottom: 100px;
+  }
+  .sidebar .policies ul {
+    list-style: none;
+  }
+  .sidebar .policies ul li {
+    padding-bottom: 5px;
+  }
+  .sidebar .policies ul li a {
+    /* color: var(--black); */
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 10px;
+    color: #ffffff;
+  }
+  .sidebar .policies ul li a:hover,
+  .sidebar .policies ul li a:active,
+  .sidebar .policies ul li a:focus {
+    text-decoration: underline;
+  }
+
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;

@@ -1,0 +1,1342 @@
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 4
+    [name] => Highway to Hell
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:12:51
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 4
+    [name] => Highway to Hell
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:12:51
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 4
+    [name] => Highway to Hell
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:12:51
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 4
+    [name] => Highway to Hell
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:12:51
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 4
+            [name] => Highway to Hell
+            [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+            [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+            [autor] => AC/DC
+            [music_created_at] => 2024-09-02 20:12:51
+            [music_updated_at] => 2024-09-03 21:26:43
+            [playlist_id] => 2
+            [playlist_name] => Melhores do Rock
+            [playlist_created_at] => 2024-08-29 20:40:40
+            [playlist_updated_at] => 2024-08-29 20:40:40
+        )
+
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 3
+            [name] => Back In Black
+            [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+            [image] => ../src/images/Back_in_Black.jpg
+            [autor] => AC/DC
+            [music_created_at] => 2024-09-02 20:11:33
+            [music_updated_at] => 2024-09-03 21:26:43
+            [playlist_id] => 2
+            [playlist_name] => Melhores do Rock
+            [playlist_created_at] => 2024-08-29 20:40:40
+            [playlist_updated_at] => 2024-08-29 20:40:40
+        )
+
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 4
+            [name] => Highway to Hell
+            [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+            [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+            [autor] => AC/DC
+            [music_created_at] => 2024-09-02 20:12:51
+            [music_updated_at] => 2024-09-03 21:26:43
+            [playlist_id] => 2
+            [playlist_name] => Melhores do Rock
+            [playlist_created_at] => 2024-08-29 20:40:40
+            [playlist_updated_at] => 2024-08-29 20:40:40
+        )
+
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 4
+    [name] => Highway to Hell
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:12:51
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 2
+    [name] => A Real Hero
+    [src] => ../src/songs/College & Electric Youth - A Real Hero (Drive Original Movie Soundtrack).mp3
+    [image] => ../src/images/coldplay.jpg
+    [autor] => College & Electric Youth
+    [music_created_at] => 2024-08-29 22:11:31
+    [music_updated_at] => 2024-08-29 22:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 1
+    [name] => Viva La Vida
+    [src] => ../src/songs/Coldplay - Viva La Vida (Official Video).mp3
+    [image] => ../src/images/coldplay.jpg
+    [autor] => ColdPlay
+    [music_created_at] => 2024-08-29 21:23:31
+    [music_updated_at] => 2024-08-29 21:23:31
+    [playlist_id] => 1
+    [playlist_name] => Melhores Clássicos
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 4
+    [name] => Highway to Hell
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:12:51
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 4
+    [name] => Highway to Hell
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:12:51
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 3
+    [name] => Back In Black
+    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
+    [image] => ../src/images/Back_in_Black.jpg
+    [autor] => AC/DC
+    [music_created_at] => 2024-09-02 20:11:33
+    [music_updated_at] => 2024-09-03 21:26:43
+    [playlist_id] => 2
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musics

@@ -34,7 +34,6 @@ async function loadSongs(data) {
                                 <img src="${music.image}" alt="Album Art" />
                                 <div class="play">
                                     <span class="fa fa-play" onclick='playerMusic(${music.ID})'></span>
-                                    
                                 </div>
                                 <h4 class="song-title">${music.name}</h4>
                                 <h4 class="autor-name">${music.autor}</h4>
@@ -77,7 +76,6 @@ async function loadPlaylist() {
 }
 
 function playerMusic(ID) {
-
     fetch(`../src/search_songs.php?music=${ID}`)
         .then(response => response.json())
         .then(data => {

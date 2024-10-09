@@ -43,7 +43,7 @@
                         <button class="sign-in-btn" class="btn" onclick="login()">Login</button>
                     </form>
                     <p class="terms">
-                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
+                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
                     </p>
                     <p class="sign-up">Não tem uma conta? <a href="#" id="show-register">Cadastre-se agora</a></p>
                 </div>
@@ -60,31 +60,30 @@
                         <p class="text">E-mail</p>
                         <input type="email" placeholder="E-mail" class="input-field" name="email" required>
                         <p class="text">Telefone</p>
-                        <input type="number" placeholder="Telefone" class="input-field" name="phone" required>
+                        <input type="tel" placeholder="Telefone" class="input-field" name="phone" maxlength="15" onkeyup="handlePhone(event)" required>
                         <p class="text">Senha</p>
                         <div class="password-container">
                             <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-register" required>
                             <i id="togglePasswordRegister" class="fa-solid fa-eye eye-icon"></i> <!-- Ícone de olho -->
                         </div>
-                        <!-- <p class="text">Confirme sua senha</p>
-                        <input type="password" placeholder="Confirme sua senha" class="input-field" name="confirm-pass" required> -->
-                        <button class="sign-in-btn" class="btn" onclick="register()">Cadastrar-se</button>
+                        <button class="sign-up-btn" class="btn" onclick="register()">Cadastrar-se</button>
                     </form>
                     <p class="terms">
-                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="#">Termos Gerais de Uso</a> e a <a href="#">Política de Privacidade</a>.
+                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
                     </p>
                     <p class="sign-in">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
                 </div>
 
-                <!-- Formulário de Redefinição de Senha (inicialmente oculto) -->
+                <!-- Formulário de Redefinição de Senha-->
                 <div id="forgot-password-form" class="hidden">
                     <h2>Redefinir Senha</h2>
+                    
                     <form id="form-reset">
                         <p class="text">E-mail</p>
                         <input type="email" placeholder="E-mail" class="input-field" name="email" required>
-                        <button class="sign-in-btn" class="btn" onclick="resetPassword()">Enviar Token</button>
+                        <button class="send-token-btn" class="btn" onclick="resetPassword()">Enviar Token</button>
                     </form>
-                    <p class="back-to-login"><a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
+                    <p class="back-to-login"> Lembrou a senha? <a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
                 </div>
 
             </div>
@@ -132,6 +131,8 @@
         });
     </script>
 
+
+    <!-- Exibição da senha -->
     <script>
         // Para o login
         const togglePasswordLogin = document.querySelector('#togglePasswordLogin');
@@ -156,6 +157,21 @@
         });
     </script>
 
+    <!-- Máscara para o campo telefone -->
+    <script>
+        const handlePhone = (event) => {
+            let input = event.target
+            input.value = phoneMask(input.value)
+        }
+
+        const phoneMask = (value) => {
+            if (!value) return ""
+            value = value.replace(/\D/g, '')
+            value = value.replace(/(\d{2})(\d)/, "($1) $2")
+            value = value.replace(/(\d)(\d{4})$/, "$1-$2")
+            return value
+        }
+    </script>
 
 </body>
 

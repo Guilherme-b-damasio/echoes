@@ -309,53 +309,83 @@ class repository
     }
 
     public function selectLikedPlaylist($user_id)
-{
-    try {
-        $sql = "SELECT ID FROM likedPlaylist WHERE user_id = :user_id LIMIT 1";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
-        $stmt->execute();
+    {
+        try {
+            $sql = "SELECT ID FROM likedPlaylist WHERE user_id = :user_id LIMIT 1";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+            $stmt->execute();
 
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($result !== false && isset($result['ID'])) {
-            return $result['ID'];
-        } else {
-            return 'teste'; 
+            if ($result !== false && isset($result['ID'])) {
+                return $result['ID'];
+            } else {
+                return 'teste';
+            }
+        } catch (PDOException $e) {
+            // Handle SQL errors
+            error_log('Database query failed: ' . $e->getMessage());
+            return false;
         }
-    } catch (PDOException $e) {
-        // Handle SQL errors
-        error_log('Database query failed: ' . $e->getMessage());
-        return false;
     }
-}
 
-public function selectLikedPlaylistMusic($user_id)
-{
-    try {
-        $sql = "SELECT music.ID, music.name, music.src, music.image, music.autor, 
+    public function selectLikedPlaylistMusic($user_id)
+    {
+        try {
+            $sql = "SELECT music.ID, music.name, music.src, music.image, music.autor, 
                         music.created_at AS music_created_at, 
                         music.updated_at AS music_updated_at
                 FROM music
                 INNER JOIN likedPlaylist ON music.ID = likedPlaylist.id_music
                 WHERE likedPlaylist.user_id = :user_id";
 
-        $stmt = $this->conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
 
-        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->execute();
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt->execute();
 
-        $musics = $stmt->fetchAll(PDO::FETCH_OBJ);
-        return $musics;
-
-        
-    } catch (PDOException $e) {
-        error_log('Database query failed: ' . $e->getMessage());
-        return $e->getMessage();
+            $musics = $stmt->fetchAll(PDO::FETCH_OBJ);
+            return $musics;
+        } catch (PDOException $e) {
+            error_log('Database query failed: ' . $e->getMessage());
+            return $e->getMessage();
+        }
     }
-}
+    public function selectLikedMusicWithID($user_id, $music)
+    {
+        try {
+            $sql = "SELECT music.ID FROM music INNER JOIN likedPlaylist ON music.ID = likedPlaylist.id_music WHERE likedPlaylist.user_id = :user_id and likedPlaylist.id_music = :music";
+            $stmt = $this->conn->prepare($sql);
 
-public function insertToken(int $user, String $token, int $expire)
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt->bindParam(':music', $music, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $musics = $stmt->fetchAll(PDO::FETCH_OBJ);
+            return $musics;
+        } catch (PDOException $e) {
+            error_log('Database query failed: ' . $e->getMessage());
+            return $e->getMessage();
+        }
+    }
+    public function deleteLikedPlaylistMusic($user_id, $music)
+    {
+        try {
+            $sql = "DELETE FROM likedPlaylist WHERE likedPlaylist.user_id = :user_id and likedPlaylist.id_music = :music";
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt->bindParam(':music', $music, PDO::PARAM_INT);
+            
+            return $stmt->execute() ? true : false;
+        } catch (PDOException $e) {
+            error_log('Database query failed: ' . $e->getMessage());
+            return $e->getMessage();
+        }
+    }
+
+    public function insertToken(int $user, String $token, int $expire)
     {
         // Salva o token e a validade no banco de dados
         $stmt = $this->conn->prepare("INSERT INTO password_resets (user_id, token, expire_at) VALUES (:user_id, :token, :expire_at)");
@@ -370,7 +400,7 @@ public function insertToken(int $user, String $token, int $expire)
     public function resetPassword(String $email)
     {
         // Verifica se o e-mail existe no banco de dados
-        $sql="SELECT ID FROM users WHERE email = :email";
+        $sql = "SELECT ID FROM users WHERE email = :email";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":email", $email);
         $stmt->execute();
@@ -379,7 +409,8 @@ public function insertToken(int $user, String $token, int $expire)
         return $user;
     }
 
-    public function resetPass($token){
+    public function resetPass($token)
+    {
         // Verifica o token e se ele ainda é válido
         $stmt = $this->conn->prepare("SELECT user_id FROM password_resets WHERE token = :token AND expire_at >= :expire_at");
         $current_time = date("U");
@@ -391,7 +422,8 @@ public function insertToken(int $user, String $token, int $expire)
         return $result;
     }
 
-    public function confirmResetPass($new_password, $user_id){
+    public function confirmResetPass($new_password, $user_id)
+    {
 
         // Atualiza a senha do usuário
         $stmt = $this->conn->prepare("UPDATE users SET password = :password WHERE id = :id");
@@ -403,7 +435,8 @@ public function insertToken(int $user, String $token, int $expire)
         return $result;
     }
 
-    public function deleteToken($token){
+    public function deleteToken($token)
+    {
 
         // Atualiza a senha do usuário
         $stmt = $this->conn->prepare("DELETE FROM  password_resets WHERE token = :token");
@@ -412,5 +445,28 @@ public function insertToken(int $user, String $token, int $expire)
         $result = $stmt->fetch();
 
         return $result;
+    }
+
+    public function selectLikedMusic($user_id, $music)
+    {
+        try {
+            $sql = "SELECT music.ID
+                FROM music
+                INNER JOIN likedPlaylist ON music.ID = likedPlaylist.id_music
+                WHERE likedPlaylist.user_id = :user_id AND likedPlaylist.id_music = :id_music";
+
+            $stmt = $this->conn->prepare($sql);
+
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+            $stmt->bindParam(':id_music', $music, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $musics = $stmt->fetchAll(PDO::FETCH_NUM);
+            return $musics != 0 ? $musics : '';
+
+        } catch (PDOException $e) {
+            error_log('Database query failed: ' . $e->getMessage());
+            return $e->getMessage();
+        }
     }
 }

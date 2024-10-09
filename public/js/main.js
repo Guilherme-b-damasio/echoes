@@ -30,11 +30,11 @@ async function loadSongs(data) {
             data.forEach(music => {
                 html +=
                     `<div class="item">
-                    <span class="fa fa-heart" onclick='saveMusic(${music.ID})'></span>
+                    <span class="fa fa-heart" data-liked="${music.liked}" id="${music.ID}" onclick='saveMusic(${music.ID})' style="color:${music.liked != 'false' ? 'green' : 'white'};"></span>
                                 <img src="${music.image}" alt="Album Art" />
                                 <div class="play">
                                     <span class="fa fa-play" onclick='playerMusic(${music.ID})'></span>
-                                    
+                                
                                 </div>
                                 <h4 class="song-title">${music.name}</h4>
                                 <h4 class="autor-name">${music.autor}</h4>
@@ -91,11 +91,21 @@ function playerMusic(ID) {
 
 
 function saveMusic(ID){
-    fetch(`../src/setLiked.php?music=${ID}&option=update`)
+    let heart = document.getElementById(ID);
+    let liked = heart.getAttribute('data-liked');
+    let option = liked != 'false' ? 'delete' : 'update';
+
+    heart.setAttribute('data-liked', liked == 'true' ? 'false' : 'true'); 
+
+    fetch(`../src/setLiked.php?music=${ID}&option=${option}`)
         .then(response => response.json())
         .then(data => {
-            if (data) {
-                console.log('save')
+            if(data){
+                if (liked == 'false') {
+                    heart.style.color = 'green';
+                }else{
+                    heart.style.color = 'white';
+                }
             }
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));

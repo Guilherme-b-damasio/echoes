@@ -7,22 +7,20 @@ async function loadLikedSongs() {
 
         const list = document.getElementById('main-container');
 
+        html += `<div class="playlists">  
+                       <div class="list">`;
         data.forEach(music => {
             html +=
-                `
-                 <div class="playlists">  
-                       <div class="list"        
-                            <div class="item">
-                                <img src="${music.image}" alt="Album Art" />
-                                <div class="play">
-                                    <span class="fa fa-play" onclick='playerMusicLiked(${music.ID})'></span>
-                                </div>
-                                <h4>${music.name}</h4>
-                            </div>
-                        </div>
-                    </div>`;
+                `<div class="item">
+                    <img src="${music.image}" alt="Album Art" />
+                    <div class="play">
+                        <span class="fa fa-play" onclick='playerMusicLiked(${music.ID})'></span>
+                    </div>
+                    <h4>${music.name}</h4>
+                </div>`;
         });
 
+        html += `</div></div>`;
         list.innerHTML = html;
     }
 }
@@ -41,6 +39,6 @@ function playerMusicLiked(ID) {
 }
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadLikedSongs();
 });

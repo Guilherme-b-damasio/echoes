@@ -8,9 +8,6 @@
     <div class="navigation">
         <ul class="ul-sidebar">
             <li>
-                <a href="?profile" data-page="profile"><?php echo $dataUser->getLogin(); ?></a>
-            </li>
-            <li>
                 <div class="search-container">
                     <div id="search">
                         <a id="searchBtn" class="fa-solid fa-magnifying-glass" href="?search" data-page="search" ></a>
@@ -19,6 +16,11 @@
                     </div>
                 </div>
             </li>
+            <li class="li-profile">
+                <img src="../src/uploads/<?= $dataUser->getId()?>/profile.png" alt="profile-image" id="profile" class="profile-photo">
+                <a href="?profile" data-page="profile" class="profile-name"><?php echo $dataUser->getLogin(); ?></a>
+            </li>
+            
             <div class="sidebar-page">
                 <li>
                     <a href="?home" data-page="home">

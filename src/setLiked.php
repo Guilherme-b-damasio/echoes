@@ -15,3 +15,10 @@ if ($option == 'update') {
     $playlist = $controller->handle('update', $user->id, $musicID);
     echo json_encode($playlist);
 }
+
+if ($option == 'delete') {
+    $controller = new ControllerLikedPlaylist();
+    $user = unserialize($_SESSION['dataUser']);
+    $playlist = $controller->handle('delete', $user->id, $musicID);
+    echo json_encode($playlist);
+}

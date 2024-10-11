@@ -10,17 +10,25 @@
             <li>
                 <div class="search-container">
                     <div id="search">
-                        <a id="searchBtn" class="fa-solid fa-magnifying-glass" href="?search" data-page="search" ></a>
+                        <a id="searchBtn" class="fa-solid fa-magnifying-glass" href="?search" data-page="search"></a>
                         <input type="text" id="searchInput" placeholder="Pesquisar...">
                         <i class="fa-solid fa-xmark" id="clearBtn" style="display: none;" onclick="clearSearch()"></i>
                     </div>
                 </div>
             </li>
             <li class="li-profile">
-                <img src="../src/uploads/<?= $dataUser->getId()?>/profile.png" alt="profile-image" id="profile" class="profile-photo">
+                <?php
+
+                $dir = "../src/uploads/" . $dataUser->getId() . "/profile.png";
+                if (is_dir($dir) || file_exists($dir) ) {
+                    echo '<img src="../src/uploads/' . $dataUser->getId() . '/profile.png" alt="profile-image" id="profile" class="profile-photo">';
+                } else {
+                    echo '<img src="../src/uploads/default/profile.png" alt="profile-image" id="profile" class="profile-photo">';
+                } ?>
+
                 <a href="?profile" data-page="profile" class="profile-name"><?php echo $dataUser->getLogin(); ?></a>
             </li>
-            
+
             <div class="sidebar-page">
                 <li>
                     <a href="?home" data-page="home">

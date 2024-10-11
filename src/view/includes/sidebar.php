@@ -8,9 +8,6 @@
     <div class="navigation">
         <ul class="ul-sidebar">
             <li>
-                <a href="?profile" data-page="profile"><?php echo $dataUser->getLogin(); ?></a>
-            </li>
-            <li>
                 <div class="search-container">
                     <div id="search">
                         <a id="searchBtn" class="fa-solid fa-magnifying-glass" href="?search" data-page="search" ></a>
@@ -19,6 +16,11 @@
                     </div>
                 </div>
             </li>
+            <li class="li-profile">
+                <img src="../src/uploads/<?= $dataUser->getId()?>/profile.png" alt="profile-image" id="profile" class="profile-photo">
+                <a href="?profile" data-page="profile" class="profile-name"><?php echo $dataUser->getLogin(); ?></a>
+            </li>
+            
             <div class="sidebar-page">
                 <li>
                     <a href="?home" data-page="home">
@@ -26,12 +28,12 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="?search" data-page="search">
                         <span class="fa fa-search"></span>
                         <span>Pesquisar</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#">
                         <span class="fa fas fa-book"></span>
@@ -57,21 +59,6 @@
                     </a>
                 </li>
             </div>
-        </ul>
-    </div>
-
-
-
-
-
-    <div class="policies">
-        <ul>
-            <li>
-                <a href="#">Cookies</a>
-            </li>
-            <li>
-                <a href="#">Privacy</a>
-            </li>
         </ul>
     </div>
 </div>

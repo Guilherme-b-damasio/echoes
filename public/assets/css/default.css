@@ -1,18 +1,19 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 :root {
   --black: #000000;
-  --details: rgba(0,212,255,1);
-  --blue: rgba(0,212,255,1);
+  --details: rgba(0, 212, 255, 1);
+  --blue: rgba(0, 212, 255, 1);
 }
 
 
-html,body{
-  height: 100% !important; 
+html,
+body {
+  height: 100% !important;
   width: 100% !important;
   zoom: 1 !important;
   overflow-x: hidden !important;
@@ -23,8 +24,9 @@ html,body{
   color: white !important;
   text-align: left !important;
 }
+
 body {
-  background: radial-gradient(93% 100% at 0% 0%,rgba(121,255,206,.3) 0%,rgba(121,255,206,0) 100%),#00032d !important;
+  background: radial-gradient(93% 100% at 0% 0%, rgba(121, 255, 206, .3) 0%, rgba(121, 255, 206, 0) 100%), #00032d !important;
 }
 
 
@@ -40,6 +42,12 @@ body {
   overflow: hidden;
 
 }
+
+.sidebar .logoIcone {
+  display: flex;
+  justify-content: center;
+}
+
 .sidebar .logoIcone img {
   height: auto;
   width: 13vw;
@@ -51,36 +59,62 @@ body {
   list-style: none;
   margin-top: 20px;
   margin-left: 0px;
-  padding-left:0px;
+  padding-left: 0px;
 }
 
-.sidebar .navigation .ul-sidebar{
+.sidebar .navigation .ul-sidebar {
   margin-left: 0 !important;
 }
 
-.sidebar .navigation ul li {
-  padding: 10px 0px;
+.sidebar .navigation .ul-sidebar .li-profile {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 5px 0px 5px 4px;
 }
+
+.sidebar .navigation .ul-sidebar .li-profile .profile-photo {
+  width: 28px;
+  border-radius: 100%;
+}
+
+.sidebar .navigation .ul-sidebar .li-profile .profile-name {
+  color: #b3b3b3;
+  padding-left: 10px;
+}
+
+
+.sidebar .navigation ul li {
+  display: flex; /* Adiciona flexbox */
+  align-items: center; /* Alinha verticalmente */
+  padding: 10px 0; /* Mantém o espaçamento */
+}
+
 .sidebar .navigation ul li a {
   color: #b3b3b3;
   text-decoration: none;
   font-weight: bold;
   font-size: 13px;
 }
+
 .sidebar .navigation ul li a:hover,
 .sidebar .navigation ul li a:active,
 .sidebar .navigation ul li a:focus {
   color: var(--details);
 }
+
 /* .sidebar .navigation ul li a:hover .fa,
 .sidebar .navigation ul li a:active .fa,
 .sidebar .navigation ul li a:focus .fa {
-  color: #b3b3b3;
+color: #b3b3b3;
 } */
-.sidebar .navigation ul li .fa, 
+.sidebar .navigation ul li .fa,
 .sidebar .navigation ul li .fa-solid {
   font-size: 20px;
   margin-right: 10px;
+  font-weight: 20px;
+  width: 24px; /* Largura fixa para os ícones */
+    text-align: center; /* Centraliza o ícone */
 }
 
 
@@ -89,6 +123,7 @@ body {
 .sidebar .navigation ul li a:hover .fa:focus {
   color: var(--details);
 }
+
 .sidebar .policies {
   position: absolute;
   bottom: 100px;
@@ -96,30 +131,31 @@ body {
 
 
 .sidebar-page li {
-  display: flex;
+  display: flex; /* Garante que os itens na sidebar-page também usem flexbox */
   align-items: center; /* Alinha verticalmente os itens */
-  padding: 10px 0; /* Adiciona um espaçamento vertical */
+  padding: 10px 0; /* Mantém o espaçamento */
 }
 
 .sidebar-page li a {
-  display: flex;
+  display: flex; /* Faz o link também usar flexbox */
   align-items: center; /* Alinha verticalmente o texto com o ícone */
-  color: #ffffff; /* Define a cor do texto */
+  color: aquamarine; /* Cor do texto */
   text-decoration: none; /* Remove o sublinhado */
-  font-weight: 500; /* Define o peso da fonte */
-  font-size: 14px; /* Ajusta o tamanho da fonte, se necessário */
+  font-weight: 500; /* Peso da fonte */
+  font-size: 14px; /* Tamanho da fonte */
 }
 
 .sidebar-page li a span {
   margin-right: 10px; /* Espaçamento entre o ícone e o texto */
 }
+
 .sidebar .policies ul li a:hover,
 .sidebar .policies ul li a:active,
 .sidebar .policies ul li a:focus {
   text-decoration: underline;
 }
 
-#searchInput{
+#searchInput {
   background: #ffffff00;
   color: #b3b3b3;
   width: 6vw;
@@ -131,27 +167,46 @@ body {
   outline: none;
 }
 
-#search{display: flex;background-color: #ffffff00;border-radius: 7px;align-items: center;padding: 2px 8px 2px 8px;border: 1px solid #b3b3b3;}
+#search {
+  display: flex;
+  background-color: #ffffff00;
+  border-radius: 7px;
+  align-items: center;
+  padding: 2px 8px 2px 8px;
+  border: 1px solid #373a4d;
+  max-width: 159px;
+}
 
-#searchBtn {/* background: var(--details); *//* color: #fff; */border-radius: 20px;/* width: 56px; *//* height: 29px; */border: none;cursor: pointer;}
+#searchBtn {
+  /* background: var(--details); */
+  /* color: #fff; */
+  border-radius: 20px;
+  /* width: 56px; */
+  /* height: 29px; */
+  border: none;
+  cursor: pointer;
+}
 
 #clearBtn {
+  position: absolute;
+  /* right: 443px; */
   background: none;
   border: none;
   color: #b3b3b3;
   font-size: 24px;
   cursor: pointer;
   margin-left: 5px;
+  left: 166px;
 }
 
-.sidebar-page{
+.sidebar-page {
   padding: 0px 0px 0px 4px;
 }
 
-.sidebar-page li{
+.sidebar-page li {
   color: aliceblue;
 }
 
-.sidebar-page li a{
+.sidebar-page li a {
   color: aquamarine;
 }

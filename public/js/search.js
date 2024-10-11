@@ -1,7 +1,6 @@
 const apiURL = 'https://api.lyrics.ovh';
 
 function search() {  
-        console.log('chegou aqui');
         const searchInput = document.getElementById('searchInput').value;
         if (searchInput !== '') {
             searchFn(searchInput);
@@ -13,7 +12,6 @@ function search() {
 function clearSearch() {
     const searchInput = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearBtn');
-    console.log('chegou aqui 2');
     searchInput.value = '';
     clearBtn.style.display = 'none'; // Esconde o botão de limpar
     document.getElementById('results').innerHTML = ''; // Limpa os resultados

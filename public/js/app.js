@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('main-container');
     const overlay = document.getElementById('loading-overlay');
 
-    var input = document.getElementById("searchInput");
+    let input = document.getElementById("searchInput");
 
     input.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {

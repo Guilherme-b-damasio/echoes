@@ -45,9 +45,19 @@ class service
 
     public function consultMusicPlaylist($playlistID)
     {
+        $result = '';
+        $count = 0;
+        $dataUser = isset($_SESSION['dataUser']) ? unserialize($_SESSION['dataUser']) : [];
         $response = $this->repo->getMusicPlaylist($playlistID);
 
         if (!empty($response)) {
+            if($dataUser){
+                foreach ($response as $value) {
+                    $result = $this->repo->selectLikedMusic($dataUser->id, $value->ID);
+                    $response[$count]->liked = !empty($result) ? 'true' : 'false';
+                    $count++;
+                }
+            }
             $_SESSION['dataMusic'] = serialize($response);
         }
 
@@ -111,6 +121,13 @@ class service
     public function updateLikedPlaylist($user_id, $id_music)
     {
         $return = [];
+
+        $result = $this->repo->selectLikedMusicWithID($user_id, $id_music);
+        if($result){
+            $return['type'] = 'error';
+            return $return;
+        }
+        
         $response = $this->repo->updateLikedPlaylist($user_id, $id_music);
         if ($response) {
             $return['type'] = 'success';
@@ -127,6 +144,14 @@ class service
         $consult = $this->repo->selectLikedPlaylistMusic($user_id);
         $_SESSION['dataLikedSongs'] = serialize($consult);
 
+        return $consult;
+    }
+    
+    public function deleteLikedPlaylist($user_id, $id_music)
+    {
+        $consult = [];
+
+        $consult = $this->repo->deleteLikedPlaylistMusic($user_id, $id_music);
         return $consult;
     }
 

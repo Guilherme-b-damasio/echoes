@@ -132,6 +132,8 @@
   display: flex;
   gap: 20px;
   overflow: hidden;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .playlists .list .item {

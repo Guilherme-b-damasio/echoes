@@ -9,14 +9,12 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 <div class="main-container" id="main-container"></div>
-
-
 <div class="profile-container">
   <div class="card profile-card-2">
     <div id="card-img-block" class="card-img-block">
     </div>
     <div class="card-body pt-5">
-      <img src="../src/uploads/<?php echo $dataUser->getId();?>/profile.png" alt="profile-image" id="profile" class="profile">
+      <img src="../src/uploads/<?php echo $dataUser->getId(); ?>/profile.png" alt="profile-image" id="profile" class="profile">
       <div id="profile-hover" class="profile-hover"><i class="fa-solid fa-pen-to-square"></i>
         <p class="text-photo">Alterar foto</p>
       </div>

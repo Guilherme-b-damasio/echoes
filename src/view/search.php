@@ -13,7 +13,7 @@
     <title></title>
 
 <body>
-
+    <div class="result-container" id="results"></div>
     <div class="loading-container" id="loadingContainer">
         <div class="loading-spinner" style="border-color: #3498db; 
                     border-top-color: #e74c3c;"></div>

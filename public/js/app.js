@@ -1,6 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('main-container');
     const overlay = document.getElementById('loading-overlay');
+
+    var input = document.getElementById("searchInput");
+
+    input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            loadPage('search')
+        }
+    });
 
     function showOverlay() {
         overlay.style.display = 'flex';
@@ -31,11 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
             loadPlaylist();
         }
 
-        if(page === 'likeds'){
+        if (page === 'likeds') {
             loadLikedSongs();
         }
 
-        if(page === 'search'){
+        if (page === 'search') {
             search();
         }
 
@@ -58,14 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.querySelectorAll('a[data-page]').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const page = this.getAttribute('data-page');
             loadPage(page);
         });
     });
 
-    window.addEventListener('popstate', function() {
+    window.addEventListener('popstate', function () {
         const urlParams = new URLSearchParams(window.location.search);
         const page = urlParams.get('page') || 'home';
         loadPage(page);
@@ -75,3 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const page = urlParams.get('page') || 'home';
     loadPage(page);
 });
+
+
+

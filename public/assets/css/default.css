@@ -43,6 +43,11 @@ body {
 
 }
 
+.sidebar .logoIcone {
+  display: flex;
+  justify-content: center;
+}
+
 .sidebar .logoIcone img {
   height: auto;
   width: 13vw;
@@ -65,7 +70,7 @@ body {
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  padding: 0px 0px 0px 0px;
+  padding: 5px 0px 5px 4px;
 }
 
 .sidebar .navigation .ul-sidebar .li-profile .profile-photo {
@@ -168,7 +173,8 @@ color: #b3b3b3;
   border-radius: 7px;
   align-items: center;
   padding: 2px 8px 2px 8px;
-  border: 1px solid #b3b3b3;
+  border: 1px solid #373a4d;
+  max-width: 159px;
 }
 
 #searchBtn {
@@ -182,12 +188,15 @@ color: #b3b3b3;
 }
 
 #clearBtn {
+  position: absolute;
+  /* right: 443px; */
   background: none;
   border: none;
   color: #b3b3b3;
   font-size: 24px;
   cursor: pointer;
   margin-left: 5px;
+  left: 166px;
 }
 
 .sidebar-page {

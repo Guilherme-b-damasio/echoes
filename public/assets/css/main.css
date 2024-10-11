@@ -157,23 +157,33 @@
 
 .playlists .list .item .play {
   position: relative;
+  box-shadow: 10px;
+  box-shadow: 10px 5px 5px red;
 }
 
 .playlists .list .item .play .fa {
   position: absolute;
-  right: 10px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  right: 13px;
   top: -60px;
   padding: 18px;
   background-color: var(--details);
-  border-radius: 100%;
-  opacity: 0;
+  border-radius: 60px;
+  width: 15px;
+  height: 15px;
+  opacity: 0; 
   transition: all ease 0.4s;
   cursor: pointer;
+  max-height: 48px;
+  box-shadow: 0px 5px 5px #0000004f;
+  box-shadow: yellow;
 }
 
 .playlists .list .item:hover .play .fa {
   opacity: 1;
-  transform: translateY(-20px);
+  transform: translateY(-11px);
 }
 
 .playlists .list .item h4 {}

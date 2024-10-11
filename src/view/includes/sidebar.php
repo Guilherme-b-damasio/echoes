@@ -28,12 +28,12 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="?search" data-page="search">
                         <span class="fa fa-search"></span>
                         <span>Pesquisar</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="#">
                         <span class="fa fas fa-book"></span>
@@ -59,21 +59,6 @@
                     </a>
                 </li>
             </div>
-        </ul>
-    </div>
-
-
-
-
-
-    <div class="policies">
-        <ul>
-            <li>
-                <a href="#">Cookies</a>
-            </li>
-            <li>
-                <a href="#">Privacy</a>
-            </li>
         </ul>
     </div>
 </div>

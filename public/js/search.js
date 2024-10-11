@@ -1,19 +1,19 @@
 const apiURL = 'https://api.lyrics.ovh';
 
-function search() {
-    const searchInput = document.getElementById('searchInput').value;
-    if (searchInput !== '') {
-        showLoading();
-        searchFn(searchInput);
-    } else {
-        alert('Por favor, insira o nome de uma música ou artista.');
-    }
+function search() {  
+        console.log('chegou aqui');
+        const searchInput = document.getElementById('searchInput').value;
+        if (searchInput !== '') {
+            searchFn(searchInput);
+        } else {
+            alert('Por favor, insira o nome de uma música ou artista.');
+        }
 }
 
 function clearSearch() {
     const searchInput = document.getElementById('searchInput');
     const clearBtn = document.getElementById('clearBtn');
-
+    console.log('chegou aqui 2');
     searchInput.value = '';
     clearBtn.style.display = 'none'; // Esconde o botão de limpar
     document.getElementById('results').innerHTML = ''; // Limpa os resultados
@@ -21,7 +21,7 @@ function clearSearch() {
 }
 
 // Exibir o botão de limpar quando há texto no input
-document.getElementById('searchInput').addEventListener('input', function() {
+document.getElementById('searchInput').addEventListener('input', function () {
     const clearBtn = document.getElementById('clearBtn');
     clearBtn.style.display = this.value ? 'block' : 'none';
 });
@@ -35,7 +35,7 @@ function searchFn(query) {
         .then(response => response.json())
         .then(data => showFn(data, query))
         .catch(error => console.error('Erro na busca:', error))
-        .finally(() => loadFn());
+
 }
 
 function showFn(data, query) {

@@ -377,7 +377,7 @@ class repository
 
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->bindParam(':music', $music, PDO::PARAM_INT);
-            
+
             return $stmt->execute() ? true : false;
         } catch (PDOException $e) {
             error_log('Database query failed: ' . $e->getMessage());
@@ -422,6 +422,43 @@ class repository
         return $result;
     }
 
+    public function updateProfile(String $name, String $user, String $email, String $phone, int $id)
+    {
+        $sql = "SELECT * FROM users WHERE users.login = :user";
+        $response = [];
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':user', $user);
+
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+            if (!$result) {
+                // Atualiza a senha do usuário
+                $stmt = $this->conn->prepare("UPDATE users SET name = :name, user = :user, email = :email, phone = :phone WHERE id = :id");
+                $stmt->bindParam(":password", $new_password);
+                $stmt->bindParam(":id", $id);
+                $stmt->execute();
+                $result = $stmt->fetch();
+
+                return $result;
+                if ($sql) {
+                    $response['msg'] = "Usuário cadastrado com sucesso";
+                    $response['status'] = true;
+                }
+            } else {
+                $response['msg'] = "Já existe um usúario com esse nome";
+                $response['status'] = false;
+            }
+
+            return $response;
+        } catch (PDOException $e) {
+            error_log("Error in searchUser: " . $e->getMessage());
+            return null;
+        }
+    }
+
     public function confirmResetPass($new_password, $user_id)
     {
 
@@ -463,7 +500,6 @@ class repository
 
             $musics = $stmt->fetchAll(PDO::FETCH_NUM);
             return $musics != 0 ? $musics : '';
-
         } catch (PDOException $e) {
             error_log('Database query failed: ' . $e->getMessage());
             return $e->getMessage();

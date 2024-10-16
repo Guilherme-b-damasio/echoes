@@ -117,6 +117,8 @@ const callback = function(mutationsList) {
     observer.observe(targetNode, config);
 };
 
+
+
 // Observa mutações no DOM
 const targetNode = document.body;
 const config = { childList: true, subtree: true };
@@ -132,3 +134,51 @@ document.addEventListener('DOMContentLoaded', () => {
     addProfilePhotoListener(); // Adiciona o evento de click para upload
     observer.observe(targetNode, config); // Começa a observar mutações no DOM
 });
+
+
+
+function updateProfile() {
+    let form = document.getElementById("form-update");
+    
+        event.preventDefault();
+
+        const formData = new URLSearchParams(new FormData(form));    
+
+        let url = "../manager.php?updateProfile";
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.type == "success") {
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: data.msg,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: data.msg,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Ocorreu um erro ao processar a solicitação.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        });
+        
+}

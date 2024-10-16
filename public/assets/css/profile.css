@@ -122,6 +122,17 @@ body {
     flex: 1;
 }
 
+.input-field {
+  width: 400px;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: none;
+  background-color:#2b2c41;
+  color: white;
+  font-size: 13px }
+
+
 .profile-section {
     width: 100%;
     background: #fff;

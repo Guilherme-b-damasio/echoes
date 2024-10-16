@@ -220,4 +220,13 @@ class service
         }
         return $response;
     }
+
+    public function updateProfile(String $name, String $user, String $email, String $phone, int $id)
+    {
+        $response = $this->repo->updateProfile($name, $user, $email, $phone, $id);
+        
+        return $response;
+    }
+
 }
+

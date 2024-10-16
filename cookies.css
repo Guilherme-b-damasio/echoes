@@ -1,0 +1,185 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #000000;
+    --details: rgba(0, 212, 255, 1);
+    --blue: rgba(0, 212, 255, 1);
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8; /* Aumentei o espaçamento entre linhas para melhorar a legibilidade */
+    color: white;
+    text-align: left;
+    background: radial-gradient(93% 100% at 0% 0%, rgba(121, 255, 206, 0.3) 0%, rgba(121, 255, 206, 0) 100%), #00032d;
+    padding: 20px; /* Adiciona espaço ao redor da página */
+}
+
+.sidebar {
+    width: 200px;
+    background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a;
+    padding: 24px;
+    margin-bottom: 30px; /* Espaço maior abaixo da sidebar */
+    border-radius: 8px; /* Canto arredondado para visual mais suave */
+}
+
+.sidebar .logoIcone {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Espaçamento abaixo do logo */
+}
+
+.sidebar .logoIcone img {
+    width: 13vw;
+    max-width: 140px;
+    min-width: 100px;
+}
+
+.sidebar .navigation ul {
+    list-style: none;
+    margin-top: 20px;
+    padding-left: 0;
+}
+
+.sidebar .navigation li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 10px; /* Espaçamento entre os itens do menu */
+}
+
+.sidebar .navigation li a {
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px; /* Tamanho da fonte aumentado para melhor leitura */
+}
+
+.sidebar .navigation li a:hover,
+.sidebar .navigation li a:active,
+.sidebar .navigation li a:focus {
+    color: var(--details);
+}
+
+.sidebar .navigation li .fa,
+.sidebar .navigation li .fa-solid {
+    font-size: 20px;
+    margin-right: 10px;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar .policies {
+    position: absolute;
+    bottom: 100px;
+}
+
+.sidebar-page {
+    padding: 0 0 0 4px;
+}
+
+.sidebar-page li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 10px; /* Mais espaçamento entre os itens da página */
+}
+
+.sidebar-page li a {
+    color: aquamarine;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px; /* Levemente maior para destacar */
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-page li a span {
+    margin-right: 10px;
+}
+
+.sidebar .policies ul li a:hover,
+.sidebar .policies ul li a:active,
+.sidebar .policies ul li a:focus {
+    text-decoration: underline;
+}
+
+#search {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px; /* Mais espaço interno no campo de busca */
+    background-color: transparent;
+    border-radius: 7px;
+    border: 1px solid #373a4d;
+    max-width: 160px;
+}
+
+#searchInput {
+    background: none;
+    color: #b3b3b3;
+    width: 6vw;
+    height: 30px;
+    border: none;
+    padding-left: 7px;
+    padding-right: 15px;
+    outline: none;
+}
+
+#clearBtn {
+    background: none;
+    border: none;
+    color: #b3b3b3;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 5px;
+    position: absolute;
+    left: 166px;
+}
+.container {
+    background-color: black;
+    border-radius: 3%;
+    padding: 5%;
+}
+
+.container p {
+    margin-bottom: 1.5rem; /* Mais espaço entre os parágrafos */
+    line-height: 1.8; /* Espaçamento maior entre linhas */
+    color: #b3b3b3;
+}
+
+ul {
+    margin-left: 20px; /* Recuo para listas */
+    margin-bottom: 1.5rem; /* Espaçamento entre listas e outros elementos */
+    color: #b3b3b3;
+}
+
+ul li {
+    margin-bottom: 10px; /* Espaçamento entre os itens da lista */
+}
+
+h2, h3 {
+    color: var(--details); /* Cor de destaque para os títulos */
+    margin-bottom: 1rem; /* Espaçamento abaixo dos títulos */
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin-bottom: 1.5rem; /* Espaçamento maior abaixo dos parágrafos */
+    color: #b3b3b3;
+}

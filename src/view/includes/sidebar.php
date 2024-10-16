@@ -64,10 +64,10 @@
     <div class="policies">
         <ul>
             <li>
-                <a href="#">Cookies</a>
+                <a href="../cookies.php">Cookies</a>
             </li>
             <li>
-                <a href="#">Privacy</a>
+                <a href="../policy.php">Privacy</a>
             </li>
         </ul>
     </div>

@@ -1339,4 +1339,1766 @@ musics
                     FROM music
                     WHERE ID > :id
                 );
-            musics
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 17
+    [name] => Can You Feel It
+    [src] => ../src/songs/01 Jean Roch - Can You Feel It (Summer EletroHits 1).mp3
+    [image] => ../src/images/Summer1.png
+    [autor] => Jean Roch
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 17
+    [name] => Can You Feel It
+    [src] => ../src/songs/01 Jean Roch - Can You Feel It (Summer EletroHits 1).mp3
+    [image] => ../src/images/Summer1.png
+    [autor] => Jean Roch
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 16
+    [name] => What a Feeling
+    [src] => ../src/songs/02 Global Deejays What a Feeling Summer Eletrohits 2 - 5082555 (youtube) (1).mp3
+    [image] => ../src/images/Summer2.png
+    [autor] => Global Deejays
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 29
+    [name] => Stereo Love
+    [src] => ../src/songs/Summer Eletrohits 7 - Edward Maya & Vika Jigulina - Stereo Love (2010) - Portali3 (youtube).mp3
+    [image] => ../src/images/summereletrohits7.jpg
+    [autor] => Edward Maya & Vika Jigulina
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 31
+    [name] => Piece Of Your Heart (Alok Remix)
+    [src] => ../src/songs/Meduza - Piece Of Your Heart (Alok Remix) - Proximity (youtube).mp3
+    [image] => ../src/images/meduza.png
+    [autor] => Meduza
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 8
+    [playlist_name] => Eletrônica
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 30
+    [name] => Techno Prank
+    [src] => ../src/songs/Dubdogz - Techno Prank (Official Video) - Dubdogz (youtube).mp3
+    [image] => ../src/images/TechnoPrank.png
+    [autor] => Dubdogz
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 8
+    [playlist_name] => Eletrônica
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 31
+    [name] => Piece Of Your Heart (Alok Remix)
+    [src] => ../src/songs/Meduza - Piece Of Your Heart (Alok Remix) - Proximity (youtube).mp3
+    [image] => ../src/images/meduza.png
+    [autor] => Meduza
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 8
+    [playlist_name] => Eletrônica
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 30
+    [name] => Techno Prank
+    [src] => ../src/songs/Dubdogz - Techno Prank (Official Video) - Dubdogz (youtube).mp3
+    [image] => ../src/images/TechnoPrank.png
+    [autor] => Dubdogz
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 8
+    [playlist_name] => Eletrônica
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 29
+    [name] => Stereo Love
+    [src] => ../src/songs/Summer Eletrohits 7 - Edward Maya & Vika Jigulina - Stereo Love (2010) - Portali3 (youtube).mp3
+    [image] => ../src/images/summereletrohits7.jpg
+    [autor] => Edward Maya & Vika Jigulina
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 28
+    [name] => Abandonado (Ao Vivo)
+    [src] => ../src/songs/Abandonado (Ao Vivo) - Pagode do Adame (youtube).mp3
+    [image] => ../src/images/AdameVol02.png
+    [autor] => Pagode do Adame
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 7
+    [playlist_name] => Pagode
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 27
+    [name] => Vida Cigana/ Maravilha/ Jeito Felino
+    [src] => ../src/songs/Grupo Menos é Mais e Raça Negra - Vida Cigana_ Maravilha_ Jeito Felino (Clipe Oficial) - Grupo Menos é Mais (youtube).mp3
+    [image] => ../src/images/Confia.png
+    [autor] => Grupo Menos é Mais e Raça Negra
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 7
+    [playlist_name] => Pagode
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 26
+    [name] => Diferentão (Ao Vivo)
+    [src] => ../src/songs/Dilsinho - Diferentão (Ao Vivo) - DilsinhoVEVO (youtube).mp3
+    [image] => ../src/images/DiferentaoDilsinho.png
+    [autor] => Dilsinho
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 7
+    [playlist_name] => Pagode
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 25
+    [name] => Em Busca Da Minha Sorte
+    [src] => ../src/songs/Thiaguinho e Billy SP - Em Busca Da Minha Sorte (Clipe Oficial) - Thiaguinho (youtube).mp3
+    [image] => ../src/images/EPsorte01.png
+    [autor] => Thiaguinho e Billy SP
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 7
+    [playlist_name] => Pagode
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 24
+    [name] => Cronômetro (PRAIOU Ao Vivo em São Paulo)
+    [src] => ../src/songs/Matheus & Kauan - Cronômetro (PRAIOU Ao Vivo em São Paulo) - Matheus e Kauan (youtube).mp3
+    [image] => ../src/images/MKcronometro.png
+    [autor] => Matheus & Kauan
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 6
+    [playlist_name] => Sertanejo
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 23
+    [name] => Rancorosa
+    [src] => ../src/songs/Henrique e Juliano -  RANCOROSA - DVD To Be Ao Vivo Em Brasília - Henrique e Juliano (youtube).mp3
+    [image] => ../src/images/henriqueJulianoToBe.png
+    [autor] => Henrique e Juliano
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 6
+    [playlist_name] => Sertanejo
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 22
+    [name] => Saudade da Minha Vida (Ao Vivo no Buteco São Paulo)
+    [src] => ../src/songs/Gusttavo Lima - Saudade da Minha Vida (Ao Vivo no Buteco São Paulo) - Gusttavo Lima Oficial (youtube).mp3
+    [image] => ../src/images/GusttavoLimaSDMV.jpg
+    [autor] => Gusttavo Lima
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 6
+    [playlist_name] => Sertanejo
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 21
+    [name] => Desejo Imortal
+    [src] => ../src/songs/Gusttavo Lima - DESEJO IMORTAL (Ao vivo no Mineirão) - Gusttavo Lima Oficial (youtube).mp3
+    [image] => ../src/images/gusttavolima_1_.png
+    [autor] => Gusttavo Lima
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 6
+    [playlist_name] => Sertanejo
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 20
+    [name] => Sugar
+    [src] => ../src/songs/Maroon 5 - Sugar (Official Music Video) - Maroon5VEVO (youtube).mp3
+    [image] => ../src/images/Capa_de_V_(Maroon_5).png
+    [autor] => Maroon 5
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 5
+    [playlist_name] => Pop
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 19
+    [name] => Paradise
+    [src] => ../src/songs/Coldplay - Paradise (Official Video) - Coldplay (youtube).mp3
+    [image] => ../src/images/Coldplay_-_Paradise.png
+    [autor] => Coldplay
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 5
+    [playlist_name] => Pop
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 18
+    [name] => Billie Jean
+    [src] => ../src/songs/ytmp3free.cc_michael-jackson-billie-jean-traduaolegendado-youtubemp3free.org.mp3
+    [image] => ../src/images/mjbj.png
+    [autor] => Michael Jackson
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 5
+    [playlist_name] => Pop
+    [playlist_created_at] => 2024-08-29 23:40:40
+    [playlist_updated_at] => 2024-08-29 23:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 17
+    [name] => Can You Feel It
+    [src] => ../src/songs/01 Jean Roch - Can You Feel It (Summer EletroHits 1).mp3
+    [image] => ../src/images/Summer1.png
+    [autor] => Jean Roch
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 16
+    [name] => What a Feeling
+    [src] => ../src/songs/02 Global Deejays What a Feeling Summer Eletrohits 2 - 5082555 (youtube) (1).mp3
+    [image] => ../src/images/Summer2.png
+    [autor] => Global Deejays
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 15
+    [name] => Set Me Free
+    [src] => ../src/songs/House Boulevard feat. Samara - Set Me Free - Summer Eletrohits 5.mp3
+    [image] => ../src/images/Summer5.png
+    [autor] => House Boulevard feat. Samara
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+    [playlist_id] => 3
+    [playlist_name] => SummerEletroHits
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 14
+    [name] => Entry of the Gladiators
+    [src] => ../src/songs/Julius Fucik - Entry of the Gladiators.mp3
+    [image] => ../src/images/Fuciknew.jpg
+    [autor] => Julius Fucik
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 1
+    [playlist_name] => Melhores Clássicos
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 13
+    [name] => Valsa em Lá menor
+    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
+    [image] => ../src/images/Chopin.png
+    [autor] => Frédéric Chopin
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 1
+    [playlist_name] => Melhores Clássicos
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 12
+    [name] => Moonlight Sonata
+    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
+    [image] => ../src/images/beethoven.png
+    [autor] => Beethoven
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 1
+    [playlist_name] => Melhores Clássicos
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 11
+    [name] => Lacrimosa
+    [src] => ../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3
+    [image] => ../src/images/mozart.png
+    [autor] => Mozart
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 1
+    [playlist_name] => Melhores Clássicos
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 10
+    [name] => Without Me
+    [src] => ../src/songs/Eminem - Without Me (Official Music Video).mp3
+    [image] => ../src/images/Eminem_-_Without_Me_CD_cover.jpg
+    [autor] => Eminem
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 4
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-09-17 21:16:59
+    [playlist_updated_at] => 2024-09-17 21:16:59
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 9
+    [name] => In Da Club
+    [src] => ../src/songs/50 Cent - In Da Club (Official Music Video).mp3
+    [image] => ../src/images/81bpmchtQ6L._UF350,350_QL50_.jpg
+    [autor] => 50 Cent
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+    [playlist_id] => 4
+    [playlist_name] => Melhores do Rock
+    [playlist_created_at] => 2024-09-17 21:16:59
+    [playlist_updated_at] => 2024-09-17 21:16:59
+)

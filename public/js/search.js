@@ -47,7 +47,6 @@ function showFn(data, query) {
             card.className = 'result-card';
 
             card.innerHTML = `
-                <h2>Melhores Resultados</h2>
                 <div class="infoSong">
                     <img src="${song.image}" alt="Album Art" />
                     <div class="play">

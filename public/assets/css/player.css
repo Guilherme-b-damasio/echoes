@@ -63,6 +63,8 @@
 
 .musicDetails img {
     width: 80px; /* Reduzir largura da imagem */
+    border-radius: 6px;
+    padding-left: 10px;
 }
 
 .container-2 {
@@ -79,8 +81,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 16px; /* Reduzir tamanho da fonte */
-    color: white;
-    text-align: center; /* Centraliza o texto dentro do container-2 */
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .controls {
@@ -153,11 +155,18 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    margin-right: 6px;
+    width: 150px;
 }
 
 .musicInfos #artist{
     color: gray;
-
+    font-size: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    --tw-text-opacity: 1;
+    color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 
 .volume-control {

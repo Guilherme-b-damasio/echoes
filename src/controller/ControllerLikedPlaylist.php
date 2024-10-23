@@ -27,5 +27,8 @@ class ControllerLikedPlaylist
         if ($option == 'delete') {
             return $this->service->deleteLikedPlaylist($user_id, $id_music);
         }
+        if($option == 'next' || $option == 'prev'){
+            return $this->service->selectLikedNextPrevMusics($id_music, $option, $user_id);
+        }
     }
 }

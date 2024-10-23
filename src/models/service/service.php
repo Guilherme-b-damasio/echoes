@@ -9,6 +9,7 @@ use App\entity\music;
 use App\entity\playlist;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
 class service
 {
     protected $repo;
@@ -51,7 +52,7 @@ class service
         $response = $this->repo->getMusicPlaylist($playlistID);
 
         if (!empty($response)) {
-            if($dataUser){
+            if ($dataUser) {
                 foreach ($response as $value) {
                     $result = $this->repo->selectLikedMusic($dataUser->id, $value->ID);
                     $response[$count]->liked = !empty($result) ? 'true' : 'false';
@@ -80,17 +81,17 @@ class service
 
         return $response;
     }
-    public function searchMusic($name, $id, $time)
+    public function searchMusic($name, $id, $time, $playlist_id)
     {
 
         header('Content-Type: application/json');
         if ($time == 'next') {
-            $response = $this->repo->searchNextMusic($name, $id);
+            $response = $this->repo->searchNextMusic($name, $id, $playlist_id);
             return $response;
         }
 
         if ($time == 'prev') {
-            $response = $this->repo->searchPrevMusic($name, $id);
+            $response = $this->repo->searchPrevMusic($name, $id, $playlist_id);
             return $response;
         }
 
@@ -98,6 +99,13 @@ class service
             $response = $this->repo->searchMusic($name, $id);
             return $response;
         }
+    }
+
+    public function selectLikedNextPrevMusics($id, $option, $user)
+    {
+        header('Content-Type: application/json');
+        $response = $this->repo->searchLikedMusic($id, $user, $option);
+        return $response;
     }
 
     public function consultPlaylist()
@@ -123,11 +131,11 @@ class service
         $return = [];
 
         $result = $this->repo->selectLikedMusicWithID($user_id, $id_music);
-        if($result){
+        if ($result) {
             $return['type'] = 'error';
             return $return;
         }
-        
+
         $response = $this->repo->updateLikedPlaylist($user_id, $id_music);
         if ($response) {
             $return['type'] = 'success';
@@ -146,7 +154,7 @@ class service
 
         return $consult;
     }
-    
+
     public function deleteLikedPlaylist($user_id, $id_music)
     {
         $consult = [];
@@ -168,8 +176,8 @@ class service
                 $mail->isSMTP();
                 $mail->Host = 'smtp.gmail.com';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'gabriel_a_bruno@estudante.sesisenai.org.br'; 
-                $mail->Password = 'Gab@199800'; 
+                $mail->Username = 'gabriel_a_bruno@estudante.sesisenai.org.br';
+                $mail->Password = 'Gab@199800';
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
@@ -178,7 +186,7 @@ class service
                 $mail->addAddress($email);
 
                 // Usuário encontrado, gerar o token
-                $token = bin2hex(random_bytes(50));  
+                $token = bin2hex(random_bytes(50));
                 $expire = date("U") + 3600;
                 $result = [];
 

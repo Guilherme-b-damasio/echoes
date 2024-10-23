@@ -170,7 +170,7 @@ class repository
         }
     }
 
-    public function searchNextMusic($name, $id)
+    public function searchNextMusic($name, $id, $playlist_id)
     {
         try {
             $sql = "
@@ -191,15 +191,18 @@ class repository
             INNER JOIN 
                 playlist ON music.playlist_id = playlist.ID
             WHERE
+                music.playlist_id = :playlist_id AND
                 music.ID = (
                     SELECT MIN(ID)
                     FROM music
                     WHERE ID > :id
                 );
+            
             ";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':playlist_id', $playlist_id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
@@ -213,7 +216,7 @@ class repository
             return null;
         }
     }
-    public function searchPrevMusic($name, $id)
+    public function searchPrevMusic($name, $id, $playlist_id)
     {
         try {
             $sql = "
@@ -234,6 +237,7 @@ class repository
         INNER JOIN 
             playlist ON music.playlist_id = playlist.ID
         WHERE
+        music.playlist_id = :playlist_id AND
             music.ID = (
                 SELECT MAX(ID)
                 FROM music
@@ -243,6 +247,7 @@ class repository
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':playlist_id', $playlist_id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ); // Usar fetch se você espera apenas um resultado
 
@@ -257,6 +262,53 @@ class repository
             return null;
         }
     }
+
+
+    public function searchLikedMusic($id, $user, $direction)
+    {
+        try {
+            $operator = $direction === 'next' ? '>' : '<';
+            $aggregateFunction = $direction === 'next' ? 'MIN' : 'MAX';
+
+            $sql = "
+        SELECT 
+            likedplaylist.*, 
+            music.ID AS music_id, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at
+        FROM 
+            likedplaylist
+        LEFT JOIN 
+            music ON likedplaylist.id_music = music.ID
+        WHERE
+            likedplaylist.user_id = $user AND
+            likedplaylist.id_music = (
+                SELECT $aggregateFunction(id_music)
+                FROM likedplaylist
+                WHERE id_music $operator $id AND user_id = $user
+            );
+        ";
+
+            $stmt = $this->conn->prepare($sql);
+           
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+            error_log("SQL: " . $sql . "  params: $id, $user", 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Result: " . print_r($result, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+            return $result ?: null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql . "  params: " . func_get_args(), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Error in searchLikedMusic: " . $e->getMessage(), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            return null;
+        }
+    }
+
 
     public function getMusicPlaylist($playlistID)
     {
@@ -377,7 +429,7 @@ class repository
 
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->bindParam(':music', $music, PDO::PARAM_INT);
-            
+
             return $stmt->execute() ? true : false;
         } catch (PDOException $e) {
             error_log('Database query failed: ' . $e->getMessage());
@@ -463,7 +515,6 @@ class repository
 
             $musics = $stmt->fetchAll(PDO::FETCH_NUM);
             return $musics != 0 ? $musics : '';
-
         } catch (PDOException $e) {
             error_log('Database query failed: ' . $e->getMessage());
             return $e->getMessage();

@@ -27,7 +27,7 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
     <form class="form-update" id="form-update">
       <div>
         <label for="user">Usuário:</label>
-        <input type="text" class="input-field" name="user" value="<?php echo $dataUser->getLogin() ?>">
+        <input type="text" class="input-field" name="login" value="<?php echo $dataUser->getLogin() ?>">
       </div>
       <div>
         <label for="name">Nome:</label>
@@ -41,7 +41,7 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
         <label for="phone">Telefone:</label>
         <input type="text" class="input-field" name="phone" value="<?php echo $dataUser->getPhone() ?>">
       </div>
-      <button class="sign-up-btn" class="btn" onclick="updateProfile()">Cadastrar-se</button>
+      <button class="sign-up-btn" class="btn" onclick="updateProfile()">Salvar</button>
     </form>
   </div>
 </div>

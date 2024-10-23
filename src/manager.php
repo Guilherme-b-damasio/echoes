@@ -100,17 +100,17 @@ function resetPassword()
 function updateProfile()
 {
     $dataUser = isset($_SESSION['dataUser']) ? unserialize($_SESSION['dataUser']) : [];
-    $response=[];
+    $response=['msg' => 'não alterado'];
     $name = isset($_POST['name']) ? $_POST['name'] : '';
-    $user = isset($_POST['user']) ? $_POST['user'] : '';
+    $login = isset($_POST['login']) ? $_POST['login'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
     $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
     
 
     // Verifica se os campos obrigatórios estão preenchidos
-    if (!empty($user) && !empty($pass)) {
+    if (!empty($user)) {
         $controller = new ControllerProfile();
-        $response = $controller->handle($name, $user, $email, $phone, $dataUser->getId());
+        $response = $controller->handle($name, $login, $email, $phone, $dataUser->getId());
     }
 
     echo json_encode($response);

@@ -144,7 +144,7 @@ function updateProfile() {
 
         const formData = new URLSearchParams(new FormData(form));    
 
-        let url = "../manager.php?updateProfile";
+        let url = "../src/manager.php?updateProfile";
 
         fetch(url, {
             method: 'POST',

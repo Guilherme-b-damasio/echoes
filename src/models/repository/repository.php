@@ -6,6 +6,7 @@ use App\config\db;
 use Dotenv\Util\Str;
 use PDO;
 use PDOException;
+use SebastianBergmann\Environment\Console;
 
 class repository
 {
@@ -422,42 +423,49 @@ class repository
         return $result;
     }
 
-    public function updateProfile(String $name, String $user, String $email, String $phone, int $id)
+    public function updateProfile(String $name, String $login, String $email, String $phone, int $id)
     {
-        $sql = "SELECT * FROM users WHERE users.login = :user";
+        $sql = "SELECT * FROM users WHERE users.ID = :id";
         $response = [];
-
+    
         try {
+            // Verifica se o usuário existe
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':user', $user);
-
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
-
-            if (!$result) {
-                // Atualiza a senha do usuário
-                $stmt = $this->conn->prepare("UPDATE users SET name = :name, user = :user, email = :email, phone = :phone WHERE id = :id");
-                $stmt->bindParam(":password", $new_password);
+    
+            if ($result) {
+                // Atualiza os dados do usuário
+                $stmt = $this->conn->prepare("UPDATE users SET name = :name, login = :login, email = :email, phone = :phone WHERE id = :id");
+                
+                $stmt->bindParam(":name", $name);
+                $stmt->bindParam(":login", $login);
+                $stmt->bindParam(":email", $email);
+                $stmt->bindParam(":phone", $phone);
                 $stmt->bindParam(":id", $id);
                 $stmt->execute();
-                $result = $stmt->fetch();
-
-                return $result;
-                if ($sql) {
-                    $response['msg'] = "Usuário cadastrado com sucesso";
+    
+                // Verifica se o `UPDATE` foi bem-sucedido
+                if ($stmt->rowCount() > 0) {
+                    $response['msg'] = "Usuário atualizado com sucesso";
                     $response['status'] = true;
+                } else {
+                    $response['msg'] = "Nenhuma alteração foi feita";
+                    $response['status'] = false;
                 }
             } else {
-                $response['msg'] = "Já existe um usúario com esse nome";
+                $response['msg'] = "Usuário não encontrado";
                 $response['status'] = false;
             }
-
+    
             return $response;
         } catch (PDOException $e) {
-            error_log("Error in searchUser: " . $e->getMessage());
-            return null;
+            error_log("Error in updateProfile: " . $e->getMessage());
+            return "Error in updateProfile: " . $e->getMessage();
         }
     }
+    
 
     public function confirmResetPass($new_password, $user_id)
     {

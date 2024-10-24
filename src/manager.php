@@ -108,7 +108,7 @@ function updateProfile()
     
 
     // Verifica se os campos obrigatórios estão preenchidos
-    if (!empty($user)) {
+    if (!empty($login)) {
         $controller = new ControllerProfile();
         $response = $controller->handle($name, $login, $email, $phone, $dataUser->getId());
     }

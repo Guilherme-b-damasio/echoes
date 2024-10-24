@@ -462,8 +462,9 @@ class repository
             return $response;
         } catch (PDOException $e) {
             error_log("Error in updateProfile: " . $e->getMessage());
-            return "Error in updateProfile: " . $e->getMessage();
+            return $response['msg'] = "Error in updateProfile: " . $e->getMessage();
         }
+        
     }
     
 

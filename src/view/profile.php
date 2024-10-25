@@ -20,28 +20,29 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
       </div>
       <div class="profile-text">
         <h5 class="card-title"><?php echo $dataUser->getLogin() ?></h5>
-        <p class="card-text">Melhor Presidente do Mundo</p>
       </div>
     </div>
   </div>
   <div class="profile-body">
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
-    <p class="profile-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam neque laboriosam culpa eum quo corrupti similique, nam voluptatum repellat quaerat ipsum totam tempora repudiandae! Ad illum similique corrupti? Nemo, excepturi!</p>
+    <form class="form-update" id="form-update">
+      <div>
+        <label for="user">Usuário:</label>
+        <input type="text" class="input-field" name="login" value="<?php echo $dataUser->getLogin() ?>">
+      </div>
+      <div>
+        <label for="name">Nome:</label>
+        <input type="text" class="input-field" name="name" value="<?php echo $dataUser->getName() ?>">
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" class="input-field" name="email" value="<?php echo $dataUser->getEmail() ?>">
+      </div>
+      <div>
+        <label for="phone">Telefone:</label>
+        <input type="text" class="input-field" name="phone" value="<?php echo $dataUser->getPhone() ?>">
+      </div>
+      <button class="sign-up-btn" class="btn" onclick="updateProfile()">Salvar</button>
+    </form>
   </div>
 </div>
 </div>

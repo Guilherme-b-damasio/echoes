@@ -234,4 +234,14 @@ class service
         }
         return $response;
     }
+
+    public function updateProfile(String $name, String $login, String $email, String $phone, int $id)
+    {
+
+        $response = $this->repo->updateProfile($name, $login, $email, $phone, $id);
+        
+        return $response;
+    }
+
 }
+

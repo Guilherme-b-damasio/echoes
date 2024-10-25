@@ -6,6 +6,7 @@ require '../vendor/autoload.php';
 use App\Controller\ControllerLogin;
 use App\Controller\ControllerReset;
 use App\Controller\ControllerResetPassword;
+use App\Controller\ControllerProfile;
 
 if (isset($_GET['login'])) {
     login();
@@ -21,6 +22,10 @@ if (isset($_GET['reset'])) {
 
 if (isset($_GET['resetpass'])) {
     resetPassword();
+}
+
+if (isset($_GET['updateProfile'])) {
+    updateProfile();
 }
 
 function login()
@@ -89,5 +94,25 @@ function resetPassword()
     $response=$controller->handle($new_password, $token);
     echo json_encode($response);
 
+    return;
+}
+
+function updateProfile()
+{
+    $dataUser = isset($_SESSION['dataUser']) ? unserialize($_SESSION['dataUser']) : [];
+    $response=['msg' => 'não alterado'];
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $login = isset($_POST['login']) ? $_POST['login'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
+    
+
+    // Verifica se os campos obrigatórios estão preenchidos
+    if (!empty($login)) {
+        $controller = new ControllerProfile();
+        $response = $controller->handle($name, $login, $email, $phone, $dataUser->getId());
+    }
+
+    echo json_encode($response);
     return;
 }

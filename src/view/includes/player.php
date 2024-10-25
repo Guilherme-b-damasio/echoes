@@ -8,9 +8,6 @@
                 <div id="musicName"></div>
                 <div id="artist"></div>
             </div>
-            <div class="liked">
-                <span class="fa fa-heart" data-liked="${music.liked}" id="${music.ID}" onclick='saveMusic(${music.ID})' style="color:${music.liked != 'false' ? 'green' : 'white'};"></span>
-            </div>
         </div>
         <div class="container-2">
             <audio id="player" src=""></audio>

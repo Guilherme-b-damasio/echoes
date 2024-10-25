@@ -63,8 +63,10 @@
 
 .musicDetails img {
     width: 80px; /* Reduzir largura da imagem */
-    border-radius: 6px;
-    padding-left: 10px;
+    border-radius: 10px;
+    margin-left: 10px;
+    filter: drop-shadow(0 0 0.4rem rgba(255, 255, 255, 0.26));
+    
 }
 
 .container-2 {
@@ -100,11 +102,10 @@
 }
 
 .controls i {
-    font-size: 18px; /* Reduzir tamanho dos ícones */
+    font-size: 20px; /* Reduzir tamanho dos ícones */
     border-radius: 50%;
-    /* background-color: var(--details); */
     transition: all .2s;
-    color: #B3B3B3;
+    color: #d7d7d7;
 }
 
 .controls .fa-circle-play{

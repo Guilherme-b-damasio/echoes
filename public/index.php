@@ -50,10 +50,6 @@ if ($requestMethod === 'GET') {
 
 ?>
 
-<div id="loading-overlay">
-    <div class="spinner"></div>
-</div>
-
 <script>
     window.onload = function(){ 
         localStorage.setItem('player', '');

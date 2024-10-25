@@ -156,6 +156,47 @@ class repository
         }
     }
 
+    public function searchMusicLikedDistinct($id, $user)
+    {
+        try {
+
+            $sql = "
+        SELECT 
+            music.ID AS musicID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            likedplaylist.ID as ID
+        FROM 
+            music
+        INNER JOIN 
+            likedplaylist ON music.ID = likedplaylist.id_music
+        WHERE ";
+
+
+            $sql .= " likedplaylist.id_music = :id";
+            $sql .= " AND likedplaylist.user_id = :user";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':id', $id);
+            $stmt->bindValue(':user', $user);
+        
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Params: id = $id, user = $user", 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+        
+            return !empty($result) ? $result : null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql);
+            error_log("Error in searchMusic: " . $e->getMessage());
+            return null;
+        }
+    }
+
     public function consultPlaylist()
     {
         try {
@@ -268,42 +309,47 @@ class repository
     {
         try {
             $operator = $direction === 'next' ? '>' : '<';
-            $aggregateFunction = $direction === 'next' ? 'MIN' : 'MAX';
+            $orderDirection = $direction === 'next' ? 'ASC' : 'DESC';
 
             $sql = "
-        SELECT 
-            likedplaylist.*, 
-            music.ID AS music_id, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at
-        FROM 
-            likedplaylist
-        LEFT JOIN 
-            music ON likedplaylist.id_music = music.ID
-        WHERE
-            likedplaylist.user_id = $user AND
-            likedplaylist.id_music = (
-                SELECT $aggregateFunction(id_music)
-                FROM likedplaylist
-                WHERE id_music $operator $id AND user_id = $user
-            );
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID $operator :id
+                    ORDER BY likedplaylist.ID $orderDirection
+                    LIMIT 1
+                );
         ";
 
             $stmt = $this->conn->prepare($sql);
-           
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':user', $user, PDO::PARAM_INT);
+
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
-            error_log("SQL: " . $sql . "  params: $id, $user", 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            // Log os valores para depuração
+            error_log("Params: id = $id, user = $user", 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("SQL Executed: " . $stmt->queryString, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
             error_log("Result: " . print_r($result, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
 
             return $result ?: null;
         } catch (PDOException $e) {
-            error_log("SQL: " . $sql . "  params: " . func_get_args(), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
             error_log("Error in searchLikedMusic: " . $e->getMessage(), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
             return null;
         }

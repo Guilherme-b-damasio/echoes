@@ -46,7 +46,13 @@ if ($requestMethod === 'GET') {
     echo "Método não permitido";
 }
 
+
+
 ?>
+
+<div id="loading-overlay">
+    <div class="spinner"></div>
+</div>
 
 <script>
     window.onload = function(){ 

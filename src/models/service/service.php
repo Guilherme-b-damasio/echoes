@@ -101,6 +101,12 @@ class service
         }
     }
 
+    public function searchMusicLiked($id, $user)
+    {
+        $response = $this->repo->searchMusicLikedDistinct($id, $user);
+        return $response;
+    }
+
     public function selectLikedNextPrevMusics($id, $option, $user)
     {
         header('Content-Type: application/json');

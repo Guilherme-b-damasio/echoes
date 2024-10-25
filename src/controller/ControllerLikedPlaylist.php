@@ -30,5 +30,8 @@ class ControllerLikedPlaylist
         if($option == 'next' || $option == 'prev'){
             return $this->service->selectLikedNextPrevMusics($id_music, $option, $user_id);
         }
+        if($option == 'select-music'){
+            return $this->service->searchMusicLiked($id_music, $user_id);
+        }
     }
 }

@@ -31,12 +31,15 @@ function nextMusic() {
   let element = document.getElementById('nextButton');
   let id = element.getAttribute('data-music');
   let playlist = element.getAttribute('data-playlist');
+  let liked = element.getAttribute('data-liked');
   let name = document.getElementById('musicName').textContent;
 
   let formData = new FormData();
 
+  if(liked == '1'){
+    formData.append('option', 'next');
+  }
 
-  formData.append('option', 'next');
   formData.append('music', id);
   formData.append('next', '1');
   formData.append('name', name);
@@ -61,12 +64,15 @@ function prevMusic() {
   let element = document.getElementById('nextButton');
   let id = element.getAttribute('data-music');
   let playlist = element.getAttribute('data-playlist');
+  let liked = element.getAttribute('data-liked');
   let name = document.getElementById('musicName').textContent;
 
   let formData = new FormData();
 
+  if(liked == '1'){
+    formData.append('option', 'prev');
+  }
 
-  formData.append('option', 'prev');
   formData.append('music', id);
   formData.append('prev', '1');
   formData.append('name', name);

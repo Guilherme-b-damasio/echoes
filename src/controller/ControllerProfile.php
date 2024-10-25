@@ -16,8 +16,8 @@ class ControllerProfile
         $this->service = new service();
     }
 
-    public function handle($name, $user, $email, $phone, $id)
+    public function handle($name, $login, $email, $phone, $id)
     {
-       return $this->service->updateProfile($name, $user, $email, $phone, $id);
+       return $this->service->updateProfile($name, $login, $email, $phone, $id);
     }
 }

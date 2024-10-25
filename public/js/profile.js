@@ -1,27 +1,29 @@
 // Função para aplicar a cor dominante na div de fundo
-const applyDominantColor = (imgElement) => {
-    if (imgElement.complete) { // Verifica se a imagem já foi carregada
-        const colorThief = new ColorThief();
-        const color = colorThief.getColor(imgElement);
-        document.getElementById('card-img-block').style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-    } else {
-        // Aguarda a imagem carregar completamente
-        imgElement.onload = () => {
-            const colorThief = new ColorThief();
-            const color = colorThief.getColor(imgElement);
-            document.getElementById('card-img-block').style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-        };
-    }
-};
+// const applyDominantColor = (imgElement) => {
+//     if (imgElement.complete) { // Verifica se a imagem já foi carregada
+//         const colorThief = new ColorThief();
+//         const color = colorThief.getColor(imgElement);
+//         document.getElementById('card-img-block').style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+//     } else {
+//         // Aguarda a imagem carregar completamente
+//         imgElement.onload = () => {
+//             const colorThief = new ColorThief();
+//             const color = colorThief.getColor(imgElement);
+//             document.getElementById('card-img-block').style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+//         };
+//     }
+// };
 
 // Função para lidar com o upload de foto de perfil
+// Função que adiciona o event listener para alterar a foto do perfil
 const addProfilePhotoListener = () => {
-    const profilePhoto = document.getElementById("profile-hover");
     
+    const profilePhoto = document.getElementById("profile-hover");
+    console.log('Aqui editar');
     // Adiciona o listener apenas se ainda não foi adicionado
     if (profilePhoto && !profilePhoto.classList.contains('listener-added')) {
         profilePhoto.addEventListener('click', async () => {
-            console.log('Aqui editar');
+            console.log('Aqui editar2');
 
             const { value: file } = await Swal.fire({
                 title: "Select image",
@@ -59,16 +61,8 @@ const addProfilePhotoListener = () => {
                                 text: data.message,
                                 icon: 'success'
                             });
-
-                            // Após upload bem-sucedido, cria o novo elemento de imagem
-                            const imgElement = document.createElement('img');
-                            imgElement.src = data.imagePath;
-                            imgElement.crossOrigin = 'anonymous';
-                            imgElement.id = 'profile';  // Para usar o ColorThief
-                            document.body.appendChild(imgElement);
-
-                            // Aplica a cor dominante à div
-                            applyDominantColor(imgElement);
+                            
+                            loadPage('profile');
 
                         } else {
                             throw new Error(data.message || 'Error uploading image.');
@@ -91,51 +85,79 @@ const addProfilePhotoListener = () => {
                     text: 'Please upload a valid image file!',
                 });
             }
-        });
 
-        // Marca que o listener foi adicionado
-        profilePhoto.classList.add('listener-added');
+        });              
     }
+    if (!profilePhoto) {
+        console.error("Elemento 'profile-hover' não encontrado no DOM");
+        return; // Sai da função se o elemento não existir
+    }
+    if (profilePhoto) {
+        console.error("Elemento 'profile-hover' foi encontrado no DOM");
+        return; // Sai da função se o elemento não existir
+    }
+    // Marca que o listener foi adicionado
+    profilePhoto.classList.add('listener-added');
 };
 
 // Função de callback do MutationObserver
 const callback = function(mutationsList) {
-    // Desliga o observer enquanto modificamos o DOM para evitar loops
-    observer.disconnect();
-
     for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
             addProfilePhotoListener(); // Adiciona listener de foto de perfil
-            const imgElement = document.getElementById('profile');
-            if (imgElement) {
-                applyDominantColor(imgElement); // Aplica a cor dominante se a imagem existir
-            }
         }
     }
-
-    // Religa o observer após as modificações
-    observer.observe(targetNode, config);
 };
 
-
-
-// Observa mutações no DOM
-const targetNode = document.body;
+// Observa mutações no contêiner de perfil (pode ser mais eficiente que observar todo o body)
+const profileContainer = document.querySelector('.profile-container');
 const config = { childList: true, subtree: true };
 const observer = new MutationObserver(callback);
 
 // Inicializa no carregamento da página
 document.addEventListener('DOMContentLoaded', () => {
-    const imgElement = document.getElementById('profile');
-    if (imgElement) {
-        applyDominantColor(imgElement); // Aplica a cor dominante se a imagem já estiver no DOM
-    }
-
+    console.log('Carregou o DOM');
     addProfilePhotoListener(); // Adiciona o evento de click para upload
-    observer.observe(targetNode, config); // Começa a observar mutações no DOM
+    if (profileContainer) {
+        observer.observe(profileContainer, config); // Começa a observar mutações no contêiner de perfil
+    }
 });
 
+function loadPage(page) {
+   // showOverlay();
+   
+    //container.classList.add('fade-out');
+    setTimeout(() => {
+        fetch('index.php?' + new URLSearchParams({ page: page, ajax: 'true' }))
+            .then(handleResponse)
+            .then(html => updateContent(html, page))
+            .catch(error => {
+                console.error(error);
+               // hideOverlay();
+            });
+    }, 500);
+   // hideOverlay();
+}
 
+function handleResponse(response) {
+    if (!response.ok) {
+        throw new Error('Request error: ' + response.status);
+    }
+    return response.text();
+}
+
+
+function updateContent(html, page) {
+    let container = document.getElementById('main-container');
+    container.innerHTML = html;
+
+    if (page === 'profile') {
+        addProfilePhotoListener();
+        
+    }
+
+    window.history.pushState({}, '', '?' + page);
+}
 
 function updateProfile() {
     let form = document.getElementById("form-update");

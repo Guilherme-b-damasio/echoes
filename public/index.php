@@ -48,6 +48,8 @@ if ($requestMethod === 'GET') {
 
 ?>
 
+
+
 <script>
     window.onload = function(){ 
         localStorage.setItem('player', '');

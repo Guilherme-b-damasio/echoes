@@ -47,11 +47,16 @@ document.addEventListener('DOMContentLoaded', function () {
             search();
         }
 
+        if (page === 'profile') {
+            addProfilePhotoListener();
+            
+        }
+
         window.history.pushState({}, '', '?' + page);
     }
 
     function loadPage(page) {
-        showOverlay();
+        //showOverlay();
         container.classList.add('fade-out');
         setTimeout(() => {
             fetch('index.php?' + new URLSearchParams({ page: page, ajax: 'true' }))
@@ -59,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(html => updateContent(html, page))
                 .catch(error => {
                     console.error(error);
-                    hideOverlay();
+                  //  hideOverlay();
                 });
         }, 500);
-        hideOverlay();
+       // hideOverlay();
     }
 
     document.querySelectorAll('a[data-page]').forEach(link => {

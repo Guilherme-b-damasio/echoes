@@ -49,13 +49,15 @@ function showFn(data, query) {
             card.innerHTML = `
                 <div class="infoSong">
                     <img src="${song.image}" alt="Album Art" />
+                    <div class="play">
+                        <a class="fa fa-play" onclick='playerMusic(${song.ID})'></a>
+                    </div>
                     <div class="musicInfo">
                         <h3>${song.name}</h3>
                         <p>${song.autor}</p>
                     </div>
                 </div>
                 <button class="lyrics-btn" data-artist="${song.autor}" onclick="results()" data-title="${song.name}">Letra</button>
-                <a class="fa fa-play" onclick='playerMusic(${song.ID})'></a>
                 <button class="back-btn" style="display: none;">Back</button>
             `;
             resultsContainer.appendChild(card);

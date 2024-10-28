@@ -1,21 +1,22 @@
-
- 
-.emp-profile{
+.emp-profile {
   padding: 3%;
   margin-top: 3%;
   margin-bottom: 3%;
   border-radius: 0.5rem;
   background: #fff;
 }
-.profile-img{
+
+.profile-img {
   text-align: center;
 }
-.profile-img img{
+
+.profile-img img {
   width: 70%;
   height: 100%;
   border-radius: 100%;
   max-width: 110px;
 }
+
 .profile-img .file {
   position: relative;
   overflow: hidden;
@@ -26,19 +27,23 @@
   font-size: 15px;
   background: #212529b8;
 }
+
 .profile-img .file input {
   position: absolute;
   opacity: 0;
   right: 0;
   top: 0;
 }
-.profile-head h5{
+
+.profile-head h5 {
   color: #333;
 }
-.profile-head h6{
+
+.profile-head h6 {
   color: #0062cc;
 }
-.profile-edit-btn{
+
+.profile-edit-btn {
   border: none;
   border-radius: 1.5rem;
   width: 70%;
@@ -47,79 +52,91 @@
   color: #6c757d;
   cursor: pointer;
 }
-.proile-rating{
+
+.proile-rating {
   font-size: 12px;
   color: #818182;
   margin-top: 5%;
 }
-.proile-rating span{
+
+.proile-rating span {
   color: #495057;
   font-size: 15px;
   font-weight: 600;
 }
-.profile-head .nav-tabs{
-  margin-bottom:5%;
+
+.profile-head .nav-tabs {
+  margin-bottom: 5%;
 }
-.profile-head .nav-tabs .nav-link{
-  font-weight:600;
+
+.profile-head .nav-tabs .nav-link {
+  font-weight: 600;
   border: none;
 }
-.profile-head .nav-tabs .nav-link.active{
+
+.profile-head .nav-tabs .nav-link.active {
   border: none;
-  border-bottom:2px solid #0062cc;
+  border-bottom: 2px solid #0062cc;
 }
-.profile-work{
+
+.profile-work {
   padding: 14%;
   margin-top: -15%;
 }
-.profile-work p{
+
+.profile-work p {
   font-size: 12px;
   color: #818182;
   font-weight: 600;
   margin-top: 10%;
 }
-.profile-work a{
+
+.profile-work a {
   text-decoration: none;
   color: #495057;
   font-weight: 600;
   font-size: 14px;
 }
-.profile-work ul{
+
+.profile-work ul {
   list-style: none;
 }
-.profile-tab label{
+
+.profile-tab label {
   font-weight: 600;
 }
-.profile-tab p{
+
+.profile-tab p {
   font-weight: 600;
   color: #0062cc;
 }
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700");
 
 body {
-    font-family: "Open Sans", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 #main-container {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .profile-container {
-    /* background: rgba(255, 255, 255, 0.8); */
-    /* padding: 12px;  */
-    background-color: #1a1c23;
-    margin: 12px;
-    border-radius: 7px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    /* max-width: 600px; */
-    /* height: 100%; */
-    /* width: 100%; */
-    /* overflow: hidden; */
-    flex: 1;
+  /* background: rgba(255, 255, 255, 0.8); */
+  /* padding: 12px;  */
+  background-color: #1a1c23;
+  margin: 12px;
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* max-width: 600px; */
+  /* height: 100%; */
+  /* width: 100%; */
+  /* overflow: hidden; */
+  flex: 1;
 }
 
 .input-field {
@@ -128,157 +145,192 @@ body {
   margin-bottom: 15px;
   border-radius: 8px;
   border: none;
-  background-color:#2b2c41;
+  background-color: #2b2c41;
   color: white;
-  font-size: 13px }
+  font-size: 13px
+}
 
+
+.form-input {
+  /* background-color: #0062cc; */
+  display: flex;
+  flex-direction: column;
+}
+
+.name-input {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.update-btn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1d2d59;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.update-btn:hover{
+background-color: #24376b;
+}
 
 .profile-section {
-    width: 100%;
-    background: #fff;
-    padding: 30px 0;
-    text-align: center;
+  width: 100%;
+  background: #fff;
+  padding: 30px 0;
+  text-align: center;
 }
 
 h1 {
-    color: #232323;
-    margin-bottom: 30px;
-    font-size: 14px;
+  color: #232323;
+  margin-bottom: 30px;
+  font-size: 14px;
 }
 
 h1 span {
-    font-family: "Libre Baskerville", serif;
-    display: block;
-    font-size: 45px;
-    margin-bottom: 20px;
-    margin-top: 30px;
-    font-weight: 700;
+  font-family: "Libre Baskerville", serif;
+  display: block;
+  font-size: 45px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-weight: 700;
 }
 
 h1 a {
-    color: #131313;
-    font-weight: bold;
-    text-decoration: none;
+  color: #131313;
+  font-weight: bold;
+  text-decoration: none;
 }
 
 .profile-card-2 {
-    /* width: 300px; */
-    margin: 0 auto;
-    background: #1c1f29;
-    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
-    border-radius: 6px 6px 0px 0px;
-    overflow: hidden;
+  /* width: 300px; */
+  margin: 0 auto;
+  background: #1c1f29;
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+  border-radius: 6px 6px 0px 0px;
+  overflow: hidden;
 }
 
 .card-img-block {
-    width: 100%;
-    height: 150px;
-    overflow: hidden;
-    background-color: #eaeaea;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  background-color: #eaeaea;
 }
 
 .card-img-block img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-body {
-    padding: 20px;
-    position: relative;
+  padding: 20px;
+  position: relative;
 }
 
 .profile {
-    border-radius: 50%;
-    position: absolute;
-    width: 164px;
-    height: 164px; 
-    top: -89px;
-    left: 11%;
-    max-width: 164px;
-    border: 1px solid #181a21;
-    transform: translateX(-50%);
+  border-radius: 50%;
+  position: absolute;
+  width: 164px;
+  height: 164px;
+  top: -89px;
+  left: 11%;
+  max-width: 164px;
+  border: 1px solid #181a21;
+  transform: translateX(-50%);
 }
 
 .profile:hover {
-    filter: contrast(1.75) brightness(.2);
+  filter: contrast(1.75) brightness(.2);
 }
 
 .profile-hover {
-    opacity: 0%;
-    border-radius: 50%;
-    position: absolute;
-    display: flex;
-    height: 164px; 
-    width: 164px;
-    top: -89px;
-    left: 11%;
-    max-width: 164px;
-    transform: translateX(-50%);
-    align-items: center;
-    justify-content: center;
-    background-color: #1a1c23cf;
-    border: 1px solid #181a21;
-    cursor: pointer;
-    flex-direction: column;
+  opacity: 0%;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  height: 164px;
+  width: 164px;
+  top: -89px;
+  left: 11%;
+  max-width: 164px;
+  transform: translateX(-50%);
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1c23cf;
+  border: 1px solid #181a21;
+  cursor: pointer;
+  flex-direction: column;
 
 }
 
 .profile-hover i {
-    font-size: 36px;
-    color: #B3B3B3;
-    padding-bottom: 3px;
+  font-size: 36px;
+  color: #B3B3B3;
+  padding-bottom: 3px;
 }
 
 .profile-hover .text-photo {
-    color: #B3B3B3;
-    font: bold;
+  color: #B3B3B3;
+  font: bold;
 }
 
 .profile-hover:hover {
-    opacity: 100%;
+  opacity: 100%;
 }
 
 .profile-text {
-    padding-left: 262px;
-    margin-top: -8px;
-    margin-bottom: 15px;
+  padding-left: 262px;
+  margin-top: -8px;
+  margin-bottom: 15px;
 }
 
 h5 {
-    font-weight: 600;
-    color: #b3b3b3;
-    font-size: 41px;
+  font-weight: 600;
+  color: #b3b3b3;
+  font-size: 41px;
 }
 
 .card-text {
-    font-weight: 300;
-    font-size: 15px;
-    color: #666;
+  font-weight: 300;
+  font-size: 15px;
+  color: #666;
 }
 
 .icon-block {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .icon-block a {
-    text-decoration: none;
-    margin: 0 5px;
+  text-decoration: none;
+  margin: 0 5px;
 }
 
 .profile-body {
-    padding: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-body .profile-content {
-    padding: 10px 0px 10px 0px;
-    color: #b3b3b3;
+  padding: 10px 0px 10px 0px;
+  color: #b3b3b3;
 }
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
-    .profile-card-2 {
-        width: 90%;
-    }
+  .profile-card-2 {
+    width: 90%;
+  }
 }

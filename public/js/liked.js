@@ -38,8 +38,3 @@ function playerMusicLiked(ID) {
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    loadLikedSongs();
-});

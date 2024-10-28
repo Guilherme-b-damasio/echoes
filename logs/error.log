@@ -1689,4 +1689,256 @@ SQL:
                 FROM music
                 WHERE ID < :id
             );
+        Result: musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.playlist_id = :playlist_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            
+            musicsmusics
+        SELECT 
+            music.ID AS musicID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            likedplaylist.ID as ID
+        FROM 
+            music
+        INNER JOIN 
+            likedplaylist ON music.ID = likedplaylist.id_music
+        WHERE  likedplaylist.id_music = :id AND likedplaylist.user_id = :userParams: id = 13, user = 1Params: id = 87, user = 1SQL Executed: 
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID > :id
+                    ORDER BY likedplaylist.ID ASC
+                    LIMIT 1
+                );
+        Result: stdClass Object
+(
+    [ID] => 89
+    [user_id] => 1
+    [id_music] => 6
+    [music_id] => 6
+    [name] => Sweet Child O Mine
+    [src] => ../src/songs/Sweet Child O Mine (Official Music Video).mp3
+    [image] => ../src/images/Guns-N-Roses-Appetite-For-Destruction.jpg
+    [autor] => Guns N Roses
+    [music_created_at] => 2024-09-16 20:14:13
+    [music_updated_at] => 2024-09-04 22:31:14
+)
+Params: id = 89, user = 1SQL Executed: 
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID > :id
+                    ORDER BY likedplaylist.ID ASC
+                    LIMIT 1
+                );
+        Result: stdClass Object
+(
+    [ID] => 90
+    [user_id] => 1
+    [id_music] => 17
+    [music_id] => 17
+    [name] => Can You Feel It
+    [src] => ../src/songs/01 Jean Roch - Can You Feel It (Summer EletroHits 1).mp3
+    [image] => ../src/images/Summer1.png
+    [autor] => Jean Roch
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-08-30 01:11:31
+)
+Params: id = 90, user = 1SQL Executed: 
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID > :id
+                    ORDER BY likedplaylist.ID ASC
+                    LIMIT 1
+                );
+        Result: stdClass Object
+(
+    [ID] => 91
+    [user_id] => 1
+    [id_music] => 9
+    [music_id] => 9
+    [name] => In Da Club
+    [src] => ../src/songs/50 Cent - In Da Club (Official Music Video).mp3
+    [image] => ../src/images/81bpmchtQ6L._UF350,350_QL50_.jpg
+    [autor] => 50 Cent
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+)
+Params: id = 91, user = 1SQL Executed: 
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID > :id
+                    ORDER BY likedplaylist.ID ASC
+                    LIMIT 1
+                );
+        Result: stdClass Object
+(
+    [ID] => 92
+    [user_id] => 1
+    [id_music] => 8
+    [music_id] => 8
+    [name] => FE!N
+    [src] => ../src/songs/Travis Scott - FE!N (Official Audio) ft. Playboi Carti.mp3
+    [image] => ../src/images/51nMgSxPQeL._UF1000,1000_QL80_.jpg
+    [autor] => Travis Scott
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-08-30 00:23:31
+)
+Params: id = 92, user = 1SQL Executed: 
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID > :id
+                    ORDER BY likedplaylist.ID ASC
+                    LIMIT 1
+                );
+        Result: Params: id = 92, user = 1SQL Executed: 
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID > :id
+                    ORDER BY likedplaylist.ID ASC
+                    LIMIT 1
+                );
+        Result: Params: id = 92, user = 1SQL Executed: 
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID > :id
+                    ORDER BY likedplaylist.ID ASC
+                    LIMIT 1
+                );
         Result: 

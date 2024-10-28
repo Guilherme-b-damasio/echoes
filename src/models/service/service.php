@@ -168,6 +168,20 @@ class service
         $consult = $this->repo->deleteLikedPlaylistMusic($user_id, $id_music);
         return $consult;
     }
+    
+    public function createPlaylist($user_id, $playlist_id)
+    {
+        $response = [];
+        $result = $this->repo->createPlaylist($user_id, $playlist_id);
+        if($result){
+            $response['msg'] = 'Incluido com sucesso';
+            $response['type'] = 'sucess';
+        }else{
+            $response['msg'] = 'Não foi possivel criar a playlist';
+            $response['type'] = 'error';
+        }
+        return $response;
+    }
 
     public function resetPassword(String $email)
     {

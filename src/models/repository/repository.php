@@ -494,6 +494,14 @@ class repository
         $stmt->execute();
 
         return;
+    } 
+    public function createPlaylist(int $user, String $playlist_name)
+    {
+        $stmt = $this->conn->prepare("INSERT INTO playlist_perso (user_id, name) VALUES (:user_id, :name)");
+        $stmt->bindParam(":user_id", $user);
+        $stmt->bindParam(":name", $playlist_name);
+
+        return $stmt->execute();
     }
 
     public function resetPassword(String $email)

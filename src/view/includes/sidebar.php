@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="?playlist">
                         <span class="fa fas fa-plus-square"></span>
                         <span>Criar Playlist</span>
                     </a>

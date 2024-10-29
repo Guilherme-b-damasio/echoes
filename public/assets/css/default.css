@@ -27,6 +27,9 @@ body {
 
 body {
   background: radial-gradient(93% 100% at 0% 0%, rgba(121, 255, 206, .3) 0%, rgba(121, 255, 206, 0) 100%), #00032d !important;
+  bottom: 0;
+  position: fixed;
+  top: 0;
 }
 
 

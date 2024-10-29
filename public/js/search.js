@@ -57,7 +57,6 @@ function showFn(data, query) {
                         <p>${song.autor}</p>
                     </div>
                 </div>
-                <button class="lyrics-btn" data-artist="${song.autor}" onclick="results()" data-title="${song.name}">Letra</button>
                 <button class="back-btn" style="display: none;">Back</button>
             `;
             resultsContainer.appendChild(card);

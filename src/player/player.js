@@ -30,13 +30,20 @@ function nextMusic() {
 
   let element = document.getElementById('nextButton');
   let id = element.getAttribute('data-music');
+  let playlist = element.getAttribute('data-playlist');
+  let liked = element.getAttribute('data-liked');
   let name = document.getElementById('musicName').textContent;
 
   let formData = new FormData();
 
+  if(liked == '1'){
+    formData.append('option', 'next');
+  }
+
   formData.append('music', id);
   formData.append('next', '1');
   formData.append('name', name);
+  formData.append('playlist_id', playlist);
 
   fetch(`../src/search_songs.php`, {
     method: 'POST',
@@ -56,13 +63,20 @@ function prevMusic() {
 
   let element = document.getElementById('nextButton');
   let id = element.getAttribute('data-music');
+  let playlist = element.getAttribute('data-playlist');
+  let liked = element.getAttribute('data-liked');
   let name = document.getElementById('musicName').textContent;
 
   let formData = new FormData();
 
+  if(liked == '1'){
+    formData.append('option', 'prev');
+  }
+
   formData.append('music', id);
   formData.append('prev', '1');
   formData.append('name', name);
+  formData.append('playlist_id', playlist);
 
   fetch(`../src/search_songs.php`, {
     method: 'POST',
@@ -229,19 +243,6 @@ function playerManager() {
     audioPlayer.volume = volumeSlider.value;
     updateVolumeIcon();
   });
-
-  // Aumenta o volume
-  volumeUpButton.addEventListener('click', function () {
-    audioPlayer.volume = Math.min(1, audioPlayer.volume + 0.1);
-    updateVolumeIcon();
-  });
-
-  // Diminui o volume
-  volumeDownButton.addEventListener('click', function () {
-    audioPlayer.volume = Math.max(0, audioPlayer.volume - 0.1);
-    updateVolumeIcon();
-  });
-
 
   updateVolume();
 }

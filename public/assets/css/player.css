@@ -63,6 +63,10 @@
 
 .musicDetails img {
     width: 80px; /* Reduzir largura da imagem */
+    border-radius: 10px;
+    margin-left: 10px;
+    filter: drop-shadow(0 0 0.4rem rgba(255, 255, 255, 0.26));
+    
 }
 
 .container-2 {
@@ -79,8 +83,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 16px; /* Reduzir tamanho da fonte */
-    color: white;
-    text-align: center; /* Centraliza o texto dentro do container-2 */
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .controls {
@@ -98,11 +102,10 @@
 }
 
 .controls i {
-    font-size: 18px; /* Reduzir tamanho dos ícones */
+    font-size: 20px; /* Reduzir tamanho dos ícones */
     border-radius: 50%;
-    /* background-color: var(--details); */
     transition: all .2s;
-    color: #B3B3B3;
+    color: #d7d7d7;
 }
 
 .controls .fa-circle-play{
@@ -153,11 +156,18 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    margin-right: 6px;
+    width: 150px;
 }
 
 .musicInfos #artist{
     color: gray;
-
+    font-size: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    --tw-text-opacity: 1;
+    color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 
 .volume-control {

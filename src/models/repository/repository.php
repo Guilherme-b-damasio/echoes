@@ -6,6 +6,7 @@ use App\config\db;
 use Dotenv\Util\Str;
 use PDO;
 use PDOException;
+use SebastianBergmann\Environment\Console;
 
 class repository
 {
@@ -156,6 +157,47 @@ class repository
         }
     }
 
+    public function searchMusicLikedDistinct($id, $user)
+    {
+        try {
+
+            $sql = "
+        SELECT 
+            music.ID AS musicID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            likedplaylist.ID as ID
+        FROM 
+            music
+        INNER JOIN 
+            likedplaylist ON music.ID = likedplaylist.id_music
+        WHERE ";
+
+
+            $sql .= " likedplaylist.id_music = :id";
+            $sql .= " AND likedplaylist.user_id = :user";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':id', $id);
+            $stmt->bindValue(':user', $user);
+        
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Params: id = $id, user = $user", 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+        
+            return !empty($result) ? $result : null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql);
+            error_log("Error in searchMusic: " . $e->getMessage());
+            return null;
+        }
+    }
+
     public function consultPlaylist()
     {
         try {
@@ -170,7 +212,7 @@ class repository
         }
     }
 
-    public function searchNextMusic($name, $id)
+    public function searchNextMusic($name, $id, $playlist_id)
     {
         try {
             $sql = "
@@ -191,15 +233,18 @@ class repository
             INNER JOIN 
                 playlist ON music.playlist_id = playlist.ID
             WHERE
+                music.playlist_id = :playlist_id AND
                 music.ID = (
                     SELECT MIN(ID)
                     FROM music
                     WHERE ID > :id
                 );
+            
             ";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':playlist_id', $playlist_id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
@@ -213,7 +258,7 @@ class repository
             return null;
         }
     }
-    public function searchPrevMusic($name, $id)
+    public function searchPrevMusic($name, $id, $playlist_id)
     {
         try {
             $sql = "
@@ -234,6 +279,7 @@ class repository
         INNER JOIN 
             playlist ON music.playlist_id = playlist.ID
         WHERE
+        music.playlist_id = :playlist_id AND
             music.ID = (
                 SELECT MAX(ID)
                 FROM music
@@ -243,6 +289,7 @@ class repository
 
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':playlist_id', $playlist_id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ); // Usar fetch se você espera apenas um resultado
 
@@ -257,6 +304,58 @@ class repository
             return null;
         }
     }
+
+
+    public function searchLikedMusic($id, $user, $direction)
+    {
+        try {
+            $operator = $direction === 'next' ? '>' : '<';
+            $orderDirection = $direction === 'next' ? 'ASC' : 'DESC';
+
+            $sql = "
+            SELECT 
+                likedplaylist.*, 
+                music.ID AS music_id, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                likedplaylist
+            LEFT JOIN 
+                music ON likedplaylist.id_music = music.ID
+            WHERE
+                likedplaylist.user_id = :user AND
+                likedplaylist.ID = (
+                    SELECT ID
+                    FROM likedplaylist
+                    WHERE user_id = :user AND likedplaylist.ID $operator :id
+                    ORDER BY likedplaylist.ID $orderDirection
+                    LIMIT 1
+                );
+        ";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':user', $user, PDO::PARAM_INT);
+
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+            // Log os valores para depuração
+            error_log("Params: id = $id, user = $user", 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("SQL Executed: " . $stmt->queryString, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log("Result: " . print_r($result, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+            return $result ?: null;
+        } catch (PDOException $e) {
+            error_log("Error in searchLikedMusic: " . $e->getMessage(), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            return null;
+        }
+    }
+
 
     public function getMusicPlaylist($playlistID)
     {
@@ -377,7 +476,7 @@ class repository
 
             $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
             $stmt->bindParam(':music', $music, PDO::PARAM_INT);
-            
+
             return $stmt->execute() ? true : false;
         } catch (PDOException $e) {
             error_log('Database query failed: ' . $e->getMessage());
@@ -395,6 +494,14 @@ class repository
         $stmt->execute();
 
         return;
+    } 
+    public function createPlaylist(int $user, String $playlist_name)
+    {
+        $stmt = $this->conn->prepare("INSERT INTO playlist_perso (user_id, name) VALUES (:user_id, :name)");
+        $stmt->bindParam(":user_id", $user);
+        $stmt->bindParam(":name", $playlist_name);
+
+        return $stmt->execute();
     }
 
     public function resetPassword(String $email)
@@ -421,6 +528,51 @@ class repository
 
         return $result;
     }
+
+    public function updateProfile(String $name, String $login, String $email, String $phone, int $id)
+    {
+        $sql = "SELECT * FROM users WHERE users.ID = :id";
+        $response = [];
+    
+        try {
+            // Verifica se o usuário existe
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+    
+            if ($result) {
+                // Atualiza os dados do usuário
+                $stmt = $this->conn->prepare("UPDATE users SET name = :name, login = :login, email = :email, phone = :phone WHERE id = :id");
+                
+                $stmt->bindParam(":name", $name);
+                $stmt->bindParam(":login", $login);
+                $stmt->bindParam(":email", $email);
+                $stmt->bindParam(":phone", $phone);
+                $stmt->bindParam(":id", $id);
+                $stmt->execute();
+    
+                // Verifica se o `UPDATE` foi bem-sucedido
+                if ($stmt->rowCount() > 0) {
+                    $response['msg'] = "Usuário atualizado com sucesso";
+                    $response['status'] = true;
+                } else {
+                    $response['msg'] = "Nenhuma alteração foi feita";
+                    $response['status'] = false;
+                }
+            } else {
+                $response['msg'] = "Usuário não encontrado";
+                $response['status'] = false;
+            }
+    
+            return $response;
+        } catch (PDOException $e) {
+            error_log("Error in updateProfile: " . $e->getMessage());
+            return $response['msg'] = "Error in updateProfile: " . $e->getMessage();
+        }
+        
+    }
+    
 
     public function confirmResetPass($new_password, $user_id)
     {
@@ -463,7 +615,6 @@ class repository
 
             $musics = $stmt->fetchAll(PDO::FETCH_NUM);
             return $musics != 0 ? $musics : '';
-
         } catch (PDOException $e) {
             error_log('Database query failed: ' . $e->getMessage());
             return $e->getMessage();

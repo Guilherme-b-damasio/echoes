@@ -33,7 +33,7 @@ async function loadSongs(data) {
                     <span class="fa fa-heart" data-liked="${music.liked}" id="${music.ID}" onclick='saveMusic(${music.ID})' style="color:${music.liked != 'false' ? 'green' : 'white'};"></span>
                                 <img src="${music.image}" alt="Album Art" />
                                 <div class="play">
-                                    <span class="fa fa-play" onclick='playerMusic(${music.ID})'></span>
+                                    <span class="fa fa-play" onclick='playerMusic(${music.ID},${playlist.id})'></span>
                                 </div>
                                 <h4 class="song-title">${music.name}</h4>
                                 <h4 class="autor-name">${music.autor}</h4>
@@ -75,13 +75,15 @@ async function loadPlaylist() {
     }
 }
 
-function playerMusic(ID) {
+function playerMusic(ID, playlist) {
     fetch(`../src/search_songs.php?music=${ID}`)
         .then(response => response.json())
         .then(data => {
             if (data) {
                 setMusicList(data, ID);
                 document.getElementById('nextButton').setAttribute('data-music', ID);
+                document.getElementById('nextButton').setAttribute('data-playlist', playlist);
+                document.getElementById('nextButton').setAttribute('data-liked', '0');
             }
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));

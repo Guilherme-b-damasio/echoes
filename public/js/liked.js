@@ -32,13 +32,9 @@ function playerMusicLiked(ID) {
         .then(data => {
             if (data) {
                 setMusicList(data, ID);
-                document.getElementById('nextButton').setAttribute('data-music', ID);
+                document.getElementById('nextButton').setAttribute('data-music', data[0]['ID']);
+                document.getElementById('nextButton').setAttribute('data-liked', '1');
             }
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    loadLikedSongs();
-});

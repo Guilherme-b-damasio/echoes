@@ -86,11 +86,20 @@ body {
   padding-left: 10px;
 }
 
+/* .sidebar .navigation .ul-sidebar .li-profile .profile-name:hover,
+.sidebar .navigation .ul-sidebar .li-profile .profile-name:active,
+.sidebar .navigation .ul-sidebar .li-profile .profile-name:focus {
+  transition: 0.15s;
+  color: rgb(221, 228, 235);
+} */
 
 .sidebar .navigation ul li {
-  display: flex; /* Adiciona flexbox */
-  align-items: center; /* Alinha verticalmente */
-  padding: 10px 0; /* Mantém o espaçamento */
+  display: flex;
+
+  align-items: center;
+
+  padding: 10px 0;
+  
 }
 
 .sidebar .navigation ul li a {
@@ -100,11 +109,13 @@ body {
   font-size: 13px;
 }
 
+/* 
 .sidebar .navigation ul li a:hover,
 .sidebar .navigation ul li a:active,
 .sidebar .navigation ul li a:focus {
-  color: var(--details);
-}
+  transition: 0.15s;
+  color: rgb(221, 228, 235);
+} */
 
 /* .sidebar .navigation ul li a:hover .fa,
 .sidebar .navigation ul li a:active .fa,
@@ -116,15 +127,37 @@ color: #b3b3b3;
   font-size: 20px;
   margin-right: 10px;
   font-weight: 20px;
-  width: 24px; /* Largura fixa para os ícones */
-  text-align: center; /* Centraliza o ícone */
+  width: 24px;
+  /* Largura fixa para os ícones */
+  text-align: center;
+  /* Centraliza o ícone */
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page li {
+  border-radius: 7px;
+  gap: 10px;
+  padding: 10px 0px 10px 6px;
+  cursor: pointer;
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page li a{
+  color: #ffffff;
+}
+
+
+.sidebar .navigation .ul-sidebar .sidebar-page li:hover,
+.sidebar .navigation .ul-sidebar .sidebar-page li:active,
+.sidebar .navigation .ul-sidebar .sidebar-page li:focus {
+  background-color: #ffffff11;
+  transition: 0.2s;
 }
 
 
 .sidebar .navigation ul li a:hover .fa:hover,
 .sidebar .navigation ul li a:hover .fa:active,
 .sidebar .navigation ul li a:hover .fa:focus {
-  color: var(--details);
+  transition: 0.15s;
+  color: rgb(221, 228, 235);
 }
 
 .sidebar .policies {
@@ -134,22 +167,32 @@ color: #b3b3b3;
 
 
 .sidebar-page li {
-  display: flex; /* Garante que os itens na sidebar-page também usem flexbox */
-  align-items: center; /* Alinha verticalmente os itens */
-  padding: 10px 0; /* Mantém o espaçamento */
+  display: flex;
+  /* Garante que os itens na sidebar-page também usem flexbox */
+  align-items: center;
+  /* Alinha verticalmente os itens */
+  padding: 10px 0;
+  /* Mantém o espaçamento */
 }
 
 .sidebar-page li a {
-  display: flex; /* Faz o link também usar flexbox */
-  align-items: center; /* Alinha verticalmente o texto com o ícone */
-  color: aquamarine; /* Cor do texto */
-  text-decoration: none; /* Remove o sublinhado */
-  font-weight: 500; /* Peso da fonte */
-  font-size: 14px; /* Tamanho da fonte */
+  display: flex;
+  /* Faz o link também usar flexbox */
+  align-items: center;
+  /* Alinha verticalmente o texto com o ícone */
+  color: aquamarine;
+  /* Cor do texto */
+  text-decoration: none;
+  /* Remove o sublinhado */
+  font-weight: 500;
+  /* Peso da fonte */
+  font-size: 14px;
+  /* Tamanho da fonte */
 }
 
 .sidebar-page li a span {
-  margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+  margin-right: 10px;
+  /* Espaçamento entre o ícone e o texto */
 }
 
 .sidebar .policies ul li a:hover,
@@ -203,7 +246,6 @@ color: #b3b3b3;
 }
 
 .sidebar-page {
-  padding: 0px 0px 0px 4px;
 }
 
 .sidebar-page li {

@@ -14,7 +14,14 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
     <div id="card-img-block" class="card-img-block">
     </div>
     <div class="card-body pt-5">
-      <img src="../src/uploads/<?php echo $dataUser->getId(); ?>/profile.png" alt="profile-image" id="profile" class="profile">
+      <?php
+
+      $dir = "../src/uploads/" . $dataUser->getId() . "/profile.png";
+      if (is_dir($dir) || file_exists($dir)) {
+        echo '<img src="../src/uploads/' . $dataUser->getId() . '/profile.png" alt="profile-image" id="profile" class="profile">';
+      } else {
+        echo '<img src="../src/uploads/default/profile.png" alt="profile-image" id="profile" class="profile">';
+      } ?>
       <div id="profile-hover" class="profile-hover"><i class="fa-solid fa-pen-to-square"></i>
         <p class="text-photo">Alterar foto</p>
       </div>

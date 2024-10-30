@@ -100,6 +100,26 @@ class service
             return $response;
         }
     }
+    
+    public function searchMusicPerso($id, $time, $playlist_id)
+    {
+
+        header('Content-Type: application/json');
+        if ($time == 'next') {
+            $response = $this->repo->searchNextMusic(null, $id, $playlist_id);
+            return $response;
+        }
+
+        if ($time == 'prev') {
+            $response = $this->repo->searchPrevMusic(null, $id, $playlist_id);
+            return $response;
+        }
+
+        if (empty($time)) {
+            $response = $this->repo->searchMusicPerso($id);
+            return $response;
+        }
+    }
 
     public function searchMusicLiked($id, $user)
     {
@@ -150,6 +170,19 @@ class service
         }
         return $return;
     }
+
+    public function updatePersoPlaylist($perso_id, $id_music)
+    {
+        $return = [];
+        $response = $this->repo->updatePersoPlaylist($perso_id, $id_music);
+        if ($response) {
+            $return['type'] = 'success';
+        } else {
+            $return['type'] = 'error';
+        }
+        return $return;
+    }
+
     public function selectLikedPlaylist($user_id)
     {
         $response = [];
@@ -180,6 +213,15 @@ class service
             $response['msg'] = 'Não foi possivel criar a playlist';
             $response['type'] = 'error';
         }
+        return $response;
+    }
+    
+    public function searchPlaylist()
+    {
+        $response = [];
+        $dataUser = isset($_SESSION['dataUser']) ? unserialize($_SESSION['dataUser']) : [];
+        $user_id = $dataUser->getId();
+        $response = $this->repo->searchPlaylist($user_id);
         return $response;
     }
 

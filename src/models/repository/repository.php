@@ -156,6 +156,44 @@ class repository
             return null;
         }
     }
+    public function searchMusicPerso($id)
+    {
+        try {
+
+            $sql = "
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor
+        FROM 
+            music
+        WHERE 1=1";
+
+            $params = [];
+
+            if (!empty($id)) {
+                $sql .= " AND perso_id = :id";
+                $params[':id'] = $id;
+            } 
+
+            $stmt = $this->conn->prepare($sql);
+
+            foreach ($params as $param => $value) {
+                $stmt->bindValue($param, $value);
+            }
+
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            return !empty($result) ? $result : null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql);
+            error_log("Error in searchMusic: " . $e->getMessage());
+            return null;
+        }
+    }
 
     public function searchMusicLikedDistinct($id, $user)
     {
@@ -183,13 +221,13 @@ class repository
             $stmt = $this->conn->prepare($sql);
             $stmt->bindValue(':id', $id);
             $stmt->bindValue(':user', $user);
-        
+
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_OBJ);
 
             error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
             error_log("Params: id = $id, user = $user", 3, 'C:\xampp\htdocs\echoes\logs\error.log');
-        
+
             return !empty($result) ? $result : null;
         } catch (PDOException $e) {
             error_log("SQL: " . $sql);
@@ -405,7 +443,16 @@ class repository
         $sql->bindParam(":id_music", $id_music);
         $sql->bindParam(":user_id", $user_id);
         return $sql->execute();
+    } 
+    
+    public function updatePersoPlaylist($perso_id, $id_music)
+    {
+        $sql = $this->conn->prepare("UPDATE music SET perso_id = :perso_id WHERE ID = :id_music");
+        $sql->bindParam(":perso_id", $perso_id);
+        $sql->bindParam(":id_music", $id_music);
+        return $sql->execute();
     }
+    
 
     public function selectLikedPlaylist($user_id)
     {
@@ -494,7 +541,7 @@ class repository
         $stmt->execute();
 
         return;
-    } 
+    }
     public function createPlaylist(int $user, String $playlist_name)
     {
         $stmt = $this->conn->prepare("INSERT INTO playlist_perso (user_id, name) VALUES (:user_id, :name)");
@@ -503,6 +550,22 @@ class repository
 
         return $stmt->execute();
     }
+
+    public function searchPlaylist(int $user)
+    {
+        try {
+            $stmt = $this->conn->prepare("SELECT * FROM playlist_perso WHERE user_id = :user_id");
+            $stmt->bindParam(":user_id", $user, PDO::PARAM_INT);
+            $stmt->execute();
+            $playlist = $stmt->fetchAll(PDO::FETCH_OBJ);
+            error_log("Result: $user " . print_r($playlist, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            return $playlist;
+        } catch (PDOException $e) {
+            error_log('Database query failed: ' . $e->getMessage());
+            return $e->getMessage();
+        }
+    }
+    
 
     public function resetPassword(String $email)
     {
@@ -533,25 +596,25 @@ class repository
     {
         $sql = "SELECT * FROM users WHERE users.ID = :id";
         $response = [];
-    
+
         try {
             // Verifica se o usuário existe
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
-    
+
             if ($result) {
                 // Atualiza os dados do usuário
                 $stmt = $this->conn->prepare("UPDATE users SET name = :name, login = :login, email = :email, phone = :phone WHERE id = :id");
-                
+
                 $stmt->bindParam(":name", $name);
                 $stmt->bindParam(":login", $login);
                 $stmt->bindParam(":email", $email);
                 $stmt->bindParam(":phone", $phone);
                 $stmt->bindParam(":id", $id);
                 $stmt->execute();
-    
+
                 // Verifica se o `UPDATE` foi bem-sucedido
                 if ($stmt->rowCount() > 0) {
                     $response['msg'] = "Usuário atualizado com sucesso";
@@ -564,15 +627,14 @@ class repository
                 $response['msg'] = "Usuário não encontrado";
                 $response['status'] = false;
             }
-    
+
             return $response;
         } catch (PDOException $e) {
             error_log("Error in updateProfile: " . $e->getMessage());
             return $response['msg'] = "Error in updateProfile: " . $e->getMessage();
         }
-        
     }
-    
+
 
     public function confirmResetPass($new_password, $user_id)
     {

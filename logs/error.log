@@ -1,1944 +1,1330 @@
-musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsSQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Result: 1 PDOStatement Object
 (
-    [ID] => 13
-    [name] => Valsa em Lá menor
-    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
-    [image] => ../src/images/Chopin.png
-    [autor] => Frédéric Chopin
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [queryString] => SELECT * from playlist_perso WHERE user_id = :user_id
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Result: 1 PDOStatement Object
 (
-    [ID] => 12
-    [name] => Moonlight Sonata
-    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
-    [image] => ../src/images/beethoven.png
-    [autor] => Beethoven
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [queryString] => SELECT * from playlist_perso WHERE user_id = :user_id
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Values: []Result: 1 Array
 (
-    [ID] => 11
-    [name] => Lacrimosa
-    [src] => ../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3
-    [image] => ../src/images/mozart.png
-    [autor] => Mozart
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [0] => stdClass Object
+        (
+            [ID] => 0
+            [user_id] => 1
+            [name] => teste
+        )
+
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsSQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 5
-    [name] => Numb
-    [src] => ../src/songs/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3
-    [image] => ../src/images/lr60124_2017721_132122515753.jpg
-    [autor] => Linkin Park
-    [music_created_at] => 2024-09-02 23:14:13
-    [music_updated_at] => 2024-09-02 23:14:13
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [0] => stdClass Object
+        (
+            [ID] => 0
+            [user_id] => 1
+            [name] => teste
+        )
+
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 4
-    [name] => Highway to Hell
-    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
-    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
-    [autor] => AC/DC
-    [music_created_at] => 2024-09-02 23:12:51
-    [music_updated_at] => 2024-09-04 00:26:43
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [0] => stdClass Object
+        (
+            [ID] => 0
+            [user_id] => 1
+            [name] => teste
+        )
+
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 3
-    [name] => Back In Black
-    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
-    [image] => ../src/images/Back_in_Black.jpg
-    [autor] => AC/DC
-    [music_created_at] => 2024-09-02 23:11:33
-    [music_updated_at] => 2024-09-04 00:26:43
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-        SELECT 
-            music.ID AS musicID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            likedplaylist.ID as ID
-        FROM 
-            music
-        INNER JOIN 
-            likedplaylist ON music.ID = likedplaylist.id_music
-        WHERE  likedplaylist.id_music = :id AND likedplaylist.user_id = :userParams: id = 12, user = 1Params: id = 96, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 97
-    [user_id] => 1
-    [id_music] => 13
-    [music_id] => 13
-    [name] => Valsa em Lá menor
-    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
-    [image] => ../src/images/Chopin.png
-    [autor] => Frédéric Chopin
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 97, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 98
-    [user_id] => 1
-    [id_music] => 5
-    [music_id] => 5
-    [name] => Numb
-    [src] => ../src/songs/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3
-    [image] => ../src/images/lr60124_2017721_132122515753.jpg
-    [autor] => Linkin Park
-    [music_created_at] => 2024-09-02 23:14:13
-    [music_updated_at] => 2024-09-02 23:14:13
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 98, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 99
-    [user_id] => 1
-    [id_music] => 10
-    [music_id] => 10
-    [name] => Without Me
-    [src] => ../src/songs/Eminem - Without Me (Official Music Video).mp3
-    [image] => ../src/images/Eminem_-_Without_Me_CD_cover.jpg
-    [autor] => Eminem
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 99, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 100
-    [user_id] => 1
-    [id_music] => 16
-    [music_id] => 16
-    [name] => What a Feeling
-    [src] => ../src/songs/02 Global Deejays What a Feeling Summer Eletrohits 2 - 5082555 (youtube) (1).mp3
-    [image] => ../src/images/Summer2.png
-    [autor] => Global Deejays
-    [music_created_at] => 2024-08-30 01:11:31
-    [music_updated_at] => 2024-08-30 01:11:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 100, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID < :id
-                    ORDER BY likedplaylist.ID DESC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 99
-    [user_id] => 1
-    [id_music] => 10
-    [music_id] => 10
-    [name] => Without Me
-    [src] => ../src/songs/Eminem - Without Me (Official Music Video).mp3
-    [image] => ../src/images/Eminem_-_Without_Me_CD_cover.jpg
-    [autor] => Eminem
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 99, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID < :id
-                    ORDER BY likedplaylist.ID DESC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 98
-    [user_id] => 1
-    [id_music] => 5
-    [music_id] => 5
-    [name] => Numb
-    [src] => ../src/songs/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3
-    [image] => ../src/images/lr60124_2017721_132122515753.jpg
-    [autor] => Linkin Park
-    [music_created_at] => 2024-09-02 23:14:13
-    [music_updated_at] => 2024-09-02 23:14:13
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 98, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID < :id
-                    ORDER BY likedplaylist.ID DESC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 97
-    [user_id] => 1
-    [id_music] => 13
-    [music_id] => 13
-    [name] => Valsa em Lá menor
-    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
-    [image] => ../src/images/Chopin.png
-    [autor] => Frédéric Chopin
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 97, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID < :id
-                    ORDER BY likedplaylist.ID DESC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 96
-    [user_id] => 1
-    [id_music] => 12
-    [music_id] => 12
-    [name] => Moonlight Sonata
-    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
-    [image] => ../src/images/beethoven.png
-    [autor] => Beethoven
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsSQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsSQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-        SELECT 
-            music.ID AS musicID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            likedplaylist.ID as ID
-        FROM 
-            music
-        INNER JOIN 
-            likedplaylist ON music.ID = likedplaylist.id_music
-        WHERE  likedplaylist.id_music = :id AND likedplaylist.user_id = :userParams: id = 12, user = 1Params: id = 96, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 97
-    [user_id] => 1
-    [id_music] => 13
-    [music_id] => 13
-    [name] => Valsa em Lá menor
-    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
-    [image] => ../src/images/Chopin.png
-    [autor] => Frédéric Chopin
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 97, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 98
-    [user_id] => 1
-    [id_music] => 5
-    [music_id] => 5
-    [name] => Numb
-    [src] => ../src/songs/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3
-    [image] => ../src/images/lr60124_2017721_132122515753.jpg
-    [autor] => Linkin Park
-    [music_created_at] => 2024-09-02 23:14:13
-    [music_updated_at] => 2024-09-02 23:14:13
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 98, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 99
-    [user_id] => 1
-    [id_music] => 10
-    [music_id] => 10
-    [name] => Without Me
-    [src] => ../src/songs/Eminem - Without Me (Official Music Video).mp3
-    [image] => ../src/images/Eminem_-_Without_Me_CD_cover.jpg
-    [autor] => Eminem
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
 )
-Params: id = 99, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 100
-    [user_id] => 1
-    [id_music] => 16
-    [music_id] => 16
-    [name] => What a Feeling
-    [src] => ../src/songs/02 Global Deejays What a Feeling Summer Eletrohits 2 - 5082555 (youtube) (1).mp3
-    [image] => ../src/images/Summer2.png
-    [autor] => Global Deejays
-    [music_created_at] => 2024-08-30 01:11:31
-    [music_updated_at] => 2024-08-30 01:11:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
 )
-Params: id = 100, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: Params: id = 100, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsSQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 5
-    [name] => Numb
-    [src] => ../src/songs/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3
-    [image] => ../src/images/lr60124_2017721_132122515753.jpg
-    [autor] => Linkin Park
-    [music_created_at] => 2024-09-02 23:14:13
-    [music_updated_at] => 2024-09-02 23:14:13
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 4
-    [name] => Highway to Hell
-    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
-    [image] => ../src/images/Acdc_Highway_to_Hell.jfif
-    [autor] => AC/DC
-    [music_created_at] => 2024-09-02 23:12:51
-    [music_updated_at] => 2024-09-04 00:26:43
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 3
-    [name] => Back In Black
-    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
-    [image] => ../src/images/Back_in_Black.jpg
-    [autor] => AC/DC
-    [music_created_at] => 2024-09-02 23:11:33
-    [music_updated_at] => 2024-09-04 00:26:43
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
 )
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-        SELECT 
-            music.ID AS musicID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            likedplaylist.ID as ID
-        FROM 
-            music
-        INNER JOIN 
-            likedplaylist ON music.ID = likedplaylist.id_music
-        WHERE  likedplaylist.id_music = :id AND likedplaylist.user_id = :userParams: id = 13, user = 1Params: id = 87, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 89
-    [user_id] => 1
-    [id_music] => 6
-    [music_id] => 6
-    [name] => Sweet Child O Mine
-    [src] => ../src/songs/Sweet Child O Mine (Official Music Video).mp3
-    [image] => ../src/images/Guns-N-Roses-Appetite-For-Destruction.jpg
-    [autor] => Guns N Roses
-    [music_created_at] => 2024-09-16 20:14:13
-    [music_updated_at] => 2024-09-04 22:31:14
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
 )
-Params: id = 89, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 90
-    [user_id] => 1
-    [id_music] => 17
-    [music_id] => 17
-    [name] => Can You Feel It
-    [src] => ../src/songs/01 Jean Roch - Can You Feel It (Summer EletroHits 1).mp3
-    [image] => ../src/images/Summer1.png
-    [autor] => Jean Roch
-    [music_created_at] => 2024-08-30 01:11:31
-    [music_updated_at] => 2024-08-30 01:11:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
 )
-Params: id = 90, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 91
-    [user_id] => 1
-    [id_music] => 9
-    [music_id] => 9
-    [name] => In Da Club
-    [src] => ../src/songs/50 Cent - In Da Club (Official Music Video).mp3
-    [image] => ../src/images/81bpmchtQ6L._UF350,350_QL50_.jpg
-    [autor] => 50 Cent
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
 )
-Params: id = 91, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: stdClass Object
+Result: 1 Array
 (
-    [ID] => 92
-    [user_id] => 1
-    [id_music] => 8
-    [music_id] => 8
-    [name] => FE!N
-    [src] => ../src/songs/Travis Scott - FE!N (Official Audio) ft. Playboi Carti.mp3
-    [image] => ../src/images/51nMgSxPQeL._UF1000,1000_QL80_.jpg
-    [autor] => Travis Scott
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-08-30 00:23:31
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
 )
-Params: id = 92, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: Params: id = 92, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: Params: id = 92, user = 1SQL Executed: 
-            SELECT 
-                likedplaylist.*, 
-                music.ID AS music_id, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at
-            FROM 
-                likedplaylist
-            LEFT JOIN 
-                music ON likedplaylist.id_music = music.ID
-            WHERE
-                likedplaylist.user_id = :user AND
-                likedplaylist.ID = (
-                    SELECT ID
-                    FROM likedplaylist
-                    WHERE user_id = :user AND likedplaylist.ID > :id
-                    ORDER BY likedplaylist.ID ASC
-                    LIMIT 1
-                );
-        Result: 
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)

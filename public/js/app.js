@@ -51,6 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
             addProfilePhotoListener();
             
         }
+        if (page === 'biblioteca') {
+            loadPlaylistPerso();
+        }
 
         window.history.pushState({}, '', '?' + page);
     }

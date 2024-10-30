@@ -43,13 +43,13 @@
                     </a>
                 </li> -->
                 <li>
-                    <a href="#">
+                    <a href="?biblioteca" data-page="biblioteca">
                         <span class="fa fas fa-book"></span>
                         <span>Sua Biblioteca</span>
                     </a>
                 </li>
                 <li>
-                    <a href="?playlist">
+                    <a href="?playlist" data-page="playlist">
                         <span class="fa fas fa-plus-square"></span>
                         <span>Criar Playlist</span>
                     </a>

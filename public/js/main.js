@@ -30,6 +30,7 @@ async function loadSongs(data) {
             data.forEach(music => {
                 html +=
                     `<div class="item">
+                    <span class="fa fa-list" data-perso="${music.perso_id}" id="${music.ID}-perso" onclick='saveMusicInPlaylist(${music.ID})' style="color:${music.perso_id != '' ? 'blue' : 'orange'};"></span>
                     <span class="fa fa-heart" data-liked="${music.liked}" id="${music.ID}" onclick='saveMusic(${music.ID})' style="color:${music.liked != 'false' ? 'green' : 'white'};"></span>
                                 <img src="${music.image}" alt="Album Art" />
                                 <div class="play">
@@ -111,7 +112,50 @@ function saveMusic(ID){
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
 
+async function saveMusicInPlaylist(ID) {
+    try {
+        const response = await fetch('../src/playlistManager.php?option=select'); 
+        const playlists = await response.json();
 
-window.onload = function () {
-    loadPlaylist();
+        const inputOptions = {};
+        playlists.forEach(playlist => {
+            inputOptions[playlist.ID] = playlist.name; 
+        });
+
+        const { value: selectedPlaylistId } = await Swal.fire({
+            title: "Selecione a playlist",
+            input: "select",
+            inputOptions: inputOptions,
+            inputValidator: (value) => {
+                if (!value) {
+                    return "You need to choose a playlist!";
+                }
+            }
+        });
+
+        if (selectedPlaylistId) {
+            saveInPlaylist(selectedPlaylistId, ID);
+        }
+
+       
+    } catch (error) {
+        console.error('Erro ao carregar playlists:', error);
+    }
+}
+
+function saveInPlaylist(selectedPlaylistId, ID){
+    let heart = document.getElementById(ID + '-perso');
+    let perso = heart.getAttribute('data-perso');
+    let option = perso !== 'false' ? 'delete' : 'update';
+
+    heart.setAttribute('data-perso', perso === 'true' ? 'false' : 'true');
+
+    fetch(`../src/playlistManager.php?music=${ID}&option=set&perso_id=${selectedPlaylistId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data) {
+                heart.style.color = perso === 'false' ? 'blue' : 'orange';
+            }
+        })
+        .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }

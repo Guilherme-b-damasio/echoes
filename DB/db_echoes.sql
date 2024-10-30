@@ -6,6 +6,7 @@
 -- Tempo de geração: 16-Out-2024 às 01:38
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
+drop database db_echoes;
 create database db_echoes;
 use db_echoes;
 
@@ -53,6 +54,13 @@ CREATE TABLE `likedplaylist` (
   `id_music` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+CREATE TABLE `playlist_perso` (
+  `ID` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+drop table playlist_perso;
 --
 -- Extraindo dados da tabela `likedplaylist`
 --
@@ -79,7 +87,8 @@ CREATE TABLE `music` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `playlist_id` int(11) NOT NULL,
-  `liked_id` int(11) DEFAULT NULL
+  `liked_id` int(11) DEFAULT NULL,
+  `perso_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

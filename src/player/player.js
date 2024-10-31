@@ -32,12 +32,18 @@ function nextMusic() {
   let id = element.getAttribute('data-music');
   let playlist = element.getAttribute('data-playlist');
   let liked = element.getAttribute('data-liked');
+  let perso = element.getAttribute('data-perso');
   let name = document.getElementById('musicName').textContent;
 
   let formData = new FormData();
 
+  formData.append('option', 'next');
   if(liked == '1'){
-    formData.append('option', 'next');
+    formData.append('section', 'liked');
+  }
+
+  if(perso == '1'){
+    formData.append('section', 'perso');
   }
 
   formData.append('music', id);

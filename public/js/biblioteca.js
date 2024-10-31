@@ -9,10 +9,10 @@ async function loadSongPerso(data) {
             data.forEach(music => {
                 html +=
                     `<div class="item">
-                    <span class="bi bi-music-note-list" data-liked="${music.liked}" id="${music.ID}" onclick='saveMusic(${music.ID})' style="color:${music.liked != 'false' ? 'green' : 'white'};"></span>
+                    <span class="bi bi-music-note-list" data-perso="" data-liked="" id="${music.ID}" onclick='saveMusic(${music.ID})'"></span>
                                 <img src="${music.image}" alt="Album Art" />
                                 <div class="play">
-                                    <span class="fa fa-play" onclick='playerMusic(${music.ID},${playlist.id})'></span>
+                                    <span class="fa fa-play" onclick='playerMusic(${music.ID},${playlist.ID})'></span>
                                 </div>
                                 <h4 class="song-title">${music.name}</h4>
                                 <h4 class="autor-name">${music.autor}</h4>
@@ -59,6 +59,7 @@ function playerMusic(ID, playlist) {
                 document.getElementById('nextButton').setAttribute('data-music', ID);
                 document.getElementById('nextButton').setAttribute('data-playlist', playlist);
                 document.getElementById('nextButton').setAttribute('data-liked', '0');
+                document.getElementById('nextButton').setAttribute('data-perso', '1');
             }
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));

@@ -296,6 +296,47 @@ class repository
             return null;
         }
     }
+    
+    public function searchNextMusicPerso($id, $playlist_id)
+    {
+        try {
+            $sql = "
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            
+            ";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':perso_id', $playlist_id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+            error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            error_log('musics', 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+            return $result ? $result : null;
+        } catch (PDOException $e) {
+            error_log("SQL: " . $sql);
+            error_log("Error in searchNextMusic: " . $e->getMessage());
+            return null;
+        }
+    }
     public function searchPrevMusic($name, $id, $playlist_id)
     {
         try {

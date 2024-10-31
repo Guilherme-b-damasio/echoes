@@ -106,12 +106,12 @@ class service
 
         header('Content-Type: application/json');
         if ($time == 'next') {
-            $response = $this->repo->searchNextMusic(null, $id, $playlist_id);
+            $response = $this->repo->searchNextMusicPerso($id, $playlist_id);
             return $response;
         }
 
         if ($time == 'prev') {
-            $response = $this->repo->searchPrevMusic(null, $id, $playlist_id);
+            $response = $this->repo->searchNextMusicPerso($id, $playlist_id);
             return $response;
         }
 

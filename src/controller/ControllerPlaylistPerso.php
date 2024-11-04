@@ -32,7 +32,7 @@ class ControllerPlaylistPerso
             return $this->service->deleteLikedPlaylist($user_id, $id_music);
         }
         if($option == 'next' || $option == 'prev'){
-            return $this->service->searchMusicPerso($id_music, $option, $playlist_id);
+            return $this->service->searchMusicPerso($id_music, $option, $perso_id);
         }
         
         if($option == 'set'){

@@ -176,7 +176,7 @@ class repository
             if (!empty($id)) {
                 $sql .= " AND perso_id = :id";
                 $params[':id'] = $id;
-            } 
+            }
 
             $stmt = $this->conn->prepare($sql);
 
@@ -296,11 +296,10 @@ class repository
             return null;
         }
     }
-    
-    public function searchNextMusicPerso($id, $playlist_id)
+
+    public function searchNextMusicPerso($id, $perso_id)
     {
-        try {
-            $sql = "
+        $sql = "
             SELECT 
                 music.ID AS ID, 
                 music.name, 
@@ -308,7 +307,7 @@ class repository
                 music.image,
                 music.autor, 
                 music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
+                music.updated_at AS music_updated_at
             FROM 
                 music
             WHERE
@@ -316,27 +315,77 @@ class repository
                 music.ID = (
                     SELECT MIN(ID)
                     FROM music
-                    WHERE ID > :id
+                    WHERE ID > :id and perso_id = :perso_id2
                 );
             
             ";
 
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->bindParam(':perso_id', $playlist_id, PDO::PARAM_INT);
-            $stmt->execute();
-            $result = $stmt->fetch(PDO::FETCH_OBJ);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':perso_id', $perso_id, PDO::PARAM_INT);
+        $stmt->bindParam(':perso_id2', $perso_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
 
-            error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
-            error_log('musics', 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+        error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+        error_log('musics', 3, 'C:\xampp\htdocs\echoes\logs\error.log');
 
-            return $result ? $result : null;
-        } catch (PDOException $e) {
-            error_log("SQL: " . $sql);
-            error_log("Error in searchNextMusic: " . $e->getMessage());
-            return null;
-        }
+        return $result;
     }
+
+    public function searchPrevMusicPerso($id, $perso_id)
+    {
+        $sql = "
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    ";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':perso_id', $perso_id, PDO::PARAM_INT);
+        $stmt->bindParam(':perso_id2', $perso_id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+        // Log de depuração
+        error_log("SQL: " . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+        error_log("Result: " . print_r($result, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+        return $result;
+    }
+
+    public function teste($id, $perso_id)
+    {
+        $sql = "
+                    SELECT * FROM music where ID = 1;
+            ";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+        error_log('musics' . $sql, 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+        error_log('musics', 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+
+        return $result;
+    }
+
+
     public function searchPrevMusic($name, $id, $playlist_id)
     {
         try {
@@ -484,8 +533,8 @@ class repository
         $sql->bindParam(":id_music", $id_music);
         $sql->bindParam(":user_id", $user_id);
         return $sql->execute();
-    } 
-    
+    }
+
     public function updatePersoPlaylist($perso_id, $id_music)
     {
         $sql = $this->conn->prepare("UPDATE music SET perso_id = :perso_id WHERE ID = :id_music");
@@ -493,7 +542,7 @@ class repository
         $sql->bindParam(":id_music", $id_music);
         return $sql->execute();
     }
-    
+
 
     public function selectLikedPlaylist($user_id)
     {
@@ -606,7 +655,7 @@ class repository
             return $e->getMessage();
         }
     }
-    
+
 
     public function resetPassword(String $email)
     {

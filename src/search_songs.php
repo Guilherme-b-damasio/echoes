@@ -38,19 +38,19 @@ if($section == 'liked'){
 if (isset($_REQUEST['next'])) {
     $time = 'next';
     $controller = new ControllerMusic();
-    $musics = $controller->handle(null, $id, $time, $playlist_id);
+    $musics = $controller->handle($time, null, $id, $playlist_id);
 
     echo json_encode($musics);
 } else {
     if (isset($_REQUEST['prev'])) {
         $time = 'prev';
         $controller = new ControllerMusic();
-        $musics = $controller->handle(null, $id, $time, $playlist_id);
+        $musics = $controller->handle($time, null, $id, $playlist_id);
 
         echo json_encode($musics);
     } else {
         $controller = new ControllerMusic();
-        $musics = $controller->handle($name, $id, null);
+        $musics = $controller->handle(null, $name, $id);
 
         echo json_encode($musics);
     }

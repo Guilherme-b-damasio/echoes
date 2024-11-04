@@ -101,17 +101,17 @@ class service
         }
     }
     
-    public function searchMusicPerso($id, $time, $playlist_id)
+    public function searchMusicPerso($id, $time, $perso_id)
     {
 
         header('Content-Type: application/json');
         if ($time == 'next') {
-            $response = $this->repo->searchNextMusicPerso($id, $playlist_id);
+            $response = $this->repo->searchNextMusicPerso($id, $perso_id);
             return $response;
         }
 
         if ($time == 'prev') {
-            $response = $this->repo->searchNextMusicPerso($id, $playlist_id);
+            $response = $this->repo->searchPrevMusicPerso($id, $perso_id);
             return $response;
         }
 

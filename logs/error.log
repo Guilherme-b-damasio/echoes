@@ -1,402 +1,344 @@
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = 1 AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > 9
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsResult: 1 Array
 (
-    [ID] => 3
-    [name] => Back In Black
-    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
-    [image] => ../src/images/Back_in_Black.jpg
-    [autor] => AC/DC
-    [music_created_at] => 2024-09-02 23:11:33
-    [music_updated_at] => 2024-09-04 00:26:43
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
 )
-SQL: 
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+        music.playlist_id = :playlist_id AND
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: SQL: 
         SELECT 
             music.ID AS ID, 
             music.name, 
@@ -428,21 +370,15 @@ SQL:
                 music.image,
                 music.autor, 
                 music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
+                music.updated_at AS music_updated_at
             FROM 
                 music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
             WHERE
-                music.playlist_id = :playlist_id AND
+                music.perso_id = :perso_id AND
                 music.ID = (
                     SELECT MIN(ID)
                     FROM music
-                    WHERE ID > :id
+                    WHERE ID > :id and perso_id = :perso_id2
                 );
             
             musicsmusics
@@ -453,100 +389,56 @@ SQL:
                 music.image,
                 music.autor, 
                 music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
+                music.updated_at AS music_updated_at
             FROM 
                 music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
             WHERE
-                music.playlist_id = :playlist_id AND
+                music.perso_id = :perso_id AND
                 music.ID = (
                     SELECT MIN(ID)
                     FROM music
-                    WHERE ID > :id
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
                 );
             
             musicsSQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 13
-    [name] => Valsa em Lá menor
-    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
-    [image] => ../src/images/Chopin.png
-    [autor] => Frédéric Chopin
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-31 19:20:13
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 12
-    [name] => Moonlight Sonata
-    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
-    [image] => ../src/images/beethoven.png
-    [autor] => Beethoven
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-29 21:13:48
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-SQL: 
         SELECT 
             music.ID AS ID, 
             music.name, 
@@ -592,121 +484,15 @@ musics
                 music.image,
                 music.autor, 
                 music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
+                music.updated_at AS music_updated_at
             FROM 
                 music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
             WHERE
-                music.playlist_id = :playlist_id AND
+                music.perso_id = :perso_id AND
                 music.ID = (
                     SELECT MIN(ID)
                     FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
+                    WHERE ID > :id and perso_id = :perso_id2
                 );
             
             musicsSQL: 
@@ -734,6 +520,1127 @@ musics
                 WHERE ID < :id
             );
         Result: stdClass Object
+(
+    [ID] => 11
+    [name] => Lacrimosa
+    [src] => ../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3
+    [image] => ../src/images/mozart.png
+    [autor] => Mozart
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:27:00
+    [playlist_id] => 1
+    [playlist_name] => Melhores Clássicos
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+        music.playlist_id = :playlist_id AND
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: stdClass Object
+(
+    [ID] => 11
+    [name] => Lacrimosa
+    [src] => ../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3
+    [image] => ../src/images/mozart.png
+    [autor] => Mozart
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:27:00
+    [playlist_id] => 1
+    [playlist_name] => Melhores Clássicos
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsSQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+        music.playlist_id = :playlist_id AND
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+        music.playlist_id = :playlist_id AND
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+        music.playlist_id = :playlist_id AND
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsResult: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsResult: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsSQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
+(
+    [ID] => 12
+    [name] => Moonlight Sonata
+    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
+    [image] => ../src/images/beethoven.png
+    [autor] => Beethoven
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:13:48
+)
+musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsSQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
+(
+    [ID] => 12
+    [name] => Moonlight Sonata
+    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
+    [image] => ../src/images/beethoven.png
+    [autor] => Beethoven
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:13:48
+)
+SQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
+(
+    [ID] => 9
+    [name] => In Da Club
+    [src] => ../src/songs/50 Cent - In Da Club (Official Music Video).mp3
+    [image] => ../src/images/81bpmchtQ6L._UF350,350_QL50_.jpg
+    [autor] => 50 Cent
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:14:03
+)
+SQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsSQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
+(
+    [ID] => 29
+    [name] => Stereo Love
+    [src] => ../src/songs/Summer Eletrohits 7 - Edward Maya & Vika Jigulina - Stereo Love (2010) - Portali3 (youtube).mp3
+    [image] => ../src/images/summereletrohits7.jpg
+    [autor] => Edward Maya & Vika Jigulina
+    [music_created_at] => 2024-08-30 01:11:31
+    [music_updated_at] => 2024-11-04 19:14:42
+)
+SQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
+(
+    [ID] => 18
+    [name] => Billie Jean
+    [src] => ../src/songs/ytmp3free.cc_michael-jackson-billie-jean-traduaolegendado-youtubemp3free.org.mp3
+    [image] => ../src/images/mjbj.png
+    [autor] => Michael Jackson
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:27:30
+)
+SQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
+(
+    [ID] => 12
+    [name] => Moonlight Sonata
+    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
+    [image] => ../src/images/beethoven.png
+    [autor] => Beethoven
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:13:48
+)
+SQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
+(
+    [ID] => 9
+    [name] => In Da Club
+    [src] => ../src/songs/50 Cent - In Da Club (Official Music Video).mp3
+    [image] => ../src/images/81bpmchtQ6L._UF350,350_QL50_.jpg
+    [autor] => 50 Cent
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:14:03
+)
+SQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: SQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: musics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsmusics
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at
+            FROM 
+                music
+            WHERE
+                music.perso_id = :perso_id AND
+                music.ID = (
+                    SELECT MIN(ID)
+                    FROM music
+                    WHERE ID > :id and perso_id = :perso_id2
+                );
+            
+            musicsSQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
+(
+    [ID] => 11
+    [name] => Lacrimosa
+    [src] => ../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3
+    [image] => ../src/images/mozart.png
+    [autor] => Mozart
+    [music_created_at] => 2024-08-30 00:23:31
+    [music_updated_at] => 2024-10-29 21:27:00
+)
+SQL: 
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
 (
     [ID] => 5
     [name] => Numb
@@ -742,36 +1649,26 @@ musics
     [autor] => Linkin Park
     [music_created_at] => 2024-09-02 23:14:13
     [music_updated_at] => 2024-10-29 21:27:48
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
 )
 SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: stdClass Object
 (
     [ID] => 4
     [name] => Highway to Hell
@@ -780,622 +1677,23 @@ SQL:
     [autor] => AC/DC
     [music_created_at] => 2024-09-02 23:12:51
     [music_updated_at] => 2024-10-29 21:14:46
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
 )
 SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 3
-    [name] => Back In Black
-    [src] => ../src/songs/AC_DC - Back In Black (Official 4K Video).mp3
-    [image] => ../src/images/Back_in_Black.jpg
-    [autor] => AC/DC
-    [music_created_at] => 2024-09-02 23:11:33
-    [music_updated_at] => 2024-09-04 00:26:43
-    [playlist_id] => 2
-    [playlist_name] => Melhores do Rock
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsSQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 13
-    [name] => Valsa em Lá menor
-    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
-    [image] => ../src/images/Chopin.png
-    [autor] => Frédéric Chopin
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-31 19:20:13
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 12
-    [name] => Moonlight Sonata
-    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
-    [image] => ../src/images/beethoven.png
-    [autor] => Beethoven
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-29 21:13:48
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-musics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsmusics
-            SELECT 
-                music.ID AS ID, 
-                music.name, 
-                music.src, 
-                music.image,
-                music.autor, 
-                music.created_at AS music_created_at, 
-                music.updated_at AS music_updated_at,
-                playlist.ID AS playlist_id, 
-                playlist.name AS playlist_name, 
-                playlist.created_at AS playlist_created_at, 
-                playlist.updated_at AS playlist_updated_at
-            FROM 
-                music
-            INNER JOIN 
-                playlist ON music.playlist_id = playlist.ID
-            WHERE
-                music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
-            musicsSQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 13
-    [name] => Valsa em Lá menor
-    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
-    [image] => ../src/images/Chopin.png
-    [autor] => Frédéric Chopin
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-31 19:20:13
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 12
-    [name] => Moonlight Sonata
-    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
-    [image] => ../src/images/beethoven.png
-    [autor] => Beethoven
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-29 21:13:48
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 11
-    [name] => Lacrimosa
-    [src] => ../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3
-    [image] => ../src/images/mozart.png
-    [autor] => Mozart
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-29 21:27:00
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 13
-    [name] => Valsa em Lá menor
-    [src] => ../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3
-    [image] => ../src/images/Chopin.png
-    [autor] => Frédéric Chopin
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-31 19:20:13
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 12
-    [name] => Moonlight Sonata
-    [src] => ../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3
-    [image] => ../src/images/beethoven.png
-    [autor] => Beethoven
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-29 21:13:48
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
-SQL: 
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
-        Result: stdClass Object
-(
-    [ID] => 11
-    [name] => Lacrimosa
-    [src] => ../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3
-    [image] => ../src/images/mozart.png
-    [autor] => Mozart
-    [music_created_at] => 2024-08-30 00:23:31
-    [music_updated_at] => 2024-10-29 21:27:00
-    [playlist_id] => 1
-    [playlist_name] => Melhores Clássicos
-    [playlist_created_at] => 2024-08-29 20:40:40
-    [playlist_updated_at] => 2024-08-29 20:40:40
-)
+    SELECT 
+        music.ID AS ID, 
+        music.name, 
+        music.src, 
+        music.image,
+        music.autor, 
+        music.created_at AS music_created_at, 
+        music.updated_at AS music_updated_at
+    FROM 
+        music
+    WHERE
+        music.perso_id = :perso_id AND
+        music.ID = (
+            SELECT MAX(ID)
+            FROM music
+            WHERE ID < :id AND perso_id = :perso_id2
+        );
+    Result: 

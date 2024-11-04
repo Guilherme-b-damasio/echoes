@@ -85,6 +85,7 @@ function playerMusic(ID, playlist) {
                 document.getElementById('nextButton').setAttribute('data-music', ID);
                 document.getElementById('nextButton').setAttribute('data-playlist', playlist);
                 document.getElementById('nextButton').setAttribute('data-liked', '0');
+                document.getElementById('nextButton').setAttribute('data-perso', '0');
             }
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));

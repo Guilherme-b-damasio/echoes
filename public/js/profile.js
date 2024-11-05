@@ -23,7 +23,6 @@ const addProfilePhotoListener = () => {
     // Adiciona o listener apenas se ainda não foi adicionado
     if (profilePhoto && !profilePhoto.classList.contains('listener-added')) {
         profilePhoto.addEventListener('click', async () => {
-            console.log('Aqui editar2');
 
             const { value: file } = await Swal.fire({
                 title: "Select image",
@@ -159,48 +158,85 @@ function updateContent(html, page) {
     window.history.pushState({}, '', '?' + page);
 }
 
+function validateProfileForm() {
+    const email = document.querySelector('input[name="email"]').value;
+    const phone = document.querySelector('input[name="phone"]').value;
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex para validação de e-mail
+    const phonePattern = /^\d{10,15}$/; // Regex para telefone com ou sem parênteses
+
+    if (!emailPattern.test(email)) {
+        alert('Por favor, insira um e-mail válido.');
+        return false; // Impede o envio do formulário
+    }
+
+    // Verifica se o telefone foi preenchido
+    if (phone && !phonePattern.test(phone)) {
+        alert('Por favor, insira um telefone no formato (xx) x-xxxx ou xx x-xxxx.');
+        return false; // Impede o envio do formulário
+    }
+
+    return true; // Permite o envio do formulário
+}
+
 function updateProfile() {
+    event.preventDefault(); // Impede o envio do formulário padrão
+
+    if (!validateProfileForm()) {
+        return; // Se a validação falhar, não continua
+    }
+
     let form = document.getElementById("form-update");
-    
-        event.preventDefault();
+    const formData = new URLSearchParams(new FormData(form));    
 
-        const formData = new URLSearchParams(new FormData(form));    
+    let url = "../src/manager.php?updateProfile";
 
-        let url = "../src/manager.php?updateProfile";
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data && data.type == "success") {
-                Swal.fire({
-                    title: 'Sucesso!',
-                    text: data.msg,
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-            } else {
-                Swal.fire({
-                    title: 'Erro!',
-                    text: data.msg,
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            }
-        })
-        .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data && data.type == "success") {
+            Swal.fire({
+                title: 'Sucesso!',
+                text: data.msg,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        } else {
             Swal.fire({
                 title: 'Erro!',
-                text: 'Ocorreu um erro ao processar a solicitação.',
+                text: data.msg,
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
+        }
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+        Swal.fire({
+            title: 'Erro!',
+            text: 'Ocorreu um erro ao processar a solicitação.',
+            icon: 'error',
+            confirmButtonText: 'OK'
         });
-        
+    });
+}
+
+// Máscara para o campo telefone
+const handlePhone = (event) => {
+    let input = event.target
+    input.value = phoneMask(input.value)
+}
+
+const phoneMask = (value) => {
+    if (!value) return ""
+    value = value.replace(/\D/g, '')
+    value = value.replace(/(\d{2})(\d)/, "($1) $2")
+    value = value.replace(/(\d)(\d{4})$/, "$1-$2")
+    return value
 }

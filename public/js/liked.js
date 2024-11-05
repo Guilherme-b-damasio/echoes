@@ -7,7 +7,8 @@ async function loadLikedSongs() {
 
         const list = document.getElementById('main-container');
 
-        html += `<div class="playlists">  
+        html += `<div class="playlists"> 
+                    <h1>Curtidas</h1> 
                        <div class="list">`;
         data.forEach(music => {
             html +=
@@ -17,6 +18,7 @@ async function loadLikedSongs() {
                         <span class="fa fa-play" onclick='playerMusicLiked(${music.ID})'></span>
                     </div>
                     <h4>${music.name}</h4>
+                    <h4 class="autor-name">${music.autor}</h4>
                 </div>`;
         });
 

@@ -42,11 +42,11 @@ $musicArray = isset($_SESSION['dataMusic']) ? unserialize($_SESSION['dataMusic']
       </div>
       <div class="form-input">
         <label class="name-input" for="email">Email</label>
-        <input type="text" class="input-field" name="email" value="<?php echo $dataUser->getEmail() ?>">
+        <input type="email" class="input-field"  name="email" value="<?php echo $dataUser->getEmail() ?>">
       </div>
       <div class="form-input">
         <label class="name-input" for="phone">Telefone</label>
-        <input type="text" class="input-field" name="phone" value="<?php echo $dataUser->getPhone() ?>">
+        <input type="tel" class="input-field" name="phone" value="<?php echo $dataUser->getPhone() ?>">
       </div>
       <button class="update-btn" class="btn" onclick="updateProfile()">Salvar</button>
     </form>

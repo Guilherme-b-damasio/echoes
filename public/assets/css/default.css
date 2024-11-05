@@ -38,13 +38,14 @@ body {
   /* left: 0; */
   /* top: 0; */
   /* bottom: 0; */
-  width: 200px !important;
+  width: 225px !important;
   /* background-color: #000000; */
   background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important;
   padding: 24px;
   overflow: hidden;
-
 }
+
+
 
 .sidebar .logoIcone {
   display: flex;
@@ -141,7 +142,15 @@ color: #b3b3b3;
 }
 
 .sidebar .navigation .ul-sidebar .sidebar-page li a{
-  color: #ffffff;
+  display: block; /* Faz o link ocupar toda a área do li */
+  width: 100%; /* Faz o a ocupar 100% da largura do li */
+  text-decoration: none; /* Remove o sublinhado do link */
+  height: 100%; 
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page .sidebar-button{
+  /* color: red; */
+  display: flex;
 }
 
 
@@ -193,6 +202,9 @@ color: #b3b3b3;
 .sidebar-page li a span {
   margin-right: 10px;
   /* Espaçamento entre o ícone e o texto */
+  display: flex;
+  font-size: 15px;
+  align-content: center;
 }
 
 .sidebar .policies ul li a:hover,
@@ -204,7 +216,7 @@ color: #b3b3b3;
 #searchInput {
   background: #ffffff00;
   color: #b3b3b3;
-  width: 6vw;
+  width: 10vw;
   height: 30px;
   /* border-radius: 16px; */
   border: none !important;

@@ -1820,3 +1820,34 @@ Result: 1 Array
         )
 
 )
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)

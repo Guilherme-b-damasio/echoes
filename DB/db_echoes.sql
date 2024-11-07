@@ -7,6 +7,7 @@
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.12
 
+drop database db_echoes;
 create database db_echoes;
 use db_echoes;
 

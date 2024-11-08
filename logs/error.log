@@ -1851,3 +1851,2293 @@ Result: 1 Array
         )
 
 )
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Testezada
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => oiii
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+        music.playlist_id = :playlist_id AND
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: SQL: 
+        SELECT 
+            music.ID AS ID, 
+            music.name, 
+            music.src, 
+            music.image,
+            music.autor, 
+            music.created_at AS music_created_at, 
+            music.updated_at AS music_updated_at,
+            playlist.ID AS playlist_id, 
+            playlist.name AS playlist_name, 
+            playlist.created_at AS playlist_created_at, 
+            playlist.updated_at AS playlist_updated_at
+        FROM 
+            music
+        INNER JOIN 
+            playlist ON music.playlist_id = playlist.ID
+        WHERE
+        music.playlist_id = :playlist_id AND
+            music.ID = (
+                SELECT MAX(ID)
+                FROM music
+                WHERE ID < :id
+            );
+        Result: Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)
+Result: 1 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 1
+            [name] => rteste
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 1
+            [name] => teste2
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [3] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 1
+            [name] => musicas que gosto
+        )
+
+    [4] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 1
+            [name] => SweetAlert
+        )
+
+    [5] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 1
+            [name] => Teste5
+        )
+
+    [6] => stdClass Object
+        (
+            [ID] => 7
+            [user_id] => 1
+            [name] => Teste6
+        )
+
+    [7] => stdClass Object
+        (
+            [ID] => 8
+            [user_id] => 1
+            [name] => Teste7
+        )
+
+    [8] => stdClass Object
+        (
+            [ID] => 9
+            [user_id] => 1
+            [name] => Teste8
+        )
+
+    [9] => stdClass Object
+        (
+            [ID] => 10
+            [user_id] => 1
+            [name] => AlgoTop
+        )
+
+)

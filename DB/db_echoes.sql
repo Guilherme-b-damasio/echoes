@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Out-2024 às 01:38
+-- Tempo de geração: 05-Nov-2024 às 00:41
 -- Versão do servidor: 10.4.28-MariaDB
--- versão do PHP: 8.2.4
+-- versão do PHP: 8.2.12
+
 drop database db_echoes;
 create database db_echoes;
 use db_echoes;
-
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,10 +31,6 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `category`
 --
 
-DROP DATABASE IF EXISTS db_echoes;
-CREATE DATABASE db_echoes;
-use db_echoes;
-
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
@@ -54,23 +50,16 @@ CREATE TABLE `likedplaylist` (
   `id_music` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `playlist_perso` (
-  `ID` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-drop table playlist_perso;
 --
 -- Extraindo dados da tabela `likedplaylist`
 --
 
 INSERT INTO `likedplaylist` (`ID`, `user_id`, `id_music`) VALUES
-(87, 1, 13),
 (89, 1, 6),
 (90, 1, 17),
 (91, 1, 9),
-(92, 1, 8);
+(92, 1, 8),
+(97, 1, 29);
 
 -- --------------------------------------------------------
 
@@ -95,39 +84,40 @@ CREATE TABLE `music` (
 -- Extraindo dados da tabela `music`
 --
 
-INSERT INTO `music` (`ID`, `name`, `src`, `autor`, `image`, `created_at`, `updated_at`, `playlist_id`, `liked_id`) VALUES
-(1, 'Viva La Vida', '../src/songs/Coldplay - Viva La Vida (Official Video).mp3', 'ColdPlay', '../src/images/coldplay.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 5, NULL),
-(2, 'A Real Hero', '../src/songs/College & Electric Youth - A Real Hero (Drive Original Movie Soundtrack).mp3', 'College & Electric Youth', '../src/images/arealhero.png', '2024-08-30 04:11:31', '2024-08-30 04:11:31', 8, NULL),
-(3, 'Back In Black', '../src/songs/AC_DC - Back In Black (Official 4K Video).mp3', 'AC/DC', '../src/images/Back_in_Black.jpg', '2024-09-03 02:11:33', '2024-09-04 03:26:43', 2, NULL),
-(4, 'Highway to Hell', '../src/songs/AC_DC - Back In Black (Official 4K Video).mp3', 'AC/DC', '../src/images/Acdc_Highway_to_Hell.jfif', '2024-09-03 02:12:51', '2024-09-04 03:26:43', 2, NULL),
-(5, 'Numb', '../src/songs/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3', 'Linkin Park', '../src/images/lr60124_2017721_132122515753.jpg', '2024-09-03 02:14:13', '2024-09-03 02:14:13', 2, NULL),
-(6, 'Sweet Child O Mine', '../src/songs/Sweet Child O Mine (Official Music Video).mp3', 'Guns N Roses', '../src/images/Guns-N-Roses-Appetite-For-Destruction.jpg', '2024-09-16 23:14:13', '2024-09-05 01:31:14', 2, NULL),
-(7, 'Hypnotize', '../src/songs/Biggie Smalls - Hypnotize.mp3', 'The Notorious B.I.G.', '../src/images/hqdefault.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 4, NULL),
-(8, 'FE!N', '../src/songs/Travis Scott - FE!N (Official Audio) ft. Playboi Carti.mp3', 'Travis Scott', '../src/images/51nMgSxPQeL._UF1000,1000_QL80_.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 4, NULL),
-(9, 'In Da Club', '../src/songs/50 Cent - In Da Club (Official Music Video).mp3', '50 Cent', '../src/images/81bpmchtQ6L._UF350,350_QL50_.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 4, NULL),
-(10, 'Without Me', '../src/songs/Eminem - Without Me (Official Music Video).mp3', 'Eminem', '../src/images/Eminem_-_Without_Me_CD_cover.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 4, NULL),
-(11, 'Lacrimosa', '../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3', 'Mozart', '../src/images/mozart.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 1, NULL),
-(12, 'Moonlight Sonata', '../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3', 'Beethoven', '../src/images/beethoven.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 1, NULL),
-(13, 'Valsa em Lá menor', '../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3', 'Frédéric Chopin', '../src/images/Chopin.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 1, NULL),
-(14, 'Entry of the Gladiators', '../src/songs/Julius Fucik - Entry of the Gladiators.mp3', 'Julius Fucik', '../src/images/Fuciknew.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 1, NULL),
-(15, 'Set Me Free', '../src/songs/House Boulevard feat. Samara - Set Me Free - Summer Eletrohits 5.mp3', 'House Boulevard feat. Samara', '../src/images/Summer5.png', '2024-08-30 04:11:31', '2024-08-30 04:11:31', 3, NULL),
-(16, 'What a Feeling', '../src/songs/02 Global Deejays What a Feeling Summer Eletrohits 2 - 5082555 (youtube) (1).mp3', 'Global Deejays', '../src/images/Summer2.png', '2024-08-30 04:11:31', '2024-08-30 04:11:31', 3, NULL),
-(17, 'Can You Feel It', '../src/songs/01 Jean Roch - Can You Feel It (Summer EletroHits 1).mp3', 'Jean Roch', '../src/images/Summer1.png', '2024-08-30 04:11:31', '2024-08-30 04:11:31', 3, NULL),
-(18, 'Billie Jean', '../src/songs/ytmp3free.cc_michael-jackson-billie-jean-traduaolegendado-youtubemp3free.org.mp3', 'Michael Jackson', '../src/images/mjbj.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 5, NULL),
-(19, 'Paradise', '../src/songs/Coldplay - Paradise (Official Video) - Coldplay (youtube).mp3', 'Coldplay', '../src/images/Coldplay_-_Paradise.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 5, NULL),
-(20, 'Sugar', '../src/songs/Maroon 5 - Sugar (Official Music Video) - Maroon5VEVO (youtube).mp3', 'Maroon 5', '../src/images/Capa_de_V_(Maroon_5).png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 5, NULL),
-(21, 'Desejo Imortal', '../src/songs/Gusttavo Lima - DESEJO IMORTAL (Ao vivo no Mineirão) - Gusttavo Lima Oficial (youtube).mp3', 'Gusttavo Lima', '../src/images/gusttavolima_1_.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 6, NULL),
-(22, 'Saudade da Minha Vida (Ao Vivo no Buteco São Paulo)', '../src/songs/Gusttavo Lima - Saudade da Minha Vida (Ao Vivo no Buteco São Paulo) - Gusttavo Lima Oficial (youtube).mp3', 'Gusttavo Lima', '../src/images/GusttavoLimaSDMV.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 6, NULL),
-(23, 'Rancorosa', '../src/songs/Henrique e Juliano -  RANCOROSA - DVD To Be Ao Vivo Em Brasília - Henrique e Juliano (youtube).mp3', 'Henrique e Juliano', '../src/images/henriqueJulianoToBe.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 6, NULL),
-(24, 'Cronômetro (PRAIOU Ao Vivo em São Paulo)', '../src/songs/Matheus & Kauan - Cronômetro (PRAIOU Ao Vivo em São Paulo) - Matheus e Kauan (youtube).mp3', 'Matheus & Kauan', '../src/images/MKcronometro.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 6, NULL),
-(25, 'Em Busca Da Minha Sorte', '../src/songs/Thiaguinho e Billy SP - Em Busca Da Minha Sorte (Clipe Oficial) - Thiaguinho (youtube).mp3', 'Thiaguinho e Billy SP', '../src/images/EPsorte01.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 7, NULL),
-(26, 'Diferentão (Ao Vivo)', '../src/songs/Dilsinho - Diferentão (Ao Vivo) - DilsinhoVEVO (youtube).mp3', 'Dilsinho', '../src/images/DiferentaoDilsinho.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 7, NULL),
-(27, 'Vida Cigana/ Maravilha/ Jeito Felino', '../src/songs/Grupo Menos é Mais e Raça Negra - Vida Cigana_ Maravilha_ Jeito Felino (Clipe Oficial) - Grupo Menos é Mais (youtube).mp3', 'Grupo Menos é Mais e Raça Negra', '../src/images/Confia.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 7, NULL),
-(28, 'Abandonado (Ao Vivo)', '../src/songs/Abandonado (Ao Vivo) - Pagode do Adame (youtube).mp3', 'Pagode do Adame', '../src/images/AdameVol02.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 7, NULL),
-(29, 'Stereo Love', '../src/songs/Summer Eletrohits 7 - Edward Maya & Vika Jigulina - Stereo Love (2010) - Portali3 (youtube).mp3', 'Edward Maya & Vika Jigulina', '../src/images/summereletrohits7.jpg', '2024-08-30 04:11:31', '2024-08-30 04:11:31', 3, NULL),
-(30, 'Techno Prank', '../src/songs/Dubdogz - Techno Prank (Official Video) - Dubdogz (youtube).mp3', 'Dubdogz', '../src/images/TechnoPrank.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 8, NULL),
-(31, 'Piece Of Your Heart (Alok Remix)', '../src/songs/Meduza - Piece Of Your Heart (Alok Remix) - Proximity (youtube).mp3', 'Meduza', '../src/images/meduza.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 8, NULL),
-(32, 'Céu Azul (Vintage Culture & Santti Remix)', '../src/songs/Céu Azul (Vintage Culture & Santti Remix) - Vintage Culture (youtube).mp3', 'Vintage Culture', '../src/images/vintage.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 8, NULL);
+INSERT INTO `music` (`ID`, `name`, `src`, `autor`, `image`, `created_at`, `updated_at`, `playlist_id`, `liked_id`, `perso_id`) VALUES
+(1, 'Viva La Vida', '../src/songs/Coldplay - Viva La Vida (Official Video).mp3', 'ColdPlay', '../src/images/coldplay.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 5, NULL, NULL),
+(2, 'A Real Hero', '../src/songs/College & Electric Youth - A Real Hero (Drive Original Movie Soundtrack).mp3', 'College & Electric Youth', '../src/images/arealhero.png', '2024-08-30 04:11:31', '2024-08-30 04:11:31', 8, NULL, NULL),
+(3, 'Back In Black', '../src/songs/AC_DC - Back In Black (Official 4K Video).mp3', 'AC/DC', '../src/images/Back_in_Black.jpg', '2024-09-03 02:11:33', '2024-09-04 03:26:43', 2, NULL, NULL),
+(4, 'Highway to Hell', '../src/songs/AC_DC - Back In Black (Official 4K Video).mp3', 'AC/DC', '../src/images/Acdc_Highway_to_Hell.jfif', '2024-09-03 02:12:51', '2024-10-30 00:14:46', 2, NULL, 2),
+(5, 'Numb', '../src/songs/Numb (Official Music Video) [4K UPGRADE] – Linkin Park.mp3', 'Linkin Park', '../src/images/lr60124_2017721_132122515753.jpg', '2024-09-03 02:14:13', '2024-10-30 00:27:48', 2, NULL, 2),
+(6, 'Sweet Child O Mine', '../src/songs/Sweet Child O Mine (Official Music Video).mp3', 'Guns N Roses', '../src/images/Guns-N-Roses-Appetite-For-Destruction.jpg', '2024-09-16 23:14:13', '2024-09-05 01:31:14', 2, NULL, NULL),
+(7, 'Hypnotize', '../src/songs/Biggie Smalls - Hypnotize.mp3', 'The Notorious B.I.G.', '../src/images/hqdefault.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 4, NULL, NULL),
+(8, 'FE!N', '../src/songs/Travis Scott - FE!N (Official Audio) ft. Playboi Carti.mp3', 'Travis Scott', '../src/images/51nMgSxPQeL._UF1000,1000_QL80_.jpg', '2024-08-30 03:23:31', '2024-10-30 00:28:26', 4, NULL, 3),
+(9, 'In Da Club', '../src/songs/50 Cent - In Da Club (Official Music Video).mp3', '50 Cent', '../src/images/81bpmchtQ6L._UF350,350_QL50_.jpg', '2024-08-30 03:23:31', '2024-10-30 00:14:03', 4, NULL, 1),
+(10, 'Without Me', '../src/songs/Eminem - Without Me (Official Music Video).mp3', 'Eminem', '../src/images/Eminem_-_Without_Me_CD_cover.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 4, NULL, NULL),
+(11, 'Lacrimosa', '../src/songs/Lacrimosa - Mozart - KV 626 - LEGENDADO PT_BR.mp3', 'Mozart', '../src/images/mozart.png', '2024-08-30 03:23:31', '2024-10-30 00:27:00', 1, NULL, 2),
+(12, 'Moonlight Sonata', '../src/songs/Beethoven - Sonata ao Luar (Moonlight Sonata).mp3', 'Beethoven', '../src/images/beethoven.png', '2024-08-30 03:23:31', '2024-10-30 00:13:48', 1, NULL, 1),
+(13, 'Valsa em Lá menor', '../src/songs/Chopin – Waltz in A minor, B. 150, Op. Posth..mp3', 'Frédéric Chopin', '../src/images/Chopin.png', '2024-08-30 03:23:31', '2024-10-31 22:20:13', 1, NULL, 4),
+(14, 'Entry of the Gladiators', '../src/songs/Julius Fucik - Entry of the Gladiators.mp3', 'Julius Fucik', '../src/images/Fuciknew.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 1, NULL, NULL),
+(15, 'Set Me Free', '../src/songs/House Boulevard feat. Samara - Set Me Free - Summer Eletrohits 5.mp3', 'House Boulevard feat. Samara', '../src/images/Summer5.png', '2024-08-30 04:11:31', '2024-08-30 04:11:31', 3, NULL, NULL),
+(16, 'What a Feeling', '../src/songs/02 Global Deejays What a Feeling Summer Eletrohits 2 - 5082555 (youtube) (1).mp3', 'Global Deejays', '../src/images/Summer2.png', '2024-08-30 04:11:31', '2024-10-30 00:14:19', 3, NULL, 2),
+(17, 'Can You Feel It', '../src/songs/01 Jean Roch - Can You Feel It (Summer EletroHits 1).mp3', 'Jean Roch', '../src/images/Summer1.png', '2024-08-30 04:11:31', '2024-08-30 04:11:31', 3, NULL, NULL),
+(18, 'Billie Jean', '../src/songs/ytmp3free.cc_michael-jackson-billie-jean-traduaolegendado-youtubemp3free.org.mp3', 'Michael Jackson', '../src/images/mjbj.png', '2024-08-30 03:23:31', '2024-10-30 00:27:30', 5, NULL, 1),
+(19, 'Paradise', '../src/songs/Coldplay - Paradise (Official Video) - Coldplay (youtube).mp3', 'Coldplay', '../src/images/Coldplay_-_Paradise.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 5, NULL, NULL),
+(20, 'Sugar', '../src/songs/Maroon 5 - Sugar (Official Music Video) - Maroon5VEVO (youtube).mp3', 'Maroon 5', '../src/images/Capa_de_V_(Maroon_5).png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 5, NULL, NULL),
+(21, 'Desejo Imortal', '../src/songs/Gusttavo Lima - DESEJO IMORTAL (Ao vivo no Mineirão) - Gusttavo Lima Oficial (youtube).mp3', 'Gusttavo Lima', '../src/images/gusttavolima_1_.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 6, NULL, NULL),
+(22, 'Saudade da Minha Vida (Ao Vivo no Buteco São Paulo)', '../src/songs/Gusttavo Lima - Saudade da Minha Vida (Ao Vivo no Buteco São Paulo) - Gusttavo Lima Oficial (youtube).mp3', 'Gusttavo Lima', '../src/images/GusttavoLimaSDMV.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 6, NULL, NULL),
+(23, 'Rancorosa', '../src/songs/Henrique e Juliano -  RANCOROSA - DVD To Be Ao Vivo Em Brasília - Henrique e Juliano (youtube).mp3', 'Henrique e Juliano', '../src/images/henriqueJulianoToBe.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 6, NULL, NULL),
+(24, 'Cronômetro (PRAIOU Ao Vivo em São Paulo)', '../src/songs/Matheus & Kauan - Cronômetro (PRAIOU Ao Vivo em São Paulo) - Matheus e Kauan (youtube).mp3', 'Matheus & Kauan', '../src/images/MKcronometro.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 6, NULL, NULL),
+(25, 'Em Busca Da Minha Sorte', '../src/songs/Thiaguinho e Billy SP - Em Busca Da Minha Sorte (Clipe Oficial) - Thiaguinho (youtube).mp3', 'Thiaguinho e Billy SP', '../src/images/EPsorte01.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 7, NULL, NULL),
+(26, 'Diferentão (Ao Vivo)', '../src/songs/Dilsinho - Diferentão (Ao Vivo) - DilsinhoVEVO (youtube).mp3', 'Dilsinho', '../src/images/DiferentaoDilsinho.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 7, NULL, NULL),
+(27, 'Vida Cigana/ Maravilha/ Jeito Felino', '../src/songs/Grupo Menos é Mais e Raça Negra - Vida Cigana_ Maravilha_ Jeito Felino (Clipe Oficial) - Grupo Menos é Mais (youtube).mp3', 'Grupo Menos é Mais e Raça Negra', '../src/images/Confia.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 7, NULL, NULL),
+(28, 'Abandonado (Ao Vivo)', '../src/songs/Abandonado (Ao Vivo) - Pagode do Adame (youtube).mp3', 'Pagode do Adame', '../src/images/AdameVol02.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 7, NULL, NULL),
+(29, 'Stereo Love', '../src/songs/Summer Eletrohits 7 - Edward Maya & Vika Jigulina - Stereo Love (2010) - Portali3 (youtube).mp3', 'Edward Maya & Vika Jigulina', '../src/images/summereletrohits7.jpg', '2024-08-30 04:11:31', '2024-11-04 22:14:42', 3, NULL, 1),
+(30, 'Techno Prank', '../src/songs/Dubdogz - Techno Prank (Official Video) - Dubdogz (youtube).mp3', 'Dubdogz', '../src/images/TechnoPrank.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 8, NULL, NULL),
+(31, 'Piece Of Your Heart (Alok Remix)', '../src/songs/Meduza - Piece Of Your Heart (Alok Remix) - Proximity (youtube).mp3', 'Meduza', '../src/images/meduza.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 8, NULL, NULL),
+(32, 'Céu Azul (Vintage Culture & Santti Remix)', '../src/songs/Céu Azul (Vintage Culture & Santti Remix) - Vintage Culture (youtube).mp3', 'Vintage Culture', '../src/images/vintage.png', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 8, NULL, NULL),
+(50, 'Viva La Vida', '../src/songs/Coldplay - Viva La Vida (Official Video).mp3', 'ColdPlay', '../src/images/coldplay.jpg', '2024-08-30 03:23:31', '2024-08-30 03:23:31', 5, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -188,6 +178,29 @@ INSERT INTO `playlist` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (10, 'Hip Hop', '2024-08-30 02:40:40', '2024-08-30 02:40:40');
 
 -- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `playlist_perso`
+--
+
+CREATE TABLE `playlist_perso` (
+  `ID` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `playlist_perso`
+--
+
+INSERT INTO `playlist_perso` (`ID`, `user_id`, `name`) VALUES
+(1, 1, 'rteste'),
+(2, 1, 'teste2'),
+(3, 1, 'musicas que gosto'),
+(4, 1, 'musicas que gosto');
+
+-- --------------------------------------------------------
+
 --
 -- Estrutura da tabela `users`
 --
@@ -251,6 +264,12 @@ ALTER TABLE `playlist`
   ADD KEY `idx_name` (`name`);
 
 --
+-- Índices para tabela `playlist_perso`
+--
+ALTER TABLE `playlist_perso`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Índices para tabela `users`
 --
 ALTER TABLE `users`
@@ -266,55 +285,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `likedplaylist`
 --
 ALTER TABLE `likedplaylist`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
--- AUTO_INCREMENT de tabela `music`
+-- AUTO_INCREMENT de tabela `playlist_perso`
 --
-ALTER TABLE `music`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT de tabela `password_resets`
---
-ALTER TABLE `password_resets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT de tabela `playlist`
---
-ALTER TABLE `playlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de tabela `users`
---
-ALTER TABLE `users`
+ALTER TABLE `playlist_perso`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `music`
---
-ALTER TABLE `music`
-  ADD CONSTRAINT `music_ibfk_1` FOREIGN KEY (`playlist_id`) REFERENCES `playlist` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `music_ibfk_2` FOREIGN KEY (`liked_id`) REFERENCES `likedplaylist` (`ID`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD CONSTRAINT `password_resets_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`ID`);
-
---
--- Limitadores para a tabela `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`playlist_id`) REFERENCES `playlist` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`likedPlaylist`) REFERENCES `likedplaylist` (`ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

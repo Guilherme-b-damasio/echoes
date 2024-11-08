@@ -38,12 +38,11 @@ body {
   /* left: 0; */
   /* top: 0; */
   /* bottom: 0; */
-  width: 200px !important;
+  width: 220px !important;
   /* background-color: #000000; */
   background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important;
   padding: 24px;
   overflow: hidden;
-
 }
 
 .sidebar .logoIcone {
@@ -73,11 +72,11 @@ body {
   display: flex;
   align-items: center;
   /* justify-content: center; */
-  padding: 5px 0px 5px 4px;
+  padding: 5px 0px 5px 2px;
 }
 
 .sidebar .navigation .ul-sidebar .li-profile .profile-photo {
-  width: 28px;
+  width: 30px;
   border-radius: 100%;
 }
 
@@ -90,14 +89,15 @@ body {
 .sidebar .navigation ul li {
   display: flex; /* Adiciona flexbox */
   align-items: center; /* Alinha verticalmente */
-  padding: 10px 0; /* Mantém o espaçamento */
+  padding: 10px 0; /* MantÃƒÂ©m o espaÃƒÂ§amento */
+  cursor: pointer;
 }
 
 .sidebar .navigation ul li a {
   color: #b3b3b3;
   text-decoration: none;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .sidebar .navigation ul li a:hover,
@@ -113,11 +113,11 @@ color: #b3b3b3;
 } */
 .sidebar .navigation ul li .fa,
 .sidebar .navigation ul li .fa-solid {
-  font-size: 20px;
+  font-size: 22px;
   margin-right: 10px;
   font-weight: 20px;
-  width: 24px; /* Largura fixa para os ícones */
-  text-align: center; /* Centraliza o ícone */
+  width: 24px; /* Largura fixa para os ÃƒÂ­cones */
+  text-align: center; /* Centraliza o ÃƒÂ­cone */
 }
 
 
@@ -134,14 +134,14 @@ color: #b3b3b3;
 
 
 .sidebar-page li {
-  display: flex; /* Garante que os itens na sidebar-page também usem flexbox */
+  display: flex; /* Garante que os itens na sidebar-page tambÃƒÂ©m usem flexbox */
   align-items: center; /* Alinha verticalmente os itens */
-  padding: 10px 0; /* Mantém o espaçamento */
+  padding: 10px 0; /* MantÃƒÂ©m o espaÃƒÂ§amento */
 }
 
 .sidebar-page li a {
-  display: flex; /* Faz o link também usar flexbox */
-  align-items: center; /* Alinha verticalmente o texto com o ícone */
+  display: flex; /* Faz o link tambÃƒÂ©m usar flexbox */
+  align-items: center; /* Alinha verticalmente o texto com o ÃƒÂ­cone */
   color: aquamarine; /* Cor do texto */
   text-decoration: none; /* Remove o sublinhado */
   font-weight: 500; /* Peso da fonte */
@@ -149,7 +149,8 @@ color: #b3b3b3;
 }
 
 .sidebar-page li a span {
-  margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+  margin-right: 10px; /* EspaÃƒÂ§amento entre o ÃƒÂ­cone e o texto */
+  cursor: pointer;
 }
 
 .sidebar .policies ul li a:hover,
@@ -168,6 +169,7 @@ color: #b3b3b3;
   padding-left: 7px;
   padding-right: 15px;
   outline: none;
+  font-size: 15px;
 }
 
 #search {
@@ -177,7 +179,7 @@ color: #b3b3b3;
   align-items: center;
   padding: 2px 8px 2px 8px;
   border: 1px solid #373a4d;
-  max-width: 159px;
+  max-width: 171px;
 }
 
 #searchBtn {

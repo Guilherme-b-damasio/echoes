@@ -48,8 +48,9 @@
                         <span>Sua Biblioteca</span>
                     </a>
                 </li>
-                <li>
-                    <a href="?playlist" data-page="playlist">
+                <li onclick="criarPlaylist()">
+                <!--<a href="?playlist" data-page="playlist"> -->
+                    <a onclick="criarPlaylist()">
                         <span class="fa fas fa-plus-square"></span>
                         <span>Criar Playlist</span>
                     </a>

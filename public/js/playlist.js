@@ -31,7 +31,7 @@ async function salvarPlaylist(playlistName) {
 
       const data = await response.json();
 
-      if (data && data.success) {
+      if (data && data.type == 'sucess') {
           Swal.fire({
               icon: 'success',
               title: 'Playlist criada com sucesso!',

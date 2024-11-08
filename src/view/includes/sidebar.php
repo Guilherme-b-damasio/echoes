@@ -36,12 +36,6 @@
                         <span>Home</span>
                     </a>
                 </li>
-                <!-- <li>
-                    <a href="?search" data-page="search">
-                        <span class="fa fa-search"></span>
-                        <span>Pesquisar</span>
-                    </a>
-                </li> -->
                 <li>
                     <a href="?biblioteca" data-page="biblioteca">
                         <span class="fa fas fa-book"></span>

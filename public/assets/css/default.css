@@ -149,7 +149,6 @@ color: #b3b3b3;
 }
 
 .sidebar .navigation .ul-sidebar .sidebar-page .sidebar-button{
-  /* color: red; */
   display: flex;
 }
 
@@ -166,7 +165,7 @@ color: #b3b3b3;
 .sidebar .navigation ul li a:hover .fa:active,
 .sidebar .navigation ul li a:hover .fa:focus {
   transition: 0.15s;
-  color: rgb(221, 228, 235);
+  /* color: rgb(221, 228, 235); */
 }
 
 .sidebar .policies {

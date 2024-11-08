@@ -132,9 +132,10 @@ class repository
             $params = [];
 
             if (!empty($name)) {
-                $sql .= " AND music.name LIKE :name";
+                $sql .= " AND music.name LIKE :name or music.autor LIKE :name";
                 $params[':name'] = "%$name%";
             }
+
             if (!empty($id)) {
                 $sql .= " AND music.ID = :id";
                 $params[':id'] = $id;

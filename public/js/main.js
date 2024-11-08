@@ -30,8 +30,8 @@ async function loadSongs(data) {
             data.forEach(music => {
                 html +=
                     `<div class="item">
-                    <span class="fa fa-list" data-perso="${music.perso_id}" id="${music.ID}-perso" onclick='saveMusicInPlaylist(${music.ID})' style="color:${music.perso_id != '' ? 'blue' : 'orange'};"></span>
-                    <span class="fa fa-heart" data-liked="${music.liked}" id="${music.ID}" onclick='saveMusic(${music.ID})' style="color:${music.liked != 'false' ? 'green' : 'white'};"></span>
+                    <span class="" data-perso="${music.perso_id}" id="${music.ID}-perso" onclick='saveMusicInPlaylist(${music.ID})' style="color:${music.perso_id != '' ? 'blue' : 'orange'};"></span>
+                    <span class="" data-liked="${music.liked}" id="${music.ID}" onclick='saveMusic(${music.ID})' style="color:${music.liked != 'false' ? 'green' : 'white'};"></span>
                                 <img src="${music.image}" alt="Album Art" />
                                 <div class="play">
                                     <span class="fa fa-play" onclick='playerMusic(${music.ID},${playlist.id})'></span>
@@ -115,8 +115,11 @@ function playerMusic(ID, playlist) {
 }
 
 
-function saveMusic(ID){
-    let heart = document.getElementById(ID);
+function saveMusic(){
+
+    let heart = document.getElementById('liked-btn');
+    let element = document.getElementById('nextButton');
+    let ID = element.getAttribute('data-music');
     let liked = heart.getAttribute('data-liked');
     let option = liked != 'false' ? 'delete' : 'update';
 
@@ -136,8 +139,10 @@ function saveMusic(ID){
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
 
-async function saveMusicInPlaylist(ID) {
+async function saveMusicInPlaylist() {
     try {
+        let element = document.getElementById('nextButton');
+        let ID = element.getAttribute('data-music');
         const response = await fetch('../src/playlistManager.php?option=select'); 
         const playlists = await response.json();
 

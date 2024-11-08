@@ -8,6 +8,9 @@
                 <div id="musicName"></div>
                 <div id="artist"></div>
             </div>
+
+            <span class="fa fa-list" style="z-index:99" id="perso-select" onclick=saveMusicInPlaylist()></span>
+            <span class="fa fa-heart" style="z-index:99" id="liked-btn" onclick=saveMusic()></span>
         </div>
         <div class="container-2">
             <audio id="player" src=""></audio>

@@ -25,6 +25,7 @@
                         </div>
                     </a>
                 </li>
+
                 <li>
                     <a href="?profile" data-page="profile">
                         <div class="sidebar-button">
@@ -33,19 +34,23 @@
                         </div>
                     </a>
                 </li>
+
                 <li>
                     <a href="?biblioteca" data-page="biblioteca">
-                        <span class="fa fas fa-book"></span>
-                        <span>Sua Biblioteca</span>
+                        <div class="sidebar-button">
+                            <span class="fa fas fa-book"></span>
+                            <span>Sua Biblioteca</span>
+                        </div>
                     </a>
                 </li>
+
                 <li onclick="criarPlaylist()">
-                <!--<a href="?playlist" data-page="playlist"> -->
-                    <a onclick="criarPlaylist()">
+                    <div class="sidebar-button">
                         <span class="fa fas fa-plus-square"></span>
                         <span>Criar Playlist</span>
-                    </a>
+                    </div>
                 </li>
+
                 <li>
                     <a href="?likeds" data-page="likeds">
                         <div class="sidebar-button">
@@ -54,6 +59,7 @@
                         </div>
                     </a>
                 </li>
+
                 <li>
                     <a href="?login">
                         <div class="sidebar-button">

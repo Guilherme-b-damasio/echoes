@@ -48,8 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (page === 'profile') {
-            addProfilePhotoListener();
-            
+            loadProfile();
+        }
+        if (page === 'biblioteca') {
+            loadPlaylistPerso();
         }
 
         window.history.pushState({}, '', '?' + page);

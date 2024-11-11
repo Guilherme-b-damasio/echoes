@@ -41,10 +41,17 @@ function showFn(data, query) {
     resultsContainer.innerHTML = '';
 
     if (data.length > 0) {
-        const filteredSongs = data.filter(song => song.name.toLowerCase().includes(query.toLowerCase()));
-        filteredSongs.forEach(song => {
+        data.forEach(song => {
             const card = document.createElement('div');
             card.className = 'result-card';
+            
+            function highlightText(text, query) {
+                const regex = new RegExp(query, 'gi');
+                return text.replace(regex, match => `<span style="color: orange">${match}</span>`);
+            }
+
+            const highlightedName = highlightText(song.name, query);
+            const highlightedAutor = highlightText(song.autor, query);
 
             card.innerHTML = `
                 <div class="infoSong">
@@ -53,8 +60,8 @@ function showFn(data, query) {
                         <a class="fa fa-play" onclick='playerMusic(${song.ID})'></a>
                     </div>
                     <div class="musicInfo">
-                        <h3>${song.name}</h3>
-                        <p>${song.autor}</p>
+                        <h3>${highlightedName}</h3>
+                        <p>${highlightedAutor}</p>
                     </div>
                 </div>
                 <button class="back-btn" style="display: none;">Back</button>

@@ -1,29 +1,56 @@
-// Função para aplicar a cor dominante na div de fundo
-// const applyDominantColor = (imgElement) => {
-//     if (imgElement.complete) { // Verifica se a imagem já foi carregada
-//         const colorThief = new ColorThief();
-//         const color = colorThief.getColor(imgElement);
-//         document.getElementById('card-img-block').style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-//     } else {
-//         // Aguarda a imagem carregar completamente
-//         imgElement.onload = () => {
-//             const colorThief = new ColorThief();
-//             const color = colorThief.getColor(imgElement);
-//             document.getElementById('card-img-block').style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-//         };
-//     }
-// };
-
-// Função para lidar com o upload de foto de perfil
-// Função que adiciona o event listener para alterar a foto do perfil
-const addProfilePhotoListener = () => {
+function loadProfile() {
+    const container = document.getElementById('main-container');
+    container.innerHTML =
+        `<link rel="stylesheet" href="assets/css/profile.css">
     
+        <div class="profile-container">
+            <div class="card profile-card-2">
+                <div id="card-img-block" class="card-img-block">
+                </div>
+                <div class="card-body pt-5">
+                    <img id="profile-img" class="profile" alt="profile-image" src="">
+                    <div id="profile-hover" class="profile-hover">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <p class="text-photo">Alterar foto</p>
+                    </div>
+                    <div class="profile-text">
+                        <h5 class="card-title">${dataUser.login}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-body">
+                <form class="form-update" id="form-update">
+                    <div class="form-input">
+                        <label class="name-input" for="user">Usuário</label>
+                        <input type="text" class="input-field" name="login" value="${dataUser.login}">
+                    </div>
+                    <div class="form-input">
+                        <label class="name-input" for="name">Nome</label>
+                        <input type="text" class="input-field" name="name" value="${dataUser.name}">
+                    </div>
+                    <div class="form-input">
+                        <label class="name-input" for="email">Email</label>
+                        <input type="text" class="input-field" name="email" value="${dataUser.email}">
+                    </div>
+                    <div class="form-input">
+                        <label class="name-input" for="phone">Telefone</label>
+                        <input type="text" class="input-field" name="phone" value="${dataUser.phone}">
+                    </div>
+                    <button class="update-btn" class="btn" onclick="updateProfile()">Salvar</button>
+                </form>
+            </div>
+        </div>`;
+
+    addProfilePhotoListener();
+    setProfileImage();
+}
+
+
+const addProfilePhotoListener = () => {
     const profilePhoto = document.getElementById("profile-hover");
-    console.log('Aqui editar');
-    // Adiciona o listener apenas se ainda não foi adicionado
+
     if (profilePhoto && !profilePhoto.classList.contains('listener-added')) {
         profilePhoto.addEventListener('click', async () => {
-
             const { value: file } = await Swal.fire({
                 title: "Select image",
                 input: "file",
@@ -60,9 +87,8 @@ const addProfilePhotoListener = () => {
                                 text: data.message,
                                 icon: 'success'
                             });
-                            
-                            loadPage('profile');
 
+                            setProfileImage(); // Atualiza a imagem após o upload
                         } else {
                             throw new Error(data.message || 'Error uploading image.');
                         }
@@ -85,22 +111,51 @@ const addProfilePhotoListener = () => {
                 });
             }
 
-        });              
+        });
+
+        profilePhoto.classList.add('listener-added');
     }
-    if (!profilePhoto) {
-        console.error("Elemento 'profile-hover' não encontrado no DOM");
-        return; // Sai da função se o elemento não existir
-    }
-    if (profilePhoto) {
-        console.error("Elemento 'profile-hover' foi encontrado no DOM");
-        return; // Sai da função se o elemento não existir
-    }
-    // Marca que o listener foi adicionado
-    profilePhoto.classList.add('listener-added');
 };
 
+// Função para verificar e definir a imagem de perfil
+function setProfileImage() {
+    const imageFormats = ['profile.png', 'profile.jpg', 'profile.jpeg', 'profile.gif', 'profile.webp'];
+    const defaultImage = '../src/images/default-profile.png';
+    const profileImage = document.getElementById('profile-img');
+
+    if (!profileImage) {
+        console.error('Element with id "profile" not found!');
+        return;
+    }
+
+    function checkImageFormat(format) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            // Adiciona um parâmetro de timestamp para evitar cache
+            const timestamp = new Date().getTime();
+            img.src = `../src/uploads/${dataUser.id}/${format}?t=${timestamp}`;
+            img.onload = () => resolve(img.src);
+            img.onerror = () => resolve(null);
+        });
+    }
+
+    async function tryLoadProfileImage() {
+        for (const format of imageFormats) {
+            const imageSrc = await checkImageFormat(format);
+            if (imageSrc) {
+                profileImage.src = imageSrc;
+                return;
+            }
+        }
+        profileImage.src = defaultImage;
+    }
+
+    tryLoadProfileImage();
+}
+
+
 // Função de callback do MutationObserver
-const callback = function(mutationsList) {
+const callback = function (mutationsList) {
     for (const mutation of mutationsList) {
         if (mutation.type === 'childList') {
             addProfilePhotoListener(); // Adiciona listener de foto de perfil
@@ -108,7 +163,6 @@ const callback = function(mutationsList) {
     }
 };
 
-// Observa mutações no contêiner de perfil (pode ser mais eficiente que observar todo o body)
 const profileContainer = document.querySelector('.profile-container');
 const config = { childList: true, subtree: true };
 const observer = new MutationObserver(callback);
@@ -122,37 +176,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function loadPage(page) {
-   // showOverlay();
-   
-    //container.classList.add('fade-out');
-    setTimeout(() => {
-        fetch('index.php?' + new URLSearchParams({ page: page, ajax: 'true' }))
-            .then(handleResponse)
-            .then(html => updateContent(html, page))
-            .catch(error => {
-                console.error(error);
-               // hideOverlay();
-            });
-    }, 500);
-   // hideOverlay();
-}
-
-function handleResponse(response) {
-    if (!response.ok) {
-        throw new Error('Request error: ' + response.status);
-    }
-    return response.text();
-}
-
-
 function updateContent(html, page) {
     let container = document.getElementById('main-container');
     container.innerHTML = html;
 
     if (page === 'profile') {
         addProfilePhotoListener();
-        
+
     }
 
     window.history.pushState({}, '', '?' + page);
@@ -187,7 +217,7 @@ function updateProfile() {
     }
 
     let form = document.getElementById("form-update");
-    const formData = new URLSearchParams(new FormData(form));    
+    const formData = new URLSearchParams(new FormData(form));
 
     let url = "../src/manager.php?updateProfile";
 
@@ -198,33 +228,33 @@ function updateProfile() {
         },
         body: formData
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data && data.type == "success") {
-            Swal.fire({
-                title: 'Sucesso!',
-                text: data.msg,
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        } else {
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.type == "success") {
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: data.msg,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: data.msg,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
             Swal.fire({
                 title: 'Erro!',
                 text: data.msg,
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
-        }
-    })
-    .catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-        Swal.fire({
-            title: 'Erro!',
-            text: 'Ocorreu um erro ao processar a solicitação.',
-            icon: 'error',
-            confirmButtonText: 'OK'
         });
-    });
 }
 
 // Máscara para o campo telefone

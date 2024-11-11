@@ -50,7 +50,15 @@ if ($requestMethod === 'GET') {
 
 
 <script>
-    window.onload = function(){ 
+    window.onload = function() {
         localStorage.setItem('player', '');
     }
+
+    var dataUser = {
+        id: "<?php echo $dataUser->getId(); ?>",
+        login: "<?php echo $dataUser->getLogin(); ?>",
+        name: "<?php echo $dataUser->getName(); ?>",
+        email: "<?php echo $dataUser->getEmail(); ?>",
+        phone: "<?php echo $dataUser->getPhone(); ?>",
+    };
 </script>

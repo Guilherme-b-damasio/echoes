@@ -11,6 +11,8 @@
     <script defer src="js/search.js"></script> 
     <script defer src="js/liked.js"></script>
     <script defer src="js/profile.js"></script>
+    <script defer src="js/biblioteca.js"></script>
+    <script defer src="js/playlist.js"></script>
     
 
     <!-- <link rel="icon" href="icon.png" type="image/x-icon"> -->

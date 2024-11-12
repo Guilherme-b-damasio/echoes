@@ -154,8 +154,9 @@
 .playlists .list {
   display: flex;
   gap: 20px;
-  overflow: hidden;
-  overflow-x: hidden;
+  /*overflow: hidden;*/
+  overflow-x: auto;
+  scrollbar-color: #0c0c0c00 transparent;
   scroll-behavior: smooth;
 }
 
@@ -179,7 +180,7 @@
 }
 
 .playlists .list .item:hover {
-  background-color: #252525;
+  /*background-color: #252525;*/
 }
 
 .playlists .list .item img {

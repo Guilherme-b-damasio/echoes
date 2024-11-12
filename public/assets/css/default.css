@@ -104,11 +104,28 @@ body {
 
 }
 
-.sidebar .navigation ul li a {
-  color: #b3b3b3;
+.sidebar .navigation ul a li  {
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
   font-size: 15px;
+}
+
+.sidebar .navigation ul li  {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+li.active {
+  background-color: #ffffff11; /* Estilo do item ativo */
+  color: var(--details); /* Cor do texto quando ativo */
+}
+
+
+.sidebar-page li:active {
+  background-color: #222222; /* Fundo mais escuro enquanto o botão é pressionado */
 }
 
 /* 
@@ -155,10 +172,13 @@ color: #b3b3b3;
 
 
 .sidebar .navigation .ul-sidebar .sidebar-page li:hover,
-.sidebar .navigation .ul-sidebar .sidebar-page li:active,
 .sidebar .navigation .ul-sidebar .sidebar-page li:focus {
   background-color: #ffffff11;
   transition: 0.2s;
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page li:active{
+  background-color: #161515;
 }
 
 
@@ -197,6 +217,10 @@ color: #b3b3b3;
   /* Peso da fonte */
   font-size: 14px;
   /* Tamanho da fonte */
+}
+
+a {
+  text-decoration: none;
 }
 
 .sidebar-page li a span {
@@ -253,7 +277,7 @@ color: #b3b3b3;
 
 #searchBtn {
   /* background: var(--details); */
-  /* color: #fff; */
+  color: #fff; 
   border-radius: 20px;
   /* width: 56px; */
   /* height: 29px; */

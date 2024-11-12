@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('main-container');
     const overlay = document.getElementById('loading-overlay');
-
+    const sidebarItems = document.querySelectorAll('.sidebar-page li');
     let input = document.getElementById("searchInput");
 
     input.addEventListener("keypress", function (event) {
@@ -85,6 +85,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const page = urlParams.get('page') || 'home';
         loadPage(page);
     });
+
+    sidebarItems.forEach(item => {
+        item.addEventListener('click', function () {
+          // Remove a classe 'active' de todos os itens <li>
+          sidebarItems.forEach(item => item.classList.remove('active'));
+          
+          // Adiciona a classe 'active' ao item <li> clicado
+          this.classList.add('active');
+        });
+      });
 
     const urlParams = new URLSearchParams(window.location.search);
     const page = urlParams.get('page') || 'home';

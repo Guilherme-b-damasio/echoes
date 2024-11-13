@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const overlay = document.getElementById('loading-overlay');
     const sidebarItems = document.querySelectorAll('.sidebar-page li');
     let input = document.getElementById("searchInput");
+    const home = document.getElementById("home");
+
+    home.classList.add('active');
 
     input.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {

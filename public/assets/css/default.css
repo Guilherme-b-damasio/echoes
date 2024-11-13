@@ -39,9 +39,15 @@ body {
   /* top: 0; */
   /* bottom: 0; */
   width: 220px !important;
-  background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important;
+  /* background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important; */
   padding: 24px;
   overflow: hidden;
+  background: rgb(0 0 0 / 18%);
+  backdrop-filter: blur(21px);
+  /* mask-image: linear-gradient(to bottom, black, transparent); */
+  /* -webkit-mask-image: linear-gradient(to bottom, black, transparent); */
+  /* mask-image: linear-gradient(to bottom, black 20%, transparent 80%); */
+  -webkit-mask-image: linear-gradient(to bottom, black 56%, transparent 77%);
 }
 
 
@@ -104,19 +110,15 @@ body {
 
 }
 
-.sidebar .navigation ul a li  {
-  color: #ffffff;
+.sidebar .navigation ul li,
+.sidebar .navigation ul a li {
+  color: #dedede;
   text-decoration: none;
   font-weight: bold;
   font-size: 15px;
 }
 
-.sidebar .navigation ul li  {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 15px;
-}
+
 
 li.active {
   background-color: #ffffff11; /* Estilo do item ativo */
@@ -157,6 +159,7 @@ color: #b3b3b3;
   gap: 10px;
   padding: 10px 0px 10px 6px;
   cursor: pointer;
+  margin: 2px 0px;
 }
 
 .sidebar .navigation .ul-sidebar .sidebar-page li a{
@@ -178,7 +181,7 @@ color: #b3b3b3;
 }
 
 .sidebar .navigation .ul-sidebar .sidebar-page li:active{
-  background-color: #161515;
+  background-color: #ffffff05;
 }
 
 
@@ -267,22 +270,30 @@ a {
 
 #search {
   display: flex;
-  background-color: #ffffff00;
+  /* background-color: #ffffff00; */
   border-radius: 7px;
   align-items: center;
   padding: 2px 8px 2px 8px;
-  border: 1px solid #373a4d;
+  /* border: 1px solid #373a4d; */
   max-width: 171px;
+  background: rgb(68 130 167 / 31%);
+  backdrop-filter: blur(21px);
+  height: 36px;
 }
 
 #searchBtn {
   /* background: var(--details); */
-  color: #fff; 
+  color: #c0d2ef;
   border-radius: 20px;
   /* width: 56px; */
   /* height: 29px; */
   border: none;
   cursor: pointer;
+}
+
+input::placeholder {
+  color: #afb3bb; /* Altere para a cor desejada */
+  opacity: 1; /* Opcional: garante que a cor apareça completamente */
 }
 
 #clearBtn {

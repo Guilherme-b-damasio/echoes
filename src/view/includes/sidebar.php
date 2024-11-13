@@ -18,7 +18,7 @@
             </li>
             <div class="sidebar-page">
             <a href="?home" data-page="home">
-                <li>                    
+                <li id="home">                    
                         <div class="sidebar-button">
                             <span class="fa fa-home"></span>
                             <span>Home</span>

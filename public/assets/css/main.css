@@ -145,6 +145,16 @@
   display: flex;
 }
 
+.playlists .playlist-title .playlist-buttons .button-right:hover, .button-left:hover{
+  transition: 0.2s;
+  background-color: rgba(255, 255, 255, 0.295);
+}
+
+
+.playlists .playlist-title .playlist-buttons .button-right:active, .button-left:active{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .playlists h2 {
   color: #ffffff;
   font-size: 30px;

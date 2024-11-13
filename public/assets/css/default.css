@@ -39,10 +39,10 @@ body {
   /* top: 0; */
   /* bottom: 0; */
   width: 220px !important;
-  /* background-color: #000000; */
-  background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important;
+  background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #ffffff05 !important;
   padding: 24px;
   overflow: hidden;
+  border-right: solid #52525247 1px;
 }
 
 .sidebar .logoIcone {

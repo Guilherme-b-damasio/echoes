@@ -299,5 +299,9 @@ class service
         return $response;
     }
 
+    public function deleteProfile(int $id){
+        $response = $this->repo->deleteProfile($id);
+        return $response;
+    }
 }
 

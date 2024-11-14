@@ -28,6 +28,10 @@ if (isset($_GET['updateProfile'])) {
     updateProfile();
 }
 
+if (isset($_GET['deleteProfile'])) {
+    deleteProfile();
+}
+
 function login()
 {
     $user = isset($_POST['user']) ? $_POST['user'] : '';
@@ -99,6 +103,7 @@ function resetPassword()
 
 function updateProfile()
 {
+    $option = 'update';
     $dataUser = isset($_SESSION['dataUser']) ? unserialize($_SESSION['dataUser']) : [];
     $response=['msg' => 'não alterado'];
     $name = isset($_POST['name']) ? $_POST['name'] : '';
@@ -110,7 +115,23 @@ function updateProfile()
     // Verifica se os campos obrigatórios estão preenchidos
     if (!empty($login)) {
         $controller = new ControllerProfile();
-        $response = $controller->handle($name, $login, $email, $phone, $dataUser->getId());
+        $response = $controller->handle($option, $name, $login, $email, $phone, $dataUser->getId());
+    }
+
+    echo json_encode($response);
+    return;
+}
+
+function deleteProfile()
+{
+    $option = 'delete';
+    $dataUser = isset($_SESSION['dataUser']) ? unserialize($_SESSION['dataUser']) : [];
+    $response=['msg' => 'não alterado'];
+    
+    // Verifica se os campos obrigatórios estão preenchidos
+    if (!empty($login)) {
+        $controller = new ControllerProfile();
+        $response = $controller->handle($option, $dataUser->getId());
     }
 
     echo json_encode($response);

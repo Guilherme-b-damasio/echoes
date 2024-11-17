@@ -18,7 +18,7 @@ class ControllerProfile
 
     public function handle($option, $name = null, $login = null, $email = null, $phone = null, $id = null)
     {
-        if ($option == 'delete') {
+        if ($option == 'update') {
             return $this->service->updateProfile($name, $login, $email, $phone, $id);
         }
         if ($option == 'delete') {

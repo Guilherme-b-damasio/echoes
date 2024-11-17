@@ -34,7 +34,7 @@ function loadProfile() {
                     </div>
                     <div class="form-input">
                         <label class="name-input" for="phone">Telefone</label>
-                        <input type="text" class="input-field" name="phone" value="${dataUser.phone}">
+                        <input type="text" class="input-field" maxlength="15" name="phone" onkeyup="handlePhone(event)" value="${dataUser.phone}">
                     </div>
                     <button class="update-btn" class="btn" onclick="updateProfile()">Salvar</button>
                 </form>
@@ -193,21 +193,22 @@ function validateProfileForm() {
     const phone = document.querySelector('input[name="phone"]').value;
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex para validação de e-mail
-    const phonePattern = /^\d{10,15}$/; // Regex para telefone com ou sem parênteses
+    const phonePattern = /^\(\d{2}\)\s?\d{5}-\d{4}$|^\(\d{2}\)\s?\d{4}-\d{4}$/; // Regex para telefone
 
     if (!emailPattern.test(email)) {
         alert('Por favor, insira um e-mail válido.');
         return false; // Impede o envio do formulário
     }
 
-    // Verifica se o telefone foi preenchido
-    if (phone && !phonePattern.test(phone)) {
-        alert('Por favor, insira um telefone no formato (xx) x-xxxx ou xx x-xxxx.');
+    // Verifica se o telefone foi preenchido e se está no formato correto
+    if (!phonePattern.test(phone)) {
+        alert('Por favor, insira um telefone no formato (xx) x-xxxx ou (xx) xxxx-xxxx.');
         return false; // Impede o envio do formulário
     }
 
     return true; // Permite o envio do formulário
 }
+
 
 function updateProfile() {
     event.preventDefault(); // Impede o envio do formulário padrão
@@ -230,7 +231,7 @@ function updateProfile() {
     })
         .then(response => response.json())
         .then(data => {
-            if (data && data.type == "success") {
+            if (data.status) {
                 Swal.fire({
                     title: 'Sucesso!',
                     text: data.msg,
@@ -240,22 +241,23 @@ function updateProfile() {
             } else {
                 Swal.fire({
                     title: 'Erro!',
-                    text: data.msg,
+                    text: data.msg || 'Erro desconhecido.',
                     icon: 'error',
                     confirmButtonText: 'OK'
                 });
             }
         })
         .catch(error => {
-            console.error('There was a problem with the fetch operation:', error);
+            console.error('Ocorreu um problema na operação fetch:', error);
             Swal.fire({
                 title: 'Erro!',
-                text: data.msg,
+                text: 'Ocorreu um erro ao tentar atualizar o perfil. Tente novamente mais tarde.',
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
         });
 }
+
 
 // Máscara para o campo telefone
 const handlePhone = (event) => {

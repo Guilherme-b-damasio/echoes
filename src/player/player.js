@@ -76,7 +76,6 @@ function verifyLiked(ID) {
   })
     .then(response => response.json())
     .then(data => {
-      debugger
       let btn = document.getElementById('liked-btn');
       if (data.liked) {
         btn.style.color = "blue";

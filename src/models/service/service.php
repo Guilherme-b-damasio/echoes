@@ -35,6 +35,18 @@ class service
         return false;
     }
 
+    public function searchUserWithID(int $id)
+    {
+        $userData = $this->repo->searchUserWithID($id);
+        if (!empty($userData)) {
+            $user = new user($userData);
+            $_SESSION['dataUser'] = serialize($user);
+            return $userData;
+        }
+
+        return false;
+    }
+
     public function registerUser(String $name, String $user, String $email, String $phone, String $pass)
     {
         $response = $this->repo->registerUser($name, $user, $email, $phone, $pass);

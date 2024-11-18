@@ -38,6 +38,22 @@ class repository
             return null;
         }
     }
+    public function searchUserWithId(int $id)
+    {
+        $sql = "SELECT * FROM users WHERE users.ID = :user";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':user', $id);
+
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_OBJ);
+            
+        } catch (PDOException $e) {
+            error_log("Error in searchUser: " . $e->getMessage());
+            return null;
+        }
+    }
 
     public function registerUser(String $name, String $user, String $email, String $phone, String $pass)
     {

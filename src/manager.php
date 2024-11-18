@@ -7,6 +7,7 @@ use App\Controller\ControllerLogin;
 use App\Controller\ControllerReset;
 use App\Controller\ControllerResetPassword;
 use App\Controller\ControllerProfile;
+use App\Controller\ControllerUser;
 
 if (isset($_GET['login'])) {
     login();
@@ -28,6 +29,11 @@ if (isset($_GET['updateProfile'])) {
     updateProfile();
 }
 
+if (isset($_GET['searchUser'])) {
+    searchUser();
+}
+
+
 function login()
 {
     $user = isset($_POST['user']) ? $_POST['user'] : '';
@@ -46,6 +52,20 @@ function login()
     }
 
     echo json_encode($response);
+    return;
+}
+
+function searchUser()
+{
+    $register = '';
+    $user = unserialize($_SESSION['dataUser']);
+
+    if (!empty($user)) {
+        $controller = new ControllerUser();
+        $register = $controller->handle($user->id);
+    }
+
+    echo json_encode($register);
     return;
 }
 

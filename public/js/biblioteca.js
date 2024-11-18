@@ -2,7 +2,6 @@ async function loadSongPerso(data) {
     for (const playlist of data) {
         const response = await fetch('../src/playlistManager.php?option=songs&perso_id=' + playlist.ID);
         const data = await response.json();
-        debugger
         const list = document.getElementById('list-' + playlist.ID);
         if (data && data.length > 0) {
             let html = '';

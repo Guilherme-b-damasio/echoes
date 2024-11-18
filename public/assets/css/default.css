@@ -17,7 +17,6 @@ body {
   width: 100% !important;
   zoom: 1 !important;
   overflow-x: hidden !important;
-
   font-size: 1rem !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
@@ -39,15 +38,10 @@ body {
   /* top: 0; */
   /* bottom: 0; */
   width: 220px !important;
-  /* background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important; */
+  background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #ffffff05 !important;
   padding: 24px;
   overflow: hidden;
-  background: rgb(0 0 0 / 18%);
-  backdrop-filter: blur(21px);
-  /* mask-image: linear-gradient(to bottom, black, transparent); */
-  /* -webkit-mask-image: linear-gradient(to bottom, black, transparent); */
-  /* mask-image: linear-gradient(to bottom, black 20%, transparent 80%); */
-  -webkit-mask-image: linear-gradient(to bottom, black 56%, transparent 77%);
+  border-right: solid #52525247 1px;
 }
 
 

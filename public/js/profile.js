@@ -1,3 +1,27 @@
+const phoneMask = (value) => {
+    if (!value) return "";
+    value = value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+    value = value.replace(/(\d{2})(\d)/, "($1) $2"); // Formata o DDD
+    value = value.replace(/(\d{5})(\d{4})$/, "$1-$2"); // Formata o número
+    return value;
+};
+
+// Função que será chamada no evento de input para formatar o telefone
+const handlePhone = (input) => {
+    input.value = input.value.replace(/[^0-9]/g, ''); // Remove qualquer caractere não numérico
+    input.value = phoneMask(input.value); // Aplica a máscara no valor
+};
+
+// Função que adiciona o ouvinte de evento para o campo de telefone
+const addPhoneInputListener = () => {
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', (event) => {
+            handlePhone(event.target); // Chama a função de formatação ao digitar
+        });
+    }
+};
+
 function loadProfile() {
     const container = document.getElementById('main-container');
     container.innerHTML =
@@ -34,15 +58,16 @@ function loadProfile() {
                     </div>
                     <div class="form-input">
                         <label class="name-input" for="phone">Telefone</label>
-                        <input type="text" class="input-field" maxlength="15" name="phone" onkeyup="handlePhone(event)" value="${dataUser.phone}">
+                        <input id="phone" type="text" class="input-field" maxlength="15" name="phone" value="${dataUser.phone}">
                     </div>
                     <button class="update-btn" class="btn" onclick="updateProfile()">Salvar</button>
                 </form>
             </div>
         </div>`;
-
+        
     addProfilePhotoListener();
     setProfileImage();
+    addPhoneInputListener();
 }
 
 
@@ -120,12 +145,20 @@ const addProfilePhotoListener = () => {
 // Função para verificar e definir a imagem de perfil
 function setProfileImage() {
     const imageFormats = ['profile.png', 'profile.jpg', 'profile.jpeg', 'profile.gif', 'profile.webp'];
-    const defaultImage = '../src/images/default-profile.png';
+    const defaultImage = '../src/uploads/default/profile.png'; // Caminho atualizado da imagem padrão
     const profileImage = document.getElementById('profile-img');
+    const userImageDir = `../src/uploads/${dataUser.id}/`;
 
     if (!profileImage) {
-        console.error('Element with id "profile" not found!');
+        console.error('Element with id "profile-img" not found!');
         return;
+    }
+
+    // Função para verificar a existência da pasta
+    function checkFolderExists(path) {
+        return fetch(path, { method: 'HEAD' })
+            .then(response => response.ok)
+            .catch(() => false);
     }
 
     function checkImageFormat(format) {
@@ -133,13 +166,19 @@ function setProfileImage() {
             const img = new Image();
             // Adiciona um parâmetro de timestamp para evitar cache
             const timestamp = new Date().getTime();
-            img.src = `../src/uploads/${dataUser.id}/${format}?t=${timestamp}`;
+            img.src = `${userImageDir}${format}?t=${timestamp}`;
             img.onload = () => resolve(img.src);
             img.onerror = () => resolve(null);
         });
     }
 
     async function tryLoadProfileImage() {
+        const folderExists = await checkFolderExists(userImageDir);
+        if (!folderExists) {
+            profileImage.src = defaultImage;
+            return;
+        }
+
         for (const format of imageFormats) {
             const imageSrc = await checkImageFormat(format);
             if (imageSrc) {
@@ -147,21 +186,13 @@ function setProfileImage() {
                 return;
             }
         }
+
         profileImage.src = defaultImage;
     }
 
     tryLoadProfileImage();
 }
 
-
-// Função de callback do MutationObserver
-const callback = function (mutationsList) {
-    for (const mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-            addProfilePhotoListener(); // Adiciona listener de foto de perfil
-        }
-    }
-};
 
 const profileContainer = document.querySelector('.profile-container');
 const config = { childList: true, subtree: true };
@@ -258,17 +289,3 @@ function updateProfile() {
         });
 }
 
-
-// Máscara para o campo telefone
-const handlePhone = (event) => {
-    let input = event.target
-    input.value = phoneMask(input.value)
-}
-
-const phoneMask = (value) => {
-    if (!value) return ""
-    value = value.replace(/\D/g, '')
-    value = value.replace(/(\d{2})(\d)/, "($1) $2")
-    value = value.replace(/(\d)(\d{4})$/, "$1-$2")
-    return value
-}

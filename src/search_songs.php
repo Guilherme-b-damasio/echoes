@@ -7,6 +7,7 @@ use App\Controller\ControllerMusic;
 use App\Controller\ControllerMusicPlaylist;
 use App\Controller\ControllerLikedPlaylist;
 use App\Controller\ControllerPlaylistPerso;
+use App\Controller\ControllerVerifyLiked;
 use App\entity\music;
 
 $name = isset($_REQUEST["name"]) ? $_REQUEST["name"] :  null;
@@ -29,6 +30,15 @@ if($section == 'perso'){
 if($section == 'liked'){
     $controller = new ControllerLikedPlaylist();
     $musics = $controller->handle($option,$user->getId() ,$id);
+
+    echo json_encode($musics);
+    return;
+}
+
+
+if($section == 'verifyLiked'){
+    $controller = new ControllerVerifyLiked();
+    $musics = $controller->handle($id, $user->getId());
 
     echo json_encode($musics);
     return;

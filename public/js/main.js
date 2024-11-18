@@ -116,7 +116,6 @@ function playerMusic(ID, playlist) {
 
 
 function saveMusic(){
-
     let heart = document.getElementById('liked-btn');
     let element = document.getElementById('nextButton');
     let ID = element.getAttribute('data-music');
@@ -130,7 +129,7 @@ function saveMusic(){
         .then(data => {
             if(data){
                 if (liked == 'false') {
-                    heart.style.color = 'green';
+                    heart.style.color = 'blue';
                 }else{
                     heart.style.color = 'white';
                 }

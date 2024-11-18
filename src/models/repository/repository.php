@@ -251,6 +251,21 @@ class repository
         }
     }
 
+    public function searchLikedMusicWithId($id, $user)
+    {
+        try {
+            $sql = "SELECT ID as liked FROM likedplaylist WHERE id_music = :id AND user_id = :user";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':user', $user);
+            $stmt->execute();
+
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
     public function searchNextMusic($name, $id, $playlist_id)
     {
         try {
@@ -616,6 +631,19 @@ class repository
             $stmt->bindParam(':music', $music, PDO::PARAM_INT);
 
             return $stmt->execute() ? true : false;
+        } catch (PDOException $e) {
+            error_log('Database query failed: ' . $e->getMessage());
+            return $e->getMessage();
+        }
+    }
+
+    public function deletePersoPlaylistMusic($perso_id)
+    {
+        try {
+            $sql = "DELETE FROM playlist_perso WHERE playlist_perso.ID = :perso_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":perso_id", $perso_id);
+            return $stmt->execute();
         } catch (PDOException $e) {
             error_log('Database query failed: ' . $e->getMessage());
             return $e->getMessage();

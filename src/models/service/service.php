@@ -132,6 +132,13 @@ class service
         header('Content-Type: application/json');
         $response = $this->repo->searchLikedMusic($id, $user, $option);
         return $response;
+    } 
+    
+    public function verifyLiked($music_id, $user)
+    {
+        header('Content-Type: application/json');
+        $response = $this->repo->searchLikedMusicWithId($music_id, $user);
+        return $response;
     }
 
     public function consultPlaylist()
@@ -199,6 +206,14 @@ class service
         $consult = [];
 
         $consult = $this->repo->deleteLikedPlaylistMusic($user_id, $id_music);
+        return $consult;
+    }
+     public function deletePersoPlaylist($perso_id)
+    {
+        $consult = [];
+
+        $consult = $this->repo->deletePersoPlaylistMusic($perso_id);
+
         return $consult;
     }
     

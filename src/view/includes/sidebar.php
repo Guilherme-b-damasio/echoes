@@ -17,33 +17,29 @@
                 </div>
             </li>
             <div class="sidebar-page">
-            <a href="?home" data-page="home">
-                <li id="home">                    
+                <a href="?home" data-page="home">
+                    <li id="home">
                         <div class="sidebar-button">
                             <span class="fa fa-home"></span>
                             <span>Home</span>
-                        </div>                 
-                </li>
+                        </div>
+                    </li>
                 </a>
                 <a href="?profile" data-page="profile">
-                <li>
-                    
+                    <li>
                         <div class="sidebar-button">
                             <span class="fa-solid fa-user"></span>
                             <span>Perfil</span>
                         </div>
-                    
-                </li>
+                    </li>
                 </a>
                 <a href="?biblioteca" data-page="biblioteca">
-                <li>
-                    
+                    <li>
                         <div class="sidebar-button">
                             <span class="fa fas fa-book"></span>
                             <span>Sua Biblioteca</span>
                         </div>
-                    
-                </li>
+                    </li>
                 </a>
                 <li onclick="criarPlaylist()">
                     <div class="sidebar-button">
@@ -52,24 +48,20 @@
                     </div>
                 </li>
                 <a href="?likeds" data-page="likeds">
-                <li>
-                    
+                    <li>
                         <div class="sidebar-button">
                             <span class="fa fas fa-heart"></span>
                             <span>Músicas Curtidas</span>
                         </div>
-                    
-                </li>
+                    </li>
                 </a>
                 <a href="?login">
-                <li>
-                    
+                    <li>
                         <div class="sidebar-button">
                             <span class="fa-solid fa-right-from-bracket"></span>
                             <span>Sair</span>
                         </div>
-                   
-                </li>
+                    </li>
                 </a>
             </div>
         </ul>

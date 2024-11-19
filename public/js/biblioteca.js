@@ -20,7 +20,7 @@ async function loadSongPerso(data) {
             });
             list.innerHTML = html;
         } else {
-            list.innerHTML = '<h4 class="song-title">Nenhuma musica foi enfiada na playlist</h4>';
+            list.innerHTML = '<h4 class="song-title">Nenhuma música foi adicionada na playlist</h4>';
         }
     }
 }
@@ -51,9 +51,13 @@ async function loadPlaylistPerso() {
             data.forEach(playlist => {
                 html += `<div class="playlists">
                             <div class="playlist-title">
-                                <h2>${playlist.name}</h2>
+                                <div class="playlist-name">
+                                    <h2>${playlist.name}</h2>
+                                    <div class="delete">
+                                        <span class="fa-solid fa-trash" onclick="deletePerso(${playlist.ID})"></span>
+                                    </div>
+                                </div>
                                 <div class="playlist-buttons">
-                                 <span class="fa fa-play" onclick="deletePerso(${playlist.ID})"></span>
                                     <div class="button-left" onclick="scrollLeftPlaylist(${playlist.ID})">
                                         <span class="fa-solid fa-chevron-left"></span>
                                     </div>

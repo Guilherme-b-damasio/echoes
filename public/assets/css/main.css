@@ -158,7 +158,27 @@
 .playlists h2 {
   color: #ffffff;
   font-size: 30px;
+}
+
+.playlist-name{
+  display: flex;
+  align-content: center;
+  align-items: center;
   margin-bottom: 20px;
+  gap: 30px;
+  cursor: pointer;
+}
+
+.playlist-name .delete{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: #8b2222;
+  cursor: pointer;
 }
 
 .playlists .list {

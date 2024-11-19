@@ -80,7 +80,7 @@ function register() {
             if (data.status) {
                 Swal.fire({
                     title: "Sucesso",
-                    icon: 'sucess',
+                    icon: 'success',
                     text: "Cadastro Efetuado com Sucesso!",
                     confirmButtonText: "Logar",
                 }).then((result) => {

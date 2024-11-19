@@ -727,20 +727,20 @@ class repository
         return $result;
     }
 
-    public function updateProfile(String $name, String $login, String $email, String $phone, int $id)
+    public function updateProfile(String $name, int $id, String $login, String $email, String $phone)
     {
         $sql = "SELECT * FROM users WHERE users.ID = :id";
         $response = [];
 
         try {
-            // Verifica se o usuário existe
+            
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
             if ($result) {
-                // Atualiza os dados do usuário
+                
                 $stmt = $this->conn->prepare("UPDATE users SET name = :name, login = :login, email = :email, phone = :phone WHERE id = :id");
 
                 $stmt->bindParam(":name", $name);
@@ -750,7 +750,7 @@ class repository
                 $stmt->bindParam(":id", $id);
                 $stmt->execute();
 
-                // Verifica se o `UPDATE` foi bem-sucedido
+                
                 if ($stmt->rowCount() > 0) {
                     $response['msg'] = "Usuário atualizado com sucesso";
                     $response['status'] = true;
@@ -767,6 +767,49 @@ class repository
         } catch (PDOException $e) {
             error_log("Error in updateProfile: " . $e->getMessage());
             return $response['msg'] = "Error in updateProfile: " . $e->getMessage();
+        }
+    }
+
+
+    public function deleteProfile(int $id)
+    {
+        $sql = "SELECT * FROM users WHERE users.ID = :id";
+        $response = [];
+
+        try {
+            
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_OBJ);
+
+            if ($result) {
+                
+                $stmt = $this->conn->prepare("DELETE FROM users WHERE id = :id");
+
+                
+                $stmt->bindParam(":id", $id);
+                $stmt->execute();
+
+                
+                if ($stmt->rowCount() > 0) {
+                    $response['msg'] = "Usuário deletado com sucesso";
+                    $response['status'] = true;
+                    $response['redirect'] = 'login.php' ;
+                      
+                } else {
+                    $response['msg'] = "Nenhuma alteração foi feita";
+                    $response['status'] = false;
+                }
+            } else {
+                $response['msg'] = "Usuário não encontrado";
+                $response['status'] = false;
+            }
+
+            return $response;
+        } catch (PDOException $e) {
+            error_log("Error in deleteProfile: " . $e->getMessage());
+            return $response['msg'] = "Error in deleteProfile: " . $e->getMessage();
         }
     }
 

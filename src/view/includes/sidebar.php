@@ -17,57 +17,60 @@
                 </div>
             </li>
             <div class="sidebar-page">
-                <li>
-                    <a href="?home" data-page="home">
+            <a href="?home" data-page="home">
+                <li id="home">                    
                         <div class="sidebar-button">
                             <span class="fa fa-home"></span>
                             <span>Home</span>
-                        </div>
-                    </a>
+                        </div>                 
                 </li>
-
+                </a>
+                <a href="?profile" data-page="profile">
                 <li>
-                    <a href="?profile" data-page="profile">
+                    
                         <div class="sidebar-button">
                             <span class="fa-solid fa-user"></span>
                             <span>Perfil</span>
                         </div>
-                    </a>
+                    
                 </li>
-
+                </a>
+                <a href="?biblioteca" data-page="biblioteca">
                 <li>
-                    <a href="?biblioteca" data-page="biblioteca">
+                    
                         <div class="sidebar-button">
                             <span class="fa fas fa-book"></span>
                             <span>Sua Biblioteca</span>
                         </div>
-                    </a>
+                    
                 </li>
-
+                </a>
                 <li onclick="criarPlaylist()">
                     <div class="sidebar-button">
                         <span class="fa fas fa-plus-square"></span>
                         <span>Criar Playlist</span>
                     </div>
                 </li>
-
+                <a href="?likeds" data-page="likeds">
                 <li>
-                    <a href="?likeds" data-page="likeds">
+                    
                         <div class="sidebar-button">
                             <span class="fa fas fa-heart"></span>
                             <span>Músicas Curtidas</span>
                         </div>
-                    </a>
+                    
                 </li>
-
+                </a>
+                <a href="?login">
                 <li>
-                    <a href="?login">
+                    
                         <div class="sidebar-button">
                             <span class="fa-solid fa-right-from-bracket"></span>
                             <span>Sair</span>
                         </div>
-                    </a>
+                   
                 </li>
+                </a>
             </div>
         </ul>
     </div>

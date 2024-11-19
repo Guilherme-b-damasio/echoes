@@ -1,10 +1,10 @@
 async function loadSongPerso(data) {
     for (const playlist of data) {
-        const response = await fetch('../src/playlistManager.php?option=songs&perso_id='+playlist.ID);
+        const response = await fetch('../src/playlistManager.php?option=songs&perso_id=' + playlist.ID);
         const data = await response.json();
+        const list = document.getElementById('list-' + playlist.ID);
         if (data && data.length > 0) {
             let html = '';
-            const list = document.getElementById('list-' + playlist.ID);
 
             data.forEach(music => {
                 html +=
@@ -19,24 +19,51 @@ async function loadSongPerso(data) {
                                 </div>`;
             });
             list.innerHTML = html;
+        }else{
+            list.innerHTML = '<h4 class="song-title">Nenhuma musica foi enfiada na playlist</h4>';
         }
     }
 }
 
+async function deletePerso(ID) {
+    try {
+        const response = await fetch(`../src/playlistManager.php?option=delete&perso_id=${ID}&option=delete`);
+        const data = await response.json();
 
+        if (data) {
+            loadPlaylistPerso();
+        }
+    } catch (error) {
+        console.error('Erro ao carregar playlists:', error);
+    }
+}
 
 async function loadPlaylistPerso() {
     try {
         const response = await fetch('../src/playlistManager.php?option=select');
         const data = await response.json();
 
+        const list = document.getElementById('main-container');
         if (data && data.length > 0) {
             let html = '';
-            const list = document.getElementById('main-container');
+            list.innerHTML = html;
 
             data.forEach(playlist => {
                 html += `<div class="playlists">
+                            <div class="playlist-title">
+                                <h2>${playlist.name}</h2>
+                                <div class="playlist-buttons">
+                                    <div class="button-left" onclick="scrollLeftPlaylist(${playlist.ID})">
+                                        <span class="fa-solid fa-chevron-left"></span>
+                                    </div>
+                                    <div class="button-right" onclick="scrollRightPlaylist(${playlist.ID})">
+                                        <span class="fa-solid fa-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </div>
                             <h2>${playlist.name}</h2>
+                            <span class="fa fa-play" onclick="deletePerso(${playlist.ID})"></span>
+                            <i class="bi bi-x" onclick="deletePerso(${playlist.ID})"></i>
                             <div class="list" id="list-${playlist.ID}"></div>
                          </div>`;
             });
@@ -44,10 +71,25 @@ async function loadPlaylistPerso() {
             list.innerHTML = html;
 
             loadSongPerso(data);
+        }else{
+            list.innerHTML = '';
         }
     } catch (error) {
         console.error('Erro ao carregar playlists:', error);
     }
+}
+
+function scrollLeftPlaylist(playlistId) {
+    const container = document.getElementById('list-' + playlistId);
+
+    if (container.scrollLeft > 0) {
+        container.scrollLeft -= 300; // Ajuste o valor conforme necessário para a quantidade de rolagem
+    }
+}
+
+function scrollRightPlaylist(playlistId) {
+    const container = document.getElementById('list-' + playlistId);
+    container.scrollLeft += 300; // Ajuste o valor conforme necessário para a quantidade de rolagem
 }
 
 function playerMusicPerso(ID, playlist) {

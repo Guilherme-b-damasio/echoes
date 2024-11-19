@@ -232,7 +232,6 @@ a {
 .sidebar-page li a {
   display: flex; /* Faz o link tambÃƒÂ©m usar flexbox */
   align-items: center; /* Alinha verticalmente o texto com o ÃƒÂ­cone */
-  color: aquamarine; /* Cor do texto */
   text-decoration: none; /* Remove o sublinhado */
   font-weight: 500; /* Peso da fonte */
   font-size: 14px; /* Tamanho da fonte */
@@ -316,8 +315,4 @@ input::placeholder {
 
 .sidebar-page li {
   color: aliceblue;
-}
-
-.sidebar-page li a {
-  color: aquamarine;
 }

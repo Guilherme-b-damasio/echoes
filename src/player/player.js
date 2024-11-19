@@ -117,7 +117,7 @@ function verifyLiked(ID) {
     .then(data => {
       let btn = document.getElementById('liked-btn');
       if (data.liked) {
-        btn.style.color = "blue";
+        btn.style.color = "#005CC8";
         btn.setAttribute('data-liked', 1);
         return;
       }

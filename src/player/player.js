@@ -9,6 +9,10 @@ const duration = document.querySelector("#duration");
 const progressBar = document.querySelector(".progress-bar");
 const progress = document.querySelector(".progress");
 const progressBall = document.querySelector('.progress-ball');
+const timeTooltip = document.querySelector('#timeTooltip');
+
+progressBar.addEventListener('mousemove', showTimeTooltip);
+progressBar.addEventListener('mouseleave', hideTimeTooltip);
 
 let songs = []; // Lista de músicas
 let currentSong = []; // Lista de músicas
@@ -338,3 +342,25 @@ function onMouseUp(e) {
 }
 
 
+function showTimeTooltip(e) {
+  const progressBarWidth = progressBar.offsetWidth; // Largura da barra de progresso
+  const mousePosition = e.clientX - progressBar.getBoundingClientRect().left; // Posição do mouse dentro da barra de progresso
+
+  // Calcula o tempo correspondente à posição do mouse
+  const time = (mousePosition / progressBarWidth) * player.duration; 
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  const formattedTime = formatTime(minutes, seconds);
+
+  // Exibe o tooltip com o tempo
+  timeTooltip.textContent = formattedTime;
+  
+  // Posiciona o tooltip abaixo da barra de progresso
+  timeTooltip.style.left = `${(mousePosition / progressBarWidth) * 100}%`;
+  timeTooltip.style.display = 'block'; // Torna visível
+}
+
+// Função para ocultar o tooltip
+function hideTimeTooltip() {
+  timeTooltip.style.display = 'none'; // Oculta o tooltip
+}

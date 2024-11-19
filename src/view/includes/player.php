@@ -25,6 +25,7 @@
                     <div class="progress"></div>
                     <div class="progress-ball"></div>
                 </div>
+                <div id="timeTooltip" class="time-tooltip"></div>
                 <div class="time">
                     <span id="currentTime">0:00</span>
                     <span id="duration">0:00</span>

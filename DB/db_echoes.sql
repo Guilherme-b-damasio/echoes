@@ -6,9 +6,6 @@
 -- Tempo de geração: 16-Out-2024 às 01:38
 -- Versão do servidor: 10.4.28-MariaDB
 -- versão do PHP: 8.2.4
-drop database db_echoes;
-create database db_echoes;
-use db_echoes;
 
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -36,11 +33,11 @@ CREATE DATABASE db_echoes;
 use db_echoes;
 
 CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
+  `id` int(11)  NOT NULL auto_increment primary key,
   `name` varchar(50) NOT NULL,
   `description` varchar(150) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -49,16 +46,16 @@ CREATE TABLE `category` (
 --
 
 CREATE TABLE `likedplaylist` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11)  NOT NULL auto_increment primary key,
   `user_id` int(11) NOT NULL,
   `id_music` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ;
 
 CREATE TABLE `playlist_perso` (
   `ID` int(11) NOT NULL AUTO_INCREMENT primary key,
   `user_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 
 --
@@ -79,7 +76,7 @@ INSERT INTO `likedplaylist` (`ID`, `user_id`, `id_music`) VALUES
 --
 
 CREATE TABLE `music` (
-  `ID` int(11) NOT NULL,
+  `ID` int(11)  NOT NULL auto_increment primary key,
   `name` varchar(255) NOT NULL,
   `src` varchar(255) NOT NULL,
   `autor` varchar(255) NOT NULL,
@@ -146,19 +143,6 @@ CREATE TABLE `password_resets` (
 -- Extraindo dados da tabela `password_resets`
 --
 
-INSERT INTO `password_resets` (`id`, `user_id`, `token`, `expire_at`) VALUES
-(1, 1, '0f450bbc68ae09d29754a3a371d2d2b8c67f0036d38e48b21eb39db5361262243dfd1b284f99bc19d261e585a7dc6678665d', 1728348035),
-(2, 1, 'a6ff905427272aabffc7b3a0f9a25cb76bafa1ab9e6c006631f250ad0c6f559319ad6732938064fca6e84dd02eb2178704a0', 1728348039),
-(3, 1, '122adcf71d9974a4a835e346887a7db91902363a3082429e439620aba2c3fcb76756ebf3799ac94326bdb65835777baed991', 1728348044),
-(4, 1, '76328e02ded325207ec90820b2d0212bd471f8e90ae9bcc9edb663825045470ed53aa614014ca1bbe9bea0b4946d8ffebe3a', 1728348048),
-(5, 1, '9fba61cf3920eb9798a27f95910013c171ccface2a83efdd9db3801eb23567a00c3872277ddc75fdfa917546d98573e2d8f2', 1728348053),
-(6, 1, '0939541234a3a6cc8c3c5aad2c7b763d72e53a50ba278d66472734d9f852336564df8482f59e9711c82c65cdad4f57f25480', 1728348189),
-(7, 1, '8001c2b6284b7a24390fc55289c73bf52cfcf99a3c442be376a997aa2ee7ab559943f56820c461f5b4815c1b2dacf5e95003', 1728348193),
-(8, 1, '4fe50c91d1d18333aae5b95031a8d4f226543a3780730752af29b03662e082356b11802b8555c695b8fc31450a17ac92d9aa', 1728348198),
-(9, 1, '11549289cbbcf9592277e88c36b78be1896dd43fc4544d25999e75c0818eb4b212a670d375fc7bdcd581cd90b24ecc7e1658', 1728348202),
-(10, 1, '0774a068eab1d52715f1610818321a6a6e0083af247fca8d5b7ec4c8a0420fbb67562ade0e8a37fa5b5e464c7aeb453c6cfe', 1728348206),
-(11, 1, '4fedc417fb7ec5226f4cffd271bbe9d0e826130cddf4b50f510a9626392ebe89c5ae6cee5fe6438bfb680c8eab266d91a3ff', 1728348210);
-
 -- --------------------------------------------------------
 
 --
@@ -166,7 +150,7 @@ INSERT INTO `password_resets` (`id`, `user_id`, `token`, `expire_at`) VALUES
 --
 
 CREATE TABLE `playlist` (
-  `id` int(11) NOT NULL,
+  `id` int(11)  NOT NULL auto_increment primary key,
   `name` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -223,14 +207,11 @@ INSERT INTO `users` (`ID`, `name`, `login`, `email`, `password`, `phone`, `image
 --
 -- Índices para tabela `likedplaylist`
 --
-ALTER TABLE `likedplaylist`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Índices para tabela `music`
 --
 ALTER TABLE `music`
-  ADD PRIMARY KEY (`ID`),
   ADD KEY `idx_name` (`name`),
   ADD KEY `idx_autor` (`autor`),
   ADD KEY `playlist_id` (`playlist_id`),
@@ -240,59 +221,19 @@ ALTER TABLE `music`
 -- Índices para tabela `password_resets`
 --
 ALTER TABLE `password_resets`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 --
 -- Índices para tabela `playlist`
 --
 ALTER TABLE `playlist`
-  ADD PRIMARY KEY (`id`),
   ADD KEY `idx_name` (`name`);
 
 --
 -- Índices para tabela `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`ID`),
   ADD KEY `playlist_id` (`playlist_id`),
   ADD KEY `likedPlaylist` (`likedPlaylist`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `likedplaylist`
---
-ALTER TABLE `likedplaylist`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
-  
-  ALTER TABLE `playlist_perso`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
-
---
--- AUTO_INCREMENT de tabela `music`
---
-ALTER TABLE `music`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT de tabela `password_resets`
---
-ALTER TABLE `password_resets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT de tabela `playlist`
---
-ALTER TABLE `playlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de tabela `users`
---
-ALTER TABLE `users`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas

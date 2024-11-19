@@ -48,7 +48,6 @@ class repository
 
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_OBJ);
-            
         } catch (PDOException $e) {
             error_log("Error in searchUser: " . $e->getMessage());
             return null;
@@ -286,7 +285,7 @@ class repository
     {
         try {
             $sql = "
-            SELECT 
+           SELECT 
                 music.ID AS ID, 
                 music.name, 
                 music.src, 
@@ -304,12 +303,10 @@ class repository
                 playlist ON music.playlist_id = playlist.ID
             WHERE
                 music.playlist_id = :playlist_id AND
-                music.ID = (
-                    SELECT MIN(ID)
-                    FROM music
-                    WHERE ID > :id
-                );
-            
+                music.ID > :id 
+            ORDER BY 
+                music.ID ASC  
+            LIMIT 1; 
             ";
 
             $stmt = $this->conn->prepare($sql);
@@ -422,29 +419,28 @@ class repository
     {
         try {
             $sql = "
-        SELECT 
-            music.ID AS ID, 
-            music.name, 
-            music.src, 
-            music.image,
-            music.autor, 
-            music.created_at AS music_created_at, 
-            music.updated_at AS music_updated_at,
-            playlist.ID AS playlist_id, 
-            playlist.name AS playlist_name, 
-            playlist.created_at AS playlist_created_at, 
-            playlist.updated_at AS playlist_updated_at
-        FROM 
-            music
-        INNER JOIN 
-            playlist ON music.playlist_id = playlist.ID
-        WHERE
-        music.playlist_id = :playlist_id AND
-            music.ID = (
-                SELECT MAX(ID)
-                FROM music
-                WHERE ID < :id
-            );
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.playlist_id = :playlist_id AND
+                music.ID < :id  
+            ORDER BY 
+                music.ID DESC 
+            LIMIT 1;
         ";
 
             $stmt = $this->conn->prepare($sql);
@@ -704,7 +700,7 @@ class repository
 
     public function resetPassword(String $email)
     {
-        try{
+        try {
             $sql = "SELECT ID FROM users WHERE email = :email";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":email", $email);
@@ -712,7 +708,7 @@ class repository
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             error_log("Result: $sql " . print_r($user, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
             return $user;
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             error_log('Database query failed: ' . $e->getMessage());
             return $e->getMessage();
         }
@@ -737,14 +733,14 @@ class repository
         $response = [];
 
         try {
-            
+
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
             if ($result) {
-                
+
                 $stmt = $this->conn->prepare("UPDATE users SET name = :name, login = :login, email = :email, phone = :phone WHERE id = :id");
 
                 $stmt->bindParam(":name", $name);
@@ -754,7 +750,7 @@ class repository
                 $stmt->bindParam(":id", $id);
                 $stmt->execute();
 
-                
+
                 if ($stmt->rowCount() > 0) {
                     $response['msg'] = "Usuário atualizado com sucesso";
                     $response['status'] = true;
@@ -781,26 +777,25 @@ class repository
         $response = [];
 
         try {
-            
+
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_OBJ);
 
             if ($result) {
-                
+
                 $stmt = $this->conn->prepare("DELETE FROM users WHERE id = :id");
 
-                
+
                 $stmt->bindParam(":id", $id);
                 $stmt->execute();
 
-                
+
                 if ($stmt->rowCount() > 0) {
                     $response['msg'] = "Usuário deletado com sucesso";
                     $response['status'] = true;
-                    $response['redirect'] = 'login.php' ;
-                      
+                    $response['redirect'] = 'login.php';
                 } else {
                     $response['msg'] = "Nenhuma alteração foi feita";
                     $response['status'] = false;

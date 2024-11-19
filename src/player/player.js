@@ -8,6 +8,7 @@ const currentTime = document.querySelector("#currentTime");
 const duration = document.querySelector("#duration");
 const progressBar = document.querySelector(".progress-bar");
 const progress = document.querySelector(".progress");
+const progressBall = document.querySelector('.progress-ball');
 
 let songs = []; // Lista de músicas
 let currentSong = []; // Lista de músicas
@@ -149,10 +150,6 @@ function getLocalStorageTime() {
 }
 
 function updateTime() {
-  if (currentMinutes && currentSeconds) {
-    getLocalStorage();
-  }
-
   var currentMinutes = Math.floor(player.currentTime / 60);
   var currentSeconds = Math.floor(player.currentTime % 60);
   currentTime.textContent = formatTime(currentMinutes, currentSeconds);
@@ -162,9 +159,15 @@ function updateTime() {
   const durationSeconds = Math.floor(durationFormatted % 60);
   duration.textContent = formatTime(durationMinutes, durationSeconds);
 
-  const progressWidth = durationFormatted ? (player.currentTime / durationFormatted) * 100 : 0;
+  // Cálculo do progresso
+  const progressWidth = durationFormatted ? Math.min(100, (player.currentTime / durationFormatted) * 100) : 0;
   progress.style.width = progressWidth + "%";
+
+  // Atualizar a posição da bolinha
+  const ballPosition = progressWidth;  // Sem necessidade de subtrair a largura da bolinha, já que estamos lidando com porcentagem
+  progressBall.style.left = ballPosition + '%';
 }
+
 
 function formatTime(minutes, seconds) {
   return `${formatZero(minutes)}:${formatZero(seconds)}`;
@@ -176,9 +179,16 @@ function formatZero(n) {
 
 function updatePlaybackPosition(e) {
   if (player.duration && player.duration > 0) {
-    const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
+    // Calcular a posição do clique dentro da barra
+    const progressBarWidth = progressBar.offsetWidth;  // largura da progress-bar
+    const clickPosition = e.offsetX;  // posição onde o usuário clicou
+
+    // Calcular a nova posição relativa do tempo da música baseado no clique
+    const newTime = (clickPosition / progressBarWidth) * player.duration;
+
+    // Garantir que o novo tempo seja válido
     if (isFinite(newTime) && newTime >= 0 && newTime <= player.duration) {
-      player.currentTime = newTime;
+      player.currentTime = newTime; // Atualiza o tempo da música
     } else {
       console.error('Valor de novo tempo inválido:', newTime);
     }
@@ -186,6 +196,7 @@ function updatePlaybackPosition(e) {
     console.error('Duração do player inválida ou não definida');
   }
 }
+
 
 function changeMusic(musics = null) {
   let music;
@@ -284,5 +295,46 @@ function playerManager() {
   updateVolume();
 }
 
+let isDragging = false; // Controla se a bolinha está sendo arrastada
+
+// Função para iniciar o arrasto
+progressBall.addEventListener('mousedown', (e) => {
+    isDragging = true; // Inicia o arrasto ao clicar na bolinha
+    e.preventDefault(); // Impede o comportamento padrão do mouse (seleção de texto)
+
+    // Adiciona os eventos para arrasto e liberação do mouse
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+});
+
+
+function onMouseMove(e) {
+    if (!isDragging) return; 
+
+    const progressBarWidth = progressBar.offsetWidth;
+    const mousePosition = e.clientX - progressBar.getBoundingClientRect().left; 
+
+    const newPosition = Math.min(Math.max(0, mousePosition), progressBarWidth);
+
+    progressBall.style.left = `${(newPosition / progressBarWidth) * 100}%`;
+}
+
+
+function onMouseUp(e) {
+    isDragging = false;
+
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+
+    const progressBarWidth = progressBar.offsetWidth;
+    const mousePosition = e.clientX - progressBar.getBoundingClientRect().left; 
+
+
+    const newTime = (mousePosition / progressBarWidth) * player.duration;
+
+    player.currentTime = newTime;
+
+    updateTime();
+}
 
 

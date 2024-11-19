@@ -1,6 +1,5 @@
-
 <div class="player-container">
-<div class="background-blur" id="background-blur"></div>
+    <div class="background-blur" id="background-blur"></div>
     <div class="player" id="container-player">
         <div class="musicDetails">
             <img id="img-music" src="" alt="">
@@ -24,6 +23,7 @@
             <div class="footer">
                 <div class="progress-bar">
                     <div class="progress"></div>
+                    <div class="progress-ball"></div>
                 </div>
                 <div class="time">
                     <span id="currentTime">0:00</span>
@@ -40,4 +40,6 @@
 </div>
 
 <script src="../src/player/player.js"></script>
-<script>initializePlayer();</script>
+<script>
+    initializePlayer();
+</script>

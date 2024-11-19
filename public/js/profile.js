@@ -89,11 +89,11 @@ const addProfilePhotoListener = () => {
     if (profilePhoto && !profilePhoto.classList.contains('listener-added')) {
         profilePhoto.addEventListener('click', async () => {
             const { value: file } = await Swal.fire({
-                title: "Select image",
+                title: "Selecione a imagem",
                 input: "file",
                 inputAttributes: {
                     "accept": "image/*",
-                    "aria-label": "Upload your profile picture"
+                    "aria-label": "Selecione a sua imagem"
                 }
             });
 
@@ -102,9 +102,9 @@ const addProfilePhotoListener = () => {
 
                 reader.onload = async (e) => {
                     await Swal.fire({
-                        title: "Your uploaded picture",
+                        title: "Sua imagem selecionada",
                         imageUrl: e.target.result,
-                        imageAlt: "The uploaded picture"
+                        imageAlt: "Imagem selecionada"
                     });
 
                     const url = '../src/saveImage.php';
@@ -143,8 +143,8 @@ const addProfilePhotoListener = () => {
             } else {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Oops...',
-                    text: 'Please upload a valid image file!',
+                    title: 'Inválida',
+                    text: 'Por favor selecione uma imagem válida!',
                 });
             }
 

@@ -116,7 +116,6 @@ function playerMusic(ID, playlist) {
 
 
 function saveMusic(){
-    debugger
     let heart = document.getElementById('liked-btn');
     let element = document.getElementById('nextButton');
     let ID = element.getAttribute('data-music');

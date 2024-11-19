@@ -40,7 +40,7 @@
                         <div class="forgot-password">
                             <a href="#" id="show-forgot-password">Esqueceu sua senha?</a>
                         </div>
-                        <button class="sign-in-btn" class="btn" onclick="login()">Login</button>
+                        <button class="sign-in-btn" class="btn">Login</button>
                     </form>
                     <p class="terms">
                         Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
@@ -66,7 +66,7 @@
                             <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-register" required>
                             <i id="togglePasswordRegister" class="fa-solid fa-eye eye-icon"></i> <!-- Ícone de olho -->
                         </div>
-                        <button class="sign-up-btn" class="btn" onclick="register()">Cadastrar-se</button>
+                        <button class="sign-up-btn" class="btn">Cadastrar-se</button>
                     </form>
                     <p class="terms">
                         Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
@@ -81,7 +81,7 @@
                     <form id="form-reset">
                         <p class="text">E-mail</p>
                         <input type="email" placeholder="E-mail" class="input-field" name="email" required>
-                        <button class="send-token-btn" class="btn" onclick="resetPassword()">Enviar Token</button>
+                        <button class="send-token-btn" class="btn">Enviar Token</button>
                     </form>
                     <p class="back-to-login"> Lembrou a senha? <a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
                 </div>

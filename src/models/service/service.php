@@ -289,11 +289,14 @@ class service
 
                 $mail->send();
                 $result['msg'] = "E-mail de recuperação enviado!";
+                $result['status'] = true;
             } catch (Exception $e) {
                 $result['msg'] = "Erro ao enviar o e-mail.";
+                $result['status'] = false;
             }
         } else {
             $result['msg'] = "E-mail não encontrado.";
+            $result['status'] = false;
         }
         return $result;
     }

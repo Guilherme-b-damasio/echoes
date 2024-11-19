@@ -136,11 +136,11 @@ INSERT INTO `music` (`ID`, `name`, `src`, `autor`, `image`, `created_at`, `updat
 --
 
 CREATE TABLE `password_resets` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL auto_increment primary key,
   `user_id` int(11) NOT NULL,
   `token` varchar(255) NOT NULL,
   `expire_at` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+);
 
 --
 -- Extraindo dados da tabela `password_resets`
@@ -193,7 +193,7 @@ INSERT INTO `playlist` (`id`, `name`, `created_at`, `updated_at`) VALUES
 --
 
 CREATE TABLE `users` (
-  `ID` int(11) NOT NULL auto_increment,
+  `ID` int(11) NOT NULL auto_increment primary key,
   `name` varchar(255) DEFAULT NULL,
   `login` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
@@ -204,8 +204,8 @@ CREATE TABLE `users` (
   `creat_playlist` int(11) DEFAULT NULL,
   `playlist_id` int(11) DEFAULT NULL,
   `likedPlaylist` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+);
+drop table users;
 --
 -- Extraindo dados da tabela `users`
 --

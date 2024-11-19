@@ -35,7 +35,7 @@ $token = ($_GET['token']);
                 <!-- Formulário de Redefinição de Senha-->
                 <div id="forgot-password-form">
                     <h2>Redefinir Senha</h2>
-                    <form id="form-reset">
+                    <form id="form-reset-pass">
                         <input type="hidden" name="token" id="token" value="<?php echo $token; ?>">
                         <p for="new_password" class="text">Nova senha</p>
                         <input type="password" placeholder="Nova senha" name="new_password" id="new_password" required>

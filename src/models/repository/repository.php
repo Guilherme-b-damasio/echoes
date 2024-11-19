@@ -704,14 +704,18 @@ class repository
 
     public function resetPassword(String $email)
     {
-        // Verifica se o e-mail existe no banco de dados
-        $sql = "SELECT ID FROM users WHERE email = :email";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(":email", $email);
-        $stmt->execute();
-        $user = $stmt->fetch();
-
-        return $user;
+        try{
+            $sql = "SELECT ID FROM users WHERE email = :email";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":email", $email);
+            $stmt->execute();
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            error_log("Result: $sql " . print_r($user, true), 3, 'C:\xampp\htdocs\echoes\logs\error.log');
+            return $user;
+        }catch(PDOException $e){
+            error_log('Database query failed: ' . $e->getMessage());
+            return $e->getMessage();
+        }
     }
 
     public function resetPass($token)

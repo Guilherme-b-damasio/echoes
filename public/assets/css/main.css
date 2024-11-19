@@ -135,7 +135,7 @@
 
 .playlists .playlist-title .playlist-buttons .button-right, .button-left{
   justify-content: center;
-  background-color: rgba(255, 255, 255, .1);
+  background-color: transparent;
   border: solid 1px rgba(255, 255, 255, .2);
   width: 16px;
   height: 16px;
@@ -143,6 +143,10 @@
   border-radius: 50%;
   cursor: pointer;
   display: flex;
+}
+
+.playlists .playlist-title .playlist-buttons .button-right:hover, .button-left:hover{
+  background-color: rgba(255, 255, 255, .1);
 }
 
 .playlists h2 {
@@ -154,8 +158,9 @@
 .playlists .list {
   display: flex;
   gap: 20px;
-  overflow: hidden;
-  overflow-x: hidden;
+  /*overflow: hidden;*/
+  overflow-x: auto;
+  scrollbar-color: #0c0c0c00 transparent;
   scroll-behavior: smooth;
 }
 
@@ -176,10 +181,6 @@
   border-radius: 6px;
   /* cursor: pointer; */
   transition: all ease 0.4s;
-}
-
-.playlists .list .item:hover {
-  background-color: #252525;
 }
 
 .playlists .list .item img {
@@ -206,7 +207,7 @@
   right: 13px;
   top: -60px;
   padding: 18px;
-  background-color: var(--details);
+  background-color: #0b5883;
   border-radius: 60px;
   width: 15px;
   height: 15px;
@@ -215,7 +216,6 @@
   cursor: pointer;
   max-height: 48px;
   box-shadow: 0px 5px 5px #0000004f;
-  box-shadow: yellow;
 }
 
 .playlists .list .item:hover .play .fa {
@@ -246,6 +246,94 @@
   color: #878282;
 }
 
+.playlists .list-liked {
+  display: flex;
+  gap: 19px;
+  flex-wrap: wrap;
+  overflow-x: auto;
+  scrollbar-color: #0c0c0c00 transparent;
+  scroll-behavior: smooth;
+}
+
+.playlists .list-liked:hover {
+  overflow-x: auto;
+  scrollbar-color: #606060 transparent;
+}
+
+.playlists .list-liked .item {
+  min-width: 140px;
+  width: 220px;
+  max-width: 220px;
+  padding: 15px;
+  min-width: 220px;
+  min-height: 220px;
+  /* max-height: 220px; */
+  /* background-color: var(--black); */
+  border-radius: 6px;
+  /* cursor: pointer; */
+  transition: all ease 0.4s;
+}
+
+.playlists .list-liked .item img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  max-width: 220px;
+  min-height: 220px;
+  max-height: 220px;
+  min-width: 220px;
+}
+
+.playlists .list-liked .item .play {
+  position: relative;
+  box-shadow: 10px;
+  /* box-shadow: 10px 5px 5px red; */
+}
+
+.playlists .list-liked .item .play .fa {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 13px;
+  top: -60px;
+  padding: 18px;
+  background-color: #0b5883;
+  border-radius: 60px;
+  width: 15px;
+  height: 15px;
+  opacity: 0;
+  transition: all ease 0.4s;
+  cursor: pointer;
+  max-height: 48px;
+  box-shadow: 0px 5px 5px #0000004f;
+}
+
+.playlists .list-liked .item:hover .play .fa {
+  opacity: 1;
+  transform: translateY(-11px);
+}
+
+.playlists .list-liked .item p {
+  color: #989898;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.playlists .list-liked .item .song-title {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlists .list-liked .item .autor-name {
+  font-size: 15px;
+  color: #878282;
+}
 
 .playlists hr {
   margin: 70px 0px 0px;
@@ -294,5 +382,4 @@
   width: 100%;
   height: 100%;
   display: flex;
-  /* justify-content: space-evenly; */
 }

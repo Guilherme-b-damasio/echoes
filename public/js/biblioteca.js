@@ -50,6 +50,17 @@ async function loadPlaylistPerso() {
 
             data.forEach(playlist => {
                 html += `<div class="playlists">
+                            <div class="playlist-title">
+                                <h2>${playlist.name}</h2>
+                                <div class="playlist-buttons">
+                                    <div class="button-left" onclick="scrollLeftPlaylist(${playlist.ID})">
+                                        <span class="fa-solid fa-chevron-left"></span>
+                                    </div>
+                                    <div class="button-right" onclick="scrollRightPlaylist(${playlist.ID})">
+                                        <span class="fa-solid fa-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </div>
                             <h2>${playlist.name}</h2>
                             <span class="fa fa-play" onclick="deletePerso(${playlist.ID})"></span>
                             <i class="bi bi-x" onclick="deletePerso(${playlist.ID})"></i>
@@ -66,6 +77,19 @@ async function loadPlaylistPerso() {
     } catch (error) {
         console.error('Erro ao carregar playlists:', error);
     }
+}
+
+function scrollLeftPlaylist(playlistId) {
+    const container = document.getElementById('list-' + playlistId);
+
+    if (container.scrollLeft > 0) {
+        container.scrollLeft -= 300; // Ajuste o valor conforme necessário para a quantidade de rolagem
+    }
+}
+
+function scrollRightPlaylist(playlistId) {
+    const container = document.getElementById('list-' + playlistId);
+    container.scrollLeft += 300; // Ajuste o valor conforme necessário para a quantidade de rolagem
 }
 
 function playerMusicPerso(ID, playlist) {

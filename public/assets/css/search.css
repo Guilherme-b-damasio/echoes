@@ -6,7 +6,7 @@
 
 .result-container {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     padding: 20px 40px;
     /*margin-top: 20px;*/
     overflow: hidden;
@@ -15,24 +15,28 @@
     overflow-y: auto;
 }
 .result-card {
-    /*margin-bottom: 20px;*/
     min-width: 140px;
-    width: 160px;
-    border-radius: 10px;
-    padding: 20px;
-    position: relative;
+    width: 220px;
+    max-width: 220px;
+    padding: 15px;
+    min-width: 220px;
+    min-height: 220px;
+    border-radius: 6px;
     transition: all ease 0.4s;
 }
 
 .result-card:hover {
-    background-color: #252525;
+    /* background-color: #252525; */
 }
 
 .result-card img{
     width: 100%;
     border-radius: 6px;
     margin-bottom: 4px;
-    max-width: 155px;
+    max-width: 220px;
+    min-height: 220px;
+    max-height: 220px;
+    min-width: 220px;
 }
 
 .infoSong{
@@ -43,7 +47,7 @@
 
 .result-card h3 {
     color: #ffffff;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
@@ -51,8 +55,9 @@
   }
   
   .result-card p {
-    font-size: 12px;
+    font-size: 15px;
     color: #878282;
+    font-weight: bold;
   }
 
 .result-card .play{

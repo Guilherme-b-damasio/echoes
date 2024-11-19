@@ -7,9 +7,9 @@ async function loadLikedSongs() {
 
         const list = document.getElementById('main-container');
 
-        html += `<div class="playlists"> 
-                    <h1>Curtidas</h1> 
-                       <div class="list">`;
+        html += `<div class="playlists">  
+                       <h2>Músicas Curtidas</h2>
+                       <div class="list-liked">`;
         data.forEach(music => {
             html +=
                 `<div class="item">

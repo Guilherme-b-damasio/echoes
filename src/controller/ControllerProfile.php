@@ -16,10 +16,10 @@ class ControllerProfile
         $this->service = new service();
     }
 
-    public function handle($option, $name = null, $login = null, $email = null, $phone = null, $id = null)
+    public function handle($option, $id = null, $name = null, $login = null, $email = null, $phone = null)
     {
         if ($option == 'update') {
-            return $this->service->updateProfile($name, $login, $email, $phone, $id);
+            return $this->service->updateProfile($name, $id, $login, $email, $phone);
         }
         if ($option == 'delete') {
             return $this->service->deleteProfile($id);

@@ -15,6 +15,7 @@ const handlePhone = (input) => {
 // Função que adiciona o ouvinte de evento para o campo de telefone
 const addPhoneInputListener = () => {
     const phoneInput = document.getElementById('phone');
+    console.log('aaaaaaa');
     if (phoneInput) {
         phoneInput.addEventListener('input', (event) => {
             handlePhone(event.target); // Chama a função de formatação ao digitar
@@ -61,13 +62,24 @@ function loadProfile() {
                         <input id="phone" type="text" class="input-field" maxlength="15" name="phone" value="${dataUser.phone}">
                     </div>
                     <button class="update-btn" class="btn" onclick="updateProfile()">Salvar</button>
+                    <button class="delete-btn" class="btn" onclick="deleteUser(${dataUser.id})">Deletar</button>
                 </form>
+            </div>
+        </div>
+        <div id="confirm-delete-modal" class="confirm-modal">
+            <div class="modal-content">
+                <h3>Tem certeza que deseja excluir este perfil?</h3>
+                <div class="modal-buttons">
+                    <button id="confirm-delete-btn" class="btn confirm-btn">Confirmar</button>
+                    <button id="cancel-delete-btn" class="btn cancel-btn">Cancelar</button>
+                </div>
             </div>
         </div>`;
         
     addProfilePhotoListener();
     setProfileImage();
     addPhoneInputListener();
+
 }
 
 
@@ -268,6 +280,11 @@ function updateProfile() {
                     text: data.msg,
                     icon: 'success',
                     confirmButtonText: 'OK'
+                }).then(() => {
+                    // Redireciona para a página de login
+                    if (data.redirect) {
+                        window.location.href = data.redirect;
+                    }
                 });
             } else {
                 Swal.fire({
@@ -289,3 +306,65 @@ function updateProfile() {
         });
 }
 
+function deleteUser(userId) {
+    event.preventDefault(); // Impede o comportamento padrão
+
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Essa ação não pode ser desfeita!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sim, excluir',
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Configura a URL para a chamada ao PHP
+            const url = "../src/manager.php?deleteProfile";
+            
+            // Configura os dados que serão enviados (neste caso, o ID do usuário)
+            const formData = new URLSearchParams();
+            formData.append('user_id', userId);
+
+            // Faz a chamada fetch para excluir o usuário
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status) {
+                    Swal.fire({
+                        title: 'Sucesso!',
+                        text: data.msg,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        // Atualiza a página ou remove o elemento correspondente
+                        location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: data.msg || 'Erro desconhecido.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Ocorreu um problema na operação fetch:', error);
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Ocorreu um erro ao tentar excluir o usuário. Tente novamente mais tarde.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
+        }
+    });
+}

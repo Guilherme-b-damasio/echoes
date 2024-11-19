@@ -115,24 +115,25 @@ function updateProfile()
     // Verifica se os campos obrigatórios estão preenchidos
     if (!empty($login)) {
         $controller = new ControllerProfile();
-        $response = $controller->handle($option, $name, $login, $email, $phone, $dataUser->getId());
+        $response = $controller->handle($option, $dataUser->getId(), $name, $login, $email, $phone);
     }
 
     echo json_encode($response);
     return;
 }
 
-function deleteProfile()
-{
+function deleteProfile(){
     $option = 'delete';
     $dataUser = isset($_SESSION['dataUser']) ? unserialize($_SESSION['dataUser']) : [];
+    
     $response=['msg' => 'não alterado'];
     
     // Verifica se os campos obrigatórios estão preenchidos
-    if (!empty($login)) {
+    
+        $response=['msg' => 'chegou aqui'];
         $controller = new ControllerProfile();
         $response = $controller->handle($option, $dataUser->getId());
-    }
+    
 
     echo json_encode($response);
     return;

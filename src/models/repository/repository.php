@@ -683,7 +683,7 @@ class repository
         return $result;
     }
 
-    public function updateProfile(String $name, String $login, String $email, String $phone, int $id)
+    public function updateProfile(String $name, int $id, String $login, String $email, String $phone)
     {
         $sql = "SELECT * FROM users WHERE users.ID = :id";
         $response = [];
@@ -741,7 +741,7 @@ class repository
 
             if ($result) {
                 
-                $stmt = $this->conn->prepare("DELETE FROM user WHERE id = :id");
+                $stmt = $this->conn->prepare("DELETE FROM users WHERE id = :id");
 
                 
                 $stmt->bindParam(":id", $id);
@@ -751,6 +751,8 @@ class repository
                 if ($stmt->rowCount() > 0) {
                     $response['msg'] = "Usuário deletado com sucesso";
                     $response['status'] = true;
+                    $response['redirect'] = 'login.php' ;
+                      
                 } else {
                     $response['msg'] = "Nenhuma alteração foi feita";
                     $response['status'] = false;

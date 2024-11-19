@@ -252,8 +252,7 @@ function validateProfileForm() {
     return true; // Permite o envio do formulário
 }
 
-
-function updateProfile() {
+async function updateProfile() {
     event.preventDefault(); // Impede o envio do formulário padrão
 
     if (!validateProfileForm()) {
@@ -273,8 +272,8 @@ function updateProfile() {
         body: formData
     })
         .then(response => response.json())
-        .then(data => {
-            if (data.status) {
+        .then(async data => {
+            if (data && data.status) {
                 Swal.fire({
                     title: 'Sucesso!',
                     text: data.msg,
@@ -286,6 +285,8 @@ function updateProfile() {
                         window.location.href = data.redirect;
                     }
                 });
+
+                await searchUser();
             } else {
                 Swal.fire({
                     title: 'Erro!',
@@ -367,4 +368,27 @@ function deleteUser(userId) {
             });
         }
     });
+}
+      
+async function searchUser() {
+    let url = "../src/manager.php?searchUser=1";
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            dataUser = data;
+            location.reload();
+        })
+   
+    return;
+}
+// Máscara para o campo telefone
+const handlePhone = (event) => {
+    let input = event.target
+    input.value = phoneMask(input.value)
 }

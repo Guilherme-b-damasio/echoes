@@ -35,6 +35,18 @@ class service
         return false;
     }
 
+    public function searchUserWithID(int $id)
+    {
+        $userData = $this->repo->searchUserWithID($id);
+        if (!empty($userData)) {
+            $user = new user($userData);
+            $_SESSION['dataUser'] = serialize($user);
+            return $userData;
+        }
+
+        return false;
+    }
+
     public function registerUser(String $name, String $user, String $email, String $phone, String $pass)
     {
         $response = $this->repo->registerUser($name, $user, $email, $phone, $pass);
@@ -132,6 +144,13 @@ class service
         header('Content-Type: application/json');
         $response = $this->repo->searchLikedMusic($id, $user, $option);
         return $response;
+    } 
+    
+    public function verifyLiked($music_id, $user)
+    {
+        header('Content-Type: application/json');
+        $response = $this->repo->searchLikedMusicWithId($music_id, $user);
+        return $response;
     }
 
     public function consultPlaylist()
@@ -199,6 +218,14 @@ class service
         $consult = [];
 
         $consult = $this->repo->deleteLikedPlaylistMusic($user_id, $id_music);
+        return $consult;
+    }
+     public function deletePersoPlaylist($perso_id)
+    {
+        $consult = [];
+
+        $consult = $this->repo->deletePersoPlaylistMusic($perso_id);
+
         return $consult;
     }
     

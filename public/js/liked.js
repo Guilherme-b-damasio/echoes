@@ -7,9 +7,9 @@ async function loadLikedSongs() {
 
         const list = document.getElementById('main-container');
 
-        html += `<div class="playlists"> 
-                    <h1>Curtidas</h1> 
-                       <div class="list">`;
+        html += `<div class="playlists">  
+                       <h2>Músicas Curtidas</h2>
+                       <div class="list-liked">`;
         data.forEach(music => {
             html +=
                 `<div class="item">
@@ -35,7 +35,7 @@ function playerMusicLiked(ID) {
             if (data) {
                 setMusicList(data, ID);
                 document.getElementById('nextButton').setAttribute('data-music', data[0]['ID']);
-                document.getElementById('nextButton').setAttribute('data-liked', '1');
+                document.getElementById('nextButton').setAttribute('data-liked', 1);
             }
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));

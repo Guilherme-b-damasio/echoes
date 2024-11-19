@@ -116,21 +116,20 @@ function playerMusic(ID, playlist) {
 
 
 function saveMusic(){
-
     let heart = document.getElementById('liked-btn');
     let element = document.getElementById('nextButton');
     let ID = element.getAttribute('data-music');
     let liked = heart.getAttribute('data-liked');
     let option = liked != 'false' ? 'delete' : 'update';
 
-    heart.setAttribute('data-liked', liked == 'true' ? 'false' : 'true'); 
+    heart.setAttribute('data-liked', liked == 1 ? 0 : 1); 
 
     fetch(`../src/setLiked.php?music=${ID}&option=${option}`)
         .then(response => response.json())
         .then(data => {
             if(data){
-                if (liked == 'false') {
-                    heart.style.color = 'green';
+                if (liked == 0) {
+                    heart.style.color = 'blue';
                 }else{
                     heart.style.color = 'white';
                 }

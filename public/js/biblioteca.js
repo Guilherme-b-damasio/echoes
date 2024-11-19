@@ -19,7 +19,7 @@ async function loadSongPerso(data) {
                                 </div>`;
             });
             list.innerHTML = html;
-        }else{
+        } else {
             list.innerHTML = '<h4 class="song-title">Nenhuma musica foi enfiada na playlist</h4>';
         }
     }
@@ -53,6 +53,7 @@ async function loadPlaylistPerso() {
                             <div class="playlist-title">
                                 <h2>${playlist.name}</h2>
                                 <div class="playlist-buttons">
+                                 <span class="fa fa-play" onclick="deletePerso(${playlist.ID})"></span>
                                     <div class="button-left" onclick="scrollLeftPlaylist(${playlist.ID})">
                                         <span class="fa-solid fa-chevron-left"></span>
                                     </div>
@@ -61,9 +62,6 @@ async function loadPlaylistPerso() {
                                     </div>
                                 </div>
                             </div>
-                            <h2>${playlist.name}</h2>
-                            <span class="fa fa-play" onclick="deletePerso(${playlist.ID})"></span>
-                            <i class="bi bi-x" onclick="deletePerso(${playlist.ID})"></i>
                             <div class="list" id="list-${playlist.ID}"></div>
                          </div>`;
             });
@@ -71,7 +69,7 @@ async function loadPlaylistPerso() {
             list.innerHTML = html;
 
             loadSongPerso(data);
-        }else{
+        } else {
             list.innerHTML = '';
         }
     } catch (error) {

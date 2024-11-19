@@ -122,14 +122,20 @@
 
 .footer {
     width: 50%; /* Ajusta para a largura total disponível */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .progress-bar {
     position: relative; /* Para garantir que a bolinha se posicione corretamente dentro da barra */
     height: 5px;
+    width: 100%;
     background-color: #ddd;
     cursor: pointer;
     margin-bottom: 4px;
+    z-index: 115;
 }
 
 .progress {
@@ -211,7 +217,7 @@
     position: absolute;
     /* bottom: 25px; */ /* Distância da barra */
     /* right: 10px; */
-    left: 0;
+    /* left: 0; */
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;

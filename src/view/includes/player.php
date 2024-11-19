@@ -21,16 +21,13 @@
             </div>
 
             <div class="footer">
+                <span id="currentTime">0:00</span>
                 <div class="progress-bar">
                     <div class="progress"></div>
                     <div class="progress-ball"></div>
                     <div id="timeTooltip" class="time-tooltip"></div>
                 </div>
-       
-                <div class="time">
-                    <span id="currentTime">0:00</span>
-                    <span id="duration">0:00</span>
-                </div>
+                <span id="duration">0:00</span>
             </div>
         </div>
 

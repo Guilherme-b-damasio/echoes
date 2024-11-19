@@ -22,7 +22,7 @@ function initializePlayer() {
   playPauseButton.addEventListener('click', togglePlayPause);
   progressBar.addEventListener('click', updatePlaybackPosition);
   player.addEventListener('timeupdate', updateTime);
-  player.addEventListener('ended', () => changeMusic("next"));
+  player.addEventListener('ended', () => nextMusic());
   playerManager();
 }
 
@@ -38,11 +38,11 @@ function nextMusic() {
   let formData = new FormData();
 
   formData.append('option', 'next');
-  if(liked == '1'){
+  if (liked == '1') {
     formData.append('section', 'liked');
   }
 
-  if(perso == '1'){
+  if (perso == '1') {
     formData.append('section', 'perso');
   }
 
@@ -58,6 +58,7 @@ function nextMusic() {
     .then(response => response.json())
     .then(data => {
       if (data) {
+        verifyLiked(data.ID);
         document.getElementById('nextButton').setAttribute('data-music', data.ID);
         changeMusic(data);
       }
@@ -76,11 +77,11 @@ function prevMusic() {
 
   let formData = new FormData();
   formData.append('option', 'prev');
-  if(liked == '1'){
-    formData.append('section', 'prev');
+  if (liked == '1') {
+    formData.append('section', 'liked');
   }
 
-  if(perso == '1'){
+  if (perso == '1') {
     formData.append('section', 'perso');
   }
 
@@ -96,9 +97,33 @@ function prevMusic() {
     .then(response => response.json())
     .then(data => {
       if (data) {
+        verifyLiked(data.ID);
         document.getElementById('nextButton').setAttribute('data-music', data.ID);
         changeMusic(data);
       }
+    })
+    .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
+}
+
+function verifyLiked(ID) {
+  let formData = new FormData();
+  formData.append('section', 'verifyLiked');
+  formData.append('music', ID);
+  fetch(`../src/search_songs.php`, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      let btn = document.getElementById('liked-btn');
+      if (data.liked) {
+        btn.style.color = "blue";
+        btn.setAttribute('data-liked', 1);
+        return;
+      }
+      btn.setAttribute('data-liked', 0);
+      btn.style.color = "white";
+      return
     })
     .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
@@ -113,21 +138,21 @@ function togglePlayPause() {
   }
 }
 
-function getLocalStorageTime(){
+function getLocalStorageTime() {
   let playerLocalStorage = localStorage.getItem('player');
 
   for (const [key, value] of Object.entries(playerLocalStorage)) {
-     currentMinutes = key == 'currentMinutes' ? value : '';
-     currentSeconds = key == 'currentSeconds' ? value : '';
+    currentMinutes = key == 'currentMinutes' ? value : '';
+    currentSeconds = key == 'currentSeconds' ? value : '';
   }
-  
+
 }
 
 function updateTime() {
-  if(currentMinutes && currentSeconds){
+  if (currentMinutes && currentSeconds) {
     getLocalStorage();
   }
- 
+
   var currentMinutes = Math.floor(player.currentTime / 60);
   var currentSeconds = Math.floor(player.currentTime % 60);
   currentTime.textContent = formatTime(currentMinutes, currentSeconds);
@@ -208,6 +233,7 @@ function setDetailsMusic(imgSrc, artist) {
 
 function setMusicList(musicList, ID) {
   songs = JSON.stringify(musicList);
+  verifyLiked(ID);
   changeMusic();
 }
 

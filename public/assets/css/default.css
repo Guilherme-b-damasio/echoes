@@ -45,6 +45,8 @@ body {
   border-right: solid #52525247 1px;
 }
 
+
+
 .sidebar .logoIcone {
   display: flex;
   justify-content: center;
@@ -85,12 +87,22 @@ body {
   padding-left: 10px;
 }
 
+/* .sidebar .navigation .ul-sidebar .li-profile .profile-name:hover,
+.sidebar .navigation .ul-sidebar .li-profile .profile-name:active,
+.sidebar .navigation .ul-sidebar .li-profile .profile-name:focus {
+  transition: 0.15s;
+  color: rgb(221, 228, 235);
+} */
 
 .sidebar .navigation ul li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
   display: flex; /* Adiciona flexbox */
   align-items: center; /* Alinha verticalmente */
   padding: 10px 0; /* MantÃƒÂ©m o espaÃƒÂ§amento */
   cursor: pointer;
+
 }
 
 .sidebar .navigation ul li a {
@@ -100,11 +112,13 @@ body {
   font-size: 15px;
 }
 
+/* 
 .sidebar .navigation ul li a:hover,
 .sidebar .navigation ul li a:active,
 .sidebar .navigation ul li a:focus {
-  color: var(--details);
-}
+  transition: 0.15s;
+  color: rgb(221, 228, 235);
+} */
 
 /* .sidebar .navigation ul li a:hover .fa,
 .sidebar .navigation ul li a:active .fa,
@@ -116,15 +130,44 @@ color: #b3b3b3;
   font-size: 22px;
   margin-right: 10px;
   font-weight: 20px;
-  width: 24px; /* Largura fixa para os ÃƒÂ­cones */
-  text-align: center; /* Centraliza o ÃƒÂ­cone */
+  width: 24px;
+  /* Largura fixa para os ícones */
+  text-align: center;
+  /* Centraliza o ícone */
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page li {
+  border-radius: 7px;
+  gap: 10px;
+  padding: 10px 0px 10px 6px;
+  cursor: pointer;
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page li a{
+  display: block; /* Faz o link ocupar toda a área do li */
+  width: 100%; /* Faz o a ocupar 100% da largura do li */
+  text-decoration: none; /* Remove o sublinhado do link */
+  height: 100%; 
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page .sidebar-button{
+  display: flex;
+}
+
+
+.sidebar .navigation .ul-sidebar .sidebar-page li:hover,
+.sidebar .navigation .ul-sidebar .sidebar-page li:active,
+.sidebar .navigation .ul-sidebar .sidebar-page li:focus {
+  background-color: #ffffff11;
+  transition: 0.2s;
 }
 
 
 .sidebar .navigation ul li a:hover .fa:hover,
 .sidebar .navigation ul li a:hover .fa:active,
 .sidebar .navigation ul li a:hover .fa:focus {
-  color: var(--details);
+  transition: 0.15s;
+  /* color: rgb(221, 228, 235); */
 }
 
 .sidebar .policies {
@@ -134,8 +177,35 @@ color: #b3b3b3;
 
 
 .sidebar-page li {
-  display: flex; /* Garante que os itens na sidebar-page tambÃƒÂ©m usem flexbox */
-  align-items: center; /* Alinha verticalmente os itens */
+  display: flex;
+  /* Garante que os itens na sidebar-page também usem flexbox */
+  align-items: center;
+  /* Alinha verticalmente os itens */
+  padding: 10px 0;
+  /* Mantém o espaçamento */
+}
+
+.sidebar-page li a {
+  display: flex;
+  /* Faz o link também usar flexbox */
+  align-items: center;
+  /* Alinha verticalmente o texto com o ícone */
+  color: aquamarine;
+  /* Cor do texto */
+  text-decoration: none;
+  /* Remove o sublinhado */
+  font-weight: 500;
+  /* Peso da fonte */
+  font-size: 14px;
+  /* Tamanho da fonte */
+}
+
+.sidebar-page li a span {
+  margin-right: 10px;
+  /* Espaçamento entre o ícone e o texto */
+  display: flex;
+  font-size: 15px;
+  align-content: center;
   padding: 10px 0; /* MantÃƒÂ©m o espaÃƒÂ§amento */
 }
 
@@ -161,7 +231,7 @@ color: #b3b3b3;
 #searchInput {
   background: #ffffff00;
   color: #b3b3b3;
-  width: 6vw;
+  width: 10vw;
   height: 30px;
   /* border-radius: 16px; */
   border: none !important;
@@ -204,7 +274,6 @@ color: #b3b3b3;
 }
 
 .sidebar-page {
-  padding: 0px 0px 0px 4px;
 }
 
 .sidebar-page li {

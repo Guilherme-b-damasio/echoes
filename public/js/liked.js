@@ -35,7 +35,7 @@ function playerMusicLiked(ID) {
             if (data) {
                 setMusicList(data, ID);
                 document.getElementById('nextButton').setAttribute('data-music', data[0]['ID']);
-                document.getElementById('nextButton').setAttribute('data-liked', '1');
+                document.getElementById('nextButton').setAttribute('data-liked', 1);
             }
         })
         .catch(error => console.error('Erro ao carregar músicas da playlist:', error));

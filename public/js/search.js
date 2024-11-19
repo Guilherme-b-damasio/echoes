@@ -39,8 +39,7 @@ function searchFn(query) {
 function showFn(data, query) {
     const resultsContainer = document.getElementById('results');
     resultsContainer.innerHTML = '';
-
-    if (data.length > 0) {
+    if (data) {
         data.forEach(song => {
             const card = document.createElement('div');
             card.className = 'result-card';

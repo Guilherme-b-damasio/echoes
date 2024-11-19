@@ -176,10 +176,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function updateProfile(event) {
-    event.preventDefault();
+function updateContent(html, page) {
+    let container = document.getElementById('main-container');
+    container.innerHTML = html;
 
-    const form = document.getElementById("form-update");
+    if (page === 'profile') {
+        addProfilePhotoListener();
+
+    }
+
+    window.history.pushState({}, '', '?' + page);
+}
+
+function validateProfileForm() {
+    const email = document.querySelector('input[name="email"]').value;
+    const phone = document.querySelector('input[name="phone"]').value;
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex para validação de e-mail
+    const phonePattern = /^\d{10,15}$/; // Regex para telefone com ou sem parênteses
+
+    if (!emailPattern.test(email)) {
+        alert('Por favor, insira um e-mail válido.');
+        return false; // Impede o envio do formulário
+    }
+
+    // Verifica se o telefone foi preenchido
+    if (phone && !phonePattern.test(phone)) {
+        alert('Por favor, insira um telefone no formato (xx) x-xxxx ou xx x-xxxx.');
+        return false; // Impede o envio do formulário
+    }
+
+    return true; // Permite o envio do formulário
+}
+
+async function updateProfile() {
+    event.preventDefault(); // Impede o envio do formulário padrão
+
+    if (!validateProfileForm()) {
+        return; // Se a validação falhar, não continua
+    }
+
+    let form = document.getElementById("form-update");
     const formData = new URLSearchParams(new FormData(form));
 
     let url = "../src/manager.php?updateProfile";
@@ -192,14 +229,16 @@ function updateProfile(event) {
         body: formData
     })
         .then(response => response.json())
-        .then(data => {
-            if (data && data.type == "success") {
+        .then(async data => {
+            if (data && data.status) {
                 Swal.fire({
                     title: 'Sucesso!',
                     text: data.msg,
                     icon: 'success',
                     confirmButtonText: 'OK'
                 });
+
+                await searchUser();
             } else {
                 Swal.fire({
                     title: 'Erro!',
@@ -213,9 +252,40 @@ function updateProfile(event) {
             console.error('There was a problem with the fetch operation:', error);
             Swal.fire({
                 title: 'Erro!',
-                text: 'Ocorreu um erro ao processar a solicitação.',
+                text: data.msg,
                 icon: 'error',
                 confirmButtonText: 'OK'
             });
         });
+}
+
+async function searchUser() {
+    let url = "../src/manager.php?searchUser=1";
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+    })
+        .then(response => response.json())
+        .then(data => {
+            dataUser = data;
+            location.reload();
+        })
+   
+    return;
+}
+// Máscara para o campo telefone
+const handlePhone = (event) => {
+    let input = event.target
+    input.value = phoneMask(input.value)
+}
+
+const phoneMask = (value) => {
+    if (!value) return ""
+    value = value.replace(/\D/g, '')
+    value = value.replace(/(\d{2})(\d)/, "($1) $2")
+    value = value.replace(/(\d)(\d{4})$/, "$1-$2")
+    return value
 }

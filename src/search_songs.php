@@ -7,6 +7,7 @@ use App\Controller\ControllerMusic;
 use App\Controller\ControllerMusicPlaylist;
 use App\Controller\ControllerLikedPlaylist;
 use App\Controller\ControllerPlaylistPerso;
+use App\Controller\ControllerVerifyLiked;
 use App\entity\music;
 
 $name = isset($_REQUEST["name"]) ? $_REQUEST["name"] :  null;
@@ -18,7 +19,7 @@ $playlist_id = isset($_REQUEST["playlist_id"]) ? $_REQUEST["playlist_id"] :  nul
 $time = '';
 
 
-if($section == 'perso'){
+if ($section == 'perso') {
     $response = [];
     $controller = new ControllerPlaylistPerso();
     $response = $controller->handle($option, $user->getId(), $id, null, $playlist_id);
@@ -26,9 +27,18 @@ if($section == 'perso'){
     return;
 }
 
-if($section == 'liked'){
+if ($section == 'liked') {
     $controller = new ControllerLikedPlaylist();
-    $musics = $controller->handle($option,$user->getId() ,$id);
+    $musics = $controller->handle($option, $user->getId(), $id);
+
+    echo json_encode($musics);
+    return;
+}
+
+
+if ($section == 'verifyLiked') {
+    $controller = new ControllerVerifyLiked();
+    $musics = $controller->handle($id, $user->getId());
 
     echo json_encode($musics);
     return;
@@ -41,17 +51,17 @@ if (isset($_REQUEST['next'])) {
     $musics = $controller->handle($time, null, $id, $playlist_id);
 
     echo json_encode($musics);
+}
+
+if (isset($_REQUEST['prev'])) {
+    $time = 'prev';
+    $controller = new ControllerMusic();
+    $musics = $controller->handle($time, null, $id, $playlist_id);
+
+    echo json_encode($musics);
 } else {
-    if (isset($_REQUEST['prev'])) {
-        $time = 'prev';
-        $controller = new ControllerMusic();
-        $musics = $controller->handle($time, null, $id, $playlist_id);
+    $controller = new ControllerMusic();
+    $musics = $controller->handle(null, $name, $id);
 
-        echo json_encode($musics);
-    } else {
-        $controller = new ControllerMusic();
-        $musics = $controller->handle(null, $name, $id);
-
-        echo json_encode($musics);
-    }
+    echo json_encode($musics);
 }

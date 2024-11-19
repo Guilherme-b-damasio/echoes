@@ -16,49 +16,56 @@
                     </div>
                 </div>
             </li>
-            <li class="li-profile">
-                <?php
-
-                $dir = "../src/uploads/" . $dataUser->getId() . "/profile.png";
-                if (is_dir($dir) || file_exists($dir) ) {
-                    echo '<img src="../src/uploads/' . $dataUser->getId() . '/profile.png" alt="profile-image" id="profile" class="profile-photo">';
-                } else {
-                    echo '<img src="../src/uploads/default/profile.png" alt="profile-image" id="profile" class="profile-photo">';
-                } ?>
-
-                <a href="?profile" data-page="profile" class="profile-name"><?php echo $dataUser->getLogin(); ?></a>
-            </li>
-
             <div class="sidebar-page">
                 <li>
                     <a href="?home" data-page="home">
-                        <span class="fa fa-home"></span>
-                        <span>Home</span>
+                        <div class="sidebar-button">
+                            <span class="fa fa-home"></span>
+                            <span>Home</span>
+                        </div>
                     </a>
                 </li>
+
+                <li>
+                    <a href="?profile" data-page="profile">
+                        <div class="sidebar-button">
+                            <span class="fa-solid fa-user"></span>
+                            <span>Perfil</span>
+                        </div>
+                    </a>
+                </li>
+
                 <li>
                     <a href="?biblioteca" data-page="biblioteca">
-                        <span class="fa fas fa-book"></span>
-                        <span>Sua Biblioteca</span>
+                        <div class="sidebar-button">
+                            <span class="fa fas fa-book"></span>
+                            <span>Sua Biblioteca</span>
+                        </div>
                     </a>
                 </li>
+
                 <li onclick="criarPlaylist()">
-                <!--<a href="?playlist" data-page="playlist"> -->
-                    <a onclick="criarPlaylist()">
+                    <div class="sidebar-button">
                         <span class="fa fas fa-plus-square"></span>
                         <span>Criar Playlist</span>
-                    </a>
+                    </div>
                 </li>
+
                 <li>
                     <a href="?likeds" data-page="likeds">
-                        <span class="fa fas fa-heart"></span>
-                        <span>Músicas Curtidas</span>
+                        <div class="sidebar-button">
+                            <span class="fa fas fa-heart"></span>
+                            <span>Músicas Curtidas</span>
+                        </div>
                     </a>
                 </li>
+
                 <li>
                     <a href="?login">
-                        <span class="fa-solid fa-right-from-bracket"></span>
-                        <span>Sair</span>
+                        <div class="sidebar-button">
+                            <span class="fa-solid fa-right-from-bracket"></span>
+                            <span>Sair</span>
+                        </div>
                     </a>
                 </li>
             </div>

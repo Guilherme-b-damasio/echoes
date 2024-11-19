@@ -318,7 +318,7 @@ class service
         return $response;
     }
 
-    public function updateProfile(String $name,int $id, String $login, String $email, String $phone, )
+    public function updateProfile(String $name,int $id, String $login, String $email, String $phone )
     {
 
         $response = $this->repo->updateProfile($name, $id, $login, $email, $phone);

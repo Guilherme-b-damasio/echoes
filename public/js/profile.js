@@ -387,8 +387,3 @@ async function searchUser() {
    
     return;
 }
-// Máscara para o campo telefone
-const handlePhone = (event) => {
-    let input = event.target
-    input.value = phoneMask(input.value)
-}

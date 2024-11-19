@@ -51,17 +51,17 @@ if (isset($_REQUEST['next'])) {
     $musics = $controller->handle($time, null, $id, $playlist_id);
 
     echo json_encode($musics);
-}
-
-if (isset($_REQUEST['prev'])) {
-    $time = 'prev';
-    $controller = new ControllerMusic();
-    $musics = $controller->handle($time, null, $id, $playlist_id);
-
-    echo json_encode($musics);
 } else {
-    $controller = new ControllerMusic();
-    $musics = $controller->handle(null, $name, $id);
+    if (isset($_REQUEST['prev'])) {
+        $time = 'prev';
+        $controller = new ControllerMusic();
+        $musics = $controller->handle($time, null, $id, $playlist_id);
 
-    echo json_encode($musics);
+        echo json_encode($musics);
+    } else {
+        $controller = new ControllerMusic();
+        $musics = $controller->handle(null, $name, $id);
+
+        echo json_encode($musics);
+    }
 }

@@ -443,7 +443,7 @@ class repository
             music.ID = (
                 SELECT MAX(ID)
                 FROM music
-                WHERE ID > :id
+                WHERE ID < :id
             );
         ";
 

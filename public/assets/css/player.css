@@ -219,4 +219,5 @@
     font-size: 14px;
     display: none; /* Inicialmente invisível */
     pointer-events: none; /* Para não interferir com outros eventos */
+    margin-left: 4%;
 }

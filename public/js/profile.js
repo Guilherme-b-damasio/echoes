@@ -346,7 +346,7 @@ function deleteUser(userId) {
                         confirmButtonText: 'OK'
                     }).then(() => {
                         // Atualiza a página ou remove o elemento correspondente
-                        location.reload();
+                        login()
                     });
                 } else {
                     Swal.fire({

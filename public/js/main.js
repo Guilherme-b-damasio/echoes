@@ -116,11 +116,12 @@ function playerMusic(ID, playlist) {
 
 
 function saveMusic(){
+    debugger
     let heart = document.getElementById('liked-btn');
     let element = document.getElementById('nextButton');
     let ID = element.getAttribute('data-music');
     let liked = heart.getAttribute('data-liked');
-    let option = liked != 'false' ? 'delete' : 'update';
+    let option = liked != 0 ? 'delete' : 'update';
 
     heart.setAttribute('data-liked', liked == 1 ? 0 : 1); 
 

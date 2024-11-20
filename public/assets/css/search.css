@@ -69,12 +69,11 @@
 .result-card .play .fa{
     position: absolute;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     right: 13px;
     top: -60px;
     padding: 18px;
-    background-color: var(--details);
+    background-color: #0b5883;
     border-radius: 60px;
     width: 15px;
     height: 15px;

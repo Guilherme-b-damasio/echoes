@@ -26,17 +26,70 @@ async function loadSongPerso(data) {
 }
 
 async function deletePerso(ID) {
-    try {
-        const response = await fetch(`../src/playlistManager.php?option=delete&perso_id=${ID}&option=delete`);
-        const data = await response.json();
+    event.preventDefault(); // Impede o comportamento padrão
 
-        if (data) {
-            loadPlaylistPerso();
+    // Exibe o SweetAlert para confirmação
+    Swal.fire({
+        title: 'Tem certeza?',
+        text: "Deseja realmente excluir esta playlist? Essa ação não pode ser desfeita.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sim, excluir',
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            try {
+                // Faz a requisição para deletar a playlist
+                const response = await fetch(`../src/playlistManager.php?option=delete&perso_id=${ID}`);
+                const data = await response.json();
+
+                // Verifica o status do retorno
+                if (data) {
+                    Swal.fire({
+                        title: 'Sucesso!',
+                        text: 'A playlist foi excluída com sucesso.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        // Recarrega as playlists ou atualiza a página
+                        loadPlaylistPerso();
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: data.msg || 'Ocorreu um erro ao excluir a playlist.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            } catch (error) {
+                console.error('Erro ao excluir a playlist:', error);
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Não foi possível excluir a playlist. Tente novamente mais tarde.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
         }
-    } catch (error) {
-        console.error('Erro ao carregar playlists:', error);
-    }
+    });
 }
+
+
+// async function deletePerso(ID) {
+//     try {
+//         const response = await fetch(`../src/playlistManager.php?option=delete&perso_id=${ID}&option=delete`);
+//         const data = await response.json();
+
+//         if (data) {
+//             loadPlaylistPerso();
+//         }
+//     } catch (error) {
+//         console.error('Erro ao carregar playlists:', error);
+//     }
+// }
 
 async function loadPlaylistPerso() {
     try {
@@ -53,7 +106,7 @@ async function loadPlaylistPerso() {
                             <div class="playlist-title">
                                 <div class="playlist-name">
                                     <h2>${playlist.name}</h2>
-                                    <div class="delete">
+                                    <div class="delete" onclick="deletePerso(${playlist.ID})">
                                         <span class="fa-solid fa-trash" onclick="deletePerso(${playlist.ID})"></span>
                                     </div>
                                 </div>
@@ -85,13 +138,13 @@ function scrollLeftPlaylist(playlistId) {
     const container = document.getElementById('list-' + playlistId);
 
     if (container.scrollLeft > 0) {
-        container.scrollLeft -= 300; // Ajuste o valor conforme necessário para a quantidade de rolagem
+        container.scrollLeft -= 500; // Ajuste o valor conforme necessário para a quantidade de rolagem
     }
 }
 
 function scrollRightPlaylist(playlistId) {
     const container = document.getElementById('list-' + playlistId);
-    container.scrollLeft += 300; // Ajuste o valor conforme necessário para a quantidade de rolagem
+    container.scrollLeft += 500; // Ajuste o valor conforme necessário para a quantidade de rolagem
 }
 
 function playerMusicPerso(ID, playlist) {

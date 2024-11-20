@@ -90,13 +90,13 @@ function scrollLeftPlaylist(playlistId) {
     const container = document.getElementById('list-' + playlistId);
 
     if (container.scrollLeft > 0) {
-        container.scrollLeft -= 300; // Ajuste o valor conforme necessário para a quantidade de rolagem
+        container.scrollLeft -= 500; // Ajuste o valor conforme necessário para a quantidade de rolagem
     }
 }
 
 function scrollRightPlaylist(playlistId) {
     const container = document.getElementById('list-' + playlistId);
-    container.scrollLeft += 300; // Ajuste o valor conforme necessário para a quantidade de rolagem
+    container.scrollLeft += 500; // Ajuste o valor conforme necessário para a quantidade de rolagem
 }
 
 function playerMusic(ID, playlist) {

@@ -129,7 +129,7 @@ function saveMusic(){
         .then(data => {
             if(data){
                 if (liked == 0) {
-                    heart.style.color = 'blue';
+                    heart.style.color = '#005CC8';
                 }else{
                     heart.style.color = 'white';
                 }

@@ -5349,3 +5349,230 @@ Result: 1 Array
         )
 
 )
+musics
+           SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.playlist_id = :playlist_id AND
+                music.ID > :id 
+            ORDER BY 
+                music.ID ASC  
+            LIMIT 1; 
+            musicsmusics
+           SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.playlist_id = :playlist_id AND
+                music.ID > :id 
+            ORDER BY 
+                music.ID ASC  
+            LIMIT 1; 
+            musicsSQL: 
+            SELECT 
+                music.ID AS ID, 
+                music.name, 
+                music.src, 
+                music.image,
+                music.autor, 
+                music.created_at AS music_created_at, 
+                music.updated_at AS music_updated_at,
+                playlist.ID AS playlist_id, 
+                playlist.name AS playlist_name, 
+                playlist.created_at AS playlist_created_at, 
+                playlist.updated_at AS playlist_updated_at
+            FROM 
+                music
+            INNER JOIN 
+                playlist ON music.playlist_id = playlist.ID
+            WHERE
+                music.playlist_id = :playlist_id AND
+                music.ID < :id  
+            ORDER BY 
+                music.ID DESC 
+            LIMIT 1;
+        Result: stdClass Object
+(
+    [ID] => 4
+    [name] => Stairway To Heaven
+    [src] => ../src/songs/Led Zeppelin - Stairway To Heaven (Official Audio).mp3
+    [image] => ../src/images/LedZeppelin.jpg
+    [autor] => Led Zeppelin
+    [music_created_at] => 2024-09-02 23:11:33
+    [music_updated_at] => 2024-09-04 00:26:43
+    [playlist_id] => 1
+    [playlist_name] => Rock
+    [playlist_created_at] => 2024-08-29 20:40:40
+    [playlist_updated_at] => 2024-08-29 20:40:40
+)
+Result: 3 Array
+(
+)
+Result: 3 Array
+(
+)
+Result: 3 Array
+(
+)
+Result: 3 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 1
+            [user_id] => 3
+            [name] => Echoes Playlist
+        )
+
+)
+Result: 3 Array
+(
+)
+Result: 3 Array
+(
+)
+Result: 3 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 3
+            [name] => das
+        )
+
+)
+Result: 3 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 2
+            [user_id] => 3
+            [name] => das
+        )
+
+)
+Result: 2 Array
+(
+)
+Result: 2 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 2
+            [name] => da
+        )
+
+)
+Result: 2 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 2
+            [name] => da
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 2
+            [name] => dsa
+        )
+
+)
+Result: 2 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 3
+            [user_id] => 2
+            [name] => da
+        )
+
+    [1] => stdClass Object
+        (
+            [ID] => 4
+            [user_id] => 2
+            [name] => dsa
+        )
+
+    [2] => stdClass Object
+        (
+            [ID] => 5
+            [user_id] => 2
+            [name] => sdadsa
+        )
+
+)
+Result: 7 Array
+(
+)
+Result: 7 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 7
+            [name] => das
+        )
+
+)
+Result: 7 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 7
+            [name] => das
+        )
+
+)
+Result: 7 Array
+(
+    [0] => stdClass Object
+        (
+            [ID] => 6
+            [user_id] => 7
+            [name] => das
+        )
+
+)
+Result: 7 Array
+(
+)
+Result: 7 Array
+(
+)
+Result: 7 Array
+(
+)
+Result: 7 Array
+(
+)

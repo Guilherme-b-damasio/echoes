@@ -15,7 +15,6 @@ const handlePhone = (input) => {
 // Função que adiciona o ouvinte de evento para o campo de telefone
 const addPhoneInputListener = () => {
     const phoneInput = document.getElementById('phone');
-    console.log('aaaaaaa');
     if (phoneInput) {
         phoneInput.addEventListener('input', (event) => {
             handlePhone(event.target); // Chama a função de formatação ao digitar

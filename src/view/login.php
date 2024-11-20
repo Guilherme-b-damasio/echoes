@@ -42,13 +42,14 @@
                         <div class="submarine__propeller-parts lightOne"></div>
                     </div>
                 </div>
+                <div class="bubbles__container">
+                    <span class="bubbles bubble-1"></span>
+                    <span class="bubbles bubble-2"></span>
+                    <span class="bubbles bubble-3"></span>
+                    <span class="bubbles bubble-4"></span>
+                </div>
             </div>
-            <div class="bubbles__container">
-                <span class="bubbles bubble-1"></span>
-                <span class="bubbles bubble-2"></span>
-                <span class="bubbles bubble-3"></span>
-                <span class="bubbles bubble-4"></span>
-            </div>
+
         </div>
         <div class="right-section">
             <!-- Formulário de Login -->
@@ -89,7 +90,7 @@
                     <p class="text">E-mail</p>
                     <input type="email" placeholder="E-mail" class="input-field" name="email" required>
                     <p class="text">Telefone</p>
-                    <input type="tel" placeholder="Telefone" class="input-field" name="phone" maxlength="15" onkeyup="handlePhone(event)" required>
+                    <input type="tel" id="phone" placeholder="Telefone" class="input-field" name="phone" maxlength="15" onkeyup="handlePhone(event)" required>
                     <p class="text">Senha</p>
                     <div class="password-container">
                         <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-register" required>
@@ -229,18 +230,33 @@
 
     <!-- Máscara para o campo telefone -->
     <script>
-        const handlePhone = (event) => {
-            let input = event.target
-            input.value = phoneMask(input.value)
+        const phoneInput = document.getElementById('phone');
+
+        if (phoneInput) {
+            phoneInput.addEventListener('input', (event) => {
+                handlePhone(event.target); // Chama a função de formatação ao digitar
+            });
         }
 
         const phoneMask = (value) => {
-            if (!value) return ""
-            value = value.replace(/\D/g, '')
-            value = value.replace(/(\d{2})(\d)/, "($1) $2")
-            value = value.replace(/(\d)(\d{4})$/, "$1-$2")
-            return value
-        }
+            if (!value) return "";
+            value = value.replace(/\D/g, ''); // Remove qualquer caractere não numérico
+            value = value.replace(/(\d{2})(\d)/, "($1) $2"); // Formata o DDD
+            value = value.replace(/(\d{5})(\d{4})$/, "$1-$2"); // Formata o número
+            return value;
+        };
+
+        // Função que será chamada no evento de input para formatar o telefone
+        const handlePhone = (input) => {
+            input.value = input.value.replace(/[^0-9]/g, ''); // Remove qualquer caractere não numérico
+            input.value = phoneMask(input.value); // Aplica a máscara no valor
+        };
+
+        // Função que adiciona o ouvinte de evento para o campo de telefone
+        
+        
+        
+        
     </script>
 
 </body>

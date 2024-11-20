@@ -41,7 +41,7 @@ $token = ($_GET['token']);
                         <input type="password" placeholder="Nova senha" name="new_password" id="new_password" required>
                     </form>
                     <button type="button" class="sign-in-btn" onclick="reset()">Redefinir Senha</button>
-                    <p class="back-to-login"><a href="http://127.0.0.1/echoes/public/index.php" id="show-login-from-forgot">Voltar para o login</a></p>
+                    <p class="back-to-login"><a href="http://127.0.0.1:8080/echoes/public/index.php" id="show-login-from-forgot">Voltar para o login</a></p>
                 </div>
 
             </div>

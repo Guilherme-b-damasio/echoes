@@ -281,11 +281,93 @@ class service
 
                 $this->repo->insertToken($response['ID'], $token, $expire);
 
-                $reset_link = "http://127.0.0.1/echoes/src/view/reset_password.php?token=" . $token;
+                $reset_link = "http://127.0.0.1:8080/echoes/src/view/reset_password.php?token=" . $token;
 
+                $mail->CharSet = 'UTF-8';
                 $mail->isHTML(true);
-                $mail->Subject = 'Redefinição de Senha';
-                $mail->Body    = 'Clique no link para redefinir sua senha...' . $reset_link;
+                $mail->Subject = 'Redefinição de Senha - Echoes';
+                $mail->Body = '
+                <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: radial-gradient(93% 100% at 0% 0%, rgba(121, 255, 206, .3) 0%, rgba(121, 255, 206, 0) 100%), #00032d !important;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .header img {
+            max-width: 150px;
+            height: auto;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content p {
+            font-size: 16px;
+            color: #fff;
+            line-height: 1.5;
+        }
+        .content a {
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #1d2d59;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .content a:hover {
+            background-color: #24376b;
+        }
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 12px;
+            color: #fff;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://i.imgur.com/Ruc4sjs.png" alt="Logo" class="logo">
+        </div>
+        <div class="content">
+            <p>Olá,</p>
+            <p>Recebemos uma solicitação para redefinir sua senha. Se você fez essa solicitação, clique no botão abaixo para redefinir sua senha:</p>
+            <a href="' . $reset_link . '">Redefinir Senha</a>
+            <p>Se você não solicitou a redefinição, ignore este e-mail.</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Echoes. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>';
+
+
 
                 $mail->send();
                 $result['msg'] = "E-mail de recuperação enviado!";

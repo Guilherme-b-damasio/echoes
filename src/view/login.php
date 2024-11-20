@@ -16,79 +16,149 @@
                 <img src="assets/images/logo.png" alt="Logo" class="logo">
             </div>
         </div>
-        <div class="mid-container">
-            <div class="left-section">
-                <h1>Ecoe suas canções favoritas, em qualquer lugar.</h1>
-                <img src="assets/images/logo2.png" alt="Logo" class="logo">
-            </div>
-            <div class="right-section">
-                <!-- Formulário de Login -->
-                <div id="login-form">
-                    <h2>Faça seu login no Echoes</h2>
+    </div>
+    <div class="mid-container">
+        <div class="left-section">
 
-                    <div class="social-login">
-
+            <div class="submarine__container">
+                <div class="light"></div>
+                <div class="submarine__periscope"></div>
+                <div class="submarine__periscope-glass"></div>
+                <div class="submarine__sail">
+                    <div class="submarine__sail-shadow dark1"></div>
+                    <div class="submarine__sail-shadow light1"></div>
+                    <div class="submarine__sail-shadow dark2"></div>
+                </div>
+                <div class="submarine__body">
+                    <div class="submarine__window one"></div>
+                    <div class="submarine__window two"></div>
+                    <div class="submarine__shadow-dark"></div>
+                    <div class="submarine__shadow-light"></div>
+                    <div class="submarine__shadow-arcLight"></div>
+                </div>
+                <div class="submarine__propeller">
+                    <div class="propeller__perspective">
+                        <div class="submarine__propeller-parts darkOne"></div>
+                        <div class="submarine__propeller-parts lightOne"></div>
                     </div>
-                    <form id="form-login">
-                        <p class="text">E-mail ou nome de usuário</p>
-                        <input type="text" placeholder="E-mail ou nome de usuário" class="input-field" name='user' id='user' required>
-                        <p class="text">Senha</p>
-                        <div class="password-container">
-                            <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-login" required>
-                            <i id="togglePasswordLogin" class="fa-solid fa-eye eye-icon"></i> <!-- Ícone de olho -->
-                        </div>
-                        <div class="forgot-password">
-                            <a href="#" id="show-forgot-password">Esqueceu sua senha?</a>
-                        </div>
-                        <button class="sign-in-btn" class="btn">Login</button>
-                    </form>
-                    <p class="terms">
-                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
-                    </p>
-                    <p class="sign-up">Não tem uma conta? <a href="#" id="show-register">Cadastre-se agora</a></p>
                 </div>
+            </div>
+            <div class="bubbles__container">
+                <span class="bubbles bubble-1"></span>
+                <span class="bubbles bubble-2"></span>
+                <span class="bubbles bubble-3"></span>
+                <span class="bubbles bubble-4"></span>
+            </div>
+        </div>
+        <div class="right-section">
+            <!-- Formulário de Login -->
+            <div id="login-form">
+                <h2>Faça seu login no Echoes</h2>
 
-                <!-- Formulário de Cadastro -->
-                <div id="signup-form" class="activate">
-                    <h2>Cadastre-se no Echoes</h2>
+                <div class="social-login">
 
-                    <form id="form-register">
-                        <p class="text">Nome</p>
-                        <input type="text" placeholder="Nome" class="input-field" name="name" required>
-                        <p class="text">Usuário</p>
-                        <input type="text" placeholder="Usuário" class="input-field" name="user" required>
-                        <p class="text">E-mail</p>
-                        <input type="email" placeholder="E-mail" class="input-field" name="email" required>
-                        <p class="text">Telefone</p>
-                        <input type="tel" placeholder="Telefone" class="input-field" name="phone" maxlength="15" onkeyup="handlePhone(event)" required>
-                        <p class="text">Senha</p>
-                        <div class="password-container">
-                            <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-register" required>
-                            <i id="togglePasswordRegister" class="fa-solid fa-eye eye-icon"></i> <!-- Ícone de olho -->
-                        </div>
-                        <button class="sign-up-btn" class="btn">Cadastrar-se</button>
-                    </form>
-                    <p class="terms">
-                        Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
-                    </p>
-                    <p class="sign-in">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
                 </div>
+                <form id="form-login">
+                    <p class="text">E-mail ou nome de usuário</p>
+                    <input type="text" placeholder="E-mail ou nome de usuário" class="input-field" name='user' id='user' required>
+                    <p class="text">Senha</p>
+                    <div class="password-container">
+                        <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-login" required>
+                        <i id="togglePasswordLogin" class="fa-solid fa-eye eye-icon"></i> <!-- Ícone de olho -->
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#" id="show-forgot-password">Esqueceu sua senha?</a>
+                    </div>
+                    <button class="sign-in-btn" class="btn">Login</button>
+                </form>
+                <p class="terms">
+                    Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
+                </p>
+                <p class="sign-up">Não tem uma conta? <a href="#" id="show-register">Cadastre-se agora</a></p>
+            </div>
 
-                <!-- Formulário de Redefinição de Senha-->
-                <div id="forgot-password-form" class="hidden">
-                    <h2>Redefinir Senha</h2>
-                    
-                    <form id="form-reset">
-                        <p class="text">E-mail</p>
-                        <input type="email" placeholder="E-mail" class="input-field" name="email" required>
-                        <button class="send-token-btn" class="btn">Enviar Token</button>
-                    </form>
-                    <p class="back-to-login"> Lembrou a senha? <a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
-                </div>
+            <!-- Formulário de Cadastro -->
+            <div id="signup-form" class="activate">
+                <h2>Cadastre-se no Echoes</h2>
 
+                <form id="form-register">
+                    <p class="text">Nome</p>
+                    <input type="text" placeholder="Nome" class="input-field" name="name" required>
+                    <p class="text">Usuário</p>
+                    <input type="text" placeholder="Usuário" class="input-field" name="user" required>
+                    <p class="text">E-mail</p>
+                    <input type="email" placeholder="E-mail" class="input-field" name="email" required>
+                    <p class="text">Telefone</p>
+                    <input type="tel" placeholder="Telefone" class="input-field" name="phone" maxlength="15" onkeyup="handlePhone(event)" required>
+                    <p class="text">Senha</p>
+                    <div class="password-container">
+                        <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-register" required>
+                        <i id="togglePasswordRegister" class="fa-solid fa-eye eye-icon"></i> <!-- Ícone de olho -->
+                    </div>
+                    <button class="sign-up-btn" class="btn">Cadastrar-se</button>
+                </form>
+                <p class="terms">
+                    Ao continuar, certifico que atingi a maioridade no meu país de residência e concordo com os <a href="?terms" data-page="terms">Termos Gerais de Uso</a> e a <a href="?polices" data-page="polices">Política de Privacidade</a>.
+                </p>
+                <p class="sign-in">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
+            </div>
+
+            <!-- Formulário de Redefinição de Senha-->
+            <div id="forgot-password-form" class="hidden">
+                <h2>Redefinir Senha</h2>
+
+                <form id="form-reset">
+                    <p class="text">E-mail</p>
+                    <input type="email" placeholder="E-mail" class="input-field" name="email" required>
+                    <button class="send-token-btn" class="btn">Enviar Token</button>
+                </form>
+                <p class="back-to-login"> Lembrou a senha? <a href="#" id="show-login-from-forgot">Voltar para o login</a></p>
+            </div>
+
+        </div>
+
+        <div class="ground__container">
+            <div class="ground ground1">
+                <span class="up-1"></span>
+                <span class="up-2"></span>
+                <span class="up-3"></span>
+                <span class="up-4"></span>
+                <span class="up-5"></span>
+                <span class="up-6"></span>
+                <span class="up-7"></span>
+                <span class="up-8"></span>
+                <span class="up-9"></span>
+                <span class="up-10"></span>
+            </div>
+            <div class="ground ground2">
+                <span class="up-1"></span>
+                <span class="up-2"></span>
+                <span class="up-3"></span>
+                <span class="up-4"></span>
+                <span class="up-5"></span>
+                <span class="up-6"></span>
+                <span class="up-7"></span>
+                <span class="up-8"></span>
+                <span class="up-9"></span>
+                <span class="up-10"></span>
+                <span class="up-11"></span>
+                <span class="up-12"></span>
+                <span class="up-13"></span>
+                <span class="up-14"></span>
+                <span class="up-15"></span>
+                <span class="up-16"></span>
+                <span class="up-17"></span>
+                <span class="up-18"></span>
+                <span class="up-19"></span>
+                <span class="up-20"></span>
             </div>
         </div>
     </div>
+    </div>
+
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

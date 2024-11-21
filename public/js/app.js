@@ -1,74 +1,108 @@
-document.addEventListener('DOMContentLoaded', function() {
-    function loadPage(page) {
-        const container = document.getElementById('main-container');
-        const overlay = document.getElementById('loading-overlay');
+document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('main-container');
+    const overlay = document.getElementById('loading-overlay');
+    const sidebarItems = document.querySelectorAll('.sidebar-page li');
+    let input = document.getElementById("searchInput");
+    const home = document.getElementById("home");
 
-        // Mostra o overlay e inicia a transição de opacidade
+    home.classList.add('active');
+
+    input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            loadPage('search')
+        }
+    });
+
+    function showOverlay() {
         overlay.style.display = 'flex';
         overlay.style.opacity = 1;
-        overlay.style.pointerEvents = 'auto'; // Bloqueia interação com o conteúdo subjacente
-
-        // Adiciona a classe fade-out para o desvanecimento do conteúdo atual
-        container.classList.add('fade-out');
-
-        // Espera a transição de desvanecimento terminar antes de atualizar o conteúdo
-        setTimeout(function() {
-            fetch('index.php?' + new URLSearchParams({ page: page, ajax: 'true' }))
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro na requisição: ' + response.status);
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    // Atualiza o conteúdo da página
-                    container.innerHTML = html;
-
-                    // Remove a classe fade-out e adiciona fade-in para o novo conteúdo
-                    container.classList.remove('fade-out');
-                    container.classList.add('fade-in');
-
-                    // Chama a função após atualizar o conteúdo
-                    if (page === 'home') {
-                        loadPlaylist();
-                    }
-
-                    // Atualiza a URL no navegador sem recarregar a página
-                    window.history.pushState({}, '', '?' + page);
-
-                    // Remove o overlay após o carregamento
-                    overlay.style.opacity = 0;
-                    overlay.style.pointerEvents = 'none'; // Permite interação com o conteúdo
-                    setTimeout(() => overlay.style.display = 'none', 500); // Tempo para a transição de opacidade
-                })
-                .catch(error => {
-                    console.error(error);
-                    // Remove o overlay se houver um erro
-                    overlay.style.opacity = 0;
-                    overlay.style.pointerEvents = 'none'; // Permite interação com o conteúdo
-                    setTimeout(() => overlay.style.display = 'none', 500);
-                });
-        }, 500); // Tempo para iniciar o carregamento
+        overlay.style.pointerEvents = 'auto';
     }
 
-    // Configura os links para carregar o conteúdo sem recarregar a página
+    function hideOverlay() {
+        overlay.style.opacity = 0;
+        overlay.style.pointerEvents = 'none';
+        setTimeout(() => overlay.style.display = 'none', 500);
+    }
+
+    function handleResponse(response) {
+        if (!response.ok) {
+            throw new Error('Request error: ' + response.status);
+        }
+        return response.text();
+    }
+
+    function updateContent(html, page) {
+        container.innerHTML = html;
+
+        container.classList.remove('fade-out');
+        container.classList.add('fade-in');
+
+        if (page === 'home') {
+            loadPlaylist();
+        }
+
+        if (page === 'likeds') {
+            loadLikedSongs();
+        }
+
+        if (page === 'search') {
+            search();
+        }
+
+        if (page === 'profile') {
+            loadProfile();
+        }
+        if (page === 'biblioteca') {
+            loadPlaylistPerso();
+        }
+
+        window.history.pushState({}, '', '?' + page);
+    }
+
+    function loadPage(page) {
+        //showOverlay();
+        container.classList.add('fade-out');
+        setTimeout(() => {
+            fetch('index.php?' + new URLSearchParams({ page: page, ajax: 'true' }))
+                .then(handleResponse)
+                .then(html => updateContent(html, page))
+                .catch(error => {
+                    console.error(error);
+                  //  hideOverlay();
+                });
+        }, 500);
+       // hideOverlay();
+    }
+
     document.querySelectorAll('a[data-page]').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const page = this.getAttribute('data-page');
             loadPage(page);
         });
     });
 
-    // Gerencia a navegação usando o botão "Voltar" do navegador
-    window.addEventListener('popstate', function() {
+    window.addEventListener('popstate', function () {
         const urlParams = new URLSearchParams(window.location.search);
         const page = urlParams.get('page') || 'home';
         loadPage(page);
     });
 
-    // Carrega a página inicial ou a que está na URL quando a página é carregada
+    sidebarItems.forEach(item => {
+        item.addEventListener('click', function () {
+          // Remove a classe 'active' de todos os itens <li>
+          sidebarItems.forEach(item => item.classList.remove('active'));
+          
+          // Adiciona a classe 'active' ao item <li> clicado
+          this.classList.add('active');
+        });
+      });
+
     const urlParams = new URLSearchParams(window.location.search);
     const page = urlParams.get('page') || 'home';
     loadPage(page);
 });
+
+
+

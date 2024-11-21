@@ -11,7 +11,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
     z-index: 99;
 }
 
@@ -25,8 +24,6 @@
     background: rgb(0 0 0 / 22%);
     backdrop-filter: blur(21px);
     -webkit-backdrop-filter: blur(10px);
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-    /* border: 1px solid rgb(0 0 0 / 0%); */
     padding: 8px; /* Reduzir padding */
     box-sizing: border-box; /* Inclui o padding e a borda na largura total */
     z-index: 1;
@@ -63,6 +60,10 @@
 
 .musicDetails img {
     width: 80px; /* Reduzir largura da imagem */
+    border-radius: 10px;
+    margin-left: 10px;
+    filter: drop-shadow(0 0 0.4rem rgba(255, 255, 255, 0.26));
+    
 }
 
 .container-2 {
@@ -79,8 +80,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 16px; /* Reduzir tamanho da fonte */
-    color: white;
-    text-align: center; /* Centraliza o texto dentro do container-2 */
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .controls {
@@ -98,33 +99,61 @@
 }
 
 .controls i {
-    font-size: 18px; /* Reduzir tamanho dos ícones */
+    font-size: 20px; /* Reduzir tamanho dos ícones */
     border-radius: 50%;
-    background-color: var(--details);
     transition: all .2s;
+    color: #d7d7d7;
 }
 
+.controls .fa-circle-play{
+    font-size: 35px;
+}
+
+
+.controls .fa-circle-pause{
+    font-size: 35px;
+    color: white;
+} 
+
 .controls i:hover {
-    background-color: lightgray;
+    /* background-color: lightgray; */
+    color: #ffffff;
 }
 
 .footer {
     width: 50%; /* Ajusta para a largura total disponível */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
 .progress-bar {
-    height: 3px; /* Reduzir altura da barra de progresso */
+    position: relative; /* Para garantir que a bolinha se posicione corretamente dentro da barra */
+    height: 5px;
+    width: 100%;
     background-color: #ddd;
     cursor: pointer;
-    margin-bottom: 4px; /* Reduzir margem inferior */
-    border-radius: 3px; /* Ajustar borda arredondada */
+    margin-bottom: 4px;
+    z-index: 115;
 }
 
 .progress {
+    position: relative; /* Para a bolinha se mover dentro da barra */
     height: 100%;
-    background-color: var(--blue); /* Usando a variável --blue */
-    border-radius: 3px; /* Ajustar borda arredondada */
+    background-color: #005CC8;
 }
+
+.progress-ball {
+    position: absolute; /* Para mover a bolinha dentro da progress */
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    transform: translateY(-80%);
+    /* pointer-events: none; */
+}
+
 
 .time {
     display: flex;
@@ -141,11 +170,18 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    margin-right: 6px;
+    width: 150px;
 }
 
 .musicInfos #artist{
-    color: gray;
-
+    /* color: #878282; */
+    font-size: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    --tw-text-opacity: 1;
+    color: rgb(209 213 219 / var(--tw-text-opacity)); 
 }
 
 .volume-control {
@@ -175,4 +211,19 @@
 #volumeIcon {
     font-size: 24px; /* Ajuste o tamanho do ícone conforme necessário */
     color: white;
+}
+
+.time-tooltip {
+    position: absolute;
+    /* bottom: 25px; */ /* Distância da barra */
+    /* right: 10px; */
+    /* left: 0; */
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none; /* Inicialmente invisível */
+    pointer-events: none; /* Para não interferir com outros eventos */
+    margin-left: 4%;
 }

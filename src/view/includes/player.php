@@ -1,6 +1,5 @@
-
 <div class="player-container">
-<div class="background-blur" id="background-blur"></div>
+    <div class="background-blur" id="background-blur"></div>
     <div class="player" id="container-player">
         <div class="musicDetails">
             <img id="img-music" src="" alt="">
@@ -8,24 +7,27 @@
                 <div id="musicName"></div>
                 <div id="artist"></div>
             </div>
+
+            <span class="fa fa-list" style="z-index:99" id="perso-select" onclick=saveMusicInPlaylist()></span>
+            <span class="fa fa-heart" style="z-index:99" id="liked-btn" onclick=saveMusic()></span>
         </div>
         <div class="container-2">
             <audio id="player" src=""></audio>
 
             <div class="controls">
-                <button id="prevButton"><i class='bx bx-skip-previous'></i></button>
-                <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
-                <button id="nextButton"><i class='bx bx-skip-next'></i></button>
+                <button id="prevButton"><i class='fa-solid fa-backward-step'></i></button>
+                <button id="playPauseButton"><i class='fa-solid fa-circle-play'></i></button>
+                <button id="nextButton"><i class='fa-solid fa-forward-step'></i></button>
             </div>
 
             <div class="footer">
+                <span id="currentTime">0:00</span>
                 <div class="progress-bar">
                     <div class="progress"></div>
+                    <div class="progress-ball"></div>
+                    <div id="timeTooltip" class="time-tooltip"></div>
                 </div>
-                <div class="time">
-                    <span id="currentTime">0:00</span>
-                    <span id="duration">0:00</span>
-                </div>
+                <span id="duration">0:00</span>
             </div>
         </div>
 
@@ -37,4 +39,6 @@
 </div>
 
 <script src="../src/player/player.js"></script>
-<script>initializePlayer();</script>
+<script>
+    initializePlayer();
+</script>

@@ -193,12 +193,17 @@ class ComposerStaticInit124f4f189e7acf4a00fe1b7f70a5f389
     );
 
     public static $classMap = array (
+        'App\\Controller\\ControllerCreatePlaylist' => __DIR__ . '/../..' . '/src/controller/ControllerCreatePlaylist.php',
+        'App\\Controller\\ControllerLikedPlaylist' => __DIR__ . '/../..' . '/src/controller/ControllerLikedPlaylist.php',
         'App\\Controller\\ControllerLogin' => __DIR__ . '/../..' . '/src/controller/ControllerLogin.php',
         'App\\Controller\\ControllerMusic' => __DIR__ . '/../..' . '/src/controller/ControllerMusic.php',
         'App\\Controller\\ControllerMusicPlaylist' => __DIR__ . '/../..' . '/src/controller/ControllerMusicPlaylist.php',
         'App\\Controller\\ControllerPlayerMusic' => __DIR__ . '/../..' . '/src/controller/ControllerPlayerMusic.php',
         'App\\Controller\\ControllerPlaylist' => __DIR__ . '/../..' . '/src/controller/ControllerPlaylist.php',
+        'App\\Controller\\ControllerProfile' => __DIR__ . '/../..' . '/src/controller/ControllerProfile.php',
         'App\\Controller\\ControllerRegister' => __DIR__ . '/../..' . '/src/controller/ControllerRegister.php',
+        'App\\Controller\\ControllerReset' => __DIR__ . '/../..' . '/src/controller/ControllerReset.php',
+        'App\\Controller\\ControllerResetPassword' => __DIR__ . '/../..' . '/src/controller/ControllerResetPassword.php',
         'App\\Service\\service' => __DIR__ . '/../..' . '/src/models/service/service.php',
         'App\\config\\db' => __DIR__ . '/../..' . '/config/db.php',
         'App\\entity\\music' => __DIR__ . '/../..' . '/src/models/entity/music.php',

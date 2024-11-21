@@ -8,13 +8,18 @@ const currentTime = document.querySelector("#currentTime");
 const duration = document.querySelector("#duration");
 const progressBar = document.querySelector(".progress-bar");
 const progress = document.querySelector(".progress");
+const progressBall = document.querySelector('.progress-ball');
+const timeTooltip = document.querySelector('#timeTooltip');
+
+progressBar.addEventListener('mousemove', showTimeTooltip);
+progressBar.addEventListener('mouseleave', hideTimeTooltip);
 
 let songs = []; // Lista de músicas
 let currentSong = []; // Lista de músicas
 let index = 0;
 
-const textButtonPlay = "<i class='bx bx-caret-right'></i>";
-const textButtonPause = "<i class='bx bx-pause'></i>";
+const textButtonPlay = "<i class='fa-solid fa-circle-play'></i>";
+const textButtonPause = "<i class='fa-solid fa-circle-pause'></i>";
 
 function initializePlayer() {
   prevButton.addEventListener('click', () => prevMusic());
@@ -22,7 +27,7 @@ function initializePlayer() {
   playPauseButton.addEventListener('click', togglePlayPause);
   progressBar.addEventListener('click', updatePlaybackPosition);
   player.addEventListener('timeupdate', updateTime);
-  player.addEventListener('ended', () => changeMusic("next"));
+  player.addEventListener('ended', () => nextMusic());
   playerManager();
 }
 
@@ -30,13 +35,26 @@ function nextMusic() {
 
   let element = document.getElementById('nextButton');
   let id = element.getAttribute('data-music');
+  let playlist = element.getAttribute('data-playlist');
+  let liked = element.getAttribute('data-liked');
+  let perso = element.getAttribute('data-perso');
   let name = document.getElementById('musicName').textContent;
 
   let formData = new FormData();
 
+  formData.append('option', 'next');
+  if (liked == '1') {
+    formData.append('section', 'liked');
+  }
+
+  if (perso == '1') {
+    formData.append('section', 'perso');
+  }
+
   formData.append('music', id);
   formData.append('next', '1');
   formData.append('name', name);
+  formData.append('playlist_id', playlist);
 
   fetch(`../src/search_songs.php`, {
     method: 'POST',
@@ -45,6 +63,7 @@ function nextMusic() {
     .then(response => response.json())
     .then(data => {
       if (data) {
+        verifyLiked(data.ID);
         document.getElementById('nextButton').setAttribute('data-music', data.ID);
         changeMusic(data);
       }
@@ -56,13 +75,25 @@ function prevMusic() {
 
   let element = document.getElementById('nextButton');
   let id = element.getAttribute('data-music');
+  let playlist = element.getAttribute('data-playlist');
+  let liked = element.getAttribute('data-liked');
+  let perso = element.getAttribute('data-perso');
   let name = document.getElementById('musicName').textContent;
 
   let formData = new FormData();
+  formData.append('option', 'prev');
+  if (liked == '1') {
+    formData.append('section', 'liked');
+  }
+
+  if (perso == '1') {
+    formData.append('section', 'perso');
+  }
 
   formData.append('music', id);
   formData.append('prev', '1');
   formData.append('name', name);
+  formData.append('playlist_id', playlist);
 
   fetch(`../src/search_songs.php`, {
     method: 'POST',
@@ -71,9 +102,33 @@ function prevMusic() {
     .then(response => response.json())
     .then(data => {
       if (data) {
+        verifyLiked(data.ID);
         document.getElementById('nextButton').setAttribute('data-music', data.ID);
         changeMusic(data);
       }
+    })
+    .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
+}
+
+function verifyLiked(ID) {
+  let formData = new FormData();
+  formData.append('section', 'verifyLiked');
+  formData.append('music', ID);
+  fetch(`../src/search_songs.php`, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      let btn = document.getElementById('liked-btn');
+      if (data.liked) {
+        btn.style.color = "#005CC8";
+        btn.setAttribute('data-liked', 1);
+        return;
+      }
+      btn.setAttribute('data-liked', 0);
+      btn.style.color = "white";
+      return
     })
     .catch(error => console.error('Erro ao carregar músicas da playlist:', error));
 }
@@ -88,9 +143,19 @@ function togglePlayPause() {
   }
 }
 
+function getLocalStorageTime() {
+  let playerLocalStorage = localStorage.getItem('player');
+
+  for (const [key, value] of Object.entries(playerLocalStorage)) {
+    currentMinutes = key == 'currentMinutes' ? value : '';
+    currentSeconds = key == 'currentSeconds' ? value : '';
+  }
+
+}
+
 function updateTime() {
-  const currentMinutes = Math.floor(player.currentTime / 60);
-  const currentSeconds = Math.floor(player.currentTime % 60);
+  var currentMinutes = Math.floor(player.currentTime / 60);
+  var currentSeconds = Math.floor(player.currentTime % 60);
   currentTime.textContent = formatTime(currentMinutes, currentSeconds);
 
   const durationFormatted = isNaN(player.duration) ? 0 : player.duration;
@@ -98,9 +163,15 @@ function updateTime() {
   const durationSeconds = Math.floor(durationFormatted % 60);
   duration.textContent = formatTime(durationMinutes, durationSeconds);
 
-  const progressWidth = durationFormatted ? (player.currentTime / durationFormatted) * 100 : 0;
+  // Cálculo do progresso
+  const progressWidth = durationFormatted ? Math.min(100, (player.currentTime / durationFormatted) * 100) : 0;
   progress.style.width = progressWidth + "%";
+
+  // Atualizar a posição da bolinha
+  const ballPosition = progressWidth;  // Sem necessidade de subtrair a largura da bolinha, já que estamos lidando com porcentagem
+  progressBall.style.left = ballPosition + '%';
 }
+
 
 function formatTime(minutes, seconds) {
   return `${formatZero(minutes)}:${formatZero(seconds)}`;
@@ -112,9 +183,16 @@ function formatZero(n) {
 
 function updatePlaybackPosition(e) {
   if (player.duration && player.duration > 0) {
-    const newTime = (e.offsetX / progressBar.offsetWidth) * player.duration;
+    // Calcular a posição do clique dentro da barra
+    const progressBarWidth = progressBar.offsetWidth;  // largura da progress-bar
+    const clickPosition = e.offsetX;  // posição onde o usuário clicou
+
+    // Calcular a nova posição relativa do tempo da música baseado no clique
+    const newTime = (clickPosition / progressBarWidth) * player.duration;
+
+    // Garantir que o novo tempo seja válido
     if (isFinite(newTime) && newTime >= 0 && newTime <= player.duration) {
-      player.currentTime = newTime;
+      player.currentTime = newTime; // Atualiza o tempo da música
     } else {
       console.error('Valor de novo tempo inválido:', newTime);
     }
@@ -122,6 +200,7 @@ function updatePlaybackPosition(e) {
     console.error('Duração do player inválida ou não definida');
   }
 }
+
 
 function changeMusic(musics = null) {
   let music;
@@ -169,6 +248,7 @@ function setDetailsMusic(imgSrc, artist) {
 
 function setMusicList(musicList, ID) {
   songs = JSON.stringify(musicList);
+  verifyLiked(ID);
   changeMusic();
 }
 
@@ -216,21 +296,71 @@ function playerManager() {
     updateVolumeIcon();
   });
 
-  // Aumenta o volume
-  volumeUpButton.addEventListener('click', function () {
-    audioPlayer.volume = Math.min(1, audioPlayer.volume + 0.1);
-    updateVolumeIcon();
-  });
-
-  // Diminui o volume
-  volumeDownButton.addEventListener('click', function () {
-    audioPlayer.volume = Math.max(0, audioPlayer.volume - 0.1);
-    updateVolumeIcon();
-  });
-
-
   updateVolume();
 }
 
+let isDragging = false; // Controla se a bolinha está sendo arrastada
+
+// Função para iniciar o arrasto
+progressBall.addEventListener('mousedown', (e) => {
+    isDragging = true; // Inicia o arrasto ao clicar na bolinha
+    e.preventDefault(); // Impede o comportamento padrão do mouse (seleção de texto)
+
+    // Adiciona os eventos para arrasto e liberação do mouse
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+});
 
 
+function onMouseMove(e) {
+    if (!isDragging) return; 
+
+    const progressBarWidth = progressBar.offsetWidth;
+    const mousePosition = e.clientX - progressBar.getBoundingClientRect().left; 
+
+    const newPosition = Math.min(Math.max(0, mousePosition), progressBarWidth);
+
+    progressBall.style.left = `${(newPosition / progressBarWidth) * 100}%`;
+}
+
+
+function onMouseUp(e) {
+    isDragging = false;
+
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+
+    const progressBarWidth = progressBar.offsetWidth;
+    const mousePosition = e.clientX - progressBar.getBoundingClientRect().left; 
+
+
+    const newTime = (mousePosition / progressBarWidth) * player.duration;
+
+    player.currentTime = newTime;
+
+    updateTime();
+}
+
+
+function showTimeTooltip(e) {
+  const progressBarWidth = progressBar.offsetWidth; // Largura da barra de progresso
+  const mousePosition = e.clientX - progressBar.getBoundingClientRect().left; // Posição do mouse dentro da barra de progresso
+
+  // Calcula o tempo correspondente à posição do mouse
+  const time = (mousePosition / progressBarWidth) * player.duration; 
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  const formattedTime = formatTime(minutes, seconds);
+
+  // Exibe o tooltip com o tempo
+  timeTooltip.textContent = formattedTime;
+  
+  // Posiciona o tooltip abaixo da barra de progresso
+  timeTooltip.style.left = `${(mousePosition / progressBarWidth) * 100}%`;
+  timeTooltip.style.display = 'block'; // Torna visível
+}
+
+// Função para ocultar o tooltip
+function hideTimeTooltip() {
+  timeTooltip.style.display = 'none'; // Oculta o tooltip
+}

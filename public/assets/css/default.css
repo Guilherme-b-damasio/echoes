@@ -1,102 +1,324 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  :root {
-    --black: #000000;
-    --details: rgba(0,212,255,1);
-    --blue: rgba(0,212,255,1);
-  }
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-  
-  html,body{
-    height: 100% !important; 
-    width: 100% !important;
-    zoom: 1 !important;
-    overflow-x: hidden !important;
-
-    font-size: 1rem !important;
-    font-weight: 400 !important;
-    line-height: 1.5 !important;
-    color: white !important;
-    text-align: left !important;
-  }
-  body {
-    background: radial-gradient(93% 100% at 0% 0%,rgba(121,255,206,.3) 0%,rgba(121,255,206,0) 100%),#00032d !important;
-  }
+:root {
+  --black: #000000;
+  --details: rgba(0, 212, 255, 1);
+  --blue: rgba(0, 212, 255, 1);
+}
 
 
-  .sidebar {
-    /* position: fixed; */
-    /* left: 0; */
-    /* top: 0; */
-    /* bottom: 0; */
-    width: 200px !important;
-    background-color: #000000;
-    padding: 24px;
-    overflow: hidden;
-  }
-  .sidebar .logoIcone img {
-    height: auto;
-    width: 13vw;
-    max-width: 140px;
-    min-width: 100px;
-  }
-  
-  .sidebar .navigation ul {
-    list-style: none;
-    margin-top: 20px;
-  }
-  .sidebar .navigation ul li {
-    padding: 10px 0px;
-  }
-  .sidebar .navigation ul li a {
-    color: #b3b3b3;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 13px;
-  }
-  .sidebar .navigation ul li a:hover,
-  .sidebar .navigation ul li a:active,
-  .sidebar .navigation ul li a:focus {
-    color: var(--details);
-  }
-  .sidebar .navigation ul li a:hover .fa,
-  .sidebar .navigation ul li a:active .fa,
-  .sidebar .navigation ul li a:focus .fa {
-    color: #b3b3b3;
-  }
-  .sidebar .navigation ul li .fa {
-    font-size: 20px;
-    margin-right: 10px;
-  }
-  .sidebar .navigation ul li a:hover .fa:hover,
-  .sidebar .navigation ul li a:hover .fa:active,
-  .sidebar .navigation ul li a:hover .fa:focus {
-    color: var(--details);
-  }
-  .sidebar .policies {
-    position: absolute;
-    bottom: 100px;
-  }
-  .sidebar .policies ul {
-    list-style: none;
-  }
-  .sidebar .policies ul li {
-    padding-bottom: 5px;
-  }
-  .sidebar .policies ul li a {
-    /* color: var(--black); */
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 10px;
-    color: #ffffff;
-  }
-  .sidebar .policies ul li a:hover,
-  .sidebar .policies ul li a:active,
-  .sidebar .policies ul li a:focus {
-    text-decoration: underline;
-  }
-  
+html,
+body {
+  height: 100% !important;
+  width: 100% !important;
+  zoom: 1 !important;
+  overflow-x: hidden !important;
+
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  color: white !important;
+  text-align: left !important;
+}
+
+body {
+  background: radial-gradient(93% 100% at 0% 0%, rgba(121, 255, 206, .3) 0%, rgba(121, 255, 206, 0) 100%), #00032d !important;
+  bottom: 0;
+  position: fixed;
+  top: 0;
+}
+
+
+.sidebar {
+  /* position: fixed; */
+  /* left: 0; */
+  /* top: 0; */
+  /* bottom: 0; */
+  width: 220px !important;
+  /* background: radial-gradient(100% 100% at 47% 101%, rgb(74 71 71 / 30%) 0%, rgb(0 0 0 / 0%) 100%), #10121a !important; */
+  padding: 24px;
+  overflow: hidden;
+  background: rgb(0 0 0 / 18%);
+  backdrop-filter: blur(21px);
+  /* mask-image: linear-gradient(to bottom, black, transparent); */
+  /* -webkit-mask-image: linear-gradient(to bottom, black, transparent); */
+  /* mask-image: linear-gradient(to bottom, black 20%, transparent 80%); */
+  -webkit-mask-image: linear-gradient(to bottom, black 56%, transparent 77%);
+}
+
+
+
+.sidebar .logoIcone {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar .logoIcone img {
+  height: auto;
+  width: 13vw;
+  max-width: 140px;
+  min-width: 100px;
+}
+
+.sidebar .navigation ul {
+  list-style: none;
+  margin-top: 20px;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.sidebar .navigation .ul-sidebar {
+  margin-left: 0 !important;
+}
+
+.sidebar .navigation .ul-sidebar .li-profile {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 5px 0px 5px 2px;
+}
+
+.sidebar .navigation .ul-sidebar .li-profile .profile-photo {
+  width: 30px;
+  border-radius: 100%;
+}
+
+.sidebar .navigation .ul-sidebar .li-profile .profile-name {
+  color: #b3b3b3;
+  padding-left: 10px;
+}
+
+/* .sidebar .navigation .ul-sidebar .li-profile .profile-name:hover,
+.sidebar .navigation .ul-sidebar .li-profile .profile-name:active,
+.sidebar .navigation .ul-sidebar .li-profile .profile-name:focus {
+  transition: 0.15s;
+  color: rgb(221, 228, 235);
+} */
+
+.sidebar .navigation ul li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  display: flex; /* Adiciona flexbox */
+  align-items: center; /* Alinha verticalmente */
+  padding: 10px 0; /* MantÃƒÂ©m o espaÃƒÂ§amento */
+  cursor: pointer;
+
+}
+
+.sidebar .navigation ul li,
+.sidebar .navigation ul a li {
+  color: #dedede;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+
+
+li.active {
+  background-color: #ffffff11; /* Estilo do item ativo */
+  color: var(--details); /* Cor do texto quando ativo */
+}
+
+
+.sidebar-page li:active {
+  background-color: #222222; /* Fundo mais escuro enquanto o botão é pressionado */
+}
+
+/* 
+.sidebar .navigation ul li a:hover,
+.sidebar .navigation ul li a:active,
+.sidebar .navigation ul li a:focus {
+  transition: 0.15s;
+  color: rgb(221, 228, 235);
+} */
+
+/* .sidebar .navigation ul li a:hover .fa,
+.sidebar .navigation ul li a:active .fa,
+.sidebar .navigation ul li a:focus .fa {
+color: #b3b3b3;
+} */
+.sidebar .navigation ul li .fa,
+.sidebar .navigation ul li .fa-solid {
+  font-size: 22px;
+  margin-right: 10px;
+  font-weight: 20px;
+  width: 24px;
+  /* Largura fixa para os ícones */
+  text-align: center;
+  /* Centraliza o ícone */
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page li {
+  border-radius: 7px;
+  gap: 10px;
+  padding: 10px 0px 10px 6px;
+  cursor: pointer;
+  margin: 2px 0px;
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page li a{
+  display: block; /* Faz o link ocupar toda a área do li */
+  width: 100%; /* Faz o a ocupar 100% da largura do li */
+  text-decoration: none; /* Remove o sublinhado do link */
+  height: 100%; 
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page .sidebar-button{
+  display: flex;
+}
+
+
+.sidebar .navigation .ul-sidebar .sidebar-page li:hover,
+.sidebar .navigation .ul-sidebar .sidebar-page li:focus {
+  background-color: #ffffff11;
+  transition: 0.2s;
+}
+
+.sidebar .navigation .ul-sidebar .sidebar-page li:active{
+  background-color: #ffffff05;
+}
+
+
+.sidebar .navigation ul li a:hover .fa:hover,
+.sidebar .navigation ul li a:hover .fa:active,
+.sidebar .navigation ul li a:hover .fa:focus {
+  transition: 0.15s;
+  /* color: rgb(221, 228, 235); */
+}
+
+.sidebar .policies {
+  position: absolute;
+  bottom: 100px;
+}
+
+
+.sidebar-page li {
+  display: flex;
+  /* Garante que os itens na sidebar-page também usem flexbox */
+  align-items: center;
+  /* Alinha verticalmente os itens */
+  padding: 10px 0;
+  /* Mantém o espaçamento */
+}
+
+.sidebar-page li a {
+  display: flex;
+  /* Faz o link também usar flexbox */
+  align-items: center;
+  /* Alinha verticalmente o texto com o ícone */
+  color: aquamarine;
+  /* Cor do texto */
+  text-decoration: none;
+  /* Remove o sublinhado */
+  font-weight: 500;
+  /* Peso da fonte */
+  font-size: 14px;
+  /* Tamanho da fonte */
+}
+
+a {
+  text-decoration: none;
+}
+
+.sidebar-page li a span {
+  margin-right: 10px;
+  /* Espaçamento entre o ícone e o texto */
+  display: flex;
+  font-size: 15px;
+  align-content: center;
+  padding: 10px 0; /* MantÃƒÂ©m o espaÃƒÂ§amento */
+}
+
+.sidebar-page li a {
+  display: flex; /* Faz o link tambÃƒÂ©m usar flexbox */
+  align-items: center; /* Alinha verticalmente o texto com o ÃƒÂ­cone */
+  text-decoration: none; /* Remove o sublinhado */
+  font-weight: 500; /* Peso da fonte */
+  font-size: 14px; /* Tamanho da fonte */
+}
+
+.sidebar-page li a span {
+  margin-right: 10px; /* EspaÃƒÂ§amento entre o ÃƒÂ­cone e o texto */
+  cursor: pointer;
+}
+
+.sidebar .policies ul li a:hover,
+.sidebar .policies ul li a:active,
+.sidebar .policies ul li a:focus {
+  text-decoration: underline;
+}
+
+#searchInput {
+  background: #ffffff00;
+  color: #b3b3b3;
+  width: 5.8vw;
+  height: 30px;
+  /* border-radius: 16px; */
+  border: none !important;
+  padding-left: 2px;
+  padding-right: 28px;
+  outline: none;
+  font-size: 15px;
+}
+
+#search {
+  display: flex;
+  /* background-color: #ffffff00; */
+  border-radius: 7px;
+  align-items: center;
+  padding: 2px 8px 2px 8px;
+  /* border: 1px solid #373a4d; */
+  max-width: 178px;
+  background: rgb(68 130 167 / 31%);
+  backdrop-filter: blur(21px);
+  height: 36px;
+  /* width: 175px; */
+}
+
+#searchBtn {
+  /* background: var(--details); */
+  color: #c0d2ef;
+  border-radius: 20px;
+  /* width: 56px; */
+  /* height: 29px; */
+  border: none;
+  cursor: pointer;
+}
+
+#searchBtn:hover{
+  color: #e1ecff;
+}
+
+#searchBtn:active{
+  color: #c0d2ef;
+}
+
+input::placeholder {
+  color: #afb3bb; /* Altere para a cor desejada */
+  opacity: 1; /* Opcional: garante que a cor apareça completamente */
+}
+
+#clearBtn {
+  position: absolute;
+  /* right: 443px; */
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 5px;
+  left: 155px;
+}
+
+.sidebar-page {
+}
+
+.sidebar-page li {
+  color: aliceblue;
+}

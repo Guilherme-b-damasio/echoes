@@ -7,15 +7,8 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    <?php include('../src/view/header.php'); ?>
-    <nav>
-        <a href="#" data-page="login">Login</a>
-        <a href="#" data-page="profile">Profile</a>
-        <a href="#" data-page="home">Home</a>
-    </nav>
-    <div id="main-content">
-        <!-- O conteúdo será carregado aqui -->
-    </div>
-    <?php include('../src/view/footer.php'); ?>
+<?php
+phpinfo();
+?>
 </body>
 </html>

@@ -45,10 +45,11 @@ if ($requestMethod === 'GET') {
     http_response_code(405);
     echo "Método não permitido";
 }
+
+
 ?>
 
-
-
+<div id="overlay" class="overlay" hidden></div>
 <script>
     window.onload = function() {
         localStorage.setItem('player', '');

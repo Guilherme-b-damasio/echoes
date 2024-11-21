@@ -150,11 +150,24 @@ function reset() {
         });
 
 }
+function loadOpen(){
+    document.getElementById('loader').style.display = 'flex';
+    document.getElementById('overlay').style.display = 'flex';
+}
 
-function resetPassword() {
+function loadClose(){
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
+
+function resetPassword() 
+{
+    debugger
     let form = document.getElementById("form-reset");
     let formData = new FormData(form);
     let params = new URLSearchParams(formData).toString();
+
+    loadOpen();
 
     let url = "../src/manager.php?reset";
 
@@ -167,6 +180,7 @@ function resetPassword() {
     })
         .then(response => response.json())
         .then(data => {
+            loadClose();
             if (data.status) {
                 Swal.fire({
                     title: 'Sucesso!',

@@ -63,7 +63,18 @@
                         </div>
                     </li>
                 </a>
-            </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="policies">
+        <ul>
+            <li>
+                <a href="../cookies.php">Cookies</a>
+            </li>
+            <li>
+                <a href="../policy.php">Privacy</a>
+            </li>
         </ul>
     </div>
 </div>

@@ -1,5 +1,9 @@
 <div id="loader" hidden>
-    <div class="card">
+  <img id="dolphin" src="../public/assets/images/dolphin.gif"></img>
+</div>
+
+
+<!--   <div class="card">
         <div class="blue-whale">
             <div class="blue-whale-main">
                 <div class="blue-whale-eye"></div>
@@ -14,5 +18,4 @@
             </div>
             <div class="blue-whale-flipper"></div>
         </div>
-    </div>
-</div>
+    </div>-->

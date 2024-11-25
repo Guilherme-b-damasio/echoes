@@ -152,17 +152,18 @@ function reset() {
 }
 function loadOpen(){
     document.getElementById('loader').style.display = 'flex';
+    document.getElementById('dolphin').style.display = 'flex';
     document.getElementById('overlay').style.display = 'flex';
 }
 
 function loadClose(){
     document.getElementById('loader').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
+    document.getElementById('dolphin').style.display = 'none';
 }
 
 function resetPassword() 
 {
-    debugger
     let form = document.getElementById("form-reset");
     let formData = new FormData(form);
     let params = new URLSearchParams(formData).toString();

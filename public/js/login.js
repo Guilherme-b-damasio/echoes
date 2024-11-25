@@ -21,7 +21,8 @@ function login() {
                     title: 'Erro!',
                     text: data.message || 'Credenciais inválidas.',
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
                 });
             }
         })
@@ -31,7 +32,8 @@ function login() {
                 title: 'Erro!',
                 text: 'Ocorreu um erro ao processar a solicitação.',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6'
             });
         });
 }
@@ -83,6 +85,7 @@ function register() {
                     icon: 'success',
                     text: "Cadastro Efetuado com Sucesso!",
                     confirmButtonText: "Logar",
+                    confirmButtonColor: '#3085d6',
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.location.href = "../public/?login";
@@ -94,7 +97,8 @@ function register() {
                     title: 'Erro!',
                     text: data.msg || 'Credenciais inválidas.',
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
                 });
             }
         })
@@ -104,7 +108,8 @@ function register() {
                 title: 'Erro!',
                 text: 'Ocorreu um erro ao processar a solicitação.',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6'
             });
         });
 }
@@ -128,14 +133,16 @@ function reset() {
                     title: 'Sucesso!',
                     text: data.msg,
                     icon: 'success',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
                 });
             } else {
                 Swal.fire({
                     title: 'Erro!',
                     text: data.msg,
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
                 });
             }
         })
@@ -145,7 +152,8 @@ function reset() {
                 title: 'Erro!',
                 text: 'Ocorreu um erro ao processar a solicitação.',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6'
             });
         });
 
@@ -186,14 +194,16 @@ function resetPassword()
                     title: 'Sucesso!',
                     text: data.msg,
                     icon: 'success',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
                 });
             } else {
                 Swal.fire({
                     title: 'Erro!',
                     text: data.msg,
                     icon: 'error',
-                    confirmButtonText: 'OK'
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#3085d6'
                 });
             }
         })
@@ -203,7 +213,8 @@ function resetPassword()
                 title: 'Erro!',
                 text: 'Ocorreu um erro ao processar a solicitação.',
                 icon: 'error',
-                confirmButtonText: 'OK'
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#3085d6'
             });
         });
 }

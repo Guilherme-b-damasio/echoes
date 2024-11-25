@@ -51,7 +51,8 @@ async function deletePerso(ID) {
                         title: 'Sucesso!',
                         text: 'A playlist foi excluída com sucesso.',
                         icon: 'success',
-                        confirmButtonText: 'OK'
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#3085d6'
                     }).then(() => {
                         // Recarrega as playlists ou atualiza a página
                         loadPlaylistPerso();
@@ -61,7 +62,8 @@ async function deletePerso(ID) {
                         title: 'Erro!',
                         text: data.msg || 'Ocorreu um erro ao excluir a playlist.',
                         icon: 'error',
-                        confirmButtonText: 'OK'
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#3085d6'
                     });
                 }
             } catch (error) {

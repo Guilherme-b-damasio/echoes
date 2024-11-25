@@ -6,6 +6,7 @@ async function criarPlaylist() {
       inputPlaceholder: 'Digite o nome da sua playlist',
       showCancelButton: true,
       confirmButtonText: 'Salvar',
+      confirmButtonColor: '#24376b',
       cancelButtonText: 'Cancelar',
       inputValidator: (value) => {
           if (!value) {

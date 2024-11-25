@@ -156,7 +156,7 @@ async function saveMusicInPlaylist() {
             inputOptions: inputOptions,
             inputValidator: (value) => {
                 if (!value) {
-                    return "You need to choose a playlist!";
+                    return "Você precisa escolher uma playlist!";
                 }
             }
         });

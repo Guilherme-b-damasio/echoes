@@ -322,3 +322,37 @@ input::placeholder {
 .sidebar-page li {
   color: aliceblue;
 }
+
+div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=right], div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=left]{
+  background-color: #ff2121 ; 
+}
+
+.swal2-icon.swal2-error {
+  border: solid 4px #ff2121; 
+}
+
+.swal2-popup{
+  background-color: #1e384f;
+  color: #FFF;
+}
+
+.swal2-confirm{
+  background-color: #1f6aab;
+}
+
+.swal2-cancel{
+  background-color: #ff2121;
+}
+
+.swal2-input{
+  background-color: #1e384f;
+}
+
+div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long], div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=tip] {
+  background-color: #5ad533;
+}
+
+div:where(.swal2-icon).swal2-success .swal2-success-ring {
+  border: .25em solid #47BB1B !important; 
+
+}

@@ -5576,3 +5576,7 @@ Result: 7 Array
 Result: 7 Array
 (
 )
+Result: SELECT ID FROM users WHERE email = :email Array
+(
+    [ID] => 3
+)

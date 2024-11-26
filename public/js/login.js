@@ -209,6 +209,7 @@ function resetPassword()
             }
         })
         .catch(error => {
+            loadClose();
             console.error('There was a problem with the fetch operation:', error);
             Swal.fire({
                 title: 'Erro!',

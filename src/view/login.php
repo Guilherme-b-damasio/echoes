@@ -63,8 +63,8 @@
 
                 </div>
                 <form id="form-login">
-                    <p class="text">E-mail ou nome de usuário</p>
-                    <input type="text" placeholder="E-mail ou nome de usuário" class="input-field" name='user' id='user' required>
+                    <p class="text">Nome de usuário</p>
+                    <input type="text" placeholder="Nome de usuário" class="input-field" name='user' id='user' required>
                     <p class="text">Senha</p>
                     <div class="password-container">
                         <input type="password" placeholder="Senha" class="input-field" name="pass" id="pass-login" required>
